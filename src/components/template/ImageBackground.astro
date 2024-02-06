@@ -2,12 +2,10 @@
 const { mobileBg, desktpBg, extraclass } = Astro.props
 ---
 
-<div
-	class={`h-full  bg-no-repeat bg-cover bg-center md:bg-[image:var(--bg-large-url)] ${extraclass}`}
-	style={{
-		backgroundImage: `url(${desktpBg.src})`,
-		'--bg-large-url': `url(${desktpBg})`
-	}}
->
+<div class={`h-full ${extraclass}`}>
+	<div class="absolute h-full w-full">
+		<img {...desktpBg} alt="background" class="h-full w-full object-cover" loading="lazy" />
+	</div>
+
 	<slot />
 </div>
