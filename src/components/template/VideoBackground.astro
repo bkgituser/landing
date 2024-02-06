@@ -5,7 +5,8 @@ const {
 	placeholder,
 	id = 'default',
 	muted = true,
-	preload = 'none'
+	preload = 'none',
+	onload = false
 } = Astro.props
 ---
 
@@ -19,6 +20,7 @@ const {
 		poster={placeholder}
 		muted={muted}
 		preload={preload}
+		onload={onload}
 	>
 		<source src={video} type="video/mp4" />
 	</video>

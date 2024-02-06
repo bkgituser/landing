@@ -1,0 +1,21 @@
+<div class="loader-content fixed z-50 h-screen w-full bg-black">
+	<div class="absolute left-1/2 top-1/2 -translate-x-1/2">
+		<div class="loader"></div>
+		<p class="mt-4 text-xl font-semibold text-[#dcdcdc]">Loading...</p>
+	</div>
+</div>
+<style>
+	/* HTML: <div class="loader"></div> */
+	.loader {
+		width: 120px;
+		height: 20px;
+		-webkit-mask: linear-gradient(90deg, #fff 70%, #fff0 0) 0/20%;
+		background: linear-gradient(#fff 0 0) 0/0% no-repeat #5a5959;
+		animation: l4 2s infinite steps(6);
+	}
+	@keyframes l4 {
+		100% {
+			background-size: 120%;
+		}
+	}
+</style>

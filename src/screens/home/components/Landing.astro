@@ -1,11 +1,18 @@
 ---
 import { Trans } from 'astro-i18next/components'
 import FullVideoBg from '../../../components/template/VideoBackground.astro'
+import Loader from '@components/atom/Loader.astro'
 ---
 
 <>
 	<section id="hero" class="h-screen">
-		<FullVideoBg video="/assets/videos/landing.mp4" preload="meta" autoplay={true}>
+		<Loader />
+		<FullVideoBg
+			video="/assets/videos/landing.mp4"
+			preload="meta"
+			autoplay={true}
+			id="landing-video"
+		>
 			<div class="h-3/4"></div>
 			<div
 				class="relative z-40 h-1/4 bg-[linear-gradient(180deg,_transparent_0%,_rgba(0,0,0,0.5)_100%)] px-8 md:px-32"
@@ -27,7 +34,7 @@ import FullVideoBg from '../../../components/template/VideoBackground.astro'
 							<span class="mb-2 block w-12 border-2 border-white"></span>
 							<strong
 								><Trans i18nKey="landing.carousel.title2">
-									Lightweight Sprayer Booms32m
+									Lightweight Sprayer Booms
 								</Trans></strong
 							><br />
 							32m | 36m | 40m | 48m
@@ -37,4 +44,12 @@ import FullVideoBg from '../../../components/template/VideoBackground.astro'
 			</div>
 		</FullVideoBg>
 	</section>
+	<script>
+		const video = document.querySelector('#landing-video')
+		const loader = document.querySelector('.loader-content')
+
+		video.onloadeddata = function () {
+			loader.classList.add('hidden')
+		}
+	</script>
 </>
