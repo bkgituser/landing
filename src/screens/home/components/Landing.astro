@@ -17,9 +17,23 @@ import Loader from '@components/atom/Loader.astro'
 			<div
 				class="relative z-40 h-1/4 bg-[linear-gradient(180deg,_transparent_0%,_rgba(0,0,0,0.5)_100%)] px-8 md:px-32"
 			>
-				<swiper-container delay="3000" slides-per-view="1" speed="1500" autoplay="true" loop="true">
-					<swiper-slide class="w-full">
-						<h1 class="relative z-10 px-2 py-4 pt-2 text-2xl text-white lg:text-plusMid">
+				<swiper-container
+					delay="4000"
+					slides-per-view="1"
+					speed="1500"
+					loop="true"
+					class="h-screen"
+					navigation="true"
+					pagination-clickable="true"
+					space-between="30"
+					effect="fade"
+					autoplay="true"
+				>
+					<swiper-slide>
+						<h1
+							style={{ lineHeight: '3.5rem' }}
+							class="z-10 w-full px-2 py-4 pt-2 text-2xl text-white lg:text-plusMid"
+						>
 							<span class="mb-2 block w-12 border-2 border-white"></span>
 							<Trans i18nKey="landing.carousel.title1">
 								<strong>Smart Use</strong> of <strong>Advance Composites</strong>
@@ -29,8 +43,11 @@ import Loader from '@components/atom/Loader.astro'
 							</Trans>
 						</h1>
 					</swiper-slide>
-					<swiper-slide class="w-full">
-						<h2 class="relative z-10 px-2 py-4 pt-2 text-2xl text-white lg:text-plusMid">
+					<swiper-slide>
+						<h2
+							style={{ lineHeight: '3.5rem' }}
+							class="z-10 w-full px-2 py-4 pt-2 text-2xl text-white lg:text-plusMid"
+						>
 							<span class="mb-2 block w-12 border-2 border-white"></span>
 							<strong
 								><Trans i18nKey="landing.carousel.title2">
@@ -52,4 +69,13 @@ import Loader from '@components/atom/Loader.astro'
 			loader.classList.add('hidden')
 		}
 	</script>
+	<style>
+		swiper-slide[style*='opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;'] {
+			opacity: 0 !important;
+		}
+
+		swiper-slide[style*='opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 1500ms;'] {
+			opacity: 0 !important;
+		}
+	</style>
 </>
