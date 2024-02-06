@@ -1,0 +1,44 @@
+---
+import { t } from 'i18next'
+---
+
+<section class="min-h-screen bg-white" id="repairability">
+	<div
+		class="container mx-auto flex flex-wrap items-start justify-between px-8 pb-14 pt-16 md:px-0 md:pb-28 md:pt-32 xl:px-20 xl:pt-48"
+	>
+		<div class="lg:w-1/2">
+			<div>
+				<h3 class="text-2xl text-black md:text-4xl">{t('landing.repairability.title')}</h3>
+			</div>
+			<div class="mt-8">
+				<p class="text-justify text-2xl md:w-3/4 xl:w-1/2">
+					{t('landing.repairability.description')}
+				</p>
+			</div>
+			<div class="flex h-16 items-center md:h-32 xl:h-48">
+				<img src="/assets/icons/arrow.svg" alt="arrow" />
+			</div>
+			<div class="flex-start flex flex-wrap gap-4">
+				<button class="bg-black px-8 py-4 font-semibold text-white md:w-3/4 xl:w-auto">
+					{t('landing.repairability.downloadButton1')}
+				</button>
+				<button class="bg-black px-8 py-4 font-semibold text-white md:w-3/4 xl:w-auto">
+					{t('landing.repairability.downloadButton2')}
+				</button>
+			</div>
+		</div>
+		<div class="lg:w-1/2">
+			<div class="content">
+				<iframe
+					width="702"
+					height="445"
+					class="w-full object-cover"
+					src="https://www.youtube.com/embed/zYY06lJ5Usw?si=0ZGGTuTWHuqJIa5_"
+					title="YouTube video player"
+					frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+					allowfullscreen></iframe>
+			</div>
+		</div>
+	</div>
+</section>

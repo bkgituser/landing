@@ -1,0 +1,30 @@
+---
+import { t } from 'i18next'
+const { links } = Astro.props
+import { LanguageSelector } from 'astro-i18next/components'
+---
+
+<nav class="ml-auto mr-24 hidden items-center gap-4 lg:flex">
+	{
+		links.map((link) => {
+			return (
+				<a href={link.to} class="landing-link p-4 text-sm font-normal text-white">
+					{t(link.label)}
+				</a>
+			)
+		})
+	}
+
+	<LanguageSelector
+		languageMapping={{ en: 'EN', pt: 'PT' }}
+		id="lang-selector"
+		class="cursor-pointer bg-transparent text-sm text-white"
+	/>
+</nav>
+<style>
+	.landing-link:hover {
+		text-shadow:
+			0.25px 0px 0.1px,
+			-0.25px 0px 0.1px;
+	}
+</style>

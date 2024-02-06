@@ -1,0 +1,83 @@
+---
+import { t } from 'i18next'
+import { Trans } from 'astro-i18next/components'
+
+import { getImage } from 'astro:assets'
+import smartUseBg from '../../../img/smart-use-bg.png'
+import ImageBackground from '../../../components/template/ImageBackground.astro'
+
+const optimizedBackground = await getImage({ src: smartUseBg, format: 'webp' })
+---
+
+<section id="smart-use" class="relative h-screen">
+	<ImageBackground desktpBg={optimizedBackground}>
+		<div class="container relative mx-auto h-full px-8 pt-32 md:px-0 xl:px-16 xl:pb-40 xl:pt-48">
+			<div class="smart-title-box opacity-0">
+				<div class="mb-4 text-base uppercase text-white lg:text-xl">
+					{t('landing.smartUse.badge')}
+				</div>
+				<h1 class="w-full text-left text-5xl font-bold text-white">
+					<Trans i18nKey="landing.smartUse.title">
+						Smart use <br /> of materials
+					</Trans>
+				</h1>
+			</div>
+			<div class="feature-smart-1 mt-10 lg:mt-20 xl:mt-28">
+				<h3 class="animated-subtitle mb-2 w-full text-left text-mid font-bold text-white">
+					{t('landing.smartUse.feature1')}
+				</h3>
+				<p class="text-base font-thin text-white lg:text-lg">
+					<Trans i18nKey="landing.smartUse.feature1Description">
+						50% lighter than Aluminium. Achieve <br /> Large Working Width with Low Weight
+					</Trans>
+				</p>
+			</div>
+			<div
+				class="feature-smart-2 absolute bottom-10 md:right-0 xl:static xl:float-right xl:mr-32 xl:mt-36"
+			>
+				<div class="ml-auto">
+					<h3 class="mb-2 text-left text-mid font-bold text-white">
+						{t('landing.smartUse.feature2')}
+					</h3>
+					<p class="text-lg font-thin text-white">
+						<Trans i18nKey="landing.smartUse.feature2Description">
+							More Efficient to Withstand <br />
+							Concentrated Loads of Ties and Joints
+						</Trans>
+					</p>
+				</div>
+			</div>
+		</div>
+		<!-- LEFT ZOOM -->
+		<div
+			class="absolute right-[50px] top-[400px] flex items-center justify-center md:left-1/2 md:right-auto lg:top-[320px]"
+		>
+			<!-- CIRCLE -->
+			<div
+				class="zoom1 h-32 w-32 rounded-full border-2 bg-white bg-opacity-50 opacity-0 md:h-40 md:w-40 xl:top-[450px] xl:h-52 xl:w-52"
+			>
+			</div>
+			<!-- BIND -->
+			<div
+				class="bind-zoom1 max-h-0 max-w-0 translate-y-1/2 border-r-2 border-t-2 border-white md:h-32 md:w-32 xl:h-48 xl:w-48"
+			>
+			</div>
+		</div>
+
+		<!-- RIGHT ZOOM -->
+		<div
+			class="absolute left-[15%] top-[550px] flex items-center justify-center md:left-[20%] lg:top-[500px] xl:top-[640px]"
+		>
+			<!-- BIND -->
+			<div
+				class="bind-zoom2 relative max-h-0 max-w-0 -translate-y-1/2 border-b-2 border-l-2 border-white md:h-20 md:w-48 xl:h-32 xl:w-96"
+			>
+			</div>
+			<!-- CIRCLE -->
+			<div
+				class="zoom2 h-32 w-32 rounded-full border-2 bg-white bg-opacity-50 opacity-0 md:h-40 md:w-40 xl:h-52 xl:w-52"
+			>
+			</div>
+		</div>
+	</ImageBackground>
+</section>

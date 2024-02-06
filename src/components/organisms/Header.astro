@@ -1,0 +1,42 @@
+---
+import Nav from '../molecules/Nav.astro'
+import Logo from '../../img/logo-bk.png'
+import { Image } from 'astro:assets'
+const links = [
+	{
+		label: 'landing.nav.home',
+		to: '/'
+	},
+	{
+		label: 'landing.nav.aboutUs',
+		to: '/about'
+	},
+	{
+		label: 'landing.nav.benefits',
+		to: '#benefits'
+	},
+	{
+		label: 'landing.nav.products',
+		to: '#products-line-up'
+	},
+	{
+		label: 'landing.nav.accesories',
+		to: '#accesories'
+	},
+	{
+		label: 'landing.nav.contact',
+		to: '#footer'
+	}
+]
+---
+
+<header class="fixed inset-0 z-50 flex h-[60px] justify-between overflow-visible">
+	<Image
+		src={Logo}
+		width={200}
+		height={150}
+		alt="Logo BK"
+		class="mr-full fixed top-0 ml-32 h-24 w-32 lg:h-auto lg:w-auto"
+	/>
+	<Nav links={links} />
+</header>

@@ -1,0 +1,55 @@
+---
+import { getImage } from 'astro:assets'
+import { Image } from 'astro:assets'
+import Placeholder from '../../../img/placeholder-about-us.png'
+import { t } from 'i18next'
+
+const imageOptimized = await getImage({ src: Placeholder, format: 'webp' })
+---
+
+<section class="h-screen bg-black" id="hero">
+	<div class="mx-auto py-16 md:px-24">
+		<div class="flex flex-wrap items-start justify-between pt-16">
+			<div class="mt-12 basis-1/4">
+				<h1 class="mb-12 text-5xl text-white">{t('about.hero.title')}</h1>
+				<h2 class="text-[2rem] font-semibold text-white">{t('about.hero.subtitle')}</h2>
+				<p class="mt-8 text-[2rem] text-white">
+					{t('about.hero.description')}
+				</p>
+			</div>
+			<div class="relative basis-2/3 pl-8">
+				<video
+					id="about-us-video"
+					class="max-h-[682px] w-full object-cover"
+					preload="meta"
+					poster={imageOptimized.src}
+					height={582}
+					controls={true}
+				>
+					<source src="/assets/videos/our-vision.mp4" type="video/mp4" />
+				</video>
+			</div>
+		</div>
+	</div>
+</section>
+<script>
+	const video = document.getElementById('about-us-video')
+
+	video.addEventListener('click', function () {
+		if (video instanceof HTMLVideoElement) {
+			video.play()
+		}
+	})
+
+	// video.addEventListener('pause', function () {
+	// 	toggleControls()
+	// })
+
+	function toggleControls() {
+		if (video.hasAttribute('controls')) {
+			video.removeAttribute('controls')
+		} else {
+			video.setAttribute('controls', 'controls')
+		}
+	}
+</script>

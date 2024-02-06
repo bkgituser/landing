@@ -1,0 +1,33 @@
+---
+import { t } from 'i18next'
+import AwardsImg from '../../../img/awards-logos.png'
+import { Image } from 'astro:assets'
+---
+
+<section id="about-us-pie" class="h-screen bg-white">
+	<div class="container mx-auto h-full px-8 md:px-0 xl:px-16">
+		<div
+			class="flex h-full flex-col flex-wrap items-center justify-center md:flex-row md:justify-evenly"
+		>
+			<div class="content lg:basis-1/2">
+				<h4 class="xltext-2xl mb-4 text-xl md:mb-8">{t('landing.aboutUsPie.intro')}</h4>
+				<h3 class="mb-5 text-4xl font-bold md:mb-10 xl:w-3/4 xl:text-5xl">
+					{t('landing.aboutUsPie.title')}
+				</h3>
+				<p class="text-base md:text-xl">
+					{t('landing.aboutUsPie.subtitle')}
+				</p>
+			</div>
+			<div class="lg:basis-1/2">
+				<div class="img-container">
+					<Image
+						widths={[240, 540, 720, AwardsImg.width]}
+						sizes={`(max-width: 360px) 335px, (max-width: 720px) 400px, (max-width: 1440px)${AwardsImg.width}px`}
+						src={AwardsImg}
+						alt="awards logos"
+					/>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

@@ -1,0 +1,137 @@
+---
+import { t } from 'i18next'
+
+import { Image } from 'astro:assets'
+import FeedbackImg1 from '../../../img/feedback/feedback1.jpg'
+import FeedbackImg2 from '../../../img/feedback/feedback2.jpg'
+import FeedbackImg3 from '../../../img/feedback/feedback3.jpg'
+
+const feedbackData = [
+	{
+		opinion: 'landing.feedback.item1.opinion',
+		user: 'landing.feedback.item1.user',
+		img: FeedbackImg1
+	},
+	{
+		opinion: 'landing.feedback.item2.opinion',
+		user: 'landing.feedback.item2.user',
+		img: FeedbackImg2
+	},
+	{
+		opinion: 'landing.feedback.item3.opinion',
+		user: 'landing.feedback.item3.user',
+		img: FeedbackImg3
+	}
+]
+---
+
+<section id="feedback" class="relative min-h-screen">
+	<div class="mx-auto">
+		{
+			feedbackData.map((item, index) => (
+				<div
+					class={`flex flex-wrap items-center xl:h-[700px] ${index % 2 === 0 ? 'flex-row bg-white' : 'flex-row-reverse bg-black'}`}
+				>
+					<div class="flex h-full flex-col justify-center px-8 py-8 md:px-0 md:py-8 lg:basis-1/2 lg:px-16 xl:px-32">
+						<div
+							class={`text-base font-semibold md:text-xl ${index % 2 === 0 ? 'text-darkGrey' : 'text-white'}`}
+						>
+							{t('landing.feedback.label')}
+						</div>
+						<div class="relative">
+							<p
+								class={`text-2xl font-semibold md:text-4xl ${index % 2 === 0 ? 'text-black' : 'text-white'} quote relative`}
+							>
+								{t(item.opinion)}
+							</p>
+						</div>
+						<div class="lg:w-3/4">
+							<p class={`text-xl text-grey`}>{t(item.user)}</p>
+						</div>
+					</div>
+					<div class="w-full lg:basis-1/2">
+						<div class="xl:h-[700px]">
+							<Image src={item.img} alt="BK product" class="h-full w-full object-cover" />
+						</div>
+					</div>
+				</div>
+			))
+		}
+	</div>
+</section>
+
+<style>
+	/* QUOTE STYLES */
+
+	.quote:before {
+		content: '\201C';
+		color: #7b7b7b;
+		font-size: 96px;
+		position: absolute;
+		left: -50px;
+		top: -10px;
+	}
+	.quote:after {
+		content: '\201D';
+		color: #7b7b7b;
+		font-size: 96px;
+		line-height: 0;
+		position: relative;
+		top: 40px;
+		right: 5px;
+	}
+	.quote:before {
+		content: '\201C';
+		color: #7b7b7b;
+		font-size: 96px;
+		position: absolute;
+		left: -50px;
+		top: -10px;
+	}
+	.quote:after {
+		content: '\201D';
+		color: #7b7b7b;
+		font-size: 96px;
+		line-height: 0;
+		position: relative;
+		top: 40px;
+		right: 5px;
+	}
+
+	@media (max-width: 768px) {
+		.quote:before {
+			content: '\201C';
+			color: #7b7b7b;
+			font-size: 48px;
+			position: absolute;
+			left: -20px;
+			top: -10px;
+		}
+		.quote:after {
+			content: '\201D';
+			color: #7b7b7b;
+			font-size: 48px;
+			line-height: 0;
+			position: relative;
+			top: 10px;
+			right: 5px;
+		}
+		.quote:before {
+			content: '\201C';
+			color: #7b7b7b;
+			font-size: 48px;
+			position: absolute;
+			left: -20px;
+			top: -10px;
+		}
+		.quote:after {
+			content: '\201D';
+			color: #7b7b7b;
+			font-size: 48px;
+			line-height: 0;
+			position: relative;
+			top: 10px;
+			right: 5px;
+		}
+	}
+</style>

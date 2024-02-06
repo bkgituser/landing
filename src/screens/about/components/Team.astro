@@ -1,0 +1,73 @@
+---
+import CofounderImage1 from '../../../img/01-cofounder.png'
+import CofounderImage2 from '../../../img/02-cofounder.png'
+import CofounderImage3 from '../../../img/03-cofounder.png'
+import CofounderImage4 from '../../../img/04-cofounder.png'
+import Awards from '../../../img/awards2.png'
+import { Image } from 'astro:assets'
+import { t } from 'i18next'
+
+const founDersData = [
+	{
+		name: 'Ezequiel Poodts',
+		position: 'CEO',
+		linkedin: 'https://www.linkedin.com',
+		image: CofounderImage4
+	},
+	{
+		name: 'Ezequiel Castro',
+		position: 'COO',
+		linkedin: 'https://www.linkedin.com',
+		image: CofounderImage3
+	},
+	{
+		name: 'Germán Kokubu',
+		position: 'CTO',
+		linkedin: 'https://www.linkedin.com',
+		image: CofounderImage2
+	},
+	{
+		name: 'Javier Bertani',
+		position: '',
+		linkedin: 'https://www.linkedin.com',
+		image: CofounderImage1
+	}
+]
+---
+
+<section id="team" class="min-h-screen py-20">
+	<div class="content flex flex-wrap items-start justify-between">
+		<div class="team basis-1/3 text-[2rem] text-[#222] md:px-24">
+			<h3 class="font-bold">{t('about.cofounders.title1')}</h3>
+
+			<p class="mt-8">
+				{t('about.cofounders.paragraph1')}
+			</p>
+			<p class="mt-8">{t('about.cofounders.paragraph2')}</p>
+		</div>
+		<div class="cofounders basis-2/3 text-[2rem] text-[#222] md:px-24">
+			<h3 class="mb-8 font-bold">{t('about.cofounders.title2')}</h3>
+			<div class="jusitfy-between flex items-center gap-2">
+				{
+					founDersData.map((cofounder) => (
+						<div>
+							<Image src={cofounder.image} alt={cofounder.name} />
+							<p class=" text-2xl text-black">{cofounder.name}</p>
+							{cofounder.position ? (
+								<p class="text-2xl text-black">{cofounder.position || ' '}</p>
+							) : (
+								<div class="h-8" />
+							)}
+							<a href={cofounder.linkedin} target="_blank" rel="noopener noreferrer">
+								<img src="/assets/icons/linkedin-dark.svg" alt="linkedin logo" />
+							</a>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</div>
+	<div class="img flex justify-center pt-24">
+		<Image src={Awards} alt="awards logos" />
+	</div>
+</section>

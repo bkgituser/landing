@@ -1,0 +1,49 @@
+---
+import { t } from 'i18next'
+
+import { getImage } from 'astro:assets'
+import bgStats2 from '../../../img/bg-stats-2.jpg'
+import ImageBackground from '../../../components/template/ImageBackground.astro'
+
+const optimizedBackground = await getImage({ src: bgStats2, format: 'webp' })
+
+const statsData = [
+	{
+		kpiValue: '+6.000.000',
+		kpiLabel: ['landing.stats2.item1']
+	},
+	{
+		kpiValue: '+66.000 Kg',
+		kpiLabel: 'landing.stats2.item2'
+	}
+]
+---
+
+<section id="stats2" class="relative overflow-hidden lg:h-[642px]">
+	<ImageBackground desktpBg={optimizedBackground}>
+		<div
+			class="container mx-auto flex h-full flex-col items-start justify-center gap-8 p-16 md:gap-16"
+		>
+			<span class="mb-2 block w-5 border-2 border-white md:w-10"></span>
+			<div class="kpi flex w-full flex-wrap items-start justify-evenly">
+				{
+					statsData.map((stat, index) => (
+						<div class={`table-cell p-4 align-top`}>
+							<p
+								class={`text-center text-3xl font-bold md:text-5xl ${index === 1 ? 'text-[#CCEB52]' : 'text-white'} p-4`}
+							>
+								{stat.kpiValue}
+							</p>
+							<p class="text-center text-xl text-white md:text-2xl">{t(stat.kpiLabel)}</p>
+						</div>
+					))
+				}
+			</div>
+			<div class="mt-8">
+				<p class="text-lg text-grey md:text-2xl">
+					{t('landing.stats2.bottomLine')}
+				</p>
+			</div>
+		</div>
+	</ImageBackground>
+</section>

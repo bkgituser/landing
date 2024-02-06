@@ -1,0 +1,26 @@
+---
+const {
+	video,
+	autoplay = false,
+	placeholder,
+	id = 'default',
+	muted = true,
+	preload = 'meta'
+} = Astro.props
+---
+
+<div class="relative h-full">
+	<video
+		id={id}
+		autoplay={autoplay}
+		loop
+		playsinline
+		class="absolute h-full w-full object-cover"
+		poster={placeholder}
+		muted={muted}
+		preload={preload}
+	>
+		<source src={video} type="video/mp4" />
+	</video>
+	<slot />
+</div>

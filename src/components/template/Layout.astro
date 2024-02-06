@@ -1,0 +1,65 @@
+---
+import i18next from 'i18next'
+import { HeadHrefLangs } from 'astro-i18next/components'
+import Header from '../organisms/Header.astro'
+import Footer from '../organisms/Footer.astro'
+const links = [
+	{
+		label: 'landing.nav.home',
+		to: '/'
+	},
+	{
+		label: 'landing.nav.aboutUs',
+		to: '/'
+	},
+	{
+		label: 'landing.nav.benefits',
+		to: '/'
+	},
+	{
+		label: 'landing.nav.products',
+		to: '/'
+	},
+	{
+		label: 'landing.nav.accesories',
+		to: '/'
+	},
+	{
+		label: 'landing.nav.contact',
+		to: '/'
+	}
+]
+---
+
+<html lang={i18next.language}>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content="{Astro.generator}" />
+		<link rel="stylesheet" href="../../../src/index.css" />
+		<title>BK</title>
+		<HeadHrefLangs />
+		<script>
+			// import function to register Swiper custom elements
+			import { register } from 'swiper/element/bundle'
+			// register Swiper custom elements
+			register()
+		</script>
+	</head>
+
+	<body class="font-neoSans">
+		<Header />
+		<slot />
+		<Footer />
+		<script is:inline src="https://unpkg.com/@studio-freight/lenis@1.0.32/dist/lenis.min.js"
+		></script>
+		<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>
+		<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"
+		></script>
+		<script src="../../scripts/gsap.js"></script>
+		<script>
+			console.log('i18next.language: ', i18next.language)
+		</script>
+	</body>
+</html>

@@ -1,0 +1,172 @@
+---
+import ImageBackground from '../../../components/template/ImageBackground.astro'
+
+import { getImage } from 'astro:assets'
+import ProductDisplay from '../../../components/molecules/ProductDisplay.astro'
+import BgImg1 from '../../../img/lineup1.png'
+import BgImg2 from '../../../img/lineup2.png'
+import BgImg3 from '../../../img/lineup3.png'
+import BgImg4 from '../../../img/lineup4.png'
+import { Trans } from 'astro-i18next/components'
+import { t } from 'i18next'
+
+const optimizedBackground4 = await getImage({ src: BgImg4, format: 'png' })
+
+const productsData = [
+	{
+		modelTitle: 'landing.productsLineup.products.item1.model',
+		technical: 'landing.productsLineup.products.item1.technical',
+		description: 'landing.productsLineup.products.item1.description',
+		image: BgImg1
+	},
+	{
+		modelTitle: 'landing.productsLineup.products.item2.model',
+		technical: 'landing.productsLineup.products.item2.technical',
+		description: 'landing.productsLineup.products.item2.description',
+		image: BgImg2
+	},
+	{
+		modelTitle: 'landing.productsLineup.products.item3.model',
+		technical: 'landing.productsLineup.products.item3.technical',
+		description: 'landing.productsLineup.products.item3.description',
+		image: BgImg3
+	},
+	{
+		modelTitle: 'landing.productsLineup.products.item4.model',
+		description: 'landing.productsLineup.products.item4.description',
+		image: optimizedBackground4
+	}
+]
+
+const models = ['32m', '36m', '40m', '48m']
+---
+
+<div id="products-line-up" class="relative h-screen">
+	<div
+		class="absolute left-1/2 top-20 z-20 mx-auto w-full -translate-x-1/2 gap-3 md:top-16 xl:top-24"
+	>
+		<h2 class="title-lineup mb-4 text-center text-xl md:text-2xl">
+			<Trans i18nKey="landing.productsLineup.title">
+				<strong>BK BOOMS</strong> - PRODUCTS LINEUP
+			</Trans>
+		</h2>
+		<div class="index-container flex items-center justify-center gap-4 text-black">
+			{
+				models.map((model, index) => {
+					return (
+						<div
+							data-index-element={index}
+							class={`item-index relative flex h-[55px] w-[93px] cursor-pointer flex-col items-center justify-center text-lg transition-all duration-300 ease-in  md:h-[85px] md:w-[123px] md:text-xl`}
+						>
+							<p class="item-data font-mid relative z-20">{model}</p>
+							{index !== models.length - 1 && (
+								<span class="spacer absolute -right-2 top-1/2 h-4 w-[1px] -translate-y-1/2 bg-black" />
+							)}
+						</div>
+					)
+				})
+			}
+		</div>
+	</div>
+	{
+		productsData.map((modelData, index) => {
+			if (index !== productsData.length - 1) {
+				return <ProductDisplay {...modelData} index={index} />
+			} else {
+				return (
+					<div data-display-element={3} class="absolute z-10 h-screen w-full bg-black">
+						<div class="h-full">
+							<ImageBackground desktpBg={modelData.image}>
+								<div class="container relative z-20 mx-auto flex h-full items-center justify-center text-black">
+									<div class="md:h-[25%] xl:h-[30%] xl:px-16">
+										<span class="mb-2 block w-8 border-white" />
+										<h3 class="pb-2 text-3xl font-bold text-white md:text-5xl">
+											{t(modelData.modelTitle)}
+										</h3>
+										<p class="mb-6 pt-4 text-xl font-semibold text-white md:text-2xl">
+											{t(modelData.description)}
+										</p>
+									</div>
+								</div>
+							</ImageBackground>
+						</div>
+					</div>
+				)
+			}
+		})
+	}
+</div>
+<script>
+	import ShowOnHover from '../../../scripts/showElementOnHover'
+
+	const fadeSlider = new ShowOnHover('#products-line-up', {
+		activeClass: 'item-model',
+		speed: 1500,
+		autoplay: true,
+		delay: 5000,
+		triggerOnIndexCallback: setStyleForComingSoonDIsplay
+	})
+
+	function setStyleForComingSoonDIsplay(index) {
+		const container = document?.getElementById('products-line-up')
+		const indexContainer = container?.querySelector('.index-container')
+		const title = container?.querySelector('.title-lineup')
+		if (index === 3) {
+			indexContainer?.classList.add('text-white')
+			title.classList.add('text-white')
+		} else {
+			indexContainer?.classList.remove('text-white')
+			title.classList.remove('text-white')
+		}
+	}
+</script>
+<style>
+	.index-container.text-white > .item-index > span {
+		background: #fff !important;
+	}
+
+	/* ITEM MODEL */
+
+	.item-model:before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: #fff;
+		overflow: hidden;
+		clip-path: polygon(
+			0 0,
+			100% 0,
+			100% 100%,
+			20px 100%,
+			0 calc(100% - 20px),
+			0 0,
+			1px 1px,
+			1px calc(100% - 20px - 0.41px),
+			calc(20px + 0.41px) calc(100% - 1px),
+			calc(100% - 1px) calc(100% - 1px),
+			calc(100% - 1px) 1px,
+			1px 1px
+		);
+	}
+
+	.item-model:after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: rgba(255, 255, 255, 0.2);
+		--mask: linear-gradient(45deg, #0000 14.28px, #000 0);
+		-webkit-mask: var(--mask);
+		mask: var(--mask);
+		mask: var(--mask);
+		transition: all ease-in 300ms;
+	}
+
+	.item-model {
+		font-weight: bold;
+	}
+
+	.item-model-alternative {
+		font-weight: bold;
+		color: #fff !important;
+	}
+</style>
