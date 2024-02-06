@@ -39,7 +39,12 @@ import VideoBackground from '../../../components/template/VideoBackground.astro'
 						<button
 							class="playButton flex items-center gap-4 bg-black px-8 py-2 text-white md:px-12 md:py-4"
 						>
-							<img src="/assets/icons/play.svg" alt="play" class="h-4 w-4 md:h-auto md:w-auto" />
+							<img
+								src="/assets/icons/play.svg"
+								alt="play"
+								class="h-4 w-4 md:h-auto md:w-auto"
+								loading="lazy"
+							/>
 							<p class="text-base font-semibold md:text-xl">{t('landing.ourVision.button')}</p>
 						</button>
 					</div>
