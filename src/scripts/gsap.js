@@ -182,7 +182,7 @@ class App {
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: '#highlights',
-				start: 'top-=250 top',
+				start: 'top-=450 top',
 				end: 'top top'
 			}
 		})

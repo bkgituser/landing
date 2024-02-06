@@ -38,6 +38,7 @@ const links = [
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content="{Astro.generator}" />
 		<link rel="stylesheet" href="../../../src/index.css" />
+		<link rel="preload" as="video" href="/assets/videos/landing.mp4" />
 		<title>BK</title>
 		<HeadHrefLangs />
 		<script>
@@ -58,8 +59,5 @@ const links = [
 		<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/ScrollTrigger.min.js"
 		></script>
 		<script src="../../scripts/gsap.js"></script>
-		<script>
-			console.log('i18next.language: ', i18next.language)
-		</script>
 	</body>
 </html>
