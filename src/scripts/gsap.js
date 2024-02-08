@@ -1,5 +1,8 @@
+import { incrementCounter, incrementCounterInInterval } from './utils'
+
 class App {
 	constructor() {
+		this.ourVisionLines = [...document.querySelectorAll('.ourvision-line')]
 		this._initialize()
 		this._render()
 	}
@@ -12,11 +15,15 @@ class App {
 		this._smartUseAnimation()
 		this._benefitsSkew()
 		this._highlightsAnimation()
+		this._repairabilityAnimation()
+		this._stats1Animation()
+		this._stats2Animation()
+		this._ourVisionAnimation()
 	}
 
 	_setInitialState() {
 		gsap.set(
-			'.smart-title-box, .feature-smart-1, .feature-smart-2, .benefits-description, .benefits-index, highlight-title',
+			'.smart-title-box, .feature-smart-1, .feature-smart-2, .benefits-description, .benefits-index, highlight-title, .repairability-title, .repairability-description',
 			{
 				opacity: 0,
 				scale: 0.9,
@@ -30,9 +37,19 @@ class App {
 			scale: 0.5
 		})
 
-		gsap.set('.column-highlight', {
+		gsap.set('.column-highlight, .table-cell-stat1, .table-cell-stat2', {
+			opacity: 0,
+			y: -32
+		})
+
+		gsap.set('.ourvision-line', {
 			opacity: 0,
 			y: 32
+		})
+
+		gsap.set('.repairability-arrow', {
+			opacity: 0,
+			x: -32
 		})
 	}
 
@@ -152,8 +169,8 @@ class App {
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: '#benefits',
-				start: 'top top',
-				end: 'top+=100px top',
+				start: 'top center-=300px',
+				end: 'top+=100px center',
 				pin: true,
 				scrub: false,
 				delay: 0
@@ -182,7 +199,7 @@ class App {
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: '#highlights',
-				start: 'top-=450 top',
+				start: 'top-=450px top',
 				end: 'top top'
 			}
 		})
@@ -199,13 +216,128 @@ class App {
 			'.column-highlight',
 			{
 				ease: 'power3.out',
-				stagger: 0.06,
+				stagger: 0.1,
 				opacity: 1,
 				y: 0,
 				duration: 0.5
 			},
-			'+=0.5'
+			0
 		)
+	}
+
+	_repairabilityAnimation() {
+		const tl = gsap.timeline({
+			scrollTrigger: {
+				trigger: '#repairability',
+				start: 'top-=300 top',
+				end: 'top top',
+				scrub: false
+			}
+		})
+		tl.to('.repairability-title', {
+			scale: 1,
+			y: 0,
+			opacity: 1,
+			skewX: '0deg',
+			skewY: '0deg'
+		})
+			.to(
+				'.repairability-description',
+				{
+					scale: 1,
+					y: 0,
+					opacity: 1,
+					skewX: '0deg',
+					skewY: '0deg'
+				},
+				0.3
+			)
+			.to(
+				'.repairability-arrow',
+				{
+					x: 0,
+					opacity: 1
+				},
+				0.6
+			)
+	}
+
+	_stats1Animation() {
+		// table-cell-stat1
+
+		const tl = gsap.timeline({
+			scrollTrigger: {
+				trigger: '#stats',
+				start: 'top-=600 top',
+				end: 'top top',
+				scrub: false
+			},
+			onStart: () => {
+				console.log('ON START')
+				incrementCounter('0-kpi-stat', 100, 150, 5000)
+				incrementCounter('1-kpi-stat', 5999900, 6000000, 200000000)
+				incrementCounter('2-kpi-stat', 0, 20, 1500)
+			},
+			onComplete: () => {
+				setInterval(() => {
+					incrementCounterInInterval('1-kpi-stat', 10)
+				}, 2000)
+			}
+		})
+		tl.to('.table-cell-stat1', {
+			ease: 'power3.out',
+			stagger: 0.1,
+			opacity: 1,
+			y: 0,
+			duration: 0.5
+		})
+	}
+
+	_stats2Animation() {
+		// table-cell-stat1
+
+		const tl = gsap.timeline({
+			scrollTrigger: {
+				trigger: '#stats2',
+				start: 'top-=600 top',
+				end: 'top top',
+				scrub: false
+			},
+			onStart: () => {
+				incrementCounter('0-kpi-stat2', 5999700, 6000000, 30000000)
+				incrementCounter('1-kpi-stat2', 65000, 66000, 4000)
+			},
+			onComplete: () => {
+				setInterval(() => {
+					incrementCounterInInterval('0-kpi-stat2', 10)
+				}, 2000)
+			}
+		})
+		tl.to('.table-cell-stat2', {
+			ease: 'power3.out',
+			stagger: 0.1,
+			opacity: 1,
+			y: 0,
+			duration: 0.5
+		})
+	}
+
+	_ourVisionAnimation() {
+		const tl = gsap.timeline({
+			scrollTrigger: {
+				trigger: '#our-vision',
+				start: 'top-=300 top',
+				end: 'top top',
+				scrub: false
+			}
+		})
+		tl.to('.ourvision-line', {
+			ease: 'power3.out',
+			stagger: 0.3,
+			opacity: 1,
+			y: 0,
+			duration: 1
+		})
 	}
 
 	_render(time) {

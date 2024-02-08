@@ -3,15 +3,15 @@ import { t } from 'i18next'
 
 const statsData = [
 	{
-		kpiValue: '+150',
+		kpiValue: '100',
 		kpiLabel: ['landing.stats.item1']
 	},
 	{
-		kpiValue: '+6.000.000',
+		kpiValue: '5.500.000',
 		kpiLabel: ['landing.stats.item2']
 	},
 	{
-		kpiValue: '+20',
+		kpiValue: '0',
 		kpiLabel: ['landing.stats.item31', 'landing.stats.item32']
 	}
 ]
@@ -24,9 +24,11 @@ const statsData = [
 		<span class="mb-2 block w-4 border-2 border-white md:w-10"></span>
 		<div class="kpi flex w-full flex-wrap items-start justify-evenly">
 			{
-				statsData.map((stat) => (
-					<div class="table-cell p-4  align-top text-white">
-						<p class="text-center text-3xl font-bold md:text-5xl">{stat.kpiValue}</p>
+				statsData.map((stat, index) => (
+					<div class="table-cell-stat1 p-4  align-top text-white">
+						<span class="flex items-center justify-center gap-2 text-center text-3xl font-bold md:text-5xl">
+							<p>+</p> <p id={`${index}-kpi-stat`}>{stat.kpiValue}</p>
+						</span>
 						{stat.kpiLabel.map((p) => (
 							<p class="text-center text-xl md:text-2xl">{t(p)}</p>
 						))}
@@ -36,3 +38,6 @@ const statsData = [
 		</div>
 	</div>
 </section>
+<script>
+	import { incrementCounter } from 'src/scripts/utils'
+</script>

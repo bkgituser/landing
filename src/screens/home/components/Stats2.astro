@@ -9,11 +9,11 @@ const optimizedBackground = await getImage({ src: bgStats2, format: 'webp' })
 
 const statsData = [
 	{
-		kpiValue: '+6.000.000',
+		kpiValue: '6.000.000',
 		kpiLabel: ['landing.stats2.item1']
 	},
 	{
-		kpiValue: '+66.000 Kg',
+		kpiValue: '66.000 Kg',
 		kpiLabel: 'landing.stats2.item2'
 	}
 ]
@@ -28,12 +28,12 @@ const statsData = [
 			<div class="kpi flex w-full flex-wrap items-start justify-evenly">
 				{
 					statsData.map((stat, index) => (
-						<div class={`table-cell p-4 align-top`}>
-							<p
-								class={`text-center text-3xl font-bold md:text-5xl ${index === 1 ? 'text-[#CCEB52]' : 'text-white'} p-4`}
+						<div class={`table-cell-stat2 p-4 align-top`}>
+							<span
+								class={`flex items-center justify-center gap-2 text-center text-3xl font-bold md:text-5xl ${index === 1 ? 'text-[#CCEB52]' : 'text-white'}`}
 							>
-								{stat.kpiValue}
-							</p>
+								<p>+</p> <p id={`${index}-kpi-stat2`}>{stat.kpiValue}</p>
+							</span>
 							<p class="text-center text-xl text-white md:text-2xl">{t(stat.kpiLabel)}</p>
 						</div>
 					))

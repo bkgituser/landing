@@ -6,7 +6,7 @@ import VideoBackground from '../../../components/template/VideoBackground.astro'
 // https://ik.imagekit.io/6f82hwfl4/
 ---
 
-<section id="vision" class="relative h-screen">
+<section id="our-vision" class="relative h-screen">
 	<VideoBackground
 		video="/assets/videos/our-vision.mp4"
 		autoplay={false}
@@ -22,22 +22,26 @@ import VideoBackground from '../../../components/template/VideoBackground.astro'
 				class="container relative z-10 mx-auto flex h-full flex-col items-start justify-center px-8 md:px-0 xl:px-16"
 			>
 				<div class="content relative z-10 xl:w-3/4">
-					<p class="py-8 text-lg font-semibold text-white md:text-2xl">
+					<p class="ourvision-line py-8 text-lg font-semibold text-white md:text-2xl">
 						{t('landing.ourVision.badge')}
 					</p>
-					<span class="block w-5 border-2 border-white md:w-10"></span>
-					<h3 class="py-4 text-2xl font-semibold text-white md:text-plusMid">
+					<span class="ourvision-line block w-5 border-2 border-white md:w-10"></span>
+					<h3 class="ourvision-line py-4 text-2xl font-semibold text-white md:text-plusMid">
 						{t('landing.ourVision.title')}
 					</h3>
-					<p class="text-justify text-xl text-white md:text-4xl xl:leading-[2.5rem]">
-						<Trans>
-							We seek to revolutionize the agricultural machinery<br /> industry by incorporating advanced
-							composite <br /> materials that provide a leap in EFFICIENCY.
-						</Trans>
-					</p>
+					{
+						t('landing.ourVision.description')
+							.split('\n')
+							.map((line) => (
+								<p class="ourvision-line text-justify text-xl text-white md:text-4xl xl:leading-[2.5rem]">
+									{line}
+								</p>
+							))
+					}
+
 					<div class="mt-10 md:mt-20">
 						<button
-							class="playButton flex items-center gap-4 bg-black px-8 py-2 text-white md:px-12 md:py-4"
+							class="ourvision-line playButton flex items-center gap-4 bg-black px-8 py-2 text-white md:px-12 md:py-4"
 						>
 							<img
 								src="/assets/icons/play.svg"

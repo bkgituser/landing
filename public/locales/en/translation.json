@@ -152,7 +152,7 @@
         "ourVision": {
             "badge": "About Us",
             "title": "Our Vision",
-            "description": "We seek to revolutionize the agricultural machinery<0> industry by incorporating advanced <1> composite materials that provide a leap in EFFICIENCY.",
+            "description": "We seek to revolutionize the agricultural machinery\n industry by incorporating advanced composite \nmaterials that provide a leap in EFFICIENCY.",
             "button": "Play Video"
         },
         "aboutUsPie":{
