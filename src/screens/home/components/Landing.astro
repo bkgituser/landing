@@ -13,9 +13,9 @@ import Loader from '@components/atom/Loader.astro'
 			autoplay={true}
 			id="landing-video"
 		>
-			<div class="h-3/4"></div>
+			<div class="spacer h-3/4"></div>
 			<div
-				class="relative z-40 h-1/4 bg-[linear-gradient(180deg,_transparent_0%,_rgba(0,0,0,0.5)_100%)] px-8 md:px-32"
+				class="data-container relative z-40 h-1/4 bg-[linear-gradient(180deg,_transparent_0%,_rgba(0,0,0,0.5)_100%)] px-8 md:px-32"
 			>
 				<swiper-container
 					delay="4000"
@@ -28,10 +28,7 @@ import Loader from '@components/atom/Loader.astro'
 					autoplay="true"
 				>
 					<swiper-slide>
-						<h1
-							style={{ lineHeight: '3.5rem' }}
-							class="z-10 w-full px-2 py-4 pt-2 text-2xl text-white lg:text-plusMid"
-						>
+						<h1 class="z-10 w-full px-2 py-4 pt-2 text-2xl text-white lg:text-plusMid">
 							<span class="mb-2 block w-12 border-2 border-white"></span>
 							<Trans i18nKey="landing.carousel.title1">
 								<strong>Smart Use</strong> of <strong>Advance Composites</strong>
@@ -42,10 +39,7 @@ import Loader from '@components/atom/Loader.astro'
 						</h1>
 					</swiper-slide>
 					<swiper-slide>
-						<h2
-							style={{ lineHeight: '3.5rem' }}
-							class="z-10 w-full px-2 py-4 pt-2 text-2xl text-white lg:text-plusMid"
-						>
+						<h2 class="z-10 w-full px-2 py-4 pt-2 text-2xl text-white lg:text-plusMid">
 							<span class="mb-2 block w-12 border-2 border-white"></span>
 							<strong
 								><Trans i18nKey="landing.carousel.title2">
@@ -74,6 +68,30 @@ import Loader from '@components/atom/Loader.astro'
 
 		swiper-slide[style*='opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 1500ms;'] {
 			opacity: 0 !important;
+		}
+
+		@media (min-width: 976px) {
+			swiper-slide > h1,
+			swiper-slide > h2 {
+				line-height: 3rem;
+			}
+		}
+
+		@media (min-width: 1440px) {
+			swiper-slide > h1,
+			swiper-slide > h2 {
+				line-height: 3.5rem;
+			}
+		}
+
+		@media (max-height: 699px) {
+			.spacer {
+				height: 70%;
+			}
+
+			.data-container {
+				height: 30%;
+			}
 		}
 	</style>
 </>

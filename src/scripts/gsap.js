@@ -169,9 +169,8 @@ class App {
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: '#benefits',
-				start: 'top center-=300px',
-				end: 'top+=100px center',
-				pin: true,
+				start: 'top-=30% top',
+				end: 'top top',
 				scrub: false,
 				delay: 0
 			}
@@ -268,7 +267,7 @@ class App {
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: '#stats',
-				start: 'top-=600 top',
+				start: 'top-=80% top',
 				end: 'top top',
 				scrub: false
 			},
@@ -299,7 +298,7 @@ class App {
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: '#stats2',
-				start: 'top-=600 top',
+				start: 'top-=80% top',
 				end: 'top top',
 				scrub: false
 			},

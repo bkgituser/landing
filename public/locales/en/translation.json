@@ -23,16 +23,16 @@
         },
         "benefits": {
             "item1": {
-                "description": "Increased Productivity, \nFuel Savings",
-                "featureLine": "Increased \nWorking \nWidth"
+                "description": "Increased Productivity,\n Fuel Savings",
+                "featureLine": "Increased\n Working\n Width"
             },
             "item2": {
                 "description": "Reduce Soil Compaction,\nHigher Working Speed",
                 "featureLine": "Reduce \nWeight"
             },
             "item3": {
-                "description": "Increased Durability \nResistant to",
-                "featureLine": "Corrosion and \nFatigue"
+                "description": "Increased durability",
+                "featureLine": "Resistant to \n Corrosion and \nFatigue"
             },
             "item4": {
                 "description": "More Uniform Appication",
