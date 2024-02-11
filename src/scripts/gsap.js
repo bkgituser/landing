@@ -97,7 +97,7 @@ class App {
 			scrollTrigger: {
 				trigger: '#smart-use',
 				start: 'top top',
-				end: 'bottom+=1000 top',
+				end: 'bottom+=600 top',
 				pin: true,
 				scrub: false
 			}

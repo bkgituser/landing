@@ -1,0 +1,69 @@
+---
+const { lengthSlides, activeSlide, speed, activeColor, colorInactive } = Astro.props
+---
+
+<slide-timer
+	data-active-slide={activeSlide}
+	data-active-color={activeColor}
+	data-speed={speed}
+	data-stop="false"
+	id="benefits-timer"
+>
+	<div class="w-full">
+		<div class="flex justify-between gap-2">
+			{
+				Array(lengthSlides)
+					.fill(null)
+					.map(() => (
+						<div class={`bar h-1 w-full ${colorInactive}`}>
+							<div class={`fill-elem h-full w-full max-w-0 bg-${activeColor}`} />
+						</div>
+					))
+			}
+		</div>
+	</div>
+</slide-timer>
+<script>
+	class SlideTimer extends HTMLElement {
+		constructor() {
+			super()
+			if (!this.dataset.activeSlide || !this.dataset.speed) {
+				return undefined
+			}
+			console.log(this.dataset)
+			const activeIndex = Number(this.dataset.activeSlide)
+			const speed = this.dataset.speed
+			const stop = this.dataset.stop
+			console.log('THIS:DATASET: ', this.dataset.stop)
+			this._setActive(activeIndex, speed, stop)
+		}
+
+		_setActive(activeIndex, speed, stop) {
+			let idInterval = null
+			clearInterval(idInterval)
+			const bars = [...this.querySelectorAll('.bar')]
+			const activeBar = bars[activeIndex].querySelector('.fill-elem')
+			console.log('stop: ', this.dataset, stop)
+			if (stop === 'true') {
+				console.log('para el timer')
+				clearInterval(idInterval)
+			}
+
+			if (activeBar instanceof HTMLElement && stop !== 'true') {
+				let percentageToAdd = 100 / speed
+				idInterval = setInterval(() => {
+					const widthInNumber = Number(activeBar.style.maxWidth.replace('%', ''))
+					activeBar.style.maxWidth = `${widthInNumber + percentageToAdd}%`
+					if (Number(activeBar.style.maxWidth.replace('%', '')) >= 100) {
+						console.log('entra aca 2')
+						clearInterval(idInterval)
+					}
+				}, percentageToAdd)
+			}
+		}
+		_
+	}
+	let customElements: CustomElementRegistry = window.customElements
+
+	customElements.define('slide-timer', SlideTimer)
+</script>
