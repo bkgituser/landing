@@ -8,6 +8,7 @@ const { lengthSlides, activeSlide, speed, activeColor, colorInactive } = Astro.p
 	data-speed={speed}
 	data-stop="false"
 	id="benefits-timer"
+	class="block"
 >
 	<div class="w-full">
 		<div class="flex justify-between gap-2">
@@ -15,8 +16,8 @@ const { lengthSlides, activeSlide, speed, activeColor, colorInactive } = Astro.p
 				Array(lengthSlides)
 					.fill(null)
 					.map(() => (
-						<div class={`bar h-1 w-full ${colorInactive}`}>
-							<div class={`fill-elem h-full w-full max-w-0 bg-${activeColor}`} />
+						<div style={{ background: colorInactive }} class={`bar h-1 w-full`}>
+							<div class={`fill-elem h-full w-0 bg-${activeColor}`} />
 						</div>
 					))
 			}
@@ -25,41 +26,67 @@ const { lengthSlides, activeSlide, speed, activeColor, colorInactive } = Astro.p
 </slide-timer>
 <script>
 	class SlideTimer extends HTMLElement {
+		idInterval = null
 		constructor() {
 			super()
 			if (!this.dataset.activeSlide || !this.dataset.speed) {
 				return undefined
 			}
-			console.log(this.dataset)
-			const activeIndex = Number(this.dataset.activeSlide)
+			const activeIndex = this.dataset.activeSlide
 			const speed = this.dataset.speed
 			const stop = this.dataset.stop
-			console.log('THIS:DATASET: ', this.dataset.stop)
 			this._setActive(activeIndex, speed, stop)
+			this._react()
 		}
 
 		_setActive(activeIndex, speed, stop) {
-			let idInterval = null
-			clearInterval(idInterval)
+			clearInterval(this.idInterval)
 			const bars = [...this.querySelectorAll('.bar')]
-			const activeBar = bars[activeIndex].querySelector('.fill-elem')
-			console.log('stop: ', this.dataset, stop)
-			if (stop === 'true') {
-				console.log('para el timer')
-				clearInterval(idInterval)
-			}
+			const parsedActiveIndex = Number(activeIndex)
+			const activeBar = bars[parsedActiveIndex].querySelector('.fill-elem')
 
 			if (activeBar instanceof HTMLElement && stop !== 'true') {
-				let percentageToAdd = 100 / speed
-				idInterval = setInterval(() => {
-					const widthInNumber = Number(activeBar.style.maxWidth.replace('%', ''))
-					activeBar.style.maxWidth = `${widthInNumber + percentageToAdd}%`
-					if (Number(activeBar.style.maxWidth.replace('%', '')) >= 100) {
-						console.log('entra aca 2')
-						clearInterval(idInterval)
+				let percentageToAdd = 1
+				let interval = (speed / 100) * 1
+
+				this.idInterval = setInterval(() => {
+					const widthInNumber = Number(activeBar.style.width.replace('%', ''))
+
+					activeBar.style.width = `${widthInNumber + percentageToAdd}%`
+
+					if (widthInNumber >= 100) {
+						clearInterval(this.idInterval)
 					}
-				}, percentageToAdd)
+				}, interval)
 			}
+		}
+
+		_react() {
+			const thisEL = this
+			var observer = new MutationObserver(function (mutations) {
+				mutations.forEach(function (mutation) {
+					if (mutation.type === 'attributes') {
+						const targetElement = mutation.target as Element
+						if (targetElement?.attributes?.['data-stop'] === 'true') {
+							clearInterval(thisEL.idInterval)
+							return
+						} else {
+							const activeIndex = Number(thisEL.dataset.activeSlide)
+							const speed = thisEL.dataset.speed
+							const stop = thisEL.dataset.stop
+							thisEL._setActive(activeIndex, speed, stop)
+						}
+
+						// if (mutation?.attributeName === 'data-active-slide') {
+						// 	console.log('mutation active index: ', mutation)
+						// }
+					}
+				})
+			})
+
+			observer.observe(this, {
+				attributes: true //configure it to listen to attribute changes
+			})
 		}
 		_
 	}

@@ -6,7 +6,7 @@ import Loader from '@components/atom/Loader.astro'
 
 <>
 	<section id="hero" class="h-screen">
-		<Loader />
+		<!-- <Loader /> -->
 		<FullVideoBg
 			video="/assets/videos/landing.mp4"
 			preload="meta"
@@ -54,12 +54,12 @@ import Loader from '@components/atom/Loader.astro'
 		</FullVideoBg>
 	</section>
 	<script>
-		const video = document.querySelector('#landing-video')
-		const loader = document.querySelector('.loader-content')
+		// const video = document.querySelector('#landing-video')
+		// const loader = document.querySelector('.loader-content')
 
-		video.onloadeddata = function () {
-			loader.classList.add('hidden')
-		}
+		// video.onloadeddata = function () {
+		// 	loader.classList.add('hidden')
+		// }
 	</script>
 	<style>
 		swiper-slide[style*='opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;'] {

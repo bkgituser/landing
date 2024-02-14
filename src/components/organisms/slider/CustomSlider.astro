@@ -1,0 +1,73 @@
+---
+import SlideTimers from '@components/atom/SlideTimers.astro'
+
+const {
+	elements = [],
+	indexElements = true,
+	id = 'benefit-slide',
+	height = '100%',
+	classSlideContainer
+} = Astro.props
+---
+
+<custom-slider id={id} class="relative block w-full">
+	<slot name="prev-slider-timer" />
+	<div class="absolute mt-4 h-16 w-full sm:hidden">
+		<SlideTimers
+			activeColor="white"
+			speed={5000}
+			activeSlide={null}
+			lengthSlides={elements.length}
+			colorInactive="rgba(255,255,255,0.5)"
+		/>
+	</div>
+	<div class={` h-full w-full ${classSlideContainer}`}>
+		<slot />
+	</div>
+</custom-slider>
+
+<script>
+	import ShowOnHover from '../../../scripts/showElementOnHover'
+
+	class CustomSlider extends HTMLElement {
+		idInterval = null
+		constructor() {
+			super()
+
+			const fadeSlider = new ShowOnHover(this.id, {
+				activeClass: 'item-index-active',
+				speed: 1500,
+				autoplay: true,
+				delay: 5000,
+				triggerOnAutoPlayToggle: (isPlaying) => {
+					const slideTimer = document.querySelector('slide-timer')
+
+					slideTimer.setAttribute('data-stop', (!isPlaying).toString())
+				},
+				triggerOnIndexCallback: (newIndex) => {
+					const slideTimer = document.querySelector('slide-timer')
+
+					const bars = slideTimer.querySelectorAll('.fill-elem')
+					bars.forEach((element, index) => {
+						if (index > newIndex - 1) {
+							;(element as HTMLDivElement).style.width = '0%'
+						} else {
+							;(element as HTMLDivElement).style.width = '100%'
+						}
+					})
+
+					slideTimer.setAttribute('data-active-slide', newIndex)
+				}
+			})
+		}
+	}
+
+	let customElements: CustomElementRegistry = window.customElements
+
+	customElements.define('custom-slider', CustomSlider)
+</script>
+<style define:vars={{ height }}>
+	custom-slider {
+		height: var(--height);
+	}
+</style>

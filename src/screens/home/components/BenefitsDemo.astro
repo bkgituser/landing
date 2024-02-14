@@ -1,0 +1,159 @@
+---
+import CustomSlider from '@components/organisms/slider/CustomSlider.astro'
+import IndexElements from '@components/organisms/slider/IndexElements.astro'
+import SliderElements from '@components/organisms/slider/SliderElements.astro'
+import VideoBackground from '@components/template/VideoBackground.astro'
+import { t } from 'i18next'
+
+const data = [
+	{
+		label: 'landing.benefits.item1.featureLine',
+		data: 'landing.benefits.item1.description'
+	},
+	{
+		label: 'landing.benefits.item2.featureLine',
+		data: 'landing.benefits.item2.description'
+	},
+	{
+		label: 'landing.benefits.item3.featureLine',
+		data: 'landing.benefits.item3.description'
+	},
+	{
+		label: 'landing.benefits.item4.featureLine',
+		data: 'landing.benefits.item4.description'
+	},
+	{
+		label: 'landing.benefits.item5.featureLine',
+		data: 'landing.benefits.item5.description'
+	},
+	{
+		label: 'landing.benefits.item6.featureLine',
+		data: 'landing.benefits.item6.description'
+	}
+]
+
+const idBenefits = 'benefits-slider'
+---
+
+<section id="benefits" class="h-screen">
+	<VideoBackground video="/assets/videos/video-benefits.mp4" autoplay={true}>
+		<div
+			class="absolute h-full w-full bg-[linear-gradient(180deg,_rgba(0,_0,_0,_0.00)_0%,_rgba(0,_0,_0,_0.40)_100%)] lg:bottom-0 lg:h-1/2"
+		>
+		</div>
+		<div
+			class="container mx-auto flex h-full flex-col items-center justify-end px-8 sm:px-0 xl:px-16"
+		>
+			<CustomSlider id={idBenefits} elements={data} classSlideContainer="flex flex-col justify-end">
+				<SliderElements
+					id={idBenefits}
+					customClass="h-[70%] md:h-[55%] xl:h-[40%]"
+					isBackground={false}
+				>
+					{
+						data.map((item, idx) => {
+							return (
+								<div class="item absolute top-4 w-full md:bottom-0 lg:top-auto">
+									<div class="">
+										<p class="mb-6 text-2xl font-semibold text-white sm:hidden">Benefits</p>
+										<span class="mb-2 block h-1 w-10 bg-white drop-shadow-lg sm:drop-shadow-none" />
+										<p class="item-data text-left text-plusMid font-bold leading-10 text-white drop-shadow-lg sm:drop-shadow-none md:text-3xl lg:leading-10 xl:w-4/5 xl:text-plusMid">
+											{t(item.data)}
+										</p>
+									</div>
+								</div>
+							)
+						})
+					}</SliderElements
+				>
+				<IndexElements id={idBenefits} customClass="h-[25%] md:h-[35%] lg:h-[25%]">
+					{
+						data.map((item, idx) => {
+							return (
+								<div class="index-container absolute w-full basis-[100%] md:static md:w-auto md:basis-1/3 lg:basis-auto">
+									<div class="flex w-full items-center justify-center  md:w-auto">
+										<div class="item-benefit-index relative z-20 flex h-[120px] w-[189px] cursor-pointer flex-col items-center justify-center text-white transition-all duration-300 ease-in md:h-[85px] md:w-[140px] xl:h-[120px] xl:w-[189px]">
+											{t(item.label)
+												.split('\n')
+												.map((description) => {
+													return (
+														<p
+															style={{ lineHeight: '0rem !important' }}
+															class="xl:leading-[1.1rem]! z-40 my-0 px-4 py-2 text-left text-lg md:text-base md:leading-[0.8rem] xl:text-lg xxl:text-xl"
+														>
+															{description}
+														</p>
+													)
+												})}
+										</div>
+									</div>
+								</div>
+							)
+						})
+					}
+				</IndexElements>
+			</CustomSlider>
+		</div>
+	</VideoBackground>
+</section>
+<style>
+	/* BENEFIT ITEM STYLE */
+	.item-benefit-index:before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: #fff;
+		overflow: hidden;
+		clip-path: polygon(
+			0 30px,
+			30px 0,
+			100% 0,
+			100% 100%,
+			0 100%,
+			0 30px,
+			1px calc(30px + 0.83px),
+			1px calc(100% - 1px),
+			calc(100% - 1px) calc(100% - 1px),
+			calc(100% - 1px) 1px,
+			calc(30px + 0.83px) 1px,
+			1px calc(30px + 0.83px)
+		);
+	}
+
+	.item-benefit-index:after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: rgba(0, 0, 0, 0.2);
+		--mask: linear-gradient(135deg, #0000 21.6px, #000 0);
+		-webkit-mask: var(--mask);
+		mask: var(--mask);
+		transition: all ease-in 300ms;
+	}
+
+	.item-index-active .item-benefit-index {
+		transition: all 300ms ease;
+		font-weight: 500;
+		color: #000 !important;
+	}
+
+	.item-index-active .item-benefit-index:after {
+		background: #fff;
+	}
+
+	@media (max-width: 768px) {
+		.item-benefit-index {
+			opacity: 0;
+		}
+
+		.item-index-active .item-benefit-index {
+			opacity: 1;
+		}
+	}
+
+	@media (max-height: 750px) {
+		.item-data {
+			font-size: 1.875rem;
+		}
+	}
+</style>

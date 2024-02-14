@@ -1,0 +1,13 @@
+---
+const { id, customClass = 'h-1/2', isBackground } = Astro.props
+---
+
+<div
+	class:list={[
+		{ absolute: isBackground, relative: !isBackground, block: !isBackground },
+		customClass
+	]}
+	id={`${id}-elements-container`}
+>
+	<slot />
+</div>

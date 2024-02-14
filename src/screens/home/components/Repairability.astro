@@ -4,9 +4,9 @@ import { t } from 'i18next'
 
 <section class="min-h-screen bg-white" id="repairability">
 	<div
-		class="container mx-auto flex flex-wrap items-start justify-between px-8 pb-14 pt-16 md:px-0 md:pb-28 md:pt-32 xl:px-20 xl:pt-48"
+		class="container mx-auto flex flex-wrap items-start justify-between px-16 pb-14 pt-16 sm:px-8 md:px-0 md:pb-28 md:pt-32 xl:px-20 xl:pt-48"
 	>
-		<div class="lg:w-1/2">
+		<div class="mb-24 sm:mb-0 lg:w-1/2">
 			<div>
 				<h3 class="repairability-title text-2xl text-black opacity-0 md:text-4xl">
 					{t('landing.repairability.title')}
@@ -44,7 +44,7 @@ import { t } from 'i18next'
 						<style>
 							*{padding:0;margin:0;overflow:hidden}
 							html,body{height:100%}
-							img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto;object-fit:cover;height:100%;object-position:left;}
+							img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto;object-fit:cover;height:100%;object-position:center;}
 						</style>
 						<a href=https://www.youtube.com/embed/zYY06lJ5Usw?si=0ZGGTuTWHuqJIa5&autoplay=1>
 							<img src=/assets/imgs/poster-video-repairability.jpg loading=lazy alt='BK Video Repairability tutorial'>
@@ -55,7 +55,7 @@ import { t } from 'i18next'
 	</div>
 </section>
 <style>
-	@media (max-width: 1600px) and (max-height: 900px) {
+	@media (min-width: 480px) and (max-width: 1600px) and (max-height: 900px) {
 		.container {
 			max-width: none;
 			padding-left: 6rem;
