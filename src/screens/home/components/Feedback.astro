@@ -32,9 +32,9 @@ const feedbackData = [
 				<div
 					class={`flex flex-wrap items-center xl:h-[700px] ${index % 2 === 0 ? 'flex-row bg-white' : 'flex-row-reverse bg-black'}`}
 				>
-					<div class="flex h-full flex-col justify-center px-8 py-32 md:px-0 md:py-8 lg:basis-1/2 lg:px-16 xl:px-24">
+					<div class="flex h-full flex-col justify-center px-8 py-32 md:px-0 md:py-8 lg:basis-1/2 lg:px-16 lg:py-0 xl:px-24">
 						<div
-							class={`mb-12 text-base sm:mb-2 md:text-xl ${index % 2 === 0 ? 'text-darkGrey' : 'text-white'}`}
+							class={`mb-12 text-base md:text-xl ${index % 2 === 0 ? 'text-darkGrey' : 'text-white'}`}
 						>
 							{t('landing.feedback.label')}
 						</div>
@@ -51,7 +51,11 @@ const feedbackData = [
 					</div>
 					<div class="w-full lg:basis-1/2">
 						<div class="xl:h-[700px]">
-							<Image src={item.img} alt="BK product" class="h-full w-full object-cover" />
+							<Image
+								src={item.img}
+								alt="BK product"
+								class="h-full w-full object-contain lg:object-fill xl:object-cover"
+							/>
 						</div>
 					</div>
 				</div>
