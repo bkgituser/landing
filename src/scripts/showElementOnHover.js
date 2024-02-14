@@ -5,22 +5,22 @@ export default class ShowOnHover {
 	constructor(containerSelector, config = { activeClass }) {
 		const {
 			speed = 500,
-			timing = 'ease',
+			timing = 'ease-out',
 			activeClass = '',
 			autoplay = false,
 			delay = 3000,
 			triggerOnIndexCallback = null,
 			triggerOnAutoPlayToggle = null
 		} = config
-
 		this._container = document?.getElementById(containerSelector)
 
 		this._items = [
 			...this._container.querySelector(`#${containerSelector}-elements-container`).children
 		]
-		this._paginationItems = [
-			...this._container.querySelector(`#${containerSelector}-index-container`).children
-		]
+
+		this._paginationItems = this._container?.querySelector(
+			`#${containerSelector}-index-container`
+		) && [...this._container?.querySelector(`#${containerSelector}-index-container`)?.children]
 
 		this._activeIndex = 0
 		this._speed = speed
@@ -33,6 +33,7 @@ export default class ShowOnHover {
 		this._triggerOnIndexCallback = triggerOnIndexCallback
 		this._triggerOnAutoPlayToggle = triggerOnAutoPlayToggle
 		this._isPlaying = false
+		this._hasIndexes = this._paginationItems
 		this._initialize()
 	}
 
@@ -58,19 +59,20 @@ export default class ShowOnHover {
 			elem.style.transitionProperty = 'all'
 		})
 
-		this._paginationItems.forEach((item, index) => {
-			item.addEventListener('mouseenter', () => {
-				this._stopAutoPlay()
+		this._hasIndexes &&
+			this._paginationItems?.forEach((item, index) => {
+				item.addEventListener('mouseenter', () => {
+					this._stopAutoPlay()
 
-				this._removeActiveIndex(this._activeIndex)
-				this._setActive(index)
-				this._activeIndex = index
-			})
+					this._removeActiveIndex(this._activeIndex)
+					this._setActive(index)
+					this._activeIndex = index
+				})
 
-			item.addEventListener('mouseleave', () => {
-				this._autoplayStart()
+				item.addEventListener('mouseleave', () => {
+					this._autoplayStart()
+				})
 			})
-		})
 
 		this._container.addEventListener('touchstart', () => {
 			this._stopAutoPlay()
@@ -90,7 +92,7 @@ export default class ShowOnHover {
 		// remove styles to not active
 		if (currentActiveElement) {
 			currentActiveElement.style.opacity = 0
-			if (this._activeItemClass) {
+			if (this._activeItemClass && this._hasIndexes) {
 				this._paginationItems[index].classList.remove(this._activeItemClass)
 			}
 		}
@@ -106,7 +108,7 @@ export default class ShowOnHover {
 
 		newActiveElement.style.opacity = 1
 
-		if (this._activeItemClass) {
+		if (this._activeItemClass && this._hasIndexes) {
 			this._paginationItems[newIndex].classList.add(this._activeItemClass)
 		}
 	}

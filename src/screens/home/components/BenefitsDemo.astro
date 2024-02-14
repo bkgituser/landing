@@ -44,7 +44,11 @@ const idBenefits = 'benefits-slider'
 		<div
 			class="container mx-auto flex h-full flex-col items-center justify-end px-8 sm:px-0 xl:px-16"
 		>
-			<CustomSlider id={idBenefits} elements={data} classSlideContainer="flex flex-col justify-end">
+			<CustomSlider
+				id={idBenefits}
+				lengthElements={data.length}
+				classSlideContainer="flex flex-col justify-end"
+			>
 				<SliderElements
 					id={idBenefits}
 					customClass="h-[70%] md:h-[55%] xl:h-[40%]"

@@ -2,25 +2,30 @@
 import SlideTimers from '@components/atom/SlideTimers.astro'
 
 const {
-	elements = [],
+	lengthElements = 0,
 	indexElements = true,
 	id = 'benefit-slide',
 	height = '100%',
-	classSlideContainer
+	classSlideContainer,
+	delay = 5000
 } = Astro.props
 ---
 
-<custom-slider id={id} class="relative block w-full">
+<custom-slider id={id} data-delay={delay} class="relative block w-full">
 	<slot name="prev-slider-timer" />
-	<div class="absolute mt-4 h-16 w-full sm:hidden">
-		<SlideTimers
-			activeColor="white"
-			speed={5000}
-			activeSlide={null}
-			lengthSlides={elements.length}
-			colorInactive="rgba(255,255,255,0.5)"
-		/>
-	</div>
+	{
+		indexElements ? (
+			<div class="absolute mt-4 h-16 w-full sm:hidden">
+				<SlideTimers
+					activeColor="white"
+					speed={delay}
+					activeSlide={null}
+					lengthSlides={lengthElements}
+					colorInactive="rgba(255,255,255,0.5)"
+				/>
+			</div>
+		) : null
+	}
 	<div class={` h-full w-full ${classSlideContainer}`}>
 		<slot />
 	</div>
@@ -33,30 +38,34 @@ const {
 		idInterval = null
 		constructor() {
 			super()
-
+			console.log('inicia1')
 			const fadeSlider = new ShowOnHover(this.id, {
 				activeClass: 'item-index-active',
 				speed: 1500,
 				autoplay: true,
-				delay: 5000,
+				delay: Number(this.dataset.delay),
 				triggerOnAutoPlayToggle: (isPlaying) => {
-					const slideTimer = document.querySelector('slide-timer')
+					const slideTimer = document?.querySelector('slide-timer')
 
-					slideTimer.setAttribute('data-stop', (!isPlaying).toString())
+					if (slideTimer) {
+						slideTimer.setAttribute('data-stop', (!isPlaying).toString())
+					}
 				},
 				triggerOnIndexCallback: (newIndex) => {
-					const slideTimer = document.querySelector('slide-timer')
+					const slideTimer = document?.querySelector('slide-timer')
 
-					const bars = slideTimer.querySelectorAll('.fill-elem')
-					bars.forEach((element, index) => {
-						if (index > newIndex - 1) {
-							;(element as HTMLDivElement).style.width = '0%'
-						} else {
-							;(element as HTMLDivElement).style.width = '100%'
-						}
-					})
+					const bars = slideTimer?.querySelectorAll('.fill-elem')
+					if (bars) {
+						bars.forEach((element, index) => {
+							if (index > newIndex - 1) {
+								;(element as HTMLDivElement).style.width = '0%'
+							} else {
+								;(element as HTMLDivElement).style.width = '100%'
+							}
+						})
 
-					slideTimer.setAttribute('data-active-slide', newIndex)
+						slideTimer.setAttribute('data-active-slide', newIndex)
+					}
 				}
 			})
 		}

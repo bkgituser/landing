@@ -1,0 +1,96 @@
+---
+import { Trans } from 'astro-i18next/components'
+import FullVideoBg from '../../../components/template/VideoBackground.astro'
+import Loader from '@components/atom/Loader.astro'
+import CustomSlider from '@components/organisms/slider/CustomSlider.astro'
+import SliderElements from '@components/organisms/slider/SliderElements.astro'
+
+const id = 'landing-slide'
+---
+
+<>
+	<section id="hero" class="relative h-screen">
+		<!-- <Loader /> -->
+		<FullVideoBg
+			video="/assets/videos/landing.mp4"
+			preload="meta"
+			autoplay={true}
+			id="landing-video"
+		>
+			<div class="spacer h-3/5 lg:h-3/4"></div>
+			<div class="relative h-2/5 px-8 md:px-32 lg:h-1/4">
+				<CustomSlider indexElements={false} id={id} lengthElements={2} delay={8000}>
+					<SliderElements id={id} customClass="h-[70%] md:h-[55%] xl:h-[40%]" isBackground={false}>
+						<div class="absolute">
+							<h1 class="z-10 w-full px-2 py-4 pt-2 text-4xl text-white lg:text-plusMid">
+								<span class="mb-2 block w-8 border-2 border-white md:w-12"></span>
+								<Trans i18nKey="landing.carousel.title1">
+									<strong>Smart Use</strong> of <strong>Advance Composites</strong>
+								</Trans><br />
+								<Trans i18nKey="landing.carousel.title11">
+									to <strong>Boost Efficiency</strong> in <strong>Agriculture</strong>
+								</Trans>
+							</h1>
+						</div>
+						<div class="absolute">
+							<h2 class="z-10 w-full px-2 py-4 pt-2 text-4xl text-white lg:text-plusMid">
+								<span class="mb-2 block w-8 border-2 border-white md:w-12"></span>
+								<strong
+									><Trans i18nKey="landing.carousel.title2">
+										Lightweight Sprayer Booms
+									</Trans></strong
+								><br />
+								32m | 36m | 40m | 48m
+							</h2>
+						</div>
+					</SliderElements>
+				</CustomSlider>
+			</div>
+			<div
+				class="absolute bottom-0 z-40 h-2/5 w-full bg-[linear-gradient(180deg,_transparent_0%,_rgba(0,0,0,0.5)_100%)] lg:h-1/4"
+			>
+			</div>
+		</FullVideoBg>
+		<script>
+			// const video = document.querySelector('#landing-video')
+			// const loader = document.querySelector('.loader-content')
+
+			// video.onloadeddata = function () {
+			// 	loader.classList.add('hidden')
+			// }
+		</script>
+		<style>
+			swiper-slide[style*='opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;'] {
+				opacity: 0 !important;
+			}
+
+			swiper-slide[style*='opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 1500ms;'] {
+				opacity: 0 !important;
+			}
+
+			@media (min-width: 976px) {
+				swiper-slide > h1,
+				swiper-slide > h2 {
+					line-height: 3rem;
+				}
+			}
+
+			@media (min-width: 1440px) {
+				swiper-slide > h1,
+				swiper-slide > h2 {
+					line-height: 3.5rem;
+				}
+			}
+
+			@media (max-height: 699px) {
+				.spacer {
+					height: 70%;
+				}
+
+				.data-container {
+					height: 30%;
+				}
+			}
+		</style>
+	</section>
+</>
