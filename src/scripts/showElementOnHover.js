@@ -13,15 +13,17 @@ export default class ShowOnHover {
 			triggerOnAutoPlayToggle = null
 		} = config
 		this._container = document?.getElementById(containerSelector)
-
+		console.log(
+			'container: ',
+			this._container.querySelector(`#${containerSelector}-elements-container`)?.children
+		)
 		this._items = [
-			...this._container.querySelector(`#${containerSelector}-elements-container`).children
+			...this._container.querySelector(`#${containerSelector}-elements-container`)?.children
 		]
 
 		this._paginationItems = this._container?.querySelector(
 			`#${containerSelector}-index-container`
 		) && [...this._container?.querySelector(`#${containerSelector}-index-container`)?.children]
-
 		this._activeIndex = 0
 		this._speed = speed
 		this._timing = timing
