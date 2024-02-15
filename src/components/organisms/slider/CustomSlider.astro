@@ -1,0 +1,162 @@
+---
+import SlideTimers from '@components/atom/SlideTimers.astro'
+
+const {
+	lengthElements = 0,
+	indexElements = true,
+	id = 'benefit-slide',
+	height = '100%',
+	classWrapper,
+	classSlideContainer,
+	delay = 5000,
+	customSliderClass = '',
+	customSliderContainerClass = '',
+	colorInactive = 'rgba(255,255,255,0.5)',
+	activeColor = 'white',
+	circleIndexColors = 'white'
+} = Astro.props
+---
+
+<custom-slider
+	id={id}
+	data-delay={delay}
+	class={`relative block w-full ${classWrapper}`}
+	data-active-index={0}
+>
+	<slot name="prev-slider-timer" />
+	{
+		indexElements ? (
+			<div class={`absolute top-2 z-30 h-1 w-full sm:hidden ${customSliderContainerClass}`}>
+				<SlideTimers
+					speed={delay}
+					activeSlide={null}
+					lengthSlides={lengthElements}
+					activeColor={activeColor}
+					colorInactive={colorInactive}
+					customSliderClass={customSliderClass}
+					id={id}
+				/>
+			</div>
+		) : null
+	}
+	<div class={` h-full w-full ${classSlideContainer}`}>
+		<slot />
+	</div>
+	{
+		indexElements && (
+			<div class="absolute bottom-0 z-30 h-8 w-full md:hidden">
+				<div class="flex w-full items-center justify-center gap-2">
+					{Array(lengthElements)
+						.fill(null)
+						.map(() => (
+							<div
+								style={{ border: `1px solid ${circleIndexColors}` }}
+								class={`h-2 w-2 rounded-full`}
+							>
+								<div
+									style={{ background: circleIndexColors, height: '100%' }}
+									class={`indexCircle w-full bg-${circleIndexColors}`}
+								/>
+							</div>
+						))}
+				</div>
+			</div>
+		)
+	}
+</custom-slider>
+<script>
+	import ShowOnHover from '../../../scripts/showElementOnHover'
+
+	class CustomSlider extends HTMLElement {
+		idInterval = null
+		constructor() {
+			super()
+
+			const fadeSlider = new ShowOnHover(this.id, {
+				activeClass: 'item-index-active',
+				speed: 1500,
+				autoplay: true,
+				delay: Number(this.dataset.delay),
+				triggerOnAutoPlayToggle: (isPlaying) => {
+					const container = document.getElementById(this.id)
+					const slideTimer = container?.querySelector('slide-timer')
+
+					if (slideTimer) {
+						slideTimer.setAttribute('data-stop', (!isPlaying).toString())
+					}
+				},
+				triggerOnIndexCallback: (newIndex) => {
+					const container = document.getElementById(this.id)
+
+					const slideTimer = container?.querySelector('slide-timer')
+					const bars = slideTimer?.querySelectorAll('.bar')
+					const fillBars = slideTimer?.querySelectorAll('.fill-elem')
+					const indexCircles = container.querySelectorAll('.indexCircle')
+					// this is untill find a better solution
+					// this funciton transforms the styles of lineup slider
+					//when it gets to the last index
+					if (this.id == 'lineup-slider') {
+						function toggleStyleForLineUpSlider(index) {
+							const container = document?.getElementById('lineup-slider')
+							const indexContainer = container?.querySelector('#lineup-slider-index-container')
+							const title = container?.querySelector('.title-lineup')
+							const spacers = container?.querySelectorAll('.spacer')
+							if (index === 3) {
+								indexContainer?.classList.add('text-white')
+								title.classList.add('text-white')
+								spacers.forEach((elem) => elem.classList.add('bg-white'))
+								bars.forEach((elem) => {
+									;(elem as HTMLElement).firstElementChild?.classList.add('bg-white')
+									;(elem as HTMLElement).style.background = 'rgba(255,255,255,0.2)'
+								})
+							} else {
+								indexContainer?.classList.remove('text-white')
+								title.classList.remove('text-white')
+								spacers.forEach((elem) => elem.classList.remove('bg-white'))
+								bars.forEach((elem) => {
+									;(elem as HTMLElement).firstElementChild?.classList.remove('bg-white')
+									;(elem as HTMLElement).style.background = 'rgba(0,0,0,0.2)'
+								})
+							}
+						}
+
+						toggleStyleForLineUpSlider(newIndex)
+					}
+
+					container.dataset.activeIndex = newIndex
+
+					if (indexCircles) {
+						indexCircles.forEach((circle, idx) => {
+							if (idx === newIndex) {
+								;(circle as HTMLElement).style.height = '0%'
+							} else {
+								;(circle as HTMLElement).style.height = '100%'
+							}
+						})
+					}
+
+					if (fillBars) {
+						fillBars.forEach((element, index) => {
+							if (index > newIndex - 1) {
+								;(element as HTMLDivElement).style.width = '0%'
+							} else {
+								;(element as HTMLDivElement).style.width = '100%'
+							}
+						})
+
+						slideTimer.setAttribute('data-active-slide', newIndex)
+					}
+				}
+			})
+		}
+	}
+
+	let customElements: CustomElementRegistry = window.customElements
+
+	customElements.define('custom-slider', CustomSlider)
+</script>
+<style define:vars={{ height }}>
+	custom-slider {
+		height: var(--height);
+	}
+</style>

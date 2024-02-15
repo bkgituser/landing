@@ -1,0 +1,10 @@
+---
+const { id, customClass } = Astro.props
+---
+
+<div
+	class={`relative flex w-full flex-nowrap items-center sm:flex-wrap  ${customClass}`}
+	id={`${id}-index-container`}
+>
+	<slot />
+</div>

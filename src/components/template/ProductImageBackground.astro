@@ -1,0 +1,56 @@
+---
+const { mobileBg = null, desktpBg, isBlur = false } = Astro.props
+---
+
+<div class={`h-full`}>
+	<div class={`absolute h-full w-full`}>
+		<div class="mask w-full md:h-full">
+			{
+				mobileBg && (
+					<img
+						{...mobileBg}
+						alt="background"
+						class={`m-0 w-full object-contain sm:hidden ${isBlur ? 'blur-sm' : ''}`}
+						loading="lazy"
+					/>
+				)
+			}
+			<img
+				{...desktpBg}
+				alt="background"
+				class={`h-full w-full relative md:object-cover ${isBlur ? 'blur-sm' : ''}`}
+				loading="lazy"
+			/>
+		</div>
+	</div>
+
+	<slot />
+</div>
+<style>
+	.mask {
+		position: absolute;
+	}
+	.mask::after {
+		content: '';
+		position: absolute;
+		height: 40%;
+		bottom: 0;
+		background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 100%);
+		z-index: 0;
+		width: 100%;
+	}
+	@media (max-width: 768px) {
+		.mask {
+			position: relative;
+		}
+		.mask::after {
+			content: '';
+			position: absolute;
+			height: 10%;
+			bottom: 0;
+			background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+			z-index: 0;
+			width: 100%;
+		}
+	}
+</style>

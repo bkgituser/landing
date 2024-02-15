@@ -17,15 +17,17 @@ const statsData = [
 ]
 ---
 
-<section class="h-[60vh] bg-black lg:h-[520px]" id="stats">
+<section class="h-[80vh] bg-black lg:h-[520px]" id="stats">
 	<div
-		class="container mx-auto flex h-full flex-col items-start justify-center gap-8 px-16 md:gap-16"
+		class="container mx-auto flex h-full flex-col items-start justify-center gap-16 px-4 sm:px-8 md:gap-16 md:px-16"
 	>
-		<span class="mb-2 block w-4 border-2 border-white md:w-10"></span>
-		<div class="kpi flex w-full flex-wrap items-start justify-evenly">
+		<span class="mb-2 block w-10 border-2 border-white"></span>
+		<div
+			class="kpi flex w-full flex-wrap items-center justify-center gap-16 md:items-start md:justify-evenly md:gap-0"
+		>
 			{
 				statsData.map((stat, index) => (
-					<div class="table-cell-stat1 p-4  align-top text-white">
+					<div class="table-cell-stat1 align-top  text-white md:p-4">
 						<span class="flex items-center justify-center gap-2 text-center text-3xl font-bold md:text-5xl">
 							<p>+</p> <p id={`${index}-kpi-stat`}>{stat.kpiValue}</p>
 						</span>
@@ -39,7 +41,7 @@ const statsData = [
 	</div>
 </section>
 <style>
-	@media (max-width: 1600px) and (max-height: 900px) {
+	@media (min-width: 480px) and (max-width: 1600px) and (max-height: 900px) {
 		.container {
 			max-width: none;
 			padding-left: 6rem;

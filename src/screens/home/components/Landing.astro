@@ -6,16 +6,16 @@ import Loader from '@components/atom/Loader.astro'
 
 <>
 	<section id="hero" class="h-screen">
-		<Loader />
+		<!-- <Loader /> -->
 		<FullVideoBg
 			video="/assets/videos/landing.mp4"
 			preload="meta"
 			autoplay={true}
 			id="landing-video"
 		>
-			<div class="spacer h-3/5 lg:h-3/4"></div>
+			<div class="spacer h-3/5 sm:h-3/4"></div>
 			<div
-				class="data-container relative z-40 h-2/5 bg-[linear-gradient(180deg,_transparent_0%,_rgba(0,0,0,0.5)_100%)] px-8 md:px-32 lg:h-1/4"
+				class="data-container relative z-40 h-2/5 bg-[linear-gradient(180deg,_transparent_0%,_rgba(0,0,0,0.5)_100%)] px-8 sm:h-1/4 md:px-32"
 			>
 				<swiper-container
 					delay="4000"
@@ -54,12 +54,12 @@ import Loader from '@components/atom/Loader.astro'
 		</FullVideoBg>
 	</section>
 	<script>
-		const video = document.querySelector('#landing-video')
-		const loader = document.querySelector('.loader-content')
+		// const video = document.querySelector('#landing-video')
+		// const loader = document.querySelector('.loader-content')
 
-		video.onloadeddata = function () {
-			loader.classList.add('hidden')
-		}
+		// video.onloadeddata = function () {
+		// 	loader.classList.add('hidden')
+		// }
 	</script>
 	<style>
 		swiper-slide[style*='opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;'] {

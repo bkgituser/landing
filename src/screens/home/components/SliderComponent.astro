@@ -29,83 +29,76 @@ const data = [
 		data: 'landing.benefits.item6.description'
 	}
 ]
+
+const { elements = data, indexElements = true, id = 'benefit-slide' } = Astro.props
 ---
 
-<section id="benefits" class="h-screen overflow-hidden">
-	<FullVideoBg video="/assets/videos/video-benefits.mp4" autoplay={true}>
-		<div
-			class="mx-auto flex h-full flex-col bg-[linear-gradient(180deg,_rgba(0,_0,_0,_0.00)_0%,_rgba(0,_0,_0,_0.40)_100%)] p-8 pt-16 lg:p-32"
-			id="benefit-slide"
-		>
-			<SlideTimers
-				activeColor="white"
-				speed={5000}
-				activeSlide={null}
-				lengthSlides={data.length}
-				colorInactive="rgba(255,255,255,0.5)"
-			/>
-			<div
-				class="benefits-description relative mt-4 flex h-full w-full flex-col justify-between sm:h-auto sm:items-center sm:justify-end"
-			>
-				<div class="relative border-2 border-red-500">
-					{
-						data.map((item, idx) => {
-							return (
-								<div data-display-element={idx} class="item absolute sm:bottom-[100%]">
-									<span class="mb-2 block w-10 border-2 border-white" />
-									{t(item.data)
-										.split('\n')
-										.map((description) => {
-											return (
-												<>
-													<p class="text-left text-plusMid font-bold leading-10 text-white md:text-3xl lg:leading-10 xl:text-plusMid">
+<div id={id}>
+	<SlideTimers
+		activeColor="white"
+		speed={5000}
+		activeSlide={null}
+		lengthSlides={data.length}
+		colorInactive="rgba(255,255,255,0.5)"
+	/>
+	<div class="relative">
+		<div class="border-2 border-red-500">
+			{
+				elements.map((item, idx) => {
+					return (
+						<div data-display-element={idx} class="item absolute">
+							<span class="mb-2 block w-10 border-2 border-white" />
+							{t(item.data)
+								.split('\n')
+								.map((description) => {
+									return (
+										<>
+											<p class="text-left text-plusMid font-bold leading-10 text-white md:text-3xl lg:leading-10 xl:text-plusMid">
+												{description}
+											</p>
+										</>
+									)
+								})}
+						</div>
+					)
+				})
+			}
+		</div>
+		{
+			indexElements && (
+				<div class="">
+					{elements.map((item, idx) => {
+						return (
+							<div class="index-container">
+								<div data-index-element={idx} class="item-index-active">
+									<div class="item-data relative z-20 ">
+										{t(item.label)
+											.split('\n')
+											.map((description) => {
+												return (
+													<p
+														style={{ lineHeight: '0rem !important' }}
+														class="xl:leading-[1.1rem]! my-0 px-4 py-2 text-left text-lg md:text-base md:leading-[0.8rem] xl:text-lg xxl:text-xl"
+													>
 														{description}
 													</p>
-												</>
-											)
-										})}
-								</div>
-							)
-						})
-					}
-				</div>
-				<div class="benefits-index flex flex-nowrap items-center justify-between">
-					{
-						data.map((item, idx) => {
-							return (
-								<div class="index-container flex shrink-0 basis-[100%] justify-center sm:static sm:shrink sm:basis-auto">
-									<div
-										data-index-element={idx}
-										class="item-benefit  relative flex h-[120px] w-[189px] cursor-pointer flex-col items-center justify-center text-xl text-white transition-all duration-300 ease-in md:h-[85px] md:w-[140px] xl:h-[120px] xl:w-[189px]"
-									>
-										<div class="item-data relative z-20 ">
-											{t(item.label)
-												.split('\n')
-												.map((description) => {
-													return (
-														<p
-															style={{ lineHeight: '0rem !important' }}
-															class="xl:leading-[1.1rem]! my-0 px-4 py-2 text-left text-lg md:text-base md:leading-[0.8rem] xl:text-lg xxl:text-xl"
-														>
-															{description}
-														</p>
-													)
-												})}
-										</div>
+												)
+											})}
 									</div>
 								</div>
-							)
-						})
-					}
+							</div>
+						)
+					})}
 				</div>
-			</div>
-		</div>
-	</FullVideoBg>
-</section>
+			)
+		}
+	</div>
+</div>
+
 <script>
 	import ShowOnHover from '../../../scripts/showElementOnHover'
 	const fadeSlider = new ShowOnHover('#benefit-slide', {
-		activeClass: 'item-benefit-active',
+		activeClass: 'item-index-active',
 		speed: 1500,
 		autoplay: true,
 		delay: 5000,
@@ -116,6 +109,8 @@ const data = [
 		},
 		triggerOnIndexCallback: (newIndex) => {
 			const slideTimer = document.querySelector('slide-timer')
+
+			//
 			if (newIndex === 0) {
 				const bars = slideTimer.querySelectorAll('.fill-elem')
 				bars.forEach((element) => {

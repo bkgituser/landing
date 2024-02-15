@@ -1,10 +1,10 @@
 ---
-const { mobileBg, desktpBg, extraclass } = Astro.props
+const { desktpBg, extraclass, extraClassImg = 'object-cover' } = Astro.props
 ---
 
-<div class={`h-full ${extraclass}`}>
-	<div class="absolute h-full w-full">
-		<img {...desktpBg} alt="background" class="h-full w-full object-cover" loading="lazy" />
+<div class={`h-full`}>
+	<div class={`absolute h-full w-full ${extraclass}`}>
+		<img {...desktpBg} alt="background" class={`h-full w-full ${extraClassImg}`} loading="lazy" />
 	</div>
 
 	<slot />

@@ -32,13 +32,13 @@ const feedbackData = [
 				<div
 					class={`flex flex-wrap items-center xl:h-[700px] ${index % 2 === 0 ? 'flex-row bg-white' : 'flex-row-reverse bg-black'}`}
 				>
-					<div class="flex h-full flex-col justify-center px-8 py-8 md:px-0 md:py-8 lg:basis-1/2 lg:px-16 xl:px-32">
+					<div class="flex h-full flex-col justify-center px-6 pb-20 pt-28 md:px-0 md:py-8 lg:basis-1/2 lg:px-16 lg:py-0 xl:px-24">
 						<div
-							class={`text-base font-semibold md:text-xl ${index % 2 === 0 ? 'text-darkGrey' : 'text-white'}`}
+							class={`mb-12 text-base md:text-xl ${index % 2 === 0 ? 'text-darkGrey' : 'text-white'}`}
 						>
 							{t('landing.feedback.label')}
 						</div>
-						<div class="relative">
+						<div class="relative mb-8 sm:mb-2">
 							<p
 								class={`text-2xl font-semibold md:text-4xl ${index % 2 === 0 ? 'text-black' : 'text-white'} quote relative`}
 							>
@@ -51,7 +51,11 @@ const feedbackData = [
 					</div>
 					<div class="w-full lg:basis-1/2">
 						<div class="xl:h-[700px]">
-							<Image src={item.img} alt="BK product" class="h-full w-full object-cover" />
+							<Image
+								src={item.img}
+								alt="BK product"
+								class="h-full w-full object-contain lg:object-fill xl:object-cover"
+							/>
 						</div>
 					</div>
 				</div>
@@ -102,35 +106,35 @@ const feedbackData = [
 		.quote:before {
 			content: '\201C';
 			color: #7b7b7b;
-			font-size: 48px;
+			font-size: 96px;
 			position: absolute;
-			left: -20px;
-			top: -10px;
+			left: 0px;
+			top: 0px;
 		}
 		.quote:after {
 			content: '\201D';
 			color: #7b7b7b;
-			font-size: 48px;
+			font-size: 96px;
 			line-height: 0;
 			position: relative;
-			top: 10px;
+			top: 50px;
 			right: 5px;
 		}
 		.quote:before {
 			content: '\201C';
 			color: #7b7b7b;
-			font-size: 48px;
+			font-size: 96px;
 			position: absolute;
-			left: -20px;
-			top: -10px;
+			left: 0px;
+			top: 0px;
 		}
 		.quote:after {
 			content: '\201D';
 			color: #7b7b7b;
-			font-size: 48px;
+			font-size: 96px;
 			line-height: 0;
 			position: relative;
-			top: 10px;
+			top: 50px;
 			right: 5px;
 		}
 	}

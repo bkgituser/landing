@@ -23,22 +23,22 @@ const columns = [
 ---
 
 <section class="min-h-screen bg-white" id="highlights">
-	<div class="container mx-auto px-4 pt-16 md:px-0 lg:pb-28 lg:pt-32 xl:px-10 xl:pt-48">
+	<div class="container mx-auto px-8 pb-28 pt-32 md:px-0 lg:pt-32 xl:px-10 xl:pt-48">
 		<div>
-			<h3 class="highlight-title opacity-0">
-				<span class="bg-black p-4 text-mid font-bold text-white">
-					{t('landing.highlights.title')}
-				</span>
+			<h3
+				class="highlight-title mx-auto bg-black p-4 text-center text-2xl font-bold text-white opacity-0 sm:inline-block md:p-4 md:text-mid"
+			>
+				{t('landing.highlights.title')}
 			</h3>
 		</div>
 		<div class="flex h-32 items-center lg:h-48">
 			<img src="/assets/icons/arrow.svg" alt="arrow" class="ml-6" loading="lazy" />
 		</div>
-		<div class="flex flex-wrap items-start justify-between p-6 md:p-0 xl:p-6">
+		<div class="flex flex-wrap items-start justify-between px-8 md:p-0 xl:p-6">
 			{
 				columns.map((col, index) => (
 					<>
-						<div class="column-highlight relative mb-12 opacity-0 md:max-w-[204px] xl:max-w-[300px] ">
+						<div class="column-highlight relative opacity-0 md:mb-12 md:max-w-[204px] xl:max-w-[300px] ">
 							<div class="mb-4 text-2xl font-bold">{t(col.label)}</div>
 							<p
 								class={`text-justify text-xl text-black ${index !== columns.length - 1 ? '' : ''} `}
@@ -52,7 +52,7 @@ const columns = [
 							) : null}
 						</div>
 						{index !== columns.length - 1 && (
-							<div class="border-black-200 mt-12 h-[160px] border-r-2" />
+							<div class="border-black-200 my-8 h-2 w-full border-t-2 lg:mt-12  lg:h-[160px] lg:w-0 lg:border-r-2" />
 						)}
 					</>
 				))
@@ -61,7 +61,7 @@ const columns = [
 	</div>
 </section>
 <style>
-	@media (max-width: 1600px) and (max-height: 900px) {
+	@media (min-width: 480px) and (max-width: 1600px) and (max-height: 900px) {
 		.container {
 			max-width: none;
 			padding-left: 6rem;
