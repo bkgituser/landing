@@ -6,22 +6,34 @@ const {
 	indexElements = true,
 	id = 'benefit-slide',
 	height = '100%',
+	classWrapper,
 	classSlideContainer,
-	delay = 5000
+	delay = 5000,
+	customSliderClass = '',
+	customSliderContainerClass = '',
+	colorInactive = 'rgba(255,255,255,0.5)',
+	activeColor = 'white'
 } = Astro.props
 ---
 
-<custom-slider id={id} data-delay={delay} class="relative block w-full">
+<custom-slider
+	id={id}
+	data-delay={delay}
+	class={`relative block w-full ${classWrapper}`}
+	data-active-index={0}
+>
 	<slot name="prev-slider-timer" />
 	{
 		indexElements ? (
-			<div class="absolute mt-4 h-16 w-full sm:hidden">
+			<div class={`absolute top-2 z-50 h-1 w-full sm:hidden ${customSliderContainerClass}`}>
 				<SlideTimers
-					activeColor="white"
 					speed={delay}
 					activeSlide={null}
 					lengthSlides={lengthElements}
-					colorInactive="rgba(255,255,255,0.5)"
+					activeColor={activeColor}
+					colorInactive={colorInactive}
+					customSliderClass={customSliderClass}
+					id={id}
 				/>
 			</div>
 		) : null
@@ -30,7 +42,6 @@ const {
 		<slot />
 	</div>
 </custom-slider>
-
 <script>
 	import ShowOnHover from '../../../scripts/showElementOnHover'
 
@@ -38,25 +49,61 @@ const {
 		idInterval = null
 		constructor() {
 			super()
-			console.log('inicia1')
+			console.log('delay: ', Number(this.dataset.delay))
 			const fadeSlider = new ShowOnHover(this.id, {
 				activeClass: 'item-index-active',
 				speed: 1500,
 				autoplay: true,
 				delay: Number(this.dataset.delay),
 				triggerOnAutoPlayToggle: (isPlaying) => {
-					const slideTimer = document?.querySelector('slide-timer')
+					const container = document.getElementById(this.id)
+					const slideTimer = container?.querySelector('slide-timer')
 
 					if (slideTimer) {
 						slideTimer.setAttribute('data-stop', (!isPlaying).toString())
 					}
 				},
 				triggerOnIndexCallback: (newIndex) => {
-					const slideTimer = document?.querySelector('slide-timer')
+					const container = document.getElementById(this.id)
 
-					const bars = slideTimer?.querySelectorAll('.fill-elem')
-					if (bars) {
-						bars.forEach((element, index) => {
+					const slideTimer = container?.querySelector('slide-timer')
+					const bars = slideTimer?.querySelectorAll('.bar')
+					const fillBars = slideTimer?.querySelectorAll('.fill-elem')
+					// this is untill find a better solution
+					// this funciton transforms the styles of lineup slider
+					//when it gets to the last index
+					if (this.id == 'lineup-slider') {
+						function toggleStyleForLineUpSlider(index) {
+							const container = document?.getElementById('lineup-slider')
+							const indexContainer = container?.querySelector('#lineup-slider-index-container')
+							const title = container?.querySelector('.title-lineup')
+							const spacers = container?.querySelectorAll('.spacer')
+							if (index === 3) {
+								indexContainer?.classList.add('text-white')
+								title.classList.add('text-white')
+								spacers.forEach((elem) => elem.classList.add('bg-white'))
+								bars.forEach((elem) => {
+									elem.firstElementChild.classList.add('bg-white')
+									elem.style.background = 'rgba(255,255,255,0.2)'
+								})
+							} else {
+								indexContainer?.classList.remove('text-white')
+								title.classList.remove('text-white')
+								spacers.forEach((elem) => elem.classList.remove('bg-white'))
+								bars.forEach((elem) => {
+									elem.firstElementChild.classList.remove('bg-white')
+									elem.style.background = 'rgba(0,0,0,0.2)'
+								})
+							}
+						}
+
+						toggleStyleForLineUpSlider(newIndex)
+					}
+
+					container.dataset.activeIndex = newIndex
+
+					if (fillBars) {
+						fillBars.forEach((element, index) => {
 							if (index > newIndex - 1) {
 								;(element as HTMLDivElement).style.width = '0%'
 							} else {

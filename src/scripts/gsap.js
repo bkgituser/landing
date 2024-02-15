@@ -272,7 +272,6 @@ class App {
 				scrub: false
 			},
 			onStart: () => {
-				console.log('ON START')
 				incrementCounter('0-kpi-stat', 100, 150, 5000)
 				incrementCounter('1-kpi-stat', 5999900, 6000000, 200000000)
 				incrementCounter('2-kpi-stat', 0, 20, 1500)

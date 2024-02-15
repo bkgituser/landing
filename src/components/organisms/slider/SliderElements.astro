@@ -1,10 +1,17 @@
 ---
-const { id, customClass = 'h-1/2', isBackground } = Astro.props
+const { id, customClass, isBackground } = Astro.props
 ---
 
 <div
 	class:list={[
-		{ absolute: isBackground, relative: !isBackground, block: !isBackground },
+		{
+			absolute: isBackground,
+			relative: !isBackground,
+			'w-full': isBackground,
+			'h-full': isBackground,
+			'inset-0': isBackground,
+			block: !isBackground
+		},
 		customClass
 	]}
 	id={`${id}-elements-container`}

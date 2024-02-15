@@ -1,5 +1,6 @@
 ---
-const { lengthSlides, activeSlide, speed, activeColor, colorInactive } = Astro.props
+const { lengthSlides, activeSlide, speed, activeColor, colorInactive, customSliderClass, id } =
+	Astro.props
 ---
 
 <slide-timer
@@ -7,11 +8,11 @@ const { lengthSlides, activeSlide, speed, activeColor, colorInactive } = Astro.p
 	data-active-color={activeColor}
 	data-speed={speed}
 	data-stop="false"
-	id="benefits-timer"
+	id={`${id}-slider-timer`}
 	class="block"
 >
 	<div class="w-full">
-		<div class="flex justify-between gap-2">
+		<div class={`flex justify-between gap-2 ${customSliderClass}`}>
 			{
 				Array(lengthSlides)
 					.fill(null)

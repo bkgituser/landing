@@ -72,18 +72,18 @@
             "products": {
                 "item1": {
                     "model": "BK 32m",
-                    "technical": "Total wing weight 334 kg | 736 lbs",
-                    "description": "Compatible with: Machines from 210 cm gauge. Ideal for replacing 21 to 28 m steel booms, supports selective application systems across the entire working width."
+                    "technical": "Total wing weight 334 kg | 736 lbs. Compatible with: Machines from 210 cm gauge. ",
+                    "description": "Ideal for replacing 21 to 28 m steel booms. Improve productivity and better machine performance."
                 },
                 "item2": {
                     "model": "BK 36m",
-                    "technical": "Total wing weight 343 kg | 756 lbs",
-                    "description": " Compatible with: Machines from 260 cm gauge. Supports selective application systems across the entire working width."
+                    "technical": "Total wing weight 343 kg | 756 lbs. Compatible with: Machines from 260 cm gauge.",
+                    "description": "The best combination of lightness and length. Ideal for full spot spraying systems."
                 },
                 "item3": {
                     "model": "BK 40m",
-                    "technical": "Total wing weight 360 kg | 793 lbs",
-                    "description": "Compatible with: Large sprayers.\n Supports selective application systems across the entire working width."
+                    "technical": "Total wing weight 360 kg | 793 lbs. Compatible with: Large sprayers.",
+                    "description": "Our flagship product. A great combination of length and weight."
                 },
                 "item4": {
                     "model": "BK 48m",
