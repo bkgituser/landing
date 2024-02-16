@@ -75,21 +75,31 @@ class App {
 	}
 
 	_logoAnimation() {
-		const tl = gsap.timeline({
-			scrollTrigger: {
-				trigger: '#hero',
-				start: 'top top',
-				end: '200px top',
-				scrub: true
-			}
-		})
+		const mm = gsap.matchMedia()
+		mm.add(
+			{
+				isMobile: '(max-width: 480px)',
+				isNotMobile: '(min-width: 481px)',
+				reduceMotion: '(prefers-reduce-motion: no-preference)'
+			},
+			(context) => {
+				const tl = gsap.timeline({
+					scrollTrigger: {
+						trigger: '#hero',
+						start: 'top top',
+						end: '200px top',
+						scrub: true
+					}
+				})
 
-		tl.to('header img', {
-			width: '114px',
-			height: '85px',
-			duration: 1,
-			ease: 'expo.in'
-		})
+				tl.to('header img', {
+					width: context.isMobile ? '114px' : '96px',
+					height: context.isMobile ? '85px' : '64px',
+					duration: 1,
+					ease: 'expo.in'
+				})
+			}
+		)
 	}
 
 	_smartUseAnimation() {

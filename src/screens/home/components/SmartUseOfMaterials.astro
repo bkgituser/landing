@@ -117,7 +117,40 @@ const optimizedBackground = await getImage({ src: smartUseBg, format: 'webp' })
 			top: 25%;
 		}
 	}
-	@media (max-width: 480px) and (max-height: 740px) {
+	@media (max-width: 390px) and (max-height: 740px) {
+		.container {
+			padding-top: 4rem;
+		}
+
+		.feature-smart-1 {
+			margin-top: 1rem;
+		}
+
+		.feature-smart-2 {
+			left: 5%;
+		}
+
+		.position-zoom-2 > .absolute {
+			top: 58%;
+		}
+
+		.bind-zoom1 {
+			height: 95%;
+		}
+		.bind-zoom2 {
+			height: 35%;
+		}
+
+		.bind-zoom2 {
+			top: -35%;
+		}
+
+		.bind-zoom1 {
+			bottom: -95%;
+		}
+	}
+
+	@media (min-width: 391px) and (max-width: 480px) and (max-height: 740px) {
 		.container {
 			padding-top: 6rem;
 		}
