@@ -1,7 +1,9 @@
 ---
 import Nav from '../molecules/Nav.astro'
 import Logo from '../../img/logo-bk.png'
+import { t } from 'i18next'
 import { Image } from 'astro:assets'
+import { LanguageSelector } from 'astro-i18next/components'
 const links = [
 	{
 		label: 'landing.nav.home',
@@ -33,26 +35,56 @@ const links = [
 <header
 	class="fixed inset-0 z-50 flex h-[60px] items-center justify-between overflow-visible px-7 md:px-0"
 >
-	<div class="fixed">
-		<Image
-			src={Logo}
-			width={200}
-			height={150}
-			alt="Logo BK"
-			class="md:mr-full relative top-0 h-16 w-24 md:ml-32 md:h-24 md:w-32 lg:h-auto lg:w-auto"
-		/>
-	</div>
+	<Image
+		src={Logo}
+		width={200}
+		height={150}
+		alt="Logo BK"
+		class="md:mr-full relative top-0 h-16 w-24 md:ml-32 md:h-24 md:w-32 lg:h-auto lg:w-auto"
+	/>
 	<Nav links={links} />
+
 	<!-- Hamburguer Icon -->
 	<button
 		id="menu-btn"
 		aria-label="hamburguer menu"
-		class="hamburguer ml-auto mt-6 block focus:outline-none md:hidden"
+		class="hamburguer relative z-[60] ml-auto mt-2 block focus:outline-none md:hidden"
 	>
 		<span class="hamburguer-top"></span>
 		<span class="hamburguer-middle"></span>
 		<span class="hamburguer-bottom"></span>
 	</button>
+
+	<!-- Overlay -->
+	<div
+		id="floating-menu"
+		class="invisible absolute inset-0 z-50 flex h-screen w-full overflow-hidden bg-black p-4 opacity-0 transition-all duration-200 ease-in
+		md:hidden"
+	>
+		<nav class="flex w-full items-center justify-between">
+			<LanguageSelector
+				languageMapping={{ en: 'EN', pt: 'PT' }}
+				id="lang-selector"
+				class="mb-auto cursor-pointer bg-transparent text-2xl text-white hover:font-semibold"
+			/>
+			<ul>
+				{
+					links.map((link) => {
+						return (
+							<li class="my-6 text-right">
+								<a
+									href={link.to}
+									class="landing-link-mobile p-4 text-[34px] font-normal text-white max-[1140px]:p-2"
+								>
+									{t(link.label)}
+								</a>
+							</li>
+						)
+					})
+				}
+			</ul>
+		</nav>
+	</div>
 </header>
 <style>
 	@media (max-width: 768px) {
@@ -103,3 +135,42 @@ const links = [
 		}
 	}
 </style>
+<script>
+	const btn = document.getElementById('menu-btn')
+	const nav = document.getElementById('floating-menu')
+	const links = document.querySelectorAll('.landing-link-mobile')
+
+	function toggleMenu() {
+		btn.classList.toggle('open')
+		nav.classList.toggle('opacity-0')
+		nav.classList.toggle('opacity-80')
+		nav.classList.toggle('invisible')
+		nav.classList.toggle('visible')
+	}
+
+	btn.addEventListener('click', () => {
+		toggleMenu()
+	})
+
+	links.forEach((link) => {
+		link.addEventListener('click', () => {
+			toggleMenu()
+		})
+	})
+
+	const blurredImagesDivs = document.querySelectorAll('.blurred-img')
+
+	function loaded(i) {
+		blurredImagesDivs?.[i].classList.add('loaded')
+	}
+
+	blurredImagesDivs.forEach((blr, idx) => {
+		const img = blr.querySelector('img')
+
+		if (img.complete) {
+			loaded(idx)
+		} else {
+			img.addEventListener('load', () => loaded(idx))
+		}
+	})
+</script>

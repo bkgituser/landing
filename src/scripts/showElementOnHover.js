@@ -80,7 +80,7 @@ export default class InstagramSlider {
 						this._removeActiveIndex(this._activeIndex)
 						this._setActive(index)
 						this._activeIndex = index
-						// event.stopPropagation()
+						event.stopPropagation()
 					})
 				}
 			})
