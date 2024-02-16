@@ -5,5 +5,5 @@ import tailwind from '@astrojs/tailwind'
 
 // https://astro.build/config
 export default defineConfig({
-	integrations: [astroI18next(), tailwind(), react()]
+	integrations: [astroI18next(), tailwind({ config: { applyBaseStyles: false } }), react()]
 })

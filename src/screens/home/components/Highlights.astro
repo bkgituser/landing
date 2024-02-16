@@ -23,10 +23,10 @@ const columns = [
 ---
 
 <section class="min-h-screen bg-white" id="highlights">
-	<div class="container mx-auto px-8 pb-28 pt-32 md:px-0 lg:pt-32 xl:px-10 xl:pt-48">
-		<div>
+	<div class="container-screen pb-28 pt-32 lg:pt-32 xl:pt-48">
+		<div class="relative px-4 md:-left-2 md:block">
 			<h3
-				class="highlight-title mx-auto bg-black p-4 text-center text-2xl font-bold text-white opacity-0 sm:inline-block md:p-4 md:text-mid"
+				class="highlight-title mx-auto bg-black py-5 text-center text-2xl font-bold text-white opacity-0 sm:inline-block md:text-mid"
 			>
 				{t('landing.highlights.title')}
 			</h3>
@@ -34,19 +34,19 @@ const columns = [
 		<div class="flex h-32 items-center lg:h-48">
 			<img src="/assets/icons/arrow.svg" alt="arrow" class="ml-6" loading="lazy" />
 		</div>
-		<div class="flex flex-wrap items-start justify-between px-8 md:p-0 xl:p-6">
+		<div class="flex flex-wrap items-start justify-center px-12 md:justify-between">
 			{
 				columns.map((col, index) => (
 					<>
-						<div class="column-highlight relative opacity-0 md:mb-12 md:max-w-[204px] xl:max-w-[300px] ">
+						<div class="column-highlight relative  opacity-0 md:mb-12 md:max-w-[204px] xl:max-w-[245px] xxl:xl:max-w-[275px]">
 							<div class="mb-4 text-2xl font-bold">{t(col.label)}</div>
 							<p
-								class={`text-justify text-xl text-black ${index !== columns.length - 1 ? '' : ''} `}
+								class={`text-justify text-xl text-black md:text-left ${index !== columns.length - 1 ? '' : ''} `}
 							>
 								{t(col.content)}
 							</p>
 							{col?.button ? (
-								<button class="mt-8 rounded-lg bg-black px-6 py-4 font-bold text-white">
+								<button class="mt-20 rounded-lg bg-black px-6 py-4 font-bold text-white">
 									{t(col.button)}
 								</button>
 							) : null}

@@ -3,7 +3,6 @@ import { Trans } from 'astro-i18next/components'
 import { t } from 'i18next'
 import Placeholder from '../../../img/placeholder-ourvision.png'
 import VideoBackground from '../../../components/template/VideoBackground.astro'
-// https://ik.imagekit.io/6f82hwfl4/
 ---
 
 <section id="our-vision">
@@ -19,12 +18,10 @@ import VideoBackground from '../../../components/template/VideoBackground.astro'
 			<div
 				class="videoMask absolute inset-0 h-full w-full bg-[linear-gradient(180deg,_rgba(0,_0,_0,_0.00)_0%,_rgba(0,_0,_0,_0.40)_100%)]"
 			>
-				<div
-					class="container relative z-10 mx-auto flex h-full flex-col items-start justify-center px-6 py-4 md:px-0 xl:px-16"
-				>
+				<div class="container-screen z-10 mx-auto flex h-full flex-col items-start justify-center">
 					<div class="content relative z-10 xl:w-3/4">
 						<p
-							class="ourvision-line py-8 text-lg font-semibold text-white drop-shadow-lg md:text-2xl md:drop-shadow-none"
+							class="ourvision-line py-4 text-lg font-semibold text-white drop-shadow-lg md:text-2xl md:drop-shadow-none"
 						>
 							{t('landing.ourVision.badge')}
 						</p>
@@ -32,7 +29,7 @@ import VideoBackground from '../../../components/template/VideoBackground.astro'
 							class="ourvision-line block w-5 border-2 border-white drop-shadow-lg md:w-10 md:drop-shadow-none"
 						></span>
 						<h3
-							class="ourvision-line py-4 text-2xl font-semibold text-white drop-shadow-lg md:text-plusMid md:drop-shadow-none"
+							class="ourvision-line pb-4 pt-5 text-2xl font-semibold text-white drop-shadow-lg md:text-plusMid md:drop-shadow-none"
 						>
 							{t('landing.ourVision.title')}
 						</h3>
@@ -52,7 +49,7 @@ import VideoBackground from '../../../components/template/VideoBackground.astro'
 								))
 						}
 
-						<div class="mt-10 md:mt-20">
+						<div class="mt-10 md:mt-12">
 							<button
 								class="ourvision-line playButton flex items-center gap-4 bg-black px-8 py-2 text-white md:px-12 md:py-4"
 							>

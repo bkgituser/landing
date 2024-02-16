@@ -18,9 +18,7 @@ const statsData = [
 ---
 
 <section class="h-[80vh] bg-black lg:h-[520px]" id="stats">
-	<div
-		class="container mx-auto flex h-full flex-col items-start justify-center gap-16 px-4 sm:px-8 md:gap-16 md:px-16"
-	>
+	<div class="container-screen flex h-full flex-col items-start justify-center gap-16 md:gap-16">
 		<span class="mb-2 block w-10 border-2 border-white"></span>
 		<div
 			class="kpi flex w-full flex-wrap items-center justify-center gap-16 md:items-start md:justify-evenly md:gap-0"
@@ -28,11 +26,11 @@ const statsData = [
 			{
 				statsData.map((stat, index) => (
 					<div class="table-cell-stat1 align-top  text-white md:p-4">
-						<span class="flex items-center justify-center gap-2 text-center text-3xl font-bold md:text-5xl">
+						<span class="flex items-center justify-center gap-2 text-center text-5xl font-bold">
 							<p>+</p> <p id={`${index}-kpi-stat`}>{stat.kpiValue}</p>
 						</span>
 						{stat.kpiLabel.map((p) => (
-							<p class="text-center text-xl md:text-2xl">{t(p)}</p>
+							<p class="text-center text-2xl">{t(p)}</p>
 						))}
 					</div>
 				))

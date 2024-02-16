@@ -4,29 +4,31 @@ import { t } from 'i18next'
 
 <section class="min-h-screen bg-white" id="repairability">
 	<div
-		class="container mx-auto flex flex-wrap items-start justify-between pb-14 pt-16 sm:px-8 md:px-0 md:pb-28 md:pt-32 xl:px-20 xl:pt-48"
+		class="md:container-screen flex flex-wrap items-start justify-between pb-14 pt-16 md:pb-28 md:pt-32 xl:pt-48"
 	>
-		<div class="mb-24 px-16 sm:mb-0 lg:w-1/2">
+		<div class="container-screen md:px-auto mb-24 px-16 sm:px-20 md:px-0 lg:mb-0 lg:w-1/2">
 			<div>
-				<h3
-					class="repairability-title mb-9 text-2xl font-semibold text-black opacity-0 md:text-4xl"
-				>
+				<h3 class="repairability-title text-2xl font-semibold text-black opacity-0 md:text-4xl">
 					{t('landing.repairability.title')}
 				</h3>
 			</div>
-			<div class="mt-8">
-				<p class="repairability-description max-w-md text-justify text-2xl opacity-0">
+			<div class="mt-5 md:mt-4">
+				<p class="repairability-description text-left text-2xl opacity-0 xl:max-w-[345px]">
 					{t('landing.repairability.description')}
 				</p>
 			</div>
-			<div class="repairability-arrow flex h-44 items-center opacity-0 xl:h-40">
+			<div class="repairability-arrow flex h-40 items-center opacity-0">
 				<img src="/assets/icons/arrow.svg" alt="arrow" loading="lazy" />
 			</div>
 			<div class="flex-start flex flex-wrap gap-4">
-				<button class="w-full bg-black px-8 py-4 text-xs font-semibold text-white sm:w-auto">
+				<button
+					class="w-full bg-black px-4 py-4 text-[10.38px] font-semibold text-white sm:w-[165px] lg:px-0"
+				>
 					{t('landing.repairability.downloadButton1')}
 				</button>
-				<button class="w-full bg-black px-8 py-4 text-xs font-semibold text-white sm:w-auto">
+				<button
+					class="w-full bg-black px-4 py-4 text-[10.38px] font-semibold text-white sm:w-[165px] lg:px-0"
+				>
 					{t('landing.repairability.downloadButton2')}
 				</button>
 			</div>

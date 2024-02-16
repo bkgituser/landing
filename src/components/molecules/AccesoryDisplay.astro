@@ -12,12 +12,18 @@ const optimizedBackground = await getImage({ src: image, format: 'webp' })
 		<ImageBackground desktpBg={optimizedBackground}>
 			<div class="relative z-20 mx-auto flex h-full items-end justify-start text-black">
 				<div
-					class={`display-data-container ${direction === 'right' ? 'flex flex-col items-end justify-start' : 'flex flex-col items-start justify-start'} w-full py-8 md:py-24 bg-[linear-gradient(180deg,_transparent_0%,_rgba(0,0,0,0.5)_100%)] px-6  md:px-32`}
+					class={`display-data-container ${direction === 'right' ? 'flex flex-col items-end justify-start' : 'flex flex-col items-start justify-start'} w-full pb-12 md:py-24 bg-[linear-gradient(180deg,_transparent_0%,_rgba(0,0,0,0.5)_100%)] px-6  md:px-28	`}
 				>
-					{badge ? <p class="py-4 font-semibold text-white">{t(badge)}</p> : <div class="h-16" />}
-					<span class="mb-2 block w-8 border-2 border-white"></span>
+					{
+						badge ? (
+							<p class="pb-2 text-[20px] font-bold text-white">{t(badge)}</p>
+						) : (
+							<div class="h-16" />
+						)
+					}
+					<span class="mb-2 block w-9 border-2 border-white"></span>
 					<h3
-						class={`pb-2 ${direction === 'right' ? 'text-right' : 'text-left'} text-2xl md:text-plusMid font-bold text-white leading-10`}
+						class={` ${direction === 'right' ? 'text-right' : 'text-left'} text-plusMid font-bold text-white leading-10`}
 					>
 						{
 							t(featureTitle)
@@ -31,18 +37,18 @@ const optimizedBackground = await getImage({ src: image, format: 'webp' })
 						}
 					</h3>
 					<p
-						class={`${direction === 'right' ? 'text-right' : 'text-left'} mb-6 lg:w-1/2 pt-4 text-lg md:text-2xl text-white`}
+						class={`${direction === 'right' ? 'text-right' : 'text-left'} mb-3 lg:w-1/2 pt-4 text-xl md:text-2xl text-white`}
 					>
 						{t(description)}
 					</p>
-					{asterix && <p class="mt-12 text-base text-white md:text-lg">{t(asterix)}</p>}
+					{asterix && <p class="mt-2 text-base text-white md:mt-12 md:text-lg">{t(asterix)}</p>}
 				</div>
 			</div>
 		</ImageBackground>
 	</div>
 </div>
 <style>
-	@media (min-width: 480px) and (max-width: 1600px) and (max-height: 900px) {
+	@media (min-width: 480px) and (max-width: 1600px) and (max-height: 750px) {
 		.display-data-container {
 			padding: 1rem 3rem;
 		}
