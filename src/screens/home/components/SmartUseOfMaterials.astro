@@ -99,8 +99,7 @@ const optimizedBackground = await getImage({ src: smartUseBg, format: 'webp' })
 			top: 25%;
 		}
 	}
-
-	@media (max-height: 699px) {
+	@media (min-width: 481px) and (max-height: 740px) {
 		.container {
 			padding-top: 6rem;
 		}
@@ -111,11 +110,35 @@ const optimizedBackground = await getImage({ src: smartUseBg, format: 'webp' })
 
 		.bind-zoom1,
 		.bind-zoom2 {
-			height: 25%;
+			height: 35%;
 		}
 
 		.bind-zoom2 {
 			top: 25%;
+		}
+	}
+	@media (max-width: 480px) and (max-height: 740px) {
+		.container {
+			padding-top: 6rem;
+		}
+
+		.feature-smart-2 {
+			left: 5%;
+		}
+
+		.bind-zoom1 {
+			height: 95%;
+		}
+		.bind-zoom2 {
+			height: 65%;
+		}
+
+		.bind-zoom2 {
+			top: -65%;
+		}
+
+		.bind-zoom1 {
+			bottom: -95%;
 		}
 	}
 </style>

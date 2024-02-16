@@ -30,13 +30,76 @@ const links = [
 ]
 ---
 
-<header class="fixed inset-0 z-50 flex h-[60px] justify-between overflow-visible">
-	<Image
-		src={Logo}
-		width={200}
-		height={150}
-		alt="Logo BK"
-		class="mr-full fixed top-0 ml-32 h-24 w-32 lg:h-auto lg:w-auto"
-	/>
+<header
+	class="fixed inset-0 z-50 flex h-[60px] items-center justify-between overflow-visible px-7 md:px-0"
+>
+	<div class="fixed">
+		<Image
+			src={Logo}
+			width={200}
+			height={150}
+			alt="Logo BK"
+			class="md:mr-full relative top-0 h-16 w-24 md:ml-32 md:h-24 md:w-32 lg:h-auto lg:w-auto"
+		/>
+	</div>
 	<Nav links={links} />
+	<!-- Hamburguer Icon -->
+	<button
+		id="menu-btn"
+		aria-label="hamburguer menu"
+		class="hamburguer ml-auto mt-6 block focus:outline-none md:hidden"
+	>
+		<span class="hamburguer-top"></span>
+		<span class="hamburguer-middle"></span>
+		<span class="hamburguer-bottom"></span>
+	</button>
 </header>
+<style>
+	@media (max-width: 768px) {
+		.hamburguer {
+			cursor: pointer;
+			width: 30px;
+			height: 20px;
+			transition: all 0.25s;
+			position: relative;
+		}
+
+		.hamburguer-top,
+		.hamburguer-middle,
+		.hamburguer-bottom {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 1px;
+			width: 100%;
+			background: #fff;
+			border-radiush-svh: 8px;
+			transition: all 0.25s;
+		}
+
+		.hamburguer-middle {
+			transform: translateY(8px);
+		}
+
+		.hamburguer-bottom {
+			transform: translateY(16px);
+		}
+
+		.open {
+			transform: rotate(90deg);
+			transform: translateY(0px);
+		}
+
+		.open .hamburguer-top {
+			transform: rotate(45deg) translateY(6px) translate(6px);
+		}
+
+		.open .hamburguer-middle {
+			display: none;
+		}
+
+		.open .hamburguer-bottom {
+			transform: rotate(-45deg) translateY(6px) translate(-6px);
+		}
+	}
+</style>
