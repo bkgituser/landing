@@ -1,0 +1,13 @@
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@layer components {
+	.container-screen {
+		@apply container mx-auto h-full px-5 sm:px-8 md:px-0 lg:px-12 xl:px-[7.4rem];
+	}
+}

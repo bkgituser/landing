@@ -93,8 +93,8 @@ class App {
 				})
 
 				tl.to('header img', {
-					width: context.isMobile ? '114px' : '96px',
-					height: context.isMobile ? '85px' : '64px',
+					width: !context.isMobile ? '114px' : '96px',
+					height: !context.isMobile ? '85px' : '64px',
 					duration: 1,
 					ease: 'expo.in'
 				})

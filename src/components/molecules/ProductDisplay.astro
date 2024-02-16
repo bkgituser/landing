@@ -16,21 +16,32 @@ const mobileBg = await getImage({ src: CloudsImg, format: 'png' })
 			desktpBg={optimizedBackground}
 			extraClassImg="object-contain sm:object-cover object-bottom h-auto sm:h-full sm:object-center"
 		>
-			<div class="z-70 relative flex h-full items-end justify-start text-black">
-				<div class="relative flex h-1/2 items-end justify-center sm:h-auto">
-					<div class="z-40 w-full px-4 pb-12 sm:px-8 md:px-16 xl:max-w-none xl:px-32">
+			<div class="z-70 relative flex h-full w-full items-end justify-start text-black">
+				<div class="relative flex h-1/2 w-full items-end justify-center sm:h-auto">
+					<div class="container-screen z-40 w-full pb-12 md:mb-8 xl:max-w-none">
 						<span class="mb-2 block w-6 border-2 border-white"></span>
-						<h3 class="pb-2 text-5xl font-bold text-white md:pb-1 xl:pb-2">
+						<h3 class="pb-1 text-5xl font-bold text-white">
 							{t(modelTitle)}
 						</h3>
-						<p class="mb-4 pt-2 text-[22px] font-semibold leading-7 text-white md:mb-0 xl:pt-4">
+						<p class="mb-4 pt-2 text-[22px] font-semibold leading-7 text-white md:mb-0">
 							{t(technical)}
 						</p>
-						<p
-							class="mb-5 pt-0 text-[22px] font-semibold leading-7 text-white md:pt-0 md:font-normal lg:w-2/3 xl:mb-6"
-						>
-							{t(description)}
-						</p>
+						<div class="mb-4">
+							<p
+								class="pt-0 text-[22px] font-semibold leading-7 text-white sm:hidden md:font-normal"
+							>
+								{t(description)}
+							</p>
+							{
+								t(description)
+									.split('\n')
+									.map((line) => (
+										<p class="hidden pt-0 text-[22px] font-semibold leading-7 text-white md:block md:pt-0 md:font-normal">
+											{line}
+										</p>
+									))
+							}
+						</div>
 						<button
 							class="font-sm mx-auto block bg-white px-6 py-2 text-black sm:inline-block sm:bg-black sm:text-white xxl:px-8 xxl:py-4"
 						>

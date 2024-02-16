@@ -18,7 +18,7 @@ const { mobileBg = null, desktpBg, isBlur = false } = Astro.props
 			<img
 				{...desktpBg}
 				alt="background"
-				class={`h-full w-full -top-20 relative md:object-cover ${isBlur ? 'blur-sm' : ''}`}
+				class={`h-full w-full -top-20 relative md:object-cover md:top-auto ${isBlur ? 'blur-sm' : ''}`}
 				loading="lazy"
 			/>
 		</div>

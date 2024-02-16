@@ -11,9 +11,7 @@ const optimizedBackground = await getImage({ src: smartUseBg, format: 'webp' })
 
 <section id="smart-use" class="relative h-screen">
 	<ImageBackground desktpBg={optimizedBackground}>
-		<div
-			class="container relative mx-auto h-full px-4 pt-20 sm:px-8 sm:pt-32 md:px-0 xl:px-16 xl:pb-40 xl:pt-48"
-		>
+		<div class="container-screen relative pt-20 sm:pt-32 xl:pb-40 xl:pt-48">
 			<div class="smart-title-box opacity-0">
 				<div class="mb-4 text-base uppercase text-white lg:text-xl">
 					{t('landing.smartUse.badge')}
@@ -24,7 +22,7 @@ const optimizedBackground = await getImage({ src: smartUseBg, format: 'webp' })
 					</Trans>
 				</h1>
 			</div>
-			<div class="feature-smart-1 mt-10 lg:mt-20 xl:mt-28">
+			<div class="feature-smart-1 mt-10 lg:mt-20 xl:mt-24">
 				<h3 class="animated-subtitle mb-2 w-full text-left text-mid font-bold text-white">
 					{t('landing.smartUse.feature1')}
 				</h3>
@@ -35,7 +33,7 @@ const optimizedBackground = await getImage({ src: smartUseBg, format: 'webp' })
 				</p>
 			</div>
 			<div
-				class="feature-smart-2 absolute bottom-10 sm:bottom-20 md:bottom-10 md:right-0 lg:bottom-10 lg:right-0 xl:right-[15%]"
+				class="feature-smart-2 absolute bottom-10 sm:bottom-20 md:bottom-10 md:right-0 lg:bottom-40 lg:right-0 xl:right-[15%]"
 			>
 				<div class="ml-auto">
 					<h3 class="mb-2 text-left text-mid font-bold text-white">
@@ -86,6 +84,23 @@ const optimizedBackground = await getImage({ src: smartUseBg, format: 'webp' })
 	</ImageBackground>
 </section>
 <style>
+	@media (min-width: 480px) and (min-height: 899px) {
+		.container {
+			padding-top: 8rem;
+		}
+		.bind-zoom1 {
+			height: 35%;
+			width: 15%;
+			right: -15%;
+		}
+
+		.bind-zoom2 {
+			top: 0%;
+			height: 50%;
+			width: 160%;
+			left: -160%;
+		}
+	}
 	@media (min-width: 480px) and (max-height: 899px) {
 		.container {
 			padding-top: 8rem;
