@@ -20,7 +20,7 @@ const {
 <custom-slider
 	id={id}
 	data-delay={delay}
-	class={`relative block w-full ${classWrapper}`}
+	class={`relative block  w-full ${classWrapper}`}
 	data-active-index={0}
 >
 	<slot name="prev-slider-timer" />
@@ -65,14 +65,14 @@ const {
 	}
 </custom-slider>
 <script>
-	import ShowOnHover from '../../../scripts/showElementOnHover'
+	import InstagramSlider from '../../../scripts/showElementOnHover'
 
-	class CustomSlider extends HTMLElement {
+	class InstagramSliderElement extends HTMLElement {
 		idInterval = null
 		constructor() {
 			super()
 
-			const fadeSlider = new ShowOnHover(this.id, {
+			const fadeSlider = new InstagramSlider(this.id, {
 				activeClass: 'item-index-active',
 				speed: 1500,
 				autoplay: true,
@@ -80,7 +80,7 @@ const {
 				triggerOnAutoPlayToggle: (isPlaying) => {
 					const container = document.getElementById(this.id)
 					const slideTimer = container?.querySelector('slide-timer')
-
+					console.log('stops: ', !isPlaying)
 					if (slideTimer) {
 						slideTimer.setAttribute('data-stop', (!isPlaying).toString())
 					}
@@ -153,7 +153,7 @@ const {
 
 	let customElements: CustomElementRegistry = window.customElements
 
-	customElements.define('custom-slider', CustomSlider)
+	customElements.define('custom-slider', InstagramSliderElement)
 </script>
 <style define:vars={{ height }}>
 	custom-slider {

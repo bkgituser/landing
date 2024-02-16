@@ -93,76 +93,79 @@ class App {
 	}
 
 	_smartUseAnimation() {
-		const tl = gsap.timeline({
-			scrollTrigger: {
-				trigger: '#smart-use',
-				start: 'top top',
-				end: 'bottom+=600 top',
-				pin: true,
-				scrub: false
-			}
+		const mm = gsap.matchMedia()
+		mm.add({ isMobile: '(max-width: 480px)', isNotMObile: '(min-width: 481px)' }, (context) => {
+			const tl = gsap.timeline({
+				scrollTrigger: {
+					trigger: '#smart-use',
+					start: 'top top',
+					end: 'bottom+=600 top',
+					pin: context.isReverting,
+					scrub: false
+				}
+			})
+			tl.to('.smart-title-box', {
+				scale: 1,
+				y: 0,
+				opacity: 1,
+				skewX: '0deg',
+				skewY: '0deg'
+			})
+				.to(
+					'.feature-smart-1',
+					{
+						scale: 1,
+						y: 0,
+						opacity: 1,
+						skewX: '0deg',
+						skewY: '0deg'
+					},
+					1
+				)
+				.to(
+					'.feature-smart-2',
+					{
+						scale: 1,
+						y: 0,
+						opacity: 1,
+						skewX: '0deg',
+						skewY: '0deg'
+					},
+					1
+				)
+				.to(
+					'.zoom1',
+					{
+						opacity: 1,
+						scale: 1
+					},
+					1.5
+				)
+				.to(
+					'.zoom2',
+					{
+						opacity: 1,
+						scale: 1
+					},
+					1.5
+				)
+				.to(
+					'.bind-zoom1',
+					{
+						maxHeight: 500,
+						maxWidth: 500
+					},
+					2
+				)
+				.to(
+					'.bind-zoom2',
+					{
+						maxHeight: 500,
+						maxWidth: 500
+					},
+					2
+				)
 		})
-		tl.to('.smart-title-box', {
-			scale: 1,
-			y: 0,
-			opacity: 1,
-			skewX: '0deg',
-			skewY: '0deg'
-		})
-			.to(
-				'.feature-smart-1',
-				{
-					scale: 1,
-					y: 0,
-					opacity: 1,
-					skewX: '0deg',
-					skewY: '0deg'
-				},
-				1
-			)
-			.to(
-				'.feature-smart-2',
-				{
-					scale: 1,
-					y: 0,
-					opacity: 1,
-					skewX: '0deg',
-					skewY: '0deg'
-				},
-				1
-			)
-			.to(
-				'.zoom1',
-				{
-					opacity: 1,
-					scale: 1
-				},
-				1.5
-			)
-			.to(
-				'.zoom2',
-				{
-					opacity: 1,
-					scale: 1
-				},
-				1.5
-			)
-			.to(
-				'.bind-zoom1',
-				{
-					maxHeight: 500,
-					maxWidth: 500
-				},
-				2
-			)
-			.to(
-				'.bind-zoom2',
-				{
-					maxHeight: 500,
-					maxWidth: 500
-				},
-				2
-			)
 	}
 
 	_benefitsSkew() {

@@ -1,7 +1,7 @@
 //  display element on mouse enter to index element
 //  fade element on mouse leave to index element
 
-export default class ShowOnHover {
+export default class InstagramSlider {
 	constructor(containerSelector, config = { activeClass }) {
 		const {
 			speed = 500,
@@ -13,10 +13,6 @@ export default class ShowOnHover {
 			triggerOnAutoPlayToggle = null
 		} = config
 		this._container = document?.getElementById(containerSelector)
-		console.log(
-			'container: ',
-			this._container.querySelector(`#${containerSelector}-elements-container`)?.children
-		)
 		this._items = [
 			...this._container.querySelector(`#${containerSelector}-elements-container`)?.children
 		]
@@ -36,6 +32,8 @@ export default class ShowOnHover {
 		this._triggerOnAutoPlayToggle = triggerOnAutoPlayToggle
 		this._isPlaying = false
 		this._hasIndexes = this._paginationItems
+		this._touchStartTime = Date.now()
+		this._touchTimeout = null
 		this._initialize()
 	}
 
@@ -63,26 +61,66 @@ export default class ShowOnHover {
 
 		this._hasIndexes &&
 			this._paginationItems?.forEach((item, index) => {
-				item.addEventListener('mouseenter', () => {
-					this._stopAutoPlay()
+				if (!this._isTouchEnabled()) {
+					item.addEventListener('mouseenter', () => {
+						if (document.body.clientWidth > 580) {
+							this._stopAutoPlay()
 
-					this._removeActiveIndex(this._activeIndex)
-					this._setActive(index)
-					this._activeIndex = index
-				})
+							this._removeActiveIndex(this._activeIndex)
+							this._setActive(index)
+							this._activeIndex = index
+						}
+					})
 
-				item.addEventListener('mouseleave', () => {
-					this._autoplayStart()
-				})
+					item.addEventListener('mouseleave', () => {
+						this._autoplayStart()
+					})
+				} else {
+					item.addEventListener('touchstart', (event) => {
+						this._removeActiveIndex(this._activeIndex)
+						this._setActive(index)
+						this._activeIndex = index
+						// event.stopPropagation()
+					})
+				}
 			})
 
-		this._container.addEventListener('touchstart', () => {
-			this._stopAutoPlay()
-		})
+		if (this._isTouchEnabled()) {
+			this._container.addEventListener('touchstart', () => {
+				this._touchStartTime = Date.now() // Record the time when the touch event starts
+				clearTimeout(this._touchTimeout) // Clear any existing timeout
+				console.log('touchstart')
+				this._touchTimeout = setTimeout(() => {
+					this._stopAutoPlay() // Pause autoplay if the touch duration exceeds 300ms
+				}, 300) // Set a timeout to pause the story after 300ms of continuous touch
+			})
 
-		this._container.addEventListener('touchend', () => {
-			this._autoplayStart()
-		})
+			this._container.addEventListener('touchend', () => {
+				clearTimeout(this._touchTimeout) // Clear the timeout when the touch ends
+				const touchDuration = Date.now() - this._touchStartTime // Calculate the duration of the touch
+				if (touchDuration < 300) {
+					// If touch duration is less than 300ms, it's considered a tap
+					this._autoplayStart() // Resume autoplay
+					console.log('Tapped - Advance to next slide')
+					// Logic to advance to the next slide
+
+					const newIndex = this._activeIndex + 1 >= this._items.length ? 0 : this._activeIndex + 1
+					this._removeActiveIndex(this._activeIndex)
+					this._setActive(newIndex)
+				}
+			})
+
+			this._container.addEventListener('touchcancel', () => {
+				clearTimeout(this._touchTimeout) // Clear the timeout when the touch ends
+				this._autoplayStart()
+			})
+		}
+	}
+
+	_isTouchEnabled() {
+		return (
+			'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0
+		)
 	}
 
 	_setTriggerOnIndex() {
@@ -129,7 +167,7 @@ export default class ShowOnHover {
 			this._triggerOnAutoPlayToggle && this._triggerOnAutoPlayToggle(this._isPlaying)
 
 			clearInterval(this._intervalId) // Clear any existing interval
-
+			console.log('autoplay starts')
 			this._intervalId = setInterval(() => {
 				this._removeActiveIndex(this._activeIndex)
 				if (this._items.length - 1 > this._activeIndex) {
