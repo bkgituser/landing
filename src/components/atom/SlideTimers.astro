@@ -9,15 +9,15 @@ const { lengthSlides, activeSlide, speed, activeColor, colorInactive, customSlid
 	data-speed={speed}
 	data-stop="false"
 	id={`${id}-slider-timer`}
-	class="block"
+	class="relative top-2 block"
 >
 	<div class="w-full">
-		<div class={`flex justify-between gap-2 ${customSliderClass}`}>
+		<div class={`flex justify-between gap-1 ${customSliderClass}`}>
 			{
 				Array(lengthSlides)
 					.fill(null)
 					.map(() => (
-						<div style={{ background: colorInactive }} class={`bar h-1 w-full`}>
+						<div style={{ background: colorInactive }} class={`bar h-[2px] w-full rounded-md`}>
 							<div class={`fill-elem h-full w-0 bg-${activeColor}`} />
 						</div>
 					))
@@ -45,17 +45,20 @@ const { lengthSlides, activeSlide, speed, activeColor, colorInactive, customSlid
 			const bars = [...this.querySelectorAll('.bar')]
 			const parsedActiveIndex = Number(activeIndex)
 			const activeBar = bars[parsedActiveIndex].querySelector('.fill-elem')
+			if (stop === 'true') {
+				return
+			}
 
-			if (activeBar instanceof HTMLElement && stop !== 'true') {
+			if (activeBar instanceof HTMLElement) {
 				let percentageToAdd = 1
 				let interval = (speed / 100) * 1
 
 				this.idInterval = setInterval(() => {
 					const widthInNumber = Number(activeBar.style.width.replace('%', ''))
-
 					activeBar.style.width = `${widthInNumber + percentageToAdd}%`
 
 					if (widthInNumber >= 100) {
+						activeBar.style.width = '100%'
 						clearInterval(this.idInterval)
 					}
 				}, interval)
@@ -64,12 +67,11 @@ const { lengthSlides, activeSlide, speed, activeColor, colorInactive, customSlid
 
 		_react() {
 			const thisEL = this
-			var observer = new MutationObserver(function (mutations) {
+			const observer = new MutationObserver(function (mutations) {
 				mutations.forEach(function (mutation) {
 					if (mutation.type === 'attributes') {
 						const targetElement = mutation.target as Element
 						if (targetElement?.attributes?.['data-stop'] === 'true') {
-							clearInterval(thisEL.idInterval)
 							return
 						} else {
 							const activeIndex = Number(thisEL.dataset.activeSlide)
@@ -77,10 +79,6 @@ const { lengthSlides, activeSlide, speed, activeColor, colorInactive, customSlid
 							const stop = thisEL.dataset.stop
 							thisEL._setActive(activeIndex, speed, stop)
 						}
-
-						// if (mutation?.attributeName === 'data-active-slide') {
-						// 	console.log('mutation active index: ', mutation)
-						// }
 					}
 				})
 			})
