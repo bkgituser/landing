@@ -23,7 +23,7 @@ class App {
 
 	_setInitialState() {
 		gsap.set(
-			'.smart-title-box, .feature-smart-1, .feature-smart-2, .benefits-description, .benefits-index, highlight-title, .repairability-title, .repairability-description',
+			'.smart-title-box, .benefits-description, .benefits-index, highlight-title, .repairability-title, .repairability-description',
 			{
 				opacity: 0,
 				scale: 0.9,
@@ -32,6 +32,10 @@ class App {
 				skewY: '0deg'
 			}
 		)
+
+		gsap.set('.feature-smart-1, .feature-smart-2', {
+			autoAlpha: 0
+		})
 
 		gsap.set('.zoom1, zoom2', {
 			scale: 0.5
@@ -133,22 +137,14 @@ class App {
 					.to(
 						'.feature-smart-1',
 						{
-							scale: 1,
-							y: 0,
-							opacity: 1,
-							skewX: '0deg',
-							skewY: '0deg'
+							autoAlpha: 1
 						},
 						1
 					)
 					.to(
 						'.feature-smart-2',
 						{
-							scale: 1,
-							y: 0,
-							opacity: 1,
-							skewX: '0deg',
-							skewY: '0deg'
+							autoAlpha: 1
 						},
 						1
 					)
