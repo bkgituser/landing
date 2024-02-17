@@ -132,10 +132,11 @@ const optimizedBackground = await getImage({ src: smartUseBg, format: 'webp' })
 
 			bind1.style.height = `${heightBind1Medium.toFixed(2)}px`
 			bind1.style.width = `${widthBind1Medium.toFixed(2)}px`
-
+			console.log({ widthBind1Medium, heightBind1Medium })
+			console.log('')
 			const widthBind2Medium = feature2.x - sizeBind2.x
 			const heightBind2Medium = feature2.y - sizeBind2.y - 32
-			console.log({ sizeBind2, feature2, widthBind2Medium, heightBind2Medium })
+			console.log({ widthBind2Medium, heightBind2Medium })
 
 			bind2.style.height = `${heightBind2Medium.toFixed(2)}px`
 			bind2.style.width = `${widthBind2Medium.toFixed(2)}px`

@@ -111,7 +111,6 @@ class App {
 				reduceMotion: '(prefers-reduce-motion: no-preference)'
 			},
 			(context) => {
-				console.log('context: ', context)
 				const tl = gsap.timeline({
 					scrollTrigger: {
 						trigger: '#smart-use',

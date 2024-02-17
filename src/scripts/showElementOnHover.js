@@ -89,7 +89,7 @@ export default class InstagramSlider {
 			this._container.addEventListener('touchstart', () => {
 				this._touchStartTime = Date.now() // Record the time when the touch event starts
 				clearTimeout(this._touchTimeout) // Clear any existing timeout
-				console.log('touchstart')
+
 				this._touchTimeout = setTimeout(() => {
 					this._stopAutoPlay() // Pause autoplay if the touch duration exceeds 300ms
 				}, 300) // Set a timeout to pause the story after 300ms of continuous touch
@@ -101,7 +101,7 @@ export default class InstagramSlider {
 				if (touchDuration < 300) {
 					// If touch duration is less than 300ms, it's considered a tap
 					this._autoplayStart() // Resume autoplay
-					console.log('Tapped - Advance to next slide')
+
 					// Logic to advance to the next slide
 
 					const newIndex = this._activeIndex + 1 >= this._items.length ? 0 : this._activeIndex + 1
@@ -167,7 +167,7 @@ export default class InstagramSlider {
 			this._triggerOnAutoPlayToggle && this._triggerOnAutoPlayToggle(this._isPlaying)
 
 			clearInterval(this._intervalId) // Clear any existing interval
-			console.log('autoplay starts')
+
 			this._intervalId = setInterval(() => {
 				this._removeActiveIndex(this._activeIndex)
 				if (this._items.length - 1 > this._activeIndex) {
