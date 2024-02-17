@@ -111,12 +111,13 @@ class App {
 				reduceMotion: '(prefers-reduce-motion: no-preference)'
 			},
 			(context) => {
+				console.log('context: ', context)
 				const tl = gsap.timeline({
 					scrollTrigger: {
 						trigger: '#smart-use',
 						start: 'top top',
 						end: 'bottom+=600 top',
-						pin: context.isReverting,
+						pin: true,
 						scrub: false
 					}
 				})

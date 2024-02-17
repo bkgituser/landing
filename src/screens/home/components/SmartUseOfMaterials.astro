@@ -111,7 +111,7 @@ const optimizedBackground = await getImage({ src: smartUseBg, format: 'webp' })
 			bind1.style.height = `${heightBind1Mobile}px`
 			bind1.style.width = `${1}px`
 
-			const heightBind2Mobile = feature2.y - sizeBind2.y + 36
+			const heightBind2Mobile = feature2.y - sizeBind2.y + 20
 			bind2.style.height = `${heightBind2Mobile}px`
 			bind2.style.width = `32px`
 		} else if (isSmall) {
@@ -124,7 +124,7 @@ const optimizedBackground = await getImage({ src: smartUseBg, format: 'webp' })
 			bind2.style.width = `1px`
 		} else if (isMedium) {
 			const widthBind1Medium = sizeBind1.x - feature1.x
-			const heightBind1Medium = sizeBind1.y - feature1.y - feature1.height - 64
+			const heightBind1Medium = sizeBind1.y - feature1.y - feature1.height + 32
 
 			bind1.style.height = `${heightBind1Medium.toFixed(2)}px`
 			bind1.style.width = `${widthBind1Medium.toFixed(2)}px`
