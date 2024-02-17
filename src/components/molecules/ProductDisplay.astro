@@ -4,7 +4,7 @@ import CloudsImg from 'src/img/clouds.png'
 
 import { getImage } from 'astro:assets'
 import ProductImageBackground from '@components/template/ProductImageBackground.astro'
-const { modelTitle, description, technical, image, index } = Astro.props
+const { modelTitle, description, technical, image, index, compatible } = Astro.props
 const optimizedBackground = await getImage({ src: image, format: 'png' })
 const mobileBg = await getImage({ src: CloudsImg, format: 'png' })
 ---
@@ -17,21 +17,31 @@ const mobileBg = await getImage({ src: CloudsImg, format: 'png' })
 			extraClassImg="object-contain sm:object-cover object-bottom h-auto sm:h-full sm:object-center"
 		>
 			<div class="z-70 relative flex h-full w-full items-end justify-start text-black">
-				<div class="relative flex h-1/2 w-full items-end justify-center sm:h-auto">
-					<div class="container-screen z-40 w-full pb-12 md:mb-8 xl:max-w-none">
+				<div class="relative flex h-full w-full items-end justify-center">
+					<div
+						class="container-screen w-fullpb-14 absolute bottom-0 z-40 h-[53%] select-none xl:max-w-none"
+					>
 						<span class="mb-2 block w-6 border-2 border-white"></span>
-						<h3 class="pb-1 text-5xl font-bold text-white">
+						<h3 class="pb-3 text-5xl font-bold text-white">
 							{t(modelTitle)}
 						</h3>
-						<p class="mb-4 pt-2 text-[22px] font-semibold leading-7 text-white md:mb-0">
+						<p class="mb-6 pt-2 text-[22px] font-semibold leading-7 text-white md:mb-0">
 							{t(technical)}
+							<strong class="font-semibold md:hidden">{t(compatible)}</strong>
 						</p>
 						<div class="mb-4">
-							<p
-								class="pt-0 text-[22px] font-semibold leading-7 text-white sm:hidden md:font-normal"
-							>
-								{t(description)}
-							</p>
+							{
+								t(description)
+									.split('\n')
+									.map(
+										(line, index) =>
+											index !== 0 && (
+												<p class="block pt-0 text-[22px] font-semibold leading-7 text-white md:hidden md:pt-0 md:font-normal">
+													{line}
+												</p>
+											)
+									)
+							}
 							{
 								t(description)
 									.split('\n')
@@ -43,7 +53,7 @@ const mobileBg = await getImage({ src: CloudsImg, format: 'png' })
 							}
 						</div>
 						<button
-							class="font-sm mx-auto block bg-white px-6 py-2 text-black sm:inline-block sm:bg-black sm:text-white xxl:px-8 xxl:py-4"
+							class="font-sm mx-auto block bg-white px-6 py-2 text-black sm:inline-block md:bg-black md:text-white xxl:px-8 xxl:py-4"
 						>
 							{t('landing.productsLineup.products.downloadBtn')}
 						</button>
@@ -53,3 +63,18 @@ const mobileBg = await getImage({ src: CloudsImg, format: 'png' })
 		</ProductImageBackground>
 	</div>
 </div>
+<style>
+	@media (max-height: 800px) {
+		.container-screen {
+			height: 55%;
+			border: 1px solid violet;
+		}
+	}
+
+	@media (max-height: 700px) {
+		.container-screen {
+			height: 65%;
+			border: 1px solid violet;
+		}
+	}
+</style>
