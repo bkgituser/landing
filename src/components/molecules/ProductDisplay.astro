@@ -4,7 +4,7 @@ import CloudsImg from 'src/img/clouds.png'
 
 import { getImage } from 'astro:assets'
 import ProductImageBackground from '@components/template/ProductImageBackground.astro'
-const { modelTitle, description, technical, image, index, compatible } = Astro.props
+const { modelTitle, description, technical, image, mobile, compatible } = Astro.props
 const optimizedBackground = await getImage({ src: image, format: 'png' })
 const mobileBg = await getImage({ src: CloudsImg, format: 'png' })
 ---
@@ -14,34 +14,26 @@ const mobileBg = await getImage({ src: CloudsImg, format: 'png' })
 		<ProductImageBackground
 			mobileBg={mobileBg}
 			desktpBg={optimizedBackground}
-			extraClassImg="object-contain sm:object-cover object-bottom h-auto sm:h-full sm:object-center"
+			extraClassImg="object-contain sm:object-cover object-bottom h-auto md:h-full sm:object-center"
 		>
 			<div class="z-70 relative flex h-full w-full items-end justify-start text-black">
 				<div class="relative flex h-full w-full items-end justify-center">
 					<div
-						class="container-screen absolute bottom-0 z-40 h-[53%] w-full select-none pb-14 xl:max-w-none"
+						class="container-screen absolute bottom-0 z-40 flex w-full select-none flex-col items-start justify-between pb-14 md:block md:h-[265px] xl:max-w-none"
 					>
 						<span class="mb-2 block w-6 border-2 border-white"></span>
 						<h3 class="pb-3 text-5xl font-bold text-white">
 							{t(modelTitle)}
 						</h3>
-						<p class="mb-6 pt-2 text-[22px] font-semibold leading-7 text-white md:mb-0">
-							{t(technical)}
-							<strong class="font-semibold md:hidden">{t(compatible)}</strong>
+						<p class="mb-4 pt-2 text-[22px] font-semibold leading-7 text-white md:mb-0">
+							{t(technical)}{' '}<span class="md:hidden">{t(compatible)}</span>
 						</p>
-						<div class="mb-4">
-							{
-								t(description)
-									.split('\n')
-									.map(
-										(line, index) =>
-											index !== 0 && (
-												<p class="block pt-0 text-[22px] font-semibold leading-7 text-white md:hidden md:pt-0 md:font-normal">
-													{line}
-												</p>
-											)
-									)
-							}
+						<div class="mb-5">
+							<p
+								class="block pt-0 text-[22px] font-semibold leading-7 text-white md:hidden md:pt-0 md:font-normal"
+							>
+								{t(mobile)}
+							</p>
 							{
 								t(description)
 									.split('\n')
@@ -53,7 +45,7 @@ const mobileBg = await getImage({ src: CloudsImg, format: 'png' })
 							}
 						</div>
 						<button
-							class="font-sm mx-auto block bg-white px-6 py-2 text-black sm:inline-block md:bg-black md:text-white xxl:px-8 xxl:py-4"
+							class="mx-auto mt-auto block h-[42px] w-[171px] bg-white text-[10.3px] font-semibold leading-[29.3px] text-black sm:mt-8 md:mt-0 md:inline-block md:h-[42px] md:w-[165px] md:bg-black md:text-white"
 						>
 							{t('landing.productsLineup.products.downloadBtn')}
 						</button>
@@ -64,15 +56,34 @@ const mobileBg = await getImage({ src: CloudsImg, format: 'png' })
 	</div>
 </div>
 <style>
-	@media (max-height: 730px) {
+	@media (min-width: 500px) and (max-width: 767px) and (min-height: 641px) {
 		.container-screen {
-			height: 55%;
+			height: 70%;
+			justify-content: flex-start;
 		}
 	}
 
-	@media (max-height: 700px) {
+	@media (min-width: 500px) and (max-width: 767px) and (max-height: 640px) {
 		.container-screen {
-			height: 62%;
+			height: 65%;
+			justify-content: flex-start;
+		}
+	}
+	@media (max-width: 500px) and (max-width: 767px) and (min-height: 740px) {
+		.container-screen {
+			height: 45%;
+		}
+	}
+
+	@media (max-width: 500px) and (min-height: 800px) {
+		.container-screen {
+			height: 52%;
+		}
+	}
+
+	@media (max-width: 500px) and (max-height: 640px) {
+		.container-screen {
+			height: 65%;
 		}
 	}
 </style>

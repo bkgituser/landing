@@ -34,11 +34,13 @@ const columns = [
 		<div class="flex h-32 items-center lg:h-48">
 			<img src="/assets/icons/arrow.svg" alt="arrow" class="ml-6" loading="lazy" />
 		</div>
-		<div class="flex flex-wrap items-start justify-center px-12 md:justify-between">
+		<div
+			class="flex flex-wrap items-start justify-center px-12 sm:px-0 md:justify-evenly lg:justify-between lg:px-12"
+		>
 			{
 				columns.map((col, index) => (
 					<>
-						<div class="column-highlight relative  opacity-0 md:mb-12 md:max-w-[204px] xl:max-w-[245px] xxl:xl:max-w-[275px]">
+						<div class="column-highlight relative opacity-0 md:mb-12  md:flex-shrink-0 md:basis-[42%] lg:max-w-[204px] xl:max-w-[245px] xxl:xl:max-w-[275px]">
 							<div class="mb-4 text-2xl font-bold">{t(col.label)}</div>
 							<p
 								class={`text-justify text-xl text-black md:text-left ${index !== columns.length - 1 ? '' : ''} `}
@@ -52,7 +54,9 @@ const columns = [
 							) : null}
 						</div>
 						{index !== columns.length - 1 && (
-							<div class="border-black-200 my-8 h-2 w-full border-t-2 lg:mt-12  lg:h-[160px] lg:w-0 lg:border-r-2" />
+							<div
+								class={`border-black-200 my-8 h-2 ${index === 1 ? 'md:hidden lg:contents' : ''} w-full border-t-2 md:h-[160px]  md:w-0 md:border-r-2 lg:mt-12 `}
+							/>
 						)}
 					</>
 				))
