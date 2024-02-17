@@ -19,7 +19,7 @@ const mobileBg = await getImage({ src: CloudsImg, format: 'png' })
 			<div class="z-70 relative flex h-full w-full items-end justify-start text-black">
 				<div class="relative flex h-full w-full items-end justify-center">
 					<div
-						class="container-screen absolute bottom-0 z-40 flex w-full select-none flex-col items-start justify-between pb-14 md:block md:h-[265px] xl:max-w-none"
+						class="container-screen absolute bottom-0 z-40 mb-12 flex w-full select-none flex-col items-start justify-between sm:pb-14 md:block md:h-[265px] xl:max-w-none"
 					>
 						<span class="mb-2 block w-6 border-2 border-white"></span>
 						<h3 class="pb-3 text-5xl font-bold text-white">
@@ -45,7 +45,7 @@ const mobileBg = await getImage({ src: CloudsImg, format: 'png' })
 							}
 						</div>
 						<button
-							class="mx-auto mt-auto block h-[42px] w-[171px] bg-white text-[10.3px] font-semibold leading-[29.3px] text-black sm:mt-8 md:mt-0 md:inline-block md:h-[42px] md:w-[165px] md:bg-black md:text-white"
+							class="mx-auto mt-auto block h-[42px] w-[171px] bg-white text-[10.3px] font-semibold leading-[29.3px] text-black sm:mt-8 md:mb-0 md:mt-0 md:inline-block md:h-[42px] md:w-[165px] md:bg-black md:text-white"
 						>
 							{t('landing.productsLineup.products.downloadBtn')}
 						</button>
@@ -62,22 +62,22 @@ const mobileBg = await getImage({ src: CloudsImg, format: 'png' })
 			justify-content: flex-start;
 		}
 	}
-
-	@media (min-width: 500px) and (max-width: 767px) and (max-height: 640px) {
-		.container-screen {
-			height: 65%;
-			justify-content: flex-start;
-		}
-	}
 	@media (max-width: 500px) and (max-width: 767px) and (min-height: 740px) {
 		.container-screen {
 			height: 45%;
 		}
 	}
 
+	@media (min-width: 500px) and (max-width: 767px) and (max-height: 650px) {
+		.container-screen {
+			height: 53%;
+			justify-content: flex-start;
+		}
+	}
+
 	@media (max-width: 500px) and (max-height: 800px) {
 		.container-screen {
-			height: 52%;
+			height: 46%;
 		}
 	}
 
