@@ -33,12 +33,8 @@ class App {
 			}
 		)
 
-		gsap.set('.feature-smart-1, .feature-smart-2', {
+		gsap.set('.feature-smart-1, .feature-smart-2, .zoom1, zoom2', {
 			autoAlpha: 0
-		})
-
-		gsap.set('.zoom1, zoom2', {
-			scale: 0.5
 		})
 
 		gsap.set('.column-highlight, .table-cell-stat1, .table-cell-stat2', {
@@ -151,16 +147,14 @@ class App {
 					.to(
 						'.zoom1',
 						{
-							opacity: 1,
-							scale: 1
+							autoAlpha: 1
 						},
 						1.5
 					)
 					.to(
 						'.zoom2',
 						{
-							opacity: 1,
-							scale: 1
+							autoAlpha: 1
 						},
 						1.5
 					)
