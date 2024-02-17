@@ -106,9 +106,9 @@ const optimizedBackground = await getImage({ src: smartUseBg, format: 'webp' })
 		const feature1 = document.querySelector('.feature-smart-1').getBoundingClientRect()
 		const feature2 = document.querySelector('.feature-smart-2').getBoundingClientRect()
 
-		console.log({ feature1, bind1 })
+		console.log({ feature1, sizeBind1 })
 		console.log('')
-		console.log({ feature2, bind2 })
+		console.log({ feature2, sizeBind2 })
 		console.log('')
 		if (isMobile) {
 			const heightBind1Mobile = sizeBind1.y - feature1.y - feature1.height - 32
