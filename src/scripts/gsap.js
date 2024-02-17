@@ -174,7 +174,7 @@ class App {
 							maxHeight: 500,
 							maxWidth: 500
 						},
-						2
+						2.5
 					)
 					.to(
 						'.bind-zoom2',
@@ -182,7 +182,7 @@ class App {
 							maxHeight: 500,
 							maxWidth: 500
 						},
-						2
+						2.5
 					)
 			}
 		)
