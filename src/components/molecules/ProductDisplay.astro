@@ -19,7 +19,7 @@ const mobileBg = await getImage({ src: CloudsImg, format: 'png' })
 			<div class="z-70 relative flex h-full w-full items-end justify-start text-black">
 				<div class="relative flex h-full w-full items-end justify-center">
 					<div
-						class="container-screen w-fullpb-14 absolute bottom-0 z-40 h-[53%] select-none xl:max-w-none"
+						class="container-screen absolute bottom-0 z-40 h-[53%] w-full select-none pb-14 xl:max-w-none"
 					>
 						<span class="mb-2 block w-6 border-2 border-white"></span>
 						<h3 class="pb-3 text-5xl font-bold text-white">
@@ -64,17 +64,15 @@ const mobileBg = await getImage({ src: CloudsImg, format: 'png' })
 	</div>
 </div>
 <style>
-	@media (max-height: 800px) {
+	@media (max-height: 730px) {
 		.container-screen {
 			height: 55%;
-			border: 1px solid violet;
 		}
 	}
 
 	@media (max-height: 700px) {
 		.container-screen {
-			height: 65%;
-			border: 1px solid violet;
+			height: 62%;
 		}
 	}
 </style>
