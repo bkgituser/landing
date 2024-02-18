@@ -45,7 +45,7 @@ const idBenefits = 'benefits-slider'
 			<CustomSlider
 				id={idBenefits}
 				lengthElements={data.length}
-				classSlideContainer="flex flex-col justify-end"
+				classSlideContainer="flex flex-col justify-end slideContainer"
 			>
 				<SliderElements
 					id={idBenefits}
@@ -70,7 +70,7 @@ const idBenefits = 'benefits-slider'
 				>
 				<IndexElements
 					id={idBenefits}
-					customClass="h-[25%] md:h-[35%] lg:h-[25%] md:justify-between mb-4 "
+					customClass="h-[25%] md:h-[35%] lg:h-[25%] md:justify-between mb-4"
 				>
 					{
 						data.map((item, idx) => {
@@ -102,6 +102,35 @@ const idBenefits = 'benefits-slider'
 	</VideoBackground>
 </section>
 <style>
+	/* HORIZONTAL */
+	@media (max-height: 480px) {
+		.container-screen {
+			padding: 0;
+			max-width: none;
+		}
+		.index-container {
+			position: static;
+			width: auto;
+			flex-basis: auto;
+			justify-content: center;
+			margin: 0 auto;
+		}
+
+		#benefits-slider-index-container {
+			justify-content: space-evenly;
+			margin-bottom: 2rem;
+		}
+
+		.item-benefit-index {
+			height: 100px;
+			width: 120px;
+		}
+
+		.item-benefit-index p {
+			font-size: 0.8rem;
+		}
+	}
+
 	/* BENEFIT ITEM STYLE */
 	.item-benefit-index:before {
 		content: '';
@@ -146,9 +175,9 @@ const idBenefits = 'benefits-slider'
 		background: #fff;
 	}
 
-	@media (max-width: 768px) {
+	@media (min-height: 480px) and (max-width: 768px) {
 		.item-benefit-index {
-			opacity: 0;
+			opacity:;
 		}
 
 		.item-index-active .item-benefit-index {

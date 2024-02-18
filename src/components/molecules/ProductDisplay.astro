@@ -56,6 +56,21 @@ const mobileBg = await getImage({ src: CloudsImg, format: 'png' })
 	</div>
 </div>
 <style>
+	@media (max-height: 480px) {
+		.container-screen {
+			padding: 1rem;
+			max-width: none;
+		}
+		h3 {
+			font-size: 2rem;
+		}
+
+		p {
+			font-size: 1rem;
+			line-height: normal;
+			max-width: 70%;
+		}
+	}
 	/* RESPONSIVE FOR MID */
 	@media (min-width: 500px) and (max-width: 767px) and (min-height: 641px) {
 		.container-screen {

@@ -16,11 +16,11 @@ const optimizedBackground = await getImage({ src: smartUseBg, format: 'webp' })
 				<div class="mb-4 text-base uppercase text-white lg:text-xl">
 					{t('landing.smartUse.badge')}
 				</div>
-				<h1 class="w-full text-left text-5xl font-bold text-white">
+				<h2 class="w-full text-left text-5xl font-bold text-white">
 					<Trans i18nKey="landing.smartUse.title">
 						Smart use <br /> of materials
 					</Trans>
-				</h1>
+				</h2>
 			</div>
 			<div class="feature-smart-1 mt-10 lg:mt-20 xl:mt-24">
 				<h3 class="animated-subtitle mb-2 w-full text-left text-mid font-bold text-white">
@@ -84,7 +84,7 @@ const optimizedBackground = await getImage({ src: smartUseBg, format: 'webp' })
 <script>
 	let isMobile = window.innerWidth <= 480
 	let isMedium = window.innerWidth >= 768
-
+	let isLandscape = window.innerHeight <= 480
 	let isSmall = window.innerWidth < 768 && window.innerWidth > 480
 	window.addEventListener('resize', () => {
 		const windowWidth = window.innerWidth
@@ -105,11 +105,9 @@ const optimizedBackground = await getImage({ src: smartUseBg, format: 'webp' })
 		const sizeBind2 = bind2.getBoundingClientRect()
 		const feature1 = document.querySelector('.feature-smart-1').getBoundingClientRect()
 		const feature2 = document.querySelector('.feature-smart-2').getBoundingClientRect()
-
-		console.log({ feature1, sizeBind1 })
-		console.log('')
-		console.log({ feature2, sizeBind2 })
-		console.log('')
+		if (isLandscape) {
+			return
+		}
 		if (isMobile) {
 			const heightBind1Mobile = sizeBind1.y - feature1.y - feature1.height - 32
 			bind1.style.height = `${heightBind1Mobile}px`
@@ -132,49 +130,41 @@ const optimizedBackground = await getImage({ src: smartUseBg, format: 'webp' })
 
 			bind1.style.height = `${heightBind1Medium.toFixed(2)}px`
 			bind1.style.width = `${widthBind1Medium.toFixed(2)}px`
-			console.log({ widthBind1Medium, heightBind1Medium })
-			console.log('')
+
 			const widthBind2Medium = feature2.x - sizeBind2.x
 			const heightBind2Medium = feature2.y - sizeBind2.y - 32
-			console.log({ widthBind2Medium, heightBind2Medium })
 
 			bind2.style.height = `${heightBind2Medium.toFixed(2)}px`
 			bind2.style.width = `${widthBind2Medium.toFixed(2)}px`
 		}
 	}
-	// if (isMobile) {
-	// 		const heightBind1Mobile = sizeBind1.y - feature1.y - feature1.height - 32
-	// 		bind1.style.height = `${heightBind1Mobile}px`
-	// 		bind1.style.width = `${1}px`
 
-	// 		const heightBind2Mobile = feature2.y - sizeBind2.y + 20
-	// 		bind2.style.height = `${heightBind2Mobile}px`
-	// 		bind2.style.width = `32px`
-	// 	} else if (isSmall) {
-	// 		const heightBind1Small = sizeBind1.y - feature1.y - feature1.height - 32
-	// 		bind1.style.height = `${heightBind1Small}px`
-	// 		bind1.style.width = `${1}px`
-
-	// 		const heightBind2Small = feature2.y - sizeBind2.y - 16
-	// 		bind2.style.height = `${heightBind2Small}px`
-	// 		bind2.style.width = `1px`
-	// 	} else if (isMedium) {
-	// 		const widthBind1Medium = sizeBind1.x - feature1.x
-	// 		const heightBind1Medium = sizeBind1.y - feature1.y - feature1.height + 32
-
-	// 		bind1.style.height = `${heightBind1Medium.toFixed(2)}px`
-	// 		bind1.style.width = `${widthBind1Medium.toFixed(2)}px`
-
-	// 		const widthBind2Medium = feature2.x - sizeBind2.x
-	// 		const heightBind2Medium = feature2.y - sizeBind2.y - 100
-	// 		console.log({ sizeBind2, feature2, widthBind2Medium, heightBind2Medium })
-
-	// 		bind2.style.height = `${heightBind2Medium.toFixed(2)}px`
-	// 		bind2.style.width = `${widthBind2Medium.toFixed(2)}px`
-	// 	}
 	setSizeOfBinds()
 </script>
 <style>
+	/* HORIZONTAL */
+	@media (max-height: 480px) {
+		.smart-title-box h1 {
+			font-size: 2rem;
+		}
+
+		.feature-smart-1 h3,
+		.feature-smart-2 h3 {
+			font-size: 1.3rem;
+		}
+
+		.feature-smart-1 p,
+		.feature-smart-2 p {
+			font-size: 1rem;
+		}
+
+		.zoom1,
+		.zoom2 {
+			height: 95px;
+			width: 95px;
+		}
+	}
+
 	@media (min-width: 768px) {
 		.feature-smart-2 {
 			right: 0;
@@ -204,7 +194,7 @@ const optimizedBackground = await getImage({ src: smartUseBg, format: 'webp' })
 
 	/* MOBILE */
 
-	@media (min-width: 480px) and (max-width: 767px) and (max-height: 844px) {
+	@media (min-width: 480px) and (max-width: 767px) {
 		.feature-smart-2 {
 			right: 0%;
 			bottom: 2rem;

@@ -26,7 +26,7 @@ const id = 'landing-slide'
 					classWrapper="h-1/2 select-none"
 				>
 					<SliderElements id={id} customClass="h-full" isBackground={false}>
-						<div class="absolute bottom-16 z-40 md:px-0 md:py-12 lg:py-16">
+						<div class="slide absolute bottom-16 z-40 md:px-0 md:py-12 lg:py-16">
 							<h1 class="z-10 w-full py-4 pt-2 text-4xl text-white lg:text-plusMid">
 								<span class="mb-2 block w-8 border-2 border-white md:w-12"></span>
 								<Trans i18nKey="landing.carousel.title1">
@@ -37,7 +37,7 @@ const id = 'landing-slide'
 								</Trans>
 							</h1>
 						</div>
-						<div class="absolute bottom-16 z-40 md:px-0 md:py-12 lg:py-16">
+						<div class="slide absolute bottom-16 z-40 md:px-0 md:py-12 lg:py-16">
 							<h2 class="z-10 w-full py-4 pt-2 text-4xl text-white lg:text-plusMid">
 								<span class="mb-2 block w-8 border-2 border-white md:w-12"></span>
 								<strong
@@ -65,6 +65,13 @@ const id = 'landing-slide'
 			}
 		</script>
 
-		<style></style>
+		<style>
+			@media (max-height: 480px) {
+				.slide {
+					bottom: 1rem;
+					padding: 0.5rem 1rem;
+				}
+			}
+		</style>
 	</section>
 </>

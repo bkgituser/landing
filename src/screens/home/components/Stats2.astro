@@ -39,8 +39,10 @@ const statsData = [
 					))
 				}
 			</div>
-			<div class="relative z-20 mt-8">
-				<p class="px-24 text-center text-lg text-grey md:px-0 md:text-left md:text-2xl">
+			<div class="relative z-20 mt-8 w-full">
+				<p
+					class="mx-auto max-w-[180px] text-center text-lg text-grey sm:max-w-none md:px-0 md:text-left md:text-2xl"
+				>
 					{t('landing.stats2.bottomLine')}
 				</p>
 			</div>
@@ -48,6 +50,27 @@ const statsData = [
 	</ImageBackground>
 </section>
 <style>
+	@media (max-height: 480px) {
+		.container-screen {
+			max-width: none;
+			padding: 1rem;
+			margin-top: 3.5rem;
+			flex-direction: column;
+		}
+
+		.kpi {
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		.table-cell-stat2 span {
+			font-size: 3rem;
+		}
+
+		.table-cell-stat2 p {
+			font-size: 1.5rem;
+		}
+	}
 	@media (min-width: 480px) and (max-width: 1600px) and (max-height: 900px) {
 		.container {
 			max-width: none;
