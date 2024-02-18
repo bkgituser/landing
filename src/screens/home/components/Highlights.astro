@@ -26,7 +26,7 @@ const columns = [
 	<div class="container-screen pb-28 pt-32 lg:pt-32 xl:pt-48">
 		<div class="relative px-4 md:-left-2 md:block">
 			<h3
-				class="highlight-title mx-auto bg-black py-5 text-center text-2xl font-bold text-white opacity-0 sm:inline-block md:px-5 md:text-mid xl:px-7"
+				class="highlight-title mx-auto bg-black px-5 py-5 text-center text-2xl font-bold text-white opacity-0 sm:inline-block md:px-5 md:text-mid xl:px-7"
 			>
 				{t('landing.highlights.title')}
 			</h3>
@@ -35,7 +35,7 @@ const columns = [
 			<img src="/assets/icons/arrow.svg" alt="arrow" class="ml-6" loading="lazy" />
 		</div>
 		<div
-			class="flex flex-wrap items-start justify-center px-12 sm:px-0 md:justify-evenly lg:justify-between lg:px-12"
+			class="columns-container flex flex-wrap items-start justify-center px-12 sm:px-0 md:justify-evenly lg:justify-between lg:px-12"
 		>
 			{
 				columns.map((col, index) => (
@@ -70,6 +70,19 @@ const columns = [
 			max-width: none;
 			padding-left: 6rem;
 			padding-right: 6rem;
+		}
+
+		.columns-container {
+		}
+
+		.column-highlight {
+			flex-basis: 45%;
+			padding: 16px 12px;
+		}
+
+		.border-black-200 {
+			width: 1px;
+			height: 160px;
 		}
 	}
 </style>

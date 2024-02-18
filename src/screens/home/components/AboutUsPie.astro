@@ -30,6 +30,15 @@ import { Image } from 'astro:assets'
 	</div>
 </section>
 <style>
+	@media (max-height: 480px) {
+		.container-screen {
+			height: auto;
+		}
+		.container-screen > div {
+			height: auto;
+			padding: 64px;
+		}
+	}
 	@media (min-width: 480px) and (max-width: 1600px) and (max-height: 900px) {
 		.container {
 			max-width: none;

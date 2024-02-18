@@ -18,3 +18,10 @@ const { id, customClass, isBackground } = Astro.props
 >
 	<slot />
 </div>
+<style>
+	@media (max-height: 480px) {
+		#benefits-slider-elements-container {
+			height: 56%;
+		}
+	}
+</style>

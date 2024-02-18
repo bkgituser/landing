@@ -98,7 +98,7 @@ const id = 'lineup-slider'
 						return <ProductDisplay {...modelData} index={index} />
 					} else {
 						return (
-							<div class="absolute z-10 h-screen w-full bg-black">
+							<div class="overlay-screen absolute z-10 h-screen w-full bg-black">
 								<div class="h-full ">
 									<ProductImageBackground
 										extraClassImg="object-contain  h-auto sm:h-full sm:object-cover sm:object-center"
@@ -130,6 +130,15 @@ const id = 'lineup-slider'
 </section>
 <style>
 	@media (max-height: 480px) {
+		.overlay-screen {
+			overflow: hidden;
+		}
+
+		.ext-black {
+			justify-content: center;
+			align-items: center;
+			top: 36px;
+		}
 		h3 {
 			font-size: 2rem;
 		}

@@ -156,6 +156,11 @@ const {
 	customElements.define('custom-slider', InstagramSliderElement)
 </script>
 <style define:vars={{ height }}>
+	@media (max-height: 480px) {
+		.slideContainer {
+			justify-content: flex-start;
+		}
+	}
 	custom-slider {
 		height: var(--height);
 	}

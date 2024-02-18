@@ -19,7 +19,7 @@ const statsData = [
 ]
 ---
 
-<section id="stats2" class="relative h-[80vh] overflow-hidden lg:h-[642px]">
+<section id="stats2" class="relative h-[80vh] lg:h-[642px]">
 	<ImageBackground desktpBg={optimizedBackground}>
 		<div class="container-screen flex h-full flex-col items-start justify-center gap-16 md:gap-16">
 			<span class="mb-2 block w-10 border-2 border-white"></span>
@@ -52,14 +52,11 @@ const statsData = [
 <style>
 	@media (max-height: 480px) {
 		.container-screen {
-			max-width: none;
-			padding: 1rem;
-			margin-top: 3.5rem;
 			flex-direction: column;
 		}
 
 		.kpi {
-			justify-content: space-between;
+			justify-content: space-evenly;
 			align-items: center;
 		}
 

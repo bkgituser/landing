@@ -57,10 +57,6 @@ const mobileBg = await getImage({ src: CloudsImg, format: 'png' })
 </div>
 <style>
 	@media (max-height: 480px) {
-		.container-screen {
-			padding: 1rem;
-			max-width: none;
-		}
 		h3 {
 			font-size: 2rem;
 		}
@@ -69,6 +65,10 @@ const mobileBg = await getImage({ src: CloudsImg, format: 'png' })
 			font-size: 1rem;
 			line-height: normal;
 			max-width: 70%;
+		}
+
+		button {
+			margin: 8px 0;
 		}
 	}
 	/* RESPONSIVE FOR MID */

@@ -30,7 +30,7 @@ const feedbackData = [
 		{
 			feedbackData.map((item, index) => (
 				<div
-					class={`flex flex-wrap items-center xl:h-[700px] ${index % 2 === 0 ? 'flex-row bg-white' : 'flex-row-reverse bg-black'}`}
+					class={`opinion-container flex flex-wrap items-center xl:h-[700px] ${index % 2 === 0 ? 'flex-row bg-white' : 'flex-row-reverse bg-black'}`}
 				>
 					<div class="container-screen flex h-full flex-col justify-center px-7 pb-20 pt-28 md:py-8  lg:basis-1/2 lg:p-12 xl:px-20 xl:py-0">
 						<div
@@ -136,6 +136,14 @@ const feedbackData = [
 			position: relative;
 			top: 50px;
 			right: 5px;
+		}
+	}
+
+	/* LANDSCAPE */
+
+	@media (max-height: 480px) {
+		.opinion-container {
+			flex-direction: row;
 		}
 	}
 </style>
