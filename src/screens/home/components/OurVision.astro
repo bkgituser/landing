@@ -73,10 +73,12 @@ import VideoBackground from '../../../components/template/VideoBackground.astro'
 	const playButton = document.querySelector('.playButton')
 	const mask = document.querySelector('.videoMask')
 	const video = document.getElementById('our-vision-video')
+	const poster = document.getElementById('video-poster')
 
 	playButton.addEventListener('click', function () {
 		if (video instanceof HTMLVideoElement) {
 			mask.classList.add('hidden')
+			poster.classList.add('hidden')
 			video.play()
 			toggleControls()
 		}
