@@ -1,7 +1,6 @@
 ---
 import { Trans } from 'astro-i18next/components'
 import FullVideoBg from '../../../components/template/VideoBackground.astro'
-import Loader from '@components/atom/Loader.astro'
 import CustomSlider from '@components/organisms/slider/CustomSlider.astro'
 import SliderElements from '@components/organisms/slider/SliderElements.astro'
 
@@ -10,7 +9,6 @@ const id = 'landing-slide'
 
 <>
 	<section id="hero" class="relative h-svh">
-		<!-- <Loader /> -->
 		<FullVideoBg
 			video="/assets/videos/landing.mp4"
 			preload="meta"
@@ -56,15 +54,6 @@ const id = 'landing-slide'
 			>
 			</div>
 		</FullVideoBg>
-		<script>
-			const video = document.querySelector('#landing-video')
-			const loader = document.querySelector('.loader-content')
-
-			video.onloadeddata = function () {
-				loader.classList.add('hidden')
-			}
-		</script>
-
 		<style>
 			@media (max-height: 480px) {
 				.slide {

@@ -3,6 +3,8 @@ import i18next from 'i18next'
 import { HeadHrefLangs } from 'astro-i18next/components'
 import Header from '../organisms/Header.astro'
 import Footer from '../organisms/Footer.astro'
+import Loader from '@components/atom/Loader.astro'
+
 import '../../index.css'
 const links = [
 	{
@@ -67,9 +69,19 @@ const links = [
 	</head>
 
 	<body class="font-neoSans">
+		<Loader />
 		<Header />
 		<slot />
 		<Footer />
+		<script>
+			const video = document.querySelector('#landing-video')
+			const loader = document.querySelector('.loader-content')
+
+			video.onloadeddata = function () {
+				loader.classList.add('hidden')
+			}
+		</script>
+
 		<script is:inline src="https://unpkg.com/@studio-freight/lenis@1.0.32/dist/lenis.min.js"
 		></script>
 		<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/gsap.min.js"></script>

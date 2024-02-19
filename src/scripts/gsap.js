@@ -89,7 +89,10 @@ class App {
 			start: 'top top',
 			end: 'max',
 			onUpdate: (self) => {
-				self.direction === -1 ? showAnim.play() : showAnim.reverse()
+				// if mobile overlay is not visible
+				if (!document?.querySelector('#floating-menu.visible')) {
+					self.direction === -1 ? showAnim.play() : showAnim.reverse()
+				}
 			}
 		})
 	}
@@ -113,8 +116,8 @@ class App {
 				})
 
 				tl.to('header img', {
-					width: !context.isMobile ? '114px' : '96px',
-					height: !context.isMobile ? '85px' : '64px',
+					width: !context.queries.isMobile ? '114px' : '96px',
+					height: !context.queries.isMobile ? '85px' : '64px',
 					duration: 1,
 					ease: 'expo.in'
 				})
@@ -135,13 +138,11 @@ class App {
 					scrollTrigger: {
 						trigger: '#smart-use',
 						start: 'top top',
-						end: 'bottom+=600 top',
+						end: 'bottom top',
 						pin: true,
 						scrub: false
 					}
 				})
-
-				const { isMobile } = context
 
 				tl.to('.smart-title-box', {
 					scale: 1,
