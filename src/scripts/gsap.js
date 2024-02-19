@@ -11,6 +11,7 @@ class App {
 		this._setInitialState()
 		this._createLenis()
 		this._logoAnimation()
+		this._scrollHeaderAnimation()
 		this._headerAnimation()
 		this._smartUseAnimation()
 		this._benefitsSkew()
@@ -71,6 +72,25 @@ class App {
 
 		tl.to('header', {
 			background: 'rgba(0,0,0,0.2)'
+		})
+	}
+
+	_scrollHeaderAnimation() {
+		const showAnim = gsap
+			.from('header', {
+				yPercent: -125,
+				paused: true,
+				duration: 0.2
+			})
+			.progress(1)
+
+		ScrollTrigger.create({
+			trigger: '#smart-use',
+			start: 'top top',
+			end: 'max',
+			onUpdate: (self) => {
+				self.direction === -1 ? showAnim.play() : showAnim.reverse()
+			}
 		})
 	}
 
