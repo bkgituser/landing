@@ -45,16 +45,16 @@ const feedbackData = [
 								{t(item.opinion)}
 							</p>
 						</div>
-						<div class="lg:w-3/4">
+						<div class="lg:max-w-3/4">
 							<p class={`text-xl text-grey`}>{t(item.user)}</p>
 						</div>
 					</div>
-					<div class="w-full lg:basis-1/2">
-						<div class="xl:h-[700px]">
+					<div class="h-full w-full lg:basis-1/2">
+						<div class="h-full xl:h-[700px]">
 							<Image
 								src={item.img}
 								alt="BK product"
-								class="h-full w-full object-contain lg:object-fill xl:object-cover"
+								class="h-full w-full object-cover lg:object-fill xl:object-cover"
 							/>
 						</div>
 					</div>
@@ -65,8 +65,19 @@ const feedbackData = [
 </section>
 
 <style>
-	/* QUOTE STYLES */
+	@media screen and (min-width: 976px) and (max-width: 1250px) {
+		.container-screen {
+			padding-top: 1rem;
+			padding-bottom: 1rem;
+		}
 
+		.container-screen > .mb-12 {
+			margin-bottom: 2rem;
+		}
+		.opinion-container .h-full {
+			min-height: 550px;
+		}
+	}
 	.quote:before {
 		content: '\201C';
 		color: #7b7b7b;

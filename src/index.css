@@ -8,7 +8,7 @@
 
 @layer components {
 	.container-screen {
-		@apply container mx-auto h-full px-5 sm:px-8 md:px-0 lg:px-12 xl:px-[7.4rem];
+		@apply container mx-auto h-full px-5 sm:px-0 md:px-0 lg:px-12 xl:px-[7.4rem];
 	}
 
 	@media (max-height: 480px) {
@@ -17,4 +17,18 @@
 			max-width: none;
 		}
 	}
+
+	@media (min-width: 600px) and (max-width: 768px) {
+		.container-screen {
+			max-width: 768px;
+		}
+	}
+
+	@media (min-width: 1000px) and (max-width: 1440px) {
+		.container-screen {
+			max-width: 1000px;
+		}
+	}
+
+	
 }
