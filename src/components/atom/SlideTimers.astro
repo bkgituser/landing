@@ -10,6 +10,7 @@ const { lengthSlides, activeSlide, speed, activeColor, colorInactive, customSlid
 	data-stop="false"
 	id={`${id}-slider-timer`}
 	class="relative top-2 block"
+	is="div"
 >
 	<div class="w-full">
 		<div class={`flex justify-between gap-1 ${customSliderClass}`}>
@@ -27,69 +28,61 @@ const { lengthSlides, activeSlide, speed, activeColor, colorInactive, customSlid
 </slide-timer>
 <script>
 	class SlideTimer extends HTMLElement {
-		idInterval = null
+		private idInterval: number | null = null
 		constructor() {
 			super()
-			if (!this.dataset.activeSlide || !this.dataset.speed) {
-				return undefined
-			}
-			const activeIndex = this.dataset.activeSlide
-			const speed = this.dataset.speed
-			const stop = this.dataset.stop
-			this._setActive(activeIndex, speed, stop)
-			this._react()
+			this.init()
 		}
 
-		_setActive(activeIndex, speed, stop) {
+		init() {
+			const activeIndex = Number(this.dataset.activeSlide) || 0
+			const speed = Number(this.dataset.speed) || 5000
+			const stop = this.dataset.stop === 'true'
+			this.setActive(activeIndex, speed, stop)
+			this.observeChanges()
+		}
+
+		setActive(activeIndex, speed, stop) {
 			clearInterval(this.idInterval)
+			if (stop) return
+
 			const bars = [...this.querySelectorAll('.bar')]
-			const parsedActiveIndex = Number(activeIndex)
-			const activeBar = bars[parsedActiveIndex].querySelector('.fill-elem')
-			if (stop === 'true') {
-				return
-			}
+			const activeBar = bars[activeIndex]?.querySelector('.fill-elem') as HTMLElement
+			if (!activeBar) return
 
-			if (activeBar instanceof HTMLElement) {
-				let percentageToAdd = 1
-				let interval = (speed / 100) * 1
-
-				this.idInterval = setInterval(() => {
-					const widthInNumber = Number(activeBar.style.width.replace('%', ''))
-					activeBar.style.width = `${widthInNumber + percentageToAdd}%`
-
-					if (widthInNumber >= 100) {
-						activeBar.style.width = '100%'
-						clearInterval(this.idInterval)
-					}
-				}, interval)
-			}
+			const interval = speed / 100
+			let width = 0
+			this.idInterval = setInterval(() => {
+				width += 1
+				activeBar.style.width = `${Math.min(width, 100)}%`
+				if (width >= 100) clearInterval(this.idInterval)
+			}, interval)
 		}
 
-		_react() {
-			const thisEL = this
-			const observer = new MutationObserver(function (mutations) {
-				mutations.forEach(function (mutation) {
+		observeChanges() {
+			const observer = new MutationObserver((mutations) => {
+				mutations.forEach((mutation) => {
 					if (mutation.type === 'attributes') {
-						const targetElement = mutation.target as Element
-						if (targetElement?.attributes?.['data-stop'] === 'true') {
-							return
-						} else {
-							const activeIndex = Number(thisEL.dataset.activeSlide)
-							const speed = thisEL.dataset.speed
-							const stop = thisEL.dataset.stop
-							thisEL._setActive(activeIndex, speed, stop)
+						const target = mutation?.target as HTMLElement
+						if (target.dataset.stop === 'true') return
+						if (mutation.attributeName === 'data-active-slide') {
+							const activeIndex = Number(target.dataset.activeSlide)
+							const speed = Number(target.dataset.speed)
+							const stop = target.dataset.stop === 'true'
+							this.setActive(activeIndex, speed, stop)
 						}
 					}
 				})
 			})
 
 			observer.observe(this, {
-				attributes: true //configure it to listen to attribute changes
+				attributes: true,
+				attributeFilter: ['data-active-slide', 'data-stop']
 			})
 		}
-		_
 	}
-	let customElements: CustomElementRegistry = window.customElements
 
 	customElements.define('slide-timer', SlideTimer)
+
+	console.log('customELements? ', customElements.get('slide-timer'))
 </script>
