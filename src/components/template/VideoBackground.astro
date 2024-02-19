@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets'
 const {
 	video,
 	autoplay = false,
@@ -16,12 +17,22 @@ const {
 		loop
 		playsinline
 		class="absolute h-full w-full object-cover"
-		poster={placeholder}
 		muted={muted}
 		preload={preload}
 	>
 		<source src={video} type="video/mp4" />
 	</video>
+	{
+		placeholder && (
+			<Image
+				src={placeholder}
+				alt="Video Poster"
+				class="absolute h-full w-full object-cover"
+				loading="lazy"
+				decoding="async"
+			/>
+		)
+	}
 	<slot />
 </div>
 <style>
