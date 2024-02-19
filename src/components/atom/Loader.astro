@@ -4,10 +4,16 @@ import { Image } from 'astro:assets'
 ---
 
 <div class="loader-content fixed z-[999] h-screen w-full overflow-hidden bg-black">
+	<Image
+		src={Logo}
+		width={200}
+		height={150}
+		alt="Logo BK"
+		class="left-8 top-0 md:absolute md:left-32"
+	/>
 	<div class="absolute left-1/2 top-1/2 -translate-x-1/2">
 		<div class="loader"></div>
 	</div>
-	<Image src={Logo} width={200} height={150} alt="Logo BK" class="left-8 top-0" />
 </div>
 <style>
 	/* HTML: <div class="loader"></div> */

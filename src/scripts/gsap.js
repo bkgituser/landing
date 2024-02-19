@@ -116,8 +116,8 @@ class App {
 				})
 
 				tl.to('header img', {
-					width: !context.queries.isMobile ? '114px' : '96px',
-					height: !context.queries.isMobile ? '85px' : '64px',
+					width: !context.conditions.isMobile ? '114px' : '96px',
+					height: !context.conditions.isMobile ? '85px' : '64px',
 					duration: 1,
 					ease: 'expo.in'
 				})
