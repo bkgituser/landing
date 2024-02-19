@@ -164,26 +164,13 @@
             "intro": "WHO WE ARE",
             "title": "World-class, experienced, multi-award winning team with a global mindset.",
             "subtitle": "Agricultural machinery designers and engineers experts in composite materials."
-        }
-    },
-    "about": {
-        "hero": {
-            "title": "About us",
-            "subtitle": "Vision",
-            "description": "We seek to revolutionize the agricultural machinery industry by incorporating advanced composite materials that provide a leap in EFFICIENCY"
         },
-        "cofounders": {
-            "title1": "TEAM",
-            "paragraph1": "Agricultural machinery designers and engineers specialized in composite materials.",
-            "paragraph2": "World-class, experienced, multi-award winning team with a global mindset.",
-            "title2": "CO-FOUNDERS"
+        "footer": {
+            "lineTop": "For more information, click on the link below.",
+            "moreInfoButton": "MORE INFO",
+            "aboutIinfo": "BK Comp is a company that develops and manufactures advanced composite products for the agribusiness, combining design and Know How in different technologies aiming to increase the efficiency and productivity of the sector.",
+            "sales": "SALES",
+            "followUs": "Follow us"
         }
-    },
-    "footer": {
-        "lineTop": "For more information, click on the link below.",
-        "moreInfoButton": "MORE INFO",
-        "aboutIinfo": "BK Comp is a company that develops and manufactures advanced composite products for the agribusiness, combining design and Know How in different technologies aiming to increase the efficiency and productivity of the sector.",
-        "sales": "SALES",
-        "followUs": "Follow us"
     }
 }
