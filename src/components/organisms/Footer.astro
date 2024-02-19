@@ -1,30 +1,28 @@
 ---
-
+import { t } from 'i18next'
 ---
 
 <footer id="footer" class="min-h-[50vh] bg-black text-lightGrey">
 	<div class="container mx-auto max-w-[830px] bg-black pt-28">
 		<div class="cta">
 			<h6 class="px-24 text-center text-base font-semibold md:px-0 lg:text-2xl">
-				For more information, click on the link below.
+				{t('landing.footer.lineTop')}
 			</h6>
 			<div class="flex justify-center pb-12 pt-6 md:pb-20 md:pt-8">
 				<button class="rounded-xl bg-white px-8 py-2 text-sm font-bold text-black">
-					MORE INFO
+					{t('landing.footer.moreInfoButton')}
 				</button>
 			</div>
 		</div>
 		<div class="info px-5 md:px-16 lg:px-0">
 			<p class="mx-auto text-justify text-base md:text-2xl">
-				BK Comp is a company that develops and manufactures advanced composite products for the
-				agribusiness, combining design and Know How in different technologies aiming to increase the
-				efficiency and productivity of the sector.
+				{t('landing.footer.aboutIinfo')}
 			</p>
 		</div>
 		<div class="info mt-32 flex flex-wrap items-start justify-between px-16 md:mt-36 lg:px-0">
 			<div class="info-col shrink-0 lg:basis-1/2">
 				<span class="mb-2 block w-10 border-[0.5px] border-greyOpaque"></span>
-				<h6 class="text-lg text-greyOpaque lg:text-2xl">SALES</h6>
+				<h6 class="text-lg text-greyOpaque lg:text-2xl">{t('landing.footer.sales')}</h6>
 				<div class="country py-2">
 					<p class="pb-1 pt-2 text-lg text-white md:pt-4 lg:text-2xl">
 						<strong> ARGENTINA / EUROPE </strong>
@@ -68,7 +66,7 @@
 					</div>
 				</div>
 				<div class="media mt-auto">
-					<h6 class="mb-4 text-lg text-lightGrey md:text-xl">Follow us</h6>
+					<h6 class="mb-4 text-lg text-lightGrey md:text-xl">{t('landing.footer.followUs')}</h6>
 					<span class="mb-10 block w-16 border-[0.5px] border-grey"></span>
 					<div class="icons flex gap-12">
 						<a href="https://www.linkedin.com/company/bk-comp/" target="_blank" rel="noreferrer">
