@@ -35,7 +35,7 @@ import VideoBackground from '../../../components/template/VideoBackground.astro'
 						</h3>
 
 						<p
-							class="ourvision-line text-left text-[32px] text-white drop-shadow-lg md:hidden md:text-justify md:drop-shadow-none xl:leading-[2.5rem]"
+							class="ourvision-line text-left text-[32px] text-white drop-shadow-lg md:hidden md:text-justify md:drop-shadow-none xl:leading-[3rem]"
 						>
 							{t('landing.ourVision.description')}
 						</p>
@@ -43,7 +43,7 @@ import VideoBackground from '../../../components/template/VideoBackground.astro'
 							t('landing.ourVision.description')
 								.split('\n')
 								.map((line) => (
-									<p class="ourvision-line hidden text-left  text-4xl text-white drop-shadow-lg md:contents md:text-justify md:drop-shadow-none xl:leading-[2.5rem]">
+									<p class="ourvision-line hidden text-left  text-4xl text-white drop-shadow-lg md:block md:text-justify md:drop-shadow-none xl:leading-[3rem]">
 										{line}
 									</p>
 								))
@@ -96,8 +96,6 @@ import VideoBackground from '../../../components/template/VideoBackground.astro'
 	}
 </script>
 <style>
-	@media (max-height: 480px) {
-	}
 	@media (min-width: 480px) and (max-width: 1600px) and (max-height: 900px) {
 		.container {
 			max-width: none;
