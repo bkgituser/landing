@@ -65,13 +65,12 @@ const {
 	}
 </custom-slider>
 <script>
-	import InstagramSlider from '../../../scripts/showElementOnHover'
+	import InstagramSlider from '../../../scripts/InstagramClass'
 
 	class InstagramSliderElement extends HTMLElement {
 		idInterval = null
 		constructor() {
 			super()
-
 			const fadeSlider = new InstagramSlider(this.id, {
 				activeClass: 'item-index-active',
 				speed: 300,
@@ -80,7 +79,7 @@ const {
 				triggerOnAutoPlayToggle: (isPlaying) => {
 					const container = document.getElementById(this.id)
 					const slideTimer = container?.querySelector('slide-timer')
-
+					console.log('STOP? -> ', (!isPlaying).toString())
 					if (slideTimer) {
 						slideTimer.setAttribute('data-stop', (!isPlaying).toString())
 					}
@@ -143,8 +142,8 @@ const {
 								;(element as HTMLDivElement).style.width = '100%'
 							}
 						})
-
-						slideTimer.setAttribute('data-active-slide', newIndex)
+						slideTimer.dataset.activeSlide = newIndex
+						// slideTimer.setAttribute('data-active-slide', newIndex)
 					}
 				}
 			})
@@ -163,5 +162,6 @@ const {
 	}
 	custom-slider {
 		height: var(--height);
+		user-select: contain;
 	}
 </style>
