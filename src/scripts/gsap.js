@@ -1,4 +1,4 @@
-import { incrementCounter, incrementCounterInInterval } from './utils'
+import { incrementCounter, incrementCounterInInterval, setSizeOfBinds } from './utils'
 
 class App {
 	constructor() {
@@ -63,9 +63,9 @@ class App {
 	_headerAnimation() {
 		const tl = gsap.timeline({
 			scrollTrigger: {
-				trigger: '#hero',
-				start: 'bottom top',
-				end: 'bottom bottom',
+				trigger: '#smart-use',
+				start: 'top-=100px top',
+				end: 'top-=100px top',
 				scrub: true
 			}
 		})
@@ -88,6 +88,7 @@ class App {
 			trigger: '#smart-use',
 			start: 'top top',
 			end: 'max',
+			delay: 1,
 			onUpdate: (self) => {
 				// if mobile overlay is not visible
 				if (!document?.querySelector('#floating-menu.visible')) {
@@ -141,6 +142,9 @@ class App {
 						end: 'bottom top',
 						pin: true,
 						scrub: false
+					},
+					onStart: () => {
+						setSizeOfBinds()
 					}
 				})
 

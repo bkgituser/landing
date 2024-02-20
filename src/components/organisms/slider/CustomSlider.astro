@@ -79,7 +79,7 @@ const {
 				triggerOnAutoPlayToggle: (isPlaying) => {
 					const container = document.getElementById(this.id)
 					const slideTimer = container?.querySelector('slide-timer')
-					console.log('STOP? -> ', (!isPlaying).toString())
+
 					if (slideTimer) {
 						slideTimer.setAttribute('data-stop', (!isPlaying).toString())
 					}
