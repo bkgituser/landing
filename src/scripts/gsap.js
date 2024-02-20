@@ -15,6 +15,7 @@ class App {
 		this._headerAnimation()
 		this._smartUseAnimation()
 		this._benefitsSkew()
+		this._benefitsSkewParallax()
 		this._highlightsAnimation()
 		this._repairabilityAnimation()
 		this._stats1Animation()
@@ -24,7 +25,7 @@ class App {
 
 	_setInitialState() {
 		gsap.set(
-			'.smart-title-box, .benefits-description, .benefits-index, highlight-title, .repairability-title, .repairability-description',
+			'.smart-title-box, .index-container, highlight-title, .repairability-title, .repairability-description',
 			{
 				opacity: 0,
 				scale: 0.9,
@@ -33,6 +34,18 @@ class App {
 				skewY: '0deg'
 			}
 		)
+
+		gsap.set('.benefits-description', {
+			scale: 0.9,
+			y: 64,
+			skewX: '-4deg',
+			skewY: '0deg'
+		})
+
+		gsap.set('.bind-zoom1, .bind-zoom2', {
+			scaleX: 0,
+			scaleY: 0
+		})
 
 		gsap.set('.feature-smart-1, .feature-smart-2, .zoom1, zoom2', {
 			autoAlpha: 0
@@ -186,18 +199,32 @@ class App {
 					.to(
 						'.bind-zoom1',
 						{
-							maxHeight: 500,
-							maxWidth: 500
+							scaleX: 1,
+							transformOrigin: 'right bottom',
+							duration: 0.7,
+							ease: 'expoScale(0.5,7,none)'
 						},
-						2.5
+						0.5
+					)
+					.to(
+						'.bind-zoom1',
+						{ scaleY: 1, duration: 0.7, delay: 1, ease: 'expoScale(0.5,7,none)' },
+						0.8
 					)
 					.to(
 						'.bind-zoom2',
 						{
-							maxHeight: 500,
-							maxWidth: 500
+							scaleX: 1,
+							transformOrigin: 'top left',
+							duration: 0.7,
+							ease: 'expoScale(0.5,7,none)'
 						},
-						2.5
+						0.5
+					)
+					.to(
+						'.bind-zoom2',
+						{ scaleY: 1, duration: 0.7, delay: 1, ease: 'expoScale(0.5,7,none)' },
+						0.8
 					)
 			}
 		)
@@ -207,20 +234,19 @@ class App {
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: '#benefits',
-				start: 'top-=30% top',
+				start: 'top-=20% top',
 				end: 'top top',
 				scrub: false,
 				delay: 0
 			}
 		})
-		tl.to('.benefits-index', {
+		tl.to('.benefits-description', {
 			scale: 1,
 			y: 0,
-			opacity: 1,
 			skewX: '0deg',
 			skewY: '0deg'
 		}).to(
-			'.benefits-description',
+			'.index-container',
 			{
 				scale: 1,
 				y: 0,
@@ -230,6 +256,31 @@ class App {
 			},
 			0.5
 		)
+	}
+
+	_benefitsSkewParallax() {
+		// const tl = gsap.timeline({
+		// 	scrollTrigger: {
+		// 		trigger: '#benefits',
+		// 		start: 'bottom bottom',
+		// 		end: 'bottom bottom',
+		// 		scrub: true,
+		// 		markers: {
+		// 			fontSize: '3rem'
+		// 		}
+		// 	},
+		// 	yPercent: -100
+		// })
+		// tl.to('.benefits-description', {
+		// 	ease: 'power4.out'
+		// }).to(
+		// 	'.index-container',
+		// 	{
+		// 		ease: 'none',
+		// 		yPercent: -60
+		// 	},
+		// 	0.5
+		// )
 	}
 
 	_highlightsAnimation() {

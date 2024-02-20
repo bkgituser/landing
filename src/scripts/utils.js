@@ -17,12 +17,11 @@ function incrementCounterInInterval(selector, increment) {
 	}
 }
 
-function setSizeOfBinds() {
+export function setSizeOfBinds() {
 	let isMobile = window.innerWidth <= 480
 	let isMedium = window.innerWidth >= 768
 	let isLandscape = window.innerHeight <= 480
 	let isSmall = window.innerWidth < 768 && window.innerWidth > 480
-
 	const bind1 = document.querySelector('.bind-zoom1')
 	const sizeBind1 = bind1.getBoundingClientRect()
 	const bind2 = document.querySelector('.bind-zoom2')
@@ -63,4 +62,4 @@ function setSizeOfBinds() {
 	}
 }
 
-export { incrementCounter, incrementCounterInInterval, setSizeOfBinds }
+export { incrementCounter, incrementCounterInInterval }
