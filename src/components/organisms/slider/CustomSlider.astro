@@ -79,7 +79,7 @@ const {
 				triggerOnAutoPlayToggle: (isPlaying) => {
 					const container = document.getElementById(this.id)
 					const slideTimer = container?.querySelector('slide-timer')
-					console.log('change isPlaying -> ', (!isPlaying).toString())
+					console.log('STOP? -> ', (!isPlaying).toString())
 					if (slideTimer) {
 						slideTimer.setAttribute('data-stop', (!isPlaying).toString())
 					}
@@ -162,5 +162,6 @@ const {
 	}
 	custom-slider {
 		height: var(--height);
+		user-select: contain;
 	}
 </style>
