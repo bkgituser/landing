@@ -95,12 +95,6 @@ export default class InstagramSlider {
 	}
 
 	previous() {
-		const remaining = this.timer.getRemaining()
-
-		if (remaining < this.config.delay / 2) {
-			this.handleIndexUpdate(this.activeIndex)
-			return
-		}
 		const newIndex = this.activeIndex > 0 ? (this.activeIndex - 1) % this.items.length : 0
 		this.handleIndexUpdate(newIndex)
 	}
