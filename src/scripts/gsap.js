@@ -1,4 +1,4 @@
-import { incrementCounter, incrementCounterInInterval } from './utils'
+import { incrementCounter, incrementCounterInInterval, setSizeOfBinds } from './utils'
 
 class App {
 	constructor() {
@@ -142,6 +142,9 @@ class App {
 						end: 'bottom top',
 						pin: true,
 						scrub: false
+					},
+					onStart: () => {
+						setSizeOfBinds()
 					}
 				})
 
