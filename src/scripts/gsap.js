@@ -64,8 +64,8 @@ class App {
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: '#hero',
-				start: 'bottom top',
-				end: 'bottom bottom',
+				start: 'bottom-=100px top',
+				end: 'bottom-=100px bottom',
 				scrub: true
 			}
 		})
@@ -88,6 +88,7 @@ class App {
 			trigger: '#smart-use',
 			start: 'top top',
 			end: 'max',
+			delay: 1,
 			onUpdate: (self) => {
 				// if mobile overlay is not visible
 				if (!document?.querySelector('#floating-menu.visible')) {
