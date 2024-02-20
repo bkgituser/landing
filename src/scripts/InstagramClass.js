@@ -54,7 +54,7 @@ export default class InstagramSlider {
 
 	initEvents() {
 		this.container.addEventListener('touchstart', () => this.handleContainerTouchStart())
-		this.container.addEventListener('touchend', () => this.handleContainerTouchEnd())
+		this.container.addEventListener('touchend', (e) => this.handleContainerTouchEnd(e))
 		this.container.addEventListener('touchcancel', () => this.handleContainerTouchCancel())
 	}
 
@@ -91,6 +91,17 @@ export default class InstagramSlider {
 
 	next() {
 		const newIndex = (this.activeIndex + 1) % this.items.length
+		this.handleIndexUpdate(newIndex)
+	}
+
+	previous() {
+		const remaining = this.timer.getRemaining()
+
+		if (remaining < this.config.delay / 2) {
+			this.handleIndexUpdate(this.activeIndex)
+			return
+		}
+		const newIndex = this.activeIndex > 0 ? (this.activeIndex - 1) % this.items.length : 0
 		this.handleIndexUpdate(newIndex)
 	}
 
@@ -148,12 +159,19 @@ export default class InstagramSlider {
 		this.touchTimeout = setTimeout(() => {}, 300)
 	}
 
-	handleContainerTouchEnd() {
+	handleContainerTouchEnd(e) {
 		clearTimeout(this.touchTimeout)
 		const touchDuration = Date.now() - this.touchStartTime
 		if (touchDuration < 300) {
 			this.timer.cancel()
-			this.next()
+			const touchLeftSide = this.container.scrollWidth / 2 > e.changedTouches?.[0]?.clientX
+
+			if (touchLeftSide) {
+				this.previous()
+			} else {
+				this.next()
+			}
+
 			this.startAutoplay()
 		} else {
 			this.resumeAutoplay()
@@ -185,6 +203,10 @@ export var Timer = function (callback, delay) {
 	this.resume = function () {
 		if (timerId) {
 			return
+		}
+
+		this.getRemaining = function () {
+			return remaining
 		}
 
 		start = Date.now()
