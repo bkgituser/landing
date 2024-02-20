@@ -9,7 +9,7 @@ import ImageBackground from '../../../components/template/ImageBackground.astro'
 const optimizedBackground = await getImage({ src: smartUseBg, format: 'webp' })
 ---
 
-<section id="smart-use" class="relative h-screen">
+<section id="smart-use" class="relative min-h-screen">
 	<ImageBackground desktpBg={optimizedBackground}>
 		<div class="container-screen relative pt-20 md:pt-32 xl:pb-40 xl:pt-48">
 			<div class="smart-title-box opacity-0">

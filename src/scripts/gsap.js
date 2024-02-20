@@ -63,9 +63,9 @@ class App {
 	_headerAnimation() {
 		const tl = gsap.timeline({
 			scrollTrigger: {
-				trigger: '#hero',
-				start: 'bottom-=100px top',
-				end: 'bottom-=100px bottom',
+				trigger: '#smart-use',
+				start: 'top-=100px top',
+				end: 'top-=100px top',
 				scrub: true
 			}
 		})
