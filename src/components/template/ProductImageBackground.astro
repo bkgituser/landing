@@ -18,7 +18,7 @@ const { mobileBg = null, desktpBg, isBlur = false } = Astro.props
 			<img
 				{...desktpBg}
 				alt="background"
-				class={`background-img h-full w-full -top-8 relative md:object-cover md:top-auto ${isBlur ? 'blur-sm' : ''}`}
+				class={`background-img h-full w-full -top-16 relative md:object-cover md:top-auto ${isBlur ? 'blur-sm' : ''}`}
 				loading="lazy"
 			/>
 		</div>
@@ -35,7 +35,7 @@ const { mobileBg = null, desktpBg, isBlur = false } = Astro.props
 		position: absolute;
 		height: 40%;
 		bottom: 0;
-		background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 100%);
+		background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%);
 		z-index: 0;
 		width: 100%;
 	}
@@ -47,14 +47,24 @@ const { mobileBg = null, desktpBg, isBlur = false } = Astro.props
 			content: '';
 			position: absolute;
 			height: 10%;
-			bottom: 2rem;
+			bottom: 4rem;
 			background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
 			z-index: 0;
 			width: 100%;
 		}
 	}
 
-	@media (max-width: 767px) and (min-height: 800px) {
+	@media (min-width: 440px) and (max-height: 730px) {
+		.background-img {
+			top: -10rem;
+		}
+
+		.mask::after {
+			height: 10%;
+			bottom: 10rem;
+		}
+	}
+	@media (max-width: 767px) and (min-height: 820px) {
 		.background-img {
 			top: 0px;
 		}
@@ -63,13 +73,7 @@ const { mobileBg = null, desktpBg, isBlur = false } = Astro.props
 			position: relative;
 		}
 		.mask::after {
-			content: '';
-			position: absolute;
-			height: 10%;
 			bottom: 0rem;
-			background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
-			z-index: 0;
-			width: 100%;
 		}
 	}
 </style>

@@ -27,9 +27,7 @@ const optimizedBackground = await getImage({ src: smartUseBg, format: 'webp' })
 					{t('landing.smartUse.feature1')}
 				</h3>
 				<p class="text-lg font-thin text-white">
-					<Trans i18nKey="landing.smartUse.feature1Description">
-						50% lighter than Aluminium. Achieve <br /> Large Working Width with Low Weight
-					</Trans>
+					{t('landing.smartUse.feature1Description')}
 				</p>
 			</div>
 			<div class="feature-smart-2 absolute">
@@ -52,9 +50,7 @@ const optimizedBackground = await getImage({ src: smartUseBg, format: 'webp' })
 		>
 			<div class="absolute left-0 top-[47%]">
 				<!-- CIRCLE -->
-				<div
-					class="zoom2 relative h-32 w-32 rounded-full border-2 bg-white bg-opacity-20 opacity-0 md:h-40 md:w-40 xl:h-52 xl:w-52"
-				>
+				<div class="zoom2 relative h-8 w-8 rounded-full border-2 bg-white bg-opacity-20 opacity-0">
 					<!-- BIND -->
 					<div
 						class="bind-zoom2 absolute right-1/2 top-full border-b-2 border-r-2 border-white sm:border-b-0 sm:border-t-2 md:left-full md:top-1/2"
@@ -66,11 +62,9 @@ const optimizedBackground = await getImage({ src: smartUseBg, format: 'webp' })
 
 		<!-- RIGHT ZOOM -->
 		<div class="position-zoom-1 justify- absolute left-0 top-0 flex h-full w-1/2 items-center">
-			<div class="absolute left-[30%] top-[62%] sm:left-[63%]">
+			<div class="absolute left-[74%] top-[68%] sm:left-[84%]">
 				<!-- CIRCLE -->
-				<div
-					class="zoom1 relative h-32 w-32 rounded-full border-2 bg-white bg-opacity-20 opacity-0 md:h-40 md:w-40 xl:h-52 xl:w-52"
-				>
+				<div class="zoom1 relative h-8 w-8 rounded-full border-2 bg-white bg-opacity-20 opacity-0">
 					<!-- BIND -->
 					<div
 						class="bind-zoom1 absolute bottom-full left-1/2 border-b-2 border-l-2 border-white md:bottom-1/2 md:left-auto md:right-full"
@@ -112,7 +106,7 @@ const optimizedBackground = await getImage({ src: smartUseBg, format: 'webp' })
 
 	@media (min-width: 768px) {
 		.feature-smart-2 {
-			right: 0;
+			right: 5%;
 			bottom: 8%;
 		}
 	}
