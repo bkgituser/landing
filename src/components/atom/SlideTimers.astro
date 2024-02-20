@@ -51,7 +51,8 @@ const { lengthSlides, activeSlide, speed, activeColor, colorInactive, customSlid
 			if (!activeBar) return
 
 			const interval = speed / 100
-			let width = 0
+			let width = Number(activeBar.style.width.replace('%', ''))
+
 			this.idInterval = setInterval(() => {
 				width += 1
 				activeBar.style.width = `${Math.min(width, 100)}%`
@@ -64,8 +65,10 @@ const { lengthSlides, activeSlide, speed, activeColor, colorInactive, customSlid
 				mutations.forEach((mutation) => {
 					if (mutation.type === 'attributes') {
 						const target = mutation?.target as HTMLElement
-						if (target.dataset.stop === 'true') return
-						if (mutation.attributeName === 'data-active-slide') {
+						if (target.dataset.stop === 'true') {
+							clearInterval(this.idInterval)
+						}
+						if (mutation.attributeName === 'data-active-slide' || target.dataset.stop !== 'true') {
 							const activeIndex = Number(target.dataset.activeSlide)
 							const speed = Number(target.dataset.speed)
 							const stop = target.dataset.stop === 'true'
@@ -83,6 +86,4 @@ const { lengthSlides, activeSlide, speed, activeColor, colorInactive, customSlid
 	}
 
 	customElements.define('slide-timer', SlideTimer)
-
-	console.log('customELements? ', customElements.get('slide-timer'))
 </script>

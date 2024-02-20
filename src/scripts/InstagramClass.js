@@ -67,7 +67,7 @@ export default class InstagramSlider {
 	startAutoplay() {
 		if (this.config.autoplay) {
 			this.isPlaying = true
-
+			this.config.triggerOnAutoPlayToggle && this.config.triggerOnAutoPlayToggle(this.isPlaying)
 			this.timer = new Timer(() => {
 				this.next()
 				this.startAutoplay()
@@ -78,8 +78,15 @@ export default class InstagramSlider {
 	stopAutoplay() {
 		if (this.isPlaying) {
 			this.isPlaying = false
+			this.config.triggerOnAutoPlayToggle && this.config.triggerOnAutoPlayToggle(this.isPlaying)
 			this.timer.pause()
 		}
+	}
+
+	resumeAutoplay() {
+		this.isPlaying = true
+		this.config.triggerOnAutoPlayToggle && this.config.triggerOnAutoPlayToggle(this.isPlaying)
+		this.timer.resume()
 	}
 
 	next() {
@@ -117,7 +124,7 @@ export default class InstagramSlider {
 	}
 
 	handlePaginationMouseLeave() {
-		this.timer.resume()
+		this.resumeAutoplay()
 	}
 
 	handlePaginationTouchStart(event, index) {
@@ -147,18 +154,19 @@ export default class InstagramSlider {
 		if (touchDuration < 300) {
 			this.timer.cancel()
 			this.next()
+			this.startAutoplay()
 		} else {
-			this.timer.resume()
+			this.resumeAutoplay()
 		}
 	}
 
 	handleContainerTouchCancel() {
 		clearTimeout(this.touchTimeout)
-		this.timer.resume()
+		this.resumeAutoplay()
 	}
 }
 
-var Timer = function (callback, delay) {
+export var Timer = function (callback, delay) {
 	var timerId,
 		start,
 		remaining = delay
