@@ -53,9 +53,23 @@ const id = 'accesories-slider'
 		lengthElements={accesoriesData.length}
 		delay={8000}
 		customSliderContainerClass="px-6 top-5"
+		navigation={true}
 	>
 		<SliderElements id={id} isBackground={true}>
 			{accesoriesData.map((accesoryProps) => <AccesoryDisplay {...accesoryProps} />)}
 		</SliderElements>
 	</CustomSlider>
 </section>
+<script>
+	const slider = document.getElementById('accesories-slider')
+	const prevArrow = document.getElementById(`accesories-slider-nav-prev`)
+	const nextArrow = document.getElementById(`accesories-slider-nav-next`)
+	prevArrow.addEventListener('click', () => {
+		console.log
+		slider?.previous()
+	})
+
+	nextArrow.addEventListener('click', () => {
+		slider?.next()
+	})
+</script>

@@ -16,6 +16,10 @@ export default class InstagramSlider {
 			`#${containerSelector}-elements-container`
 		)
 		this.indexContainer = this.container.querySelector(`#${containerSelector}-index-container`)
+
+		// this.navigateNext = this.config.navigation && this.container.querySelector(`#${containerSelector}-nav-next`)
+		// this.navigatePrev = this.config.navigation &&  this.container.querySelector(`#${containerSelector}-nav-prev`)
+
 		this.items = [...this.elementsContainer.children]
 		this.paginationItems = this.indexContainer ? [...this.indexContainer.children] : null
 		this.activeIndex = 0
@@ -68,6 +72,9 @@ export default class InstagramSlider {
 		if (this.config.autoplay) {
 			this.isPlaying = true
 			this.config.triggerOnAutoPlayToggle && this.config.triggerOnAutoPlayToggle(this.isPlaying)
+			if (this.id === 'accesories-slider-nav-next') {
+				console.log('start autoplay; ', this.activeIndex)
+			}
 			this.timer = new Timer(() => {
 				this.next()
 				this.startAutoplay()
@@ -97,6 +104,18 @@ export default class InstagramSlider {
 	previous() {
 		const newIndex = this.activeIndex > 0 ? (this.activeIndex - 1) % this.items.length : 0
 		this.handleIndexUpdate(newIndex)
+	}
+
+	navigatePrevious() {
+		this.timer.cancel()
+		this.previous()
+		this.startAutoplay()
+	}
+
+	navigateNext() {
+		this.timer.cancel()
+		this.next()
+		this.startAutoplay()
 	}
 
 	fadeOutItem(index) {
