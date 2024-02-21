@@ -103,7 +103,8 @@
             "title": "Reparabilidade",
             "description": "O kit de reparo permite uma aplicação rápida e direta no campo, eliminando a necessidade de ferramentas especiais ou experiência prévia.",
             "downloadButton1": "Baixar Manual de Instalação",
-            "downloadButton2": "Baixar Instruções de Reparo"
+            "downloadButton2": "Baixar Instruções de Reparo",
+            "longVersionButton": "Versão longa"
         },
         "stats": {
             "item1": "Barris em Funcionamento",

@@ -102,7 +102,8 @@
             "title": "Repairability",
             "description": "The repair kit allows for fast and straightforward application in the field, eliminating the need for special tools or prior experience.",
             "downloadButton1": "Download Set Up Manual",
-            "downloadButton2": "Download Repair Instructions"
+            "downloadButton2": "Download Repair Instructions",
+            "longVersionButton": "Long version"
         },
         "stats": {
             "item1": "Booms Working",

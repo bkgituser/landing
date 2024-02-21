@@ -6,7 +6,7 @@ import { t } from 'i18next'
 	<div
 		class="md:container-screen flex flex-col-reverse flex-wrap items-start justify-between gap-16 pb-14 pt-10 md:pb-28 md:pt-32 lg:flex-row lg:gap-0 xl:pt-48"
 	>
-		<div class="container-screen md:px-auto mb-24 px-12 sm:px-20 md:px-0 lg:mb-0 lg:w-2/5 xl:w-1/2">
+		<div class="container-screen md:px-auto mb-24 px-10 sm:px-20 md:px-0 lg:mb-0 lg:w-2/5 xl:w-1/2">
 			<div class="hidden lg:block">
 				<h3 class="repairability-title text-2xl font-semibold text-black opacity-0 md:text-4xl">
 					{t('landing.repairability.title')}
@@ -36,7 +36,7 @@ import { t } from 'i18next'
 			</div>
 		</div>
 		<div class="container-screen lg:max-w-unset h-full w-full lg:w-3/5 lg:px-0 xl:w-1/2">
-			<div class="px-12 lg:hidden">
+			<div class="px-10 lg:hidden">
 				<h3 class="repairability-title text-2xl font-semibold text-black opacity-0 md:text-4xl">
 					{t('landing.repairability.title')}
 				</h3>
@@ -71,7 +71,7 @@ import { t } from 'i18next'
 					</video>
 				</div>
 			</div>
-			<div class="my-8 flex items-center justify-center">
+			<div class="my-8 flex items-center justify-center px-5">
 				<button
 					class="play-hidden-video flex h-[42px] w-[164px] items-center gap-4 border-[1px] border-black px-2 py-2 text-black md:h-auto md:w-auto md:basis-auto"
 				>
@@ -85,7 +85,9 @@ import { t } from 'i18next'
 						{t('landing.ourVision.button')}
 					</p>
 				</button>
-				<p class="mt-2 basis-1/2 text-center text-base text-[#A0A0A0]">Long version</p>
+				<p class="mt-2 basis-1/2 text-center text-base text-[#A0A0A0]">
+					{t('landing.repairability.longVersionButton')}
+				</p>
 			</div>
 		</div>
 	</div>
@@ -108,9 +110,11 @@ import { t } from 'i18next'
 		isFullscreen = !isFullscreen
 
 		if (isFullscreen) {
+			fullVideo.play()
 		} else {
 			console.log('exits fullscreen')
 			fullVideo.pause()
+
 			videoWrapper.classList.add('hidden')
 		}
 	}
