@@ -1,5 +1,6 @@
 ---
 import SlideTimers from '@components/atom/SlideTimers.astro'
+import { Image } from 'astro:assets'
 
 const {
 	lengthElements = 0,
@@ -13,7 +14,8 @@ const {
 	customSliderContainerClass = '',
 	colorInactive = 'rgba(255,255,255,0.5)',
 	activeColor = 'white',
-	circleIndexColors = 'white'
+	circleIndexColors = 'white',
+	navigation = false
 } = Astro.props
 ---
 
@@ -22,6 +24,7 @@ const {
 	data-delay={delay}
 	class={`relative block  w-full ${classWrapper}`}
 	data-active-index={0}
+	data-navigation={navigation}
 >
 	<slot name="prev-slider-timer" />
 	{
@@ -40,11 +43,45 @@ const {
 		) : null
 	}
 	<div class={` h-full w-full ${classSlideContainer}`}>
+		{
+			navigation && (
+				<div
+					id={`${id}-nav-prev`}
+					class="absolute left-0 top-0 z-[100] hidden h-full md:block md:w-[80px] lg:w-[124px]"
+				>
+					<span class="relative top-1/3 cursor-pointer">
+						<img
+							src="/assets/icons/chevron-left.svg"
+							width="100"
+							height="100"
+							alt="navigate before"
+						/>
+					</span>
+				</div>
+			)
+		}
 		<slot />
+		{
+			navigation && (
+				<div
+					id={`${id}-nav-next`}
+					class="absolute right-0 top-0 z-[100] hidden h-full md:block md:w-[80px] lg:w-[124px]"
+				>
+					<span class="relative top-1/3 cursor-pointer">
+						<img
+							src="/assets/icons/chevron-right.svg"
+							width="100"
+							height="100"
+							alt="navigate next"
+						/>
+					</span>
+				</div>
+			)
+		}
 	</div>
 	{
-		indexElements && (
-			<div class="absolute bottom-0 z-30 h-8 w-full md:hidden">
+		(indexElements || navigation) && (
+			<div class={`absolute bottom-0 z-30 h-8 w-full md:${navigation ? 'block' : 'hidden'}`}>
 				<div class="flex w-full items-center justify-center gap-2">
 					{Array(lengthElements)
 						.fill(null)
@@ -65,17 +102,20 @@ const {
 	}
 </custom-slider>
 <script>
+	import SliderComponent from 'src/screens/home/components/SliderComponent.astro'
 	import InstagramSlider from '../../../scripts/InstagramClass'
 
 	class InstagramSliderElement extends HTMLElement {
 		idInterval = null
+		slider = null
 		constructor() {
 			super()
-			const fadeSlider = new InstagramSlider(this.id, {
+			this.slider = new InstagramSlider(this.id, {
 				activeClass: 'item-index-active',
 				speed: 300,
 				autoplay: true,
 				delay: Number(this.dataset.delay),
+				navigation: Boolean(this.dataset.navigation === 'true'),
 				triggerOnAutoPlayToggle: (isPlaying) => {
 					const container = document.getElementById(this.id)
 					const slideTimer = container?.querySelector('slide-timer')
@@ -87,7 +127,7 @@ const {
 				triggerOnIndexCallback: (newIndex) => {
 					const container = document.getElementById(this.id)
 
-					const slideTimer = container?.querySelector('slide-timer')
+					const slideTimer: HTMLElement = container?.querySelector('slide-timer')
 					const bars = slideTimer?.querySelectorAll('.bar')
 					const fillBars = slideTimer?.querySelectorAll('.fill-elem')
 					const indexCircles = container.querySelectorAll('.indexCircle')
@@ -148,12 +188,25 @@ const {
 				}
 			})
 		}
+
+		next() {
+			if (this?.slider) {
+				this.slider.navigateNext()
+			}
+		}
+
+		previous() {
+			if (this?.slider) {
+				this.slider.navigatePrevious()
+			}
+		}
 	}
 
 	let customElements: CustomElementRegistry = window.customElements
 
 	customElements.define('custom-slider', InstagramSliderElement)
 </script>
+
 <style define:vars={{ height }}>
 	@media (max-height: 480px) {
 		.slideContainer {

@@ -8,6 +8,45 @@ function incrementCounter(selector, current, target, duration, letter = '') {
 	}
 }
 
+function incrementCounterBySeparate(targetNumber, elementId) {
+	const element = document.getElementById(elementId)
+	const currentNumber = parseInt(element.innerText)
+
+	if (currentNumber === targetNumber) return // No need to animate if already at target
+
+	const increment = targetNumber > currentNumber ? 1 : -1
+
+	// Convert numbers to arrays of digits
+	const currentDigits = Array.from(currentNumber.toString()).map(Number)
+	const targetDigits = Array.from(targetNumber.toString()).map(Number)
+
+	// Ensure both arrays have the same length
+	while (currentDigits.length < targetDigits.length) {
+		currentDigits.unshift(0)
+	}
+	while (currentDigits.length > targetDigits.length) {
+		targetDigits.unshift(0)
+	}
+	console.log({ currentDigits, targetDigits })
+	const interval = setInterval(function () {
+		for (let i = 0; i < targetDigits.length; i++) {
+			if (currentDigits[i] !== targetDigits[i]) {
+				currentDigits[i] += increment
+				// If a digit reaches 10 (or -1 if decrementing), reset to 0 (or 9)
+				if (currentDigits[i] === 10) {
+					currentDigits[i] = 0
+				} else if (currentDigits[i] === -1) {
+					currentDigits[i] = 9
+				}
+			}
+		}
+		element.innerText = currentDigits.join('')
+		if (currentDigits.join('') === targetNumber.toString()) {
+			clearInterval(interval)
+		}
+	}, 400) // Adjust the interval as needed for desired animation speed
+}
+
 function incrementCounterInInterval(selector, increment) {
 	let counter = document.getElementById(selector)
 	let current
@@ -62,4 +101,4 @@ export function setSizeOfBinds() {
 	}
 }
 
-export { incrementCounter, incrementCounterInInterval }
+export { incrementCounter, incrementCounterInInterval, incrementCounterBySeparate }

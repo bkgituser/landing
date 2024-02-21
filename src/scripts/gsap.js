@@ -1,4 +1,9 @@
-import { incrementCounter, incrementCounterInInterval, setSizeOfBinds } from './utils'
+import {
+	incrementCounter,
+	incrementCounterInInterval,
+	setSizeOfBinds,
+	incrementCounterBySeparate
+} from './utils'
 
 class App {
 	constructor() {
@@ -17,8 +22,10 @@ class App {
 		this._benefitsSkew()
 		this._benefitsSkewParallax()
 		this._highlightsAnimation()
+		this._productsLineup()
 		this._repairabilityAnimation()
 		this._stats1Animation()
+		this._accesories()
 		this._stats2Animation()
 		this._ourVisionAnimation()
 	}
@@ -234,9 +241,10 @@ class App {
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: '#benefits',
-				start: 'top-=20% top',
-				end: 'top top',
+				start: 'top top',
+				end: 'center top',
 				scrub: false,
+				pin: true,
 				delay: 0
 			}
 		})
@@ -287,8 +295,9 @@ class App {
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: '#highlights',
-				start: 'top-=450px top',
-				end: 'top top'
+				start: 'top top',
+				end: 'center top',
+				pin: true
 			}
 		})
 
@@ -313,12 +322,24 @@ class App {
 		)
 	}
 
+	_productsLineup() {
+		const tl = gsap.timeline({
+			scrollTrigger: {
+				trigger: '#products-line-up',
+				start: 'top top',
+				end: 'center top',
+				pin: true
+			}
+		})
+	}
+
 	_repairabilityAnimation() {
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: '#repairability',
-				start: 'top-=300 top',
-				end: 'top top',
+				start: 'top top',
+				end: 'top+=300 top',
+				pin: true,
 				scrub: false
 			}
 		})
@@ -380,6 +401,17 @@ class App {
 		})
 	}
 
+	_accesories() {
+		const tl = gsap.timeline({
+			scrollTrigger: {
+				trigger: '#accesories',
+				start: 'top top',
+				end: 'center top',
+				pin: true
+			}
+		})
+	}
+
 	_stats2Animation() {
 		// table-cell-stat1
 
@@ -413,17 +445,18 @@ class App {
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: '#our-vision',
-				start: 'top-=300 top',
-				end: 'top top',
+				start: 'top top',
+				end: 'center+=10% top',
+				pin: true,
 				scrub: false
 			}
 		})
 		tl.to('.ourvision-line', {
 			ease: 'power3.out',
-			stagger: 0.3,
+			stagger: 0.25,
 			opacity: 1,
 			y: 0,
-			duration: 1
+			duration: 0.8
 		})
 	}
 
