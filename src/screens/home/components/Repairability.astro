@@ -57,20 +57,23 @@ import { t } from 'i18next'
 				</video>
 
 				<!-- HIDDEN VIDEO -->
-				<video
-					id="repairability-full"
-					class="absolute hidden h-full w-full"
-					width="100%"
-					height="100%"
-					muted={true}
-					preload="none"
-				>
-					<source src="/assets/videos/repairability_full.mp4" type="video/mp4" />
-				</video>
+				<div class="video-wrapper z-full absolute hidden h-full w-full">
+					<button class="absolute right-5 top-5 text-3xl text-white drop-shadow-lg"> X </button>
+					<video
+						id="repairability-full"
+						class="absolute h-full w-full"
+						width="100%"
+						height="100%"
+						muted={true}
+						preload="none"
+					>
+						<source src="/assets/videos/repairability-full.mp4" type="video/mp4" />
+					</video>
+				</div>
 			</div>
 			<div class="my-8 flex items-center justify-center">
 				<button
-					class="play-hidden-video flex basis-1/2 items-center gap-4 border-[1px] border-black px-2 py-2 text-black md:basis-auto"
+					class="play-hidden-video flex h-[42px] w-[164px] items-center gap-4 border-[1px] border-black px-2 py-2 text-black md:h-auto md:w-auto md:basis-auto"
 				>
 					<img
 						src="/assets/icons/play-black.svg"
@@ -82,47 +85,35 @@ import { t } from 'i18next'
 						{t('landing.ourVision.button')}
 					</p>
 				</button>
-				<p class="mt-2 px-10 text-base text-[#A0A0A0]">Long version</p>
+				<p class="mt-2 basis-1/2 text-center text-base text-[#A0A0A0]">Long version</p>
 			</div>
 		</div>
 	</div>
 </section>
 <script>
 	const playButton = document.querySelector('.play-hidden-video')
+	const videoWrapper = document.querySelector('.video-wrapper')
+	const fullVideo = document.getElementById('repairability-full') as HTMLVideoElement
 
 	playButton.addEventListener('click', () => {
-		const fullVideo = document.getElementById('repairability-full') as HTMLVideoElement
+		videoWrapper.classList.remove('hidden')
 		if (fullVideo.requestFullscreen) {
 			fullVideo.requestFullscreen()
 		}
-
-		fullVideo.classList.remove('hidden')
 	})
-	// const mask = document.querySelector('.videoMask')
-	// const video = document.getElementById('our-vision-video')
-	// const poster = document.getElementById('video-poster')
 
-	// playButton.addEventListener('click', function () {
-	// 	if (video instanceof HTMLVideoElement) {
-	// 		mask.classList.add('hidden')
-	// 		poster.classList.add('hidden')
-	// 		video.play()
-	// 		toggleControls()
-	// 	}
-	// })
+	let isFullscreen = false
 
-	// video.addEventListener('pause', function () {
-	// 	mask.classList.remove('hidden')
-	// 	toggleControls()
-	// })
+	fullVideo.onfullscreenchange = function (e) {
+		isFullscreen = !isFullscreen
 
-	// function toggleControls() {
-	// 	if (video.hasAttribute('controls')) {
-	// 		video.removeAttribute('controls')
-	// 	} else {
-	// 		video.setAttribute('controls', 'controls')
-	// 	}
-	// }
+		if (isFullscreen) {
+		} else {
+			console.log('exits fullscreen')
+			fullVideo.pause()
+			videoWrapper.classList.add('hidden')
+		}
+	}
 </script>
 <style>
 	@media (max-height: 480px) {

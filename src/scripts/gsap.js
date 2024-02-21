@@ -91,15 +91,15 @@ class App {
 	_scrollHeaderAnimation() {
 		const showAnim = gsap
 			.from('header', {
-				yPercent: -125,
+				yPercent: -145,
 				paused: true,
-				duration: 0.2
+				duration: 0.25
 			})
 			.progress(1)
 
 		ScrollTrigger.create({
 			trigger: '#smart-use',
-			start: 'top top',
+			start: 'top-=400px top',
 			end: 'max',
 			delay: 1,
 			onUpdate: (self) => {

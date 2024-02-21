@@ -10,7 +10,7 @@ const { mobileBg = null, desktpBg, isBlur = false } = Astro.props
 					<img
 						{...mobileBg}
 						alt="background"
-						class={`m-0 w-full object-contain sm:hidden ${isBlur ? 'blur-sm' : ''}`}
+						class={`m-0 w-full object-contain md:hidden ${isBlur ? 'blur-sm' : ''}`}
 						loading="lazy"
 					/>
 				)
@@ -54,7 +54,7 @@ const { mobileBg = null, desktpBg, isBlur = false } = Astro.props
 		}
 	}
 
-	@media (min-width: 440px) and (max-height: 730px) {
+	@media (min-width: 440px) and (max-width: 768px) and (max-height: 740px) {
 		.background-img {
 			top: -10rem;
 		}
