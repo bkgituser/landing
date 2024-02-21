@@ -1,0 +1,178 @@
+{
+
+"landing": {
+    "nav": {
+    "home":"INICIO",
+    "aboutUs":"SOBRE NOSOTROS",
+    "benefits":"BENEFICIOS",
+    "products":"PRODUCTOS",
+    "accesories":"ACCESORIOS",
+    "contact":"CONTACTO"
+    },
+    "carousel": {
+    "title1": "<0>Uso Inteligente </0>de <1>Compuestos Avanzados</1>",
+    "title11": "para <0>Incrementar la Eficiencia</0> en <1>Agricultura</1>",
+    "title2": "Barras de Pulverización Livianas"
+    },
+    "smartUse": {
+    "badge": "El concepto",
+    "title": "Uso Inteligente <0>de Materiales</0>",
+    "feature1": "Tubos de Fibra de Carbono",
+    "feature1Description": "Logra un Ancho de Trabajo Amplio con Bajo Peso",
+    "feature2": "Nodos de Metal",
+    "feature2Description": "Más Eficiente para Resistir <0>Cargas Concentradas de Amarres y Juntas</0>"
+    },
+    "benefits": {
+    "item1": {
+    "description": "Productividad Incrementada,\n Ahorro de Combustible",
+    "featureLine": "Ancho de Trabajo\n Incrementado"
+    },
+    "item2": {
+    "description": "Reducir Compactación del Suelo,\nMayor Velocidad de Trabajo",
+    "featureLine": "Reducir \nPeso"
+    },
+    "item3": {
+    "description": "Durabilidad Incrementada",
+    "featureLine": "Resistente a \n Corrosión y \nFatiga"
+    },
+    "item4": {
+    "description": "Aplicación más Uniforme",
+    "featureLine": "Mayor \nEstabilidad"
+    },
+    "item5": {
+    "description": "Kits de Reparación Fáciles de Usar. No se requiere experiencia previa. \nMenos tiempo de inactividad de la máquina. Costos de mantenimiento reducidos.",
+    "featureLine": "Fácil de Reparar"
+    },
+    "item6": {
+    "description": "La estabilidad y durabilidad de nuestra barra la hacen ideal para \nSistemas de Pulverización Inteligente en toda la \nanchura de trabajo, garantizando una aplicación óptima.",
+    "featureLine": "Sistemas de \nPulverización Inteligente \nSpot"
+    }
+    },
+    "highlights": {
+    "title": "Aspectos Destacados de la Barra de BK",
+    "item1": {
+    "label": "Estabilidad",
+    "content": "Distribución efectiva del peso, centralizando la masa cerca de la máquina. Esto mejora la dinámica y estabilidad de la barra en terrenos irregulares, permitiendo una operación más rápida."
+    },
+    "item2": {
+    "label": "Reparabilidad",
+    "content": "El kit de reparación permite una aplicación rápida y sencilla en el campo, eliminando la necesidad de herramientas especiales o experiencia previa.",
+    "button": "Más Información"
+    },
+    "item3": {
+    "label": "Calidad",
+    "content": "Los procesos de fabricación automatizados permiten una repetibilidad mejorada y propiedades materiales superiores."
+    },
+    "item4": {
+    "label": "Modularidad",
+    "content": "Permite la integración rápida y sencilla de tecnología y accesorios. Este diseño modular se logra mediante la combinación de fibra de carbono con otros metales y materiales, logrando un diseño simple, ligero y eficiente."
+    }
+    },
+    "productsLineup": {
+    "title": "<0>BARRAS BK</0> - LÍNEA DE PRODUCTOS",
+    "products": {
+    "item1": {
+    "model": "BK 32m",
+    "technical": "Peso total del ala 334 kg | 736 lbs.",
+    "compatible":"Compatible con: Máquinas de 210 cm de calibre",
+    "mobile": "Mejora la productividad y el rendimiento de la máquina.",
+    "description": "Compatible con: Máquinas de 210 cm de calibre. \nAdmite sistemas de aplicación selectiva en toda la anchura de trabajo."
+    },
+    "item2": {
+    "model": "BK 36m",
+    "technical": "Peso total del ala 343 kg | 756 lbs.",
+    "compatible":"Compatible con: Máquinas de 260 cm de calibre",
+    "mobile": "La mejor combinación de ligereza y longitud. Ideal para sistemas de pulverización de puntos completos.",
+    "description": "Compatible con: Máquinas de 260 cm de calibre. \nAdmite sistemas de aplicación selectiva en toda la anchura de trabajo."
+    },
+    "item3": {
+    "model": "BK 40m",
+    "technical": "Peso total del ala 360 kg | 793 lbs.",
+    "compatible":"Compatible con: Pulverizadores grandes.",
+    "mobile": "Nuestro producto estrella. Una gran combinación de longitud y peso.",
+    "description": "Compatible con: Pulverizadores grandes.\nAdmite sistemas de aplicación selectiva en toda la anchura de trabajo."
+    },
+    "item4": {
+    "model": "BK 48m",
+    "description": "Próximamente"
+    },
+    "downloadBtn": "Descargar Folleto"
+    }
+    },
+    "repairability": {
+        "title": "Reparabilidad",
+        "description": "El kit de reparación permite una aplicación rápida y sencilla en el campo, eliminando la necesidad de herramientas especiales o experiencia previa.",
+        "downloadButton1": "Descargar Manual de Configuración",
+        "downloadButton2": "Descargar Instrucciones de Reparación",
+        "longVersionButton": "Versión Larga"
+        },
+        "stats": {
+        "item1": "Barra de Pulverización en Funcionamiento",
+        "item2": "Hectáreas Trabajadas",
+        "item31": "Punto Inteligente",
+        "item32":"Equipado con Pulverización"
+        },
+        "accesories":{
+        "slide1": {
+        "badge": "ACCESORIOS",
+        "featureTitle": "Pulverización de Punto Inteligente",
+        "description": "La estabilidad y resistencia de nuestra barra la hacen adecuada para el uso de Sistemas de Pulverización de Punto Inteligente en toda la anchura de trabajo, manteniendo una buena estabilidad y asegurando una aplicación óptima.",
+        "asterix": "*BK40m Full WeedSeeker 2"
+        },
+        "slide2": {
+        "badge": "ACCESORIOS",
+        "featureTitle": "Diseño y \nCalidad",
+        "description": "La estabilidad y resistencia de nuestra barra la hacen adecuada para el uso de Sistemas de Pulverización de Punto Inteligente en toda la anchura de trabajo, manteniendo una buena estabilidad y asegurando una aplicación óptima."
+        },
+        "slide3": {
+        "badge": "COMBINACIÓN PERFECTA",
+        "featureTitle": "Pulverización de Punto Inteligente",
+        "description": "Nuestros soportes de montaje combinan diseño e ingeniería con los mejores materiales para lograr un producto ligero y duradero, que permite una pulverización precisa y maximiza el rendimiento. Esto resulta en ahorros de costos, aumento de la productividad y reducción del impacto ambiental.",
+        "asterix": "*BK36m Full Weed-IT Quadro"
+        },
+        "slide4": {
+        "badge": "ACCESORIOS",
+        "featureTitle": "Liviano y \nFuerte",
+        "description": "Soportes para Weed-IT Quadro."
+        }
+        },
+        "stats2": {
+        "item1": "Hectáreas Trabajadas",
+        "item2": "Total de CO₂e Ahorrado",
+        "bottomLine": "*BK Boom 40m vs Barra de Acero 32m"
+        },
+        "feedback": {
+        "label": "OPINIONES DE LOS USUARIOS",
+        "item1": {
+        "opinion": "Cambiar de la barra de acero de 32m a la BK40M no solo significa un 25% más de productividad, sino que también significa ahorrar combustible aunque me permite ir mucho más rápido, y lo más importante... llegar a casa antes para disfrutar con mi familia.",
+        "user": "Ariel Savorgnano, Córdoba, Argentina, Propietario de Dos Pulverizadores Massey Ferguson con Barras BK40M"
+        },
+        "item2": {
+        "opinion": "La barra BK36m, con su rigidez y bajo peso, nos permitió instalar el sistema Weed-IT Quadro en toda la anchura de trabajo. Su estabilidad excepcional garantiza un rendimiento óptimo y contribuye a la durabilidad del pulverizador.",
+        "user": "Martin Magno, Agrogenerales S.A., Necochea, Argentina, Caiman SP con Barras BK36M Full Weed-IT Quadro."
+        },
+        "item3": {
+        "opinion": "En Brasil usamos productos muy corrosivos, y nos sorprende especialmente la resistencia mostrada por la barra (incluso después de dos años de uso), así como su bajo peso y estabilidad.",
+        "user": "Fazenda Boa Speranza, Sorriso, Brasil."
+        }
+        },
+        "ourVision": {
+        "badge": "Sobre Nosotros",
+        "title": "Nuestra Visión",
+        "description": "Buscamos revolucionar la industria de maquinaria agrícola\n incorporando materiales compuestos avanzados que proporcionen un salto en la EFICIENCIA.",
+        "button": "Ver Video"
+        },
+        "aboutUsPie":{
+        "intro": "QUIÉNES SOMOS",
+        "title": "Equipo de clase mundial, experimentado, multi-premiado con una mentalidad global.",
+        "subtitle": "Diseñadores e ingenieros de maquinaria agrícola expertos en materiales compuestos."
+        },
+        "footer": {
+        "lineTop": "Para obtener más información, haga clic en el enlace a continuación.",
+        "moreInfoButton": "MÁS INFORMACIÓN",
+        "aboutIinfo": "BK Comp es una empresa que desarrolla y fabrica productos compuestos avanzados para el agroindustria, combinando diseño y Know How en diferentes tecnologías con el objetivo de aumentar la eficiencia y productividad del sector.",
+        "sales": "VENTAS",
+        "followUs": "Síguenos"
+        }
+        }
+}
