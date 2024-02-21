@@ -4,11 +4,13 @@ const { links } = Astro.props
 import { LanguageSelector } from 'astro-i18next/components'
 ---
 
-<nav class="ml-auto mr-24 hidden items-center gap-4 max-[1140px]:gap-2 lg:flex">
+<nav
+	class="ml-auto mr-24 hidden items-center gap-4 self-start max-[1100px]:gap-2 lg:flex lg:min-w-[700px]"
+>
 	{
 		links.map((link) => {
 			return (
-				<a href={link.to} class="landing-link p-4 text-sm font-normal text-white max-[1140px]:p-2">
+				<a href={link.to} class="landing-link p-4 text-sm font-normal text-white">
 					{t(link.label)}
 				</a>
 			)

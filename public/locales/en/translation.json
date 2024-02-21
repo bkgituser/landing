@@ -15,9 +15,9 @@
         },
         "smartUse": {
             "badge": "The concept",
-            "title": "Smart Use <0> of Materiales",
+            "title": "Smart Use <0> of Materials",
             "feature1": "Carbon fiber Tubes",
-            "feature1Description": "50% lighter than Aluminium. Achieve <0> Large Working Width with Low Weight",
+            "feature1Description": "Achieve Large Working Width with Low Weight",
             "feature2": "Metal Nodes",
             "feature2Description": "More Efficient to Withstand <0> Concentrated Loads of Ties and Joints"
         },
@@ -74,8 +74,8 @@
                     "model": "BK 32m",
                     "technical": "Total wing weight 334 kg | 736 lbs.",
                     "compatible":"Compatible with: Machines from 210 cm gauge",
-                    "mobile": "Ideal for replacing 21 to 28 m steel booms. Improve productivity and better machine performance.",
-                    "description": "Compatible with: Machines from 210 cm gauge. Ideal for replacing 21 to 28 m steel booms, \nsupports selective application systems across the entire working width."
+                    "mobile": "Improve productivity and better machine performance.",
+                    "description": "Compatible with: Machines from 210 cm gauge. \nSupports selective application systems across the entire working width."
                 },
                 "item2": {
                     "model": "BK 36m",
@@ -102,7 +102,8 @@
             "title": "Repairability",
             "description": "The repair kit allows for fast and straightforward application in the field, eliminating the need for special tools or prior experience.",
             "downloadButton1": "Download Set Up Manual",
-            "downloadButton2": "Download Repair Instructions"
+            "downloadButton2": "Download Repair Instructions",
+            "longVersionButton": "Long version"
         },
         "stats": {
             "item1": "Booms Working",

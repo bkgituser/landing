@@ -6,32 +6,6 @@ import Footer from '../organisms/Footer.astro'
 import Loader from '@components/atom/Loader.astro'
 
 import '../../index.css'
-const links = [
-	{
-		label: 'landing.nav.home',
-		to: '/'
-	},
-	{
-		label: 'landing.nav.aboutUs',
-		to: '/'
-	},
-	{
-		label: 'landing.nav.benefits',
-		to: '/'
-	},
-	{
-		label: 'landing.nav.products',
-		to: '/'
-	},
-	{
-		label: 'landing.nav.accesories',
-		to: '/'
-	},
-	{
-		label: 'landing.nav.contact',
-		to: '/'
-	}
-]
 ---
 
 <html lang={i18next.language}>
@@ -89,6 +63,38 @@ const links = [
 		></script>
 		<script src="../../scripts/gsap.js"></script>
 		<style is:global>
+			@media (min-width: 976px) {
+				::-webkit-scrollbar {
+					width: auto;
+					background: none;
+					padding: 4px;
+					box-shadow: inset 2px 2px 6px rgba(0, 0, 0, 0.3);
+				}
+
+				::-webkit-scrollbar-thumb:window-inactive {
+					background: rgba(255, 0, 0, 0.4);
+				}
+
+				/* Track */
+				::-webkit-scrollbar-track {
+					box-shadow: inset 0 0 5px #fff;
+					border-radius: 8px;
+					background: none;
+				}
+
+				/* For Chrome, Edge, and Safari */
+				/* Track */
+				::-webkit-scrollbar {
+					background: white;
+				}
+
+				/* Handle */
+				::-webkit-scrollbar-thumb {
+					background: black;
+					border-radius: 10px;
+				}
+			}
+
 			@font-face {
 				font-family: 'NeoSans';
 				src: url('/fonts/Neo Sans Std Bold.otf');
