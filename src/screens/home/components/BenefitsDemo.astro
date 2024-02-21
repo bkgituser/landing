@@ -70,7 +70,7 @@ const idBenefits = 'benefits-slider'
 				>
 				<IndexElements
 					id={idBenefits}
-					customClass="h-[25%] md:h-[35%] lg:h-[25%] md:justify-between mb-4"
+					customClass="h-[25%] md:h-[35%] lg:h-[25%] md:justify-between mb-12 md:mb-4"
 				>
 					{
 						data.map((item) => {
@@ -140,18 +140,18 @@ const idBenefits = 'benefits-slider'
 		background: #fff;
 		overflow: hidden;
 		clip-path: polygon(
-			0 30px,
-			30px 0,
+			0 0,
 			100% 0,
 			100% 100%,
-			0 100%,
-			0 30px,
-			1px calc(30px + 0.83px),
-			1px calc(100% - 1px),
+			31px 100%,
+			0 calc(100% - 31px),
+			0 0,
+			1px 1px,
+			1px calc(100% - 31px - 0.41px),
+			calc(31px + 0.41px) calc(100% - 1px),
 			calc(100% - 1px) calc(100% - 1px),
 			calc(100% - 1px) 1px,
-			calc(30px + 0.83px) 1px,
-			1px calc(30px + 0.83px)
+			1px 1px
 		);
 	}
 
@@ -160,8 +160,9 @@ const idBenefits = 'benefits-slider'
 		position: absolute;
 		inset: 0;
 		background: rgba(0, 0, 0, 0.2);
-		--mask: linear-gradient(135deg, #0000 21.6px, #000 0);
+		--mask: linear-gradient(45deg, #0000 22.28px, #000 0);
 		-webkit-mask: var(--mask);
+		mask: var(--mask);
 		mask: var(--mask);
 		transition: all ease-in 300ms;
 	}
@@ -174,6 +175,62 @@ const idBenefits = 'benefits-slider'
 
 	.item-index-active .item-benefit-index:after {
 		background: #fff;
+	}
+
+	@media (min-width: 768px) and (max-width: 1400px) {
+		/* BENEFIT ITEM STYLE */
+		.item-benefit-index:before {
+			clip-path: polygon(
+				0 0,
+				100% 0,
+				100% 100%,
+				24px 100%,
+				0 calc(100% - 24px),
+				0 0,
+				1px 1px,
+				1px calc(100% - 24px - 0.41px),
+				calc(24px + 0.41px) calc(100% - 1px),
+				calc(100% - 1px) calc(100% - 1px),
+				calc(100% - 1px) 1px,
+				1px 1px
+			);
+		}
+
+		.item-benefit-index:after {
+			--mask: linear-gradient(45deg, #0000 18.28px, #000 0);
+			-webkit-mask: var(--mask);
+			mask: var(--mask);
+			mask: var(--mask);
+			transition: all ease-in 300ms;
+		}
+	}
+
+	@media (max-width: 768px) {
+		/* BENEFIT ITEM STYLE */
+		.item-benefit-index:before {
+			clip-path: polygon(
+				0 0,
+				100% 0,
+				100% 100%,
+				42px 100%,
+				0 calc(100% - 42px),
+				0 0,
+				1px 1px,
+				1px calc(100% - 42px - 0.41px),
+				calc(42px + 0.41px) calc(100% - 1px),
+				calc(100% - 1px) calc(100% - 1px),
+				calc(100% - 1px) 1px,
+				1px 1px
+			);
+		}
+
+		.item-benefit-index:after {
+			--mask: linear-gradient(45deg, #0000 30.28px, #000 0);
+			-webkit-mask: var(--mask);
+			mask: var(--mask);
+			mask: var(--mask);
+			transition: all ease-in 300ms;
+		}
 	}
 
 	@media (min-height: 480px) and (max-width: 768px) {
