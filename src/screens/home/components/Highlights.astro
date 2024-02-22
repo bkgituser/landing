@@ -47,7 +47,10 @@ const columns = [
 									<span class="state-symbol font-semibold text-black md:hidden">+</span>
 								</>
 							</div>
-							<div class="column-content max-h-0 overflow-hidden duration-300 ease-in-out md:max-h-none ">
+							<div
+								style=""
+								class="column-content max-h-0 overflow-hidden duration-300 ease-in-out md:max-h-none "
+							>
 								<p
 									class={`text-justify text-xl text-black md:text-left ${index !== columns.length - 1 ? '' : ''} `}
 								>
@@ -82,8 +85,9 @@ const columns = [
 				const answer = column.querySelector('.column-content')
 				const title = column.querySelector('.title')
 				if (title instanceof HTMLElement) {
-					const heightClass = 'max-h-72'
+					const heightClass = 'max-h-96'
 					answer.classList.toggle(heightClass)
+					answer.classList.toggle('overflow-auto')
 					column.querySelector('.state-symbol').innerText = answer.classList.contains(heightClass)
 						? '-'
 						: '+'
@@ -93,25 +97,6 @@ const columns = [
 	})
 </script>
 <style>
-	/* @media (min-width: 480px) and (max-width: 1600px) and (max-height: 900px) {
-		.container {
-			max-width: none;
-		}
-
-		.columns-container {
-		}
-
-		.column-highlight {
-			flex-basis: 45%;
-			padding: 16px 12px;
-		}
-
-		.border-black-200 {
-			width: 1px;
-			height: 160px;
-		}
-	} */
-
 	@media (min-width: 976px) and (max-width: 1150px) {
 		.container-screen {
 			padding-left: 1.3rem;

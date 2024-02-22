@@ -292,33 +292,43 @@ class App {
 	}
 
 	_highlightsAnimation() {
-		const tl = gsap.timeline({
-			scrollTrigger: {
-				trigger: '#highlights',
-				start: 'top top',
-				end: 'center top',
-				pin: true
-			}
-		})
-
-		tl.to('.highlight-title', {
-			scale: 1,
-			y: 0,
-			opacity: 1,
-			skewX: '0deg',
-			skewY: '0deg'
-		})
-
-		tl.to(
-			'.column-highlight',
+		const mm = gsap.matchMedia()
+		mm.add(
 			{
-				ease: 'power3.out',
-				stagger: 0.1,
-				opacity: 1,
-				y: 0,
-				duration: 0.5
+				isMobile: '(max-width: 480px)',
+				isNotMobile: '(min-width: 481px)',
+				reduceMotion: '(prefers-reduce-motion: no-preference)'
 			},
-			0
+			(context) => {
+				const tl = gsap.timeline({
+					scrollTrigger: {
+						trigger: '#highlights',
+						start: 'top top',
+						end: 'center top',
+						pin: !context.conditions.isMobile
+					}
+				})
+
+				tl.to('.highlight-title', {
+					scale: 1,
+					y: 0,
+					opacity: 1,
+					skewX: '0deg',
+					skewY: '0deg'
+				})
+
+				tl.to(
+					'.column-highlight',
+					{
+						ease: 'power3.out',
+						stagger: 0.1,
+						opacity: 1,
+						y: 0,
+						duration: 0.5
+					},
+					0
+				)
+			}
 		)
 	}
 
