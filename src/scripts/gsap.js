@@ -393,10 +393,14 @@ class App {
 			},
 			onStart: () => {
 				incrementCounter('0-kpi-stat', 100, 150, 5000)
-				incrementCounter('1-kpi-stat', 5999900, 6000000, 200000000)
+				incrementCounterBySeparate(6000000, 'kpi-stat-number')
 				incrementCounter('2-kpi-stat', 0, 20, 1500)
 			},
 			onComplete: () => {
+				const parent = document.getElementById('1-kpi-stat')
+				const childs = [...document.querySelectorAll('.kpi-stat-number')].map((el) => el.innerText)
+
+				parent.innerHTML = 600000
 				setInterval(() => {
 					incrementCounterInInterval('1-kpi-stat', 10)
 				}, 2000)
@@ -433,10 +437,13 @@ class App {
 				scrub: false
 			},
 			onStart: () => {
-				incrementCounter('0-kpi-stat2', 5999700, 6000000, 30000000)
-				incrementCounter('1-kpi-stat2', 65000, 66000, 4000)
+				incrementCounterBySeparate(6000000, 'kpi-stat2-number')
+				incrementCounter('1-kpi-stat2', 65500, 66000, 4000)
 			},
 			onComplete: () => {
+				const parent = document.getElementById('0-kpi-stat2')
+
+				parent.innerHTML = 600000
 				setInterval(() => {
 					incrementCounterInInterval('0-kpi-stat2', 10)
 				}, 2000)

@@ -11,21 +11,17 @@ const mobileBg = await getImage({ src: CloudsImg, format: 'png' })
 
 <div class="absolute z-10 h-screen w-full">
 	<div class="relative h-full bg-black">
-		<ProductImageBackground
-			mobileBg={mobileBg}
-			desktpBg={optimizedBackground}
-			extraClassImg="object-cover lg:object-fill object-bottom h-auto md:h-full sm:object-center object-bottom"
-		>
+		<ProductImageBackground mobileBg={mobileBg} desktpBg={optimizedBackground}>
 			<div class="z-70 relative flex h-full w-full items-end justify-start text-black">
 				<div class="relative flex h-full w-full items-end justify-center">
 					<div
-						class="container-screen bottom-0 z-40 mb-10 flex h-auto w-full select-none flex-col items-start justify-end md:mb-4 md:block xl:mb-12"
+						class="container-screen bottom-0 z-40 mb-10 flex h-auto w-full select-none flex-col items-start justify-end md:mb-4 md:block lg:mb-10 xl:mb-12 xxl:mb-16"
 					>
 						<!-- <span class="mb-2 block w-6 border-2 border-white"></span> -->
-						<h3 class="pb-2 text-5xl font-bold text-white md:pb-0">
+						<h3 class="pb-2 text-5xl font-bold text-white md:pb-2">
 							{t(modelTitle)}
 						</h3>
-						<p class="mb-2 pt-1 text-[22px] font-semibold leading-7 text-white md:mb-0">
+						<p class="mb-2 pt-1 text-[22px] font-semibold leading-7 text-white md:mb-0 xl:mb-2">
 							{t(technical)}{' '}<span class="md:hidden">{t(compatible)}</span>
 						</p>
 						<div class="mb-2 md:mb-5">
@@ -45,7 +41,7 @@ const mobileBg = await getImage({ src: CloudsImg, format: 'png' })
 							}
 						</div>
 						<button
-							class="mx-auto block h-[42px] w-[171px] bg-white text-[10.3px] font-semibold leading-[29.3px] text-black sm:mt-8 md:mb-0 md:mt-0 md:inline-block md:h-[42px] md:w-[165px] md:bg-black md:text-white"
+							class="mx-auto block h-[42px] w-[171px] bg-white text-[10.3px] font-semibold leading-[29.3px] text-black sm:mt-8 md:mb-0 md:mt-0 md:inline-block md:h-[42px] md:w-[165px] md:bg-black md:text-white xxl:mt-2"
 						>
 							{t('landing.productsLineup.products.downloadBtn')}
 						</button>

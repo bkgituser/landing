@@ -7,7 +7,7 @@ const statsData = [
 		kpiLabel: ['landing.stats.item1']
 	},
 	{
-		kpiValue: '5.500.000',
+		kpiValue: [0, 0, 0, 0, 0, 0],
 		kpiLabel: ['landing.stats.item2']
 	},
 	{
@@ -24,16 +24,36 @@ const statsData = [
 			class="kpi flex w-full flex-wrap items-center justify-center gap-16 md:items-start md:justify-evenly md:gap-0"
 		>
 			{
-				statsData.map((stat, index) => (
-					<div class="table-cell-stat1 align-top  text-white md:p-4">
-						<span class="flex items-center justify-center gap-2 text-center text-5xl font-bold">
-							<p>+</p> <p id={`${index}-kpi-stat`}>{stat.kpiValue}</p>
-						</span>
-						{stat.kpiLabel.map((p) => (
-							<p class="text-center text-2xl">{t(p)}</p>
-						))}
-					</div>
-				))
+				statsData.map((stat, index) => {
+					if (Array.isArray(stat.kpiValue)) {
+						return (
+							<div class="table-cell-stat1 align-top  text-white md:p-4">
+								<span class="flex items-center justify-center gap-2 text-center text-5xl font-bold">
+									<p>+</p>{' '}
+									<div class="flex items-center" id={`${index}-kpi-stat`}>
+										{stat.kpiValue.map((numb) => (
+											<div class="kpi-stat-number">{numb}</div>
+										))}
+									</div>
+								</span>
+								{stat.kpiLabel.map((p) => (
+									<p class="text-center text-2xl">{t(p)}</p>
+								))}
+							</div>
+						)
+					}
+
+					return (
+						<div class="table-cell-stat1 align-top  text-white md:p-4">
+							<span class="flex items-center justify-center gap-2 text-center text-5xl font-bold">
+								<p>+</p> <p id={`${index}-kpi-stat`}>{stat.kpiValue}</p>
+							</span>
+							{stat.kpiLabel.map((p) => (
+								<p class="text-center text-2xl">{t(p)}</p>
+							))}
+						</div>
+					)
+				})
 			}
 		</div>
 	</div>

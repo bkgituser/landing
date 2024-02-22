@@ -9,12 +9,12 @@ const optimizedBackground = await getImage({ src: bgStats2, format: 'webp' })
 
 const statsData = [
 	{
-		kpiValue: '6.000.000',
+		kpiValue: [0, 0, 0, 0, 0, 0],
 		kpiLabel: ['landing.stats2.item1']
 	},
 	{
 		kpiValue: '66.000 Kg',
-		kpiLabel: 'landing.stats2.item2'
+		kpiLabel: ['landing.stats2.item2']
 	}
 ]
 ---
@@ -27,16 +27,36 @@ const statsData = [
 				class="kpi flex w-full flex-wrap items-center justify-center gap-16 md:items-start md:justify-evenly md:gap-0"
 			>
 				{
-					statsData.map((stat, index) => (
-						<div class={`table-cell-stat2 p-4 align-top`}>
-							<span
-								class={`flex items-center justify-center gap-2 text-center text-5xl font-bold ${index === 1 ? 'text-[#CCEB52]' : 'text-white'}`}
-							>
-								<p>+</p> <p id={`${index}-kpi-stat2`}>{stat.kpiValue}</p>
-							</span>
-							<p class="text-center text-xl text-white md:text-2xl">{t(stat.kpiLabel)}</p>
-						</div>
-					))
+					statsData.map((stat, index) => {
+						if (Array.isArray(stat.kpiValue)) {
+							return (
+								<div class="table-cell-stat1 relative  z-10 align-top text-white md:p-4">
+									<span class="flex items-center justify-center gap-2 text-center text-5xl font-bold">
+										<p>+</p>{' '}
+										<div class="flex items-center" id={`${index}-kpi-stat2`}>
+											{stat.kpiValue.map((numb) => {
+												return <div class="kpi-stat2-number">{numb}</div>
+											})}
+										</div>
+									</span>
+									{stat.kpiLabel.map((p) => (
+										<p class="text-center text-2xl">{t(p)}</p>
+									))}
+								</div>
+							)
+						}
+
+						return (
+							<div class="table-cell-stat1 relative  z-10 align-top text-white md:p-4">
+								<span class="flex items-center justify-center gap-2 text-center text-5xl font-bold text-[#CCEB52]">
+									<p>+</p> <p id={`${index}-kpi-stat2`}>{stat.kpiValue}</p>
+								</span>
+								{stat.kpiLabel.map((p) => (
+									<p class="text-center text-2xl">{t(p)}</p>
+								))}
+							</div>
+						)
+					})
 				}
 			</div>
 			<div class="relative z-20 mt-8 w-full">

@@ -6,6 +6,8 @@ import ProductDisplay from 'src/components/molecules/ProductDisplay.astro'
 import BgImg1 from 'src/img/lineup1.png'
 import BgImg2 from 'src/img/lineup2.png'
 import BgImg3 from 'src/img/lineup3.png'
+import BgImg4 from 'src/img/lineup4.png'
+import BgImg5 from 'src/img/lineup5.png'
 import CloudBg from 'src/img/clouds.png'
 import { Trans } from 'astro-i18next/components'
 import { t } from 'i18next'
@@ -42,12 +44,23 @@ const productsData = [
 	},
 	{
 		modelTitle: 'landing.productsLineup.products.item4.model',
+		technical: 'landing.productsLineup.products.item4.technical',
+		compatible: 'landing.productsLineup.products.item4.compatible',
+		mobile: 'landing.productsLineup.products.item4.mobile',
 		description: 'landing.productsLineup.products.item4.description',
-		image: BgImg3
+		image: BgImg4
+	},
+	{
+		modelTitle: 'landing.productsLineup.products.item5.model',
+		technical: 'landing.productsLineup.products.item5.technical',
+		compatible: 'landing.productsLineup.products.item5.compatible',
+		mobile: 'landing.productsLineup.products.item5.mobile',
+		description: 'landing.productsLineup.products.item5.description',
+		image: BgImg5
 	}
 ]
 
-const models = ['32m', '36m', '40m', '48m']
+const models = ['32m', '36m', '40m', '44m', '48m']
 const id = 'lineup-slider'
 ---
 
@@ -94,35 +107,7 @@ const id = 'lineup-slider'
 		<SliderElements id={id} isBackground={true}>
 			{
 				productsData.map((modelData, index) => {
-					if (index !== productsData.length - 1) {
-						return <ProductDisplay {...modelData} index={index} />
-					} else {
-						return (
-							<div class="overlay-screen absolute z-10 h-screen w-full bg-black">
-								<div class="h-full ">
-									<ProductImageBackground
-										extraClassImg="object-contain  h-auto sm:h-full sm:object-cover sm:object-center"
-										mobileBg={CloudsBlurBg}
-										desktpBg={modelData.image}
-										isBlur={true}
-									>
-										<div class="absolute h-full w-full bg-black opacity-70" />
-										<div class="ext-black container relative z-20 mx-auto flex h-full items-center justify-start px-4 sm:px-8 md:justify-center md:px-0">
-											<div class="md:h-[25%] xl:h-[30%] xl:px-16">
-												<span class="mb-2 block w-6 border-2 border-white" />
-												<h3 class="pb-2 text-5xl font-bold text-white">
-													{t(modelData.modelTitle)}
-												</h3>
-												<p class="mb-5 pt-0 text-2xl font-semibold text-white">
-													{t(modelData.description)}
-												</p>
-											</div>
-										</div>
-									</ProductImageBackground>
-								</div>
-							</div>
-						)
-					}
+					return <ProductDisplay {...modelData} index={index} />
 				})
 			}
 		</SliderElements>
