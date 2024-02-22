@@ -453,7 +453,7 @@ class App {
 		})
 		tl.to('.ourvision-line', {
 			ease: 'power3.out',
-			stagger: 0.25,
+			stagger: 0.15,
 			opacity: 1,
 			y: 0,
 			duration: 0.8
