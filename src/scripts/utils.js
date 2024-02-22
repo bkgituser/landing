@@ -1,50 +1,59 @@
 function incrementCounter(selector, current, target, duration, letter = '') {
 	let counter = document.getElementById(selector)
-	let stepTime = Math.abs(Math.floor(duration / target))
-	if (current < target && counter) {
+	incrementNumber(counter, current, target, duration, (letter = ''))
+}
+
+function incrementCounterBySeparate(targetNumber, targetClass) {
+	const numberElements = [...document.querySelectorAll(`.${targetClass}`)]
+	const targetNumbers = targetNumber.toString().split('').map(Number)
+
+	numberElements.forEach((element, index) => {
+		const number = Number(element.innerText)
+		const target = targetNumbers[index]
+		// increment from 0 to target
+		//if it's 0 makes the round
+		incrementCounterInCircles(element, number, target, randomIntFromInterval(400, 1500))
+	})
+}
+
+function randomIntFromInterval(min, max) {
+	// min and max included
+	return Math.floor(Math.random() * (max - min + 1) + min)
+}
+
+function incrementNumber(counterElement, current, target, duration, letter) {
+	let stepTime = Math.abs(Math.floor(duration / (target === 0 ? 9 : target)))
+
+	if (current < target && counterElement) {
 		current++
-		counter.innerText = current.toString() + letter
-		setTimeout(() => incrementCounter(selector, current, target, duration, letter), stepTime)
+		counterElement.innerText = current.toString() + letter
+		setTimeout(() => incrementNumber(counterElement, current, target, duration, letter), stepTime)
 	}
 }
 
-function incrementCounterBySeparate(targetNumber, elementId) {
-	const element = document.getElementById(elementId)
-	const currentNumber = parseInt(element.innerText)
-
-	if (currentNumber === targetNumber) return // No need to animate if already at target
-
-	const increment = targetNumber > currentNumber ? 1 : -1
-
-	// Convert numbers to arrays of digits
-	const currentDigits = Array.from(currentNumber.toString()).map(Number)
-	const targetDigits = Array.from(targetNumber.toString()).map(Number)
-
-	// Ensure both arrays have the same length
-	while (currentDigits.length < targetDigits.length) {
-		currentDigits.unshift(0)
+function incrementCounterInCircles(counterElement, current, target, duration, letter = '') {
+	let stepTime = Math.abs(Math.floor(duration / (target === 0 ? 9 : target)))
+	if (current === 0 && counterElement) {
+		current++
+		counterElement.innerText = current.toString() + letter
+		console.log({ counterElement, current, target })
+		setTimeout(
+			() => incrementCounterInCircles(counterElement, current, target, duration, letter),
+			stepTime
+		)
+	} else if (current === 9 && counterElement) {
+		current = 0
+		counterElement.innerText = current.toString() + letter
+	} else if (current === target) {
+		counterElement.innerText = current.toString() + letter
+	} else if (current !== target && counterElement) {
+		current++
+		counterElement.innerText = current.toString() + letter
+		setTimeout(
+			() => incrementCounterInCircles(counterElement, current, target, duration, letter),
+			stepTime
+		)
 	}
-	while (currentDigits.length > targetDigits.length) {
-		targetDigits.unshift(0)
-	}
-	console.log({ currentDigits, targetDigits })
-	const interval = setInterval(function () {
-		for (let i = 0; i < targetDigits.length; i++) {
-			if (currentDigits[i] !== targetDigits[i]) {
-				currentDigits[i] += increment
-				// If a digit reaches 10 (or -1 if decrementing), reset to 0 (or 9)
-				if (currentDigits[i] === 10) {
-					currentDigits[i] = 0
-				} else if (currentDigits[i] === -1) {
-					currentDigits[i] = 9
-				}
-			}
-		}
-		element.innerText = currentDigits.join('')
-		if (currentDigits.join('') === targetNumber.toString()) {
-			clearInterval(interval)
-		}
-	}, 400) // Adjust the interval as needed for desired animation speed
 }
 
 function incrementCounterInInterval(selector, increment) {

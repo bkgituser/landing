@@ -31,31 +31,41 @@ const columns = [
 				{t('landing.highlights.title')}
 			</h3>
 		</div>
-		<div class="flex h-32 items-center lg:h-48">
+		<div class="flex h-32 items-center lg:h-36">
 			<img src="/assets/icons/arrow.svg" alt="arrow" class="ml-6" loading="lazy" />
 		</div>
 		<div
-			class="columns-container flex flex-wrap items-start justify-center px-12 sm:px-0 md:justify-evenly lg:justify-between lg:px-12"
+			class="columns-container flex flex-col items-start justify-center px-12 sm:px-0 md:flex-row md:flex-wrap md:justify-evenly lg:justify-between lg:px-12"
 		>
 			{
 				columns.map((col, index) => (
 					<>
 						<div class="column-highlight relative opacity-0 md:mb-12  md:flex-shrink-0 md:basis-[42%] lg:max-w-[204px] xl:max-w-[245px] xxl:xl:max-w-[275px]">
-							<div class="mb-4 text-2xl font-bold">{t(col.label)}</div>
-							<p
-								class={`text-justify text-xl text-black md:text-left ${index !== columns.length - 1 ? '' : ''} `}
+							<div class="title flex items-center justify-between">
+								<>
+									<div class="mb-4 text-2xl font-bold">{t(col.label)}</div>
+									<span class="state-symbol font-semibold text-black md:hidden">+</span>
+								</>
+							</div>
+							<div
+								style=""
+								class="column-content max-h-0 overflow-hidden duration-300 ease-in-out md:max-h-none "
 							>
-								{t(col.content)}
-							</p>
-							{col?.button ? (
-								<button class="mt-20 rounded-lg bg-black px-6 py-4 font-bold text-white">
-									{t(col.button)}
-								</button>
-							) : null}
+								<p
+									class={`text-justify text-xl text-black md:text-left ${index !== columns.length - 1 ? '' : ''} `}
+								>
+									{t(col.content)}
+								</p>
+								{col?.button ? (
+									<button class="mt-10 rounded-lg bg-black px-6 py-4 font-bold text-white md:mt-20">
+										{t(col.button)}
+									</button>
+								) : null}
+							</div>
 						</div>
 						{index !== columns.length - 1 && (
 							<div
-								class={`border-black-200 my-8 h-2 ${index === 1 ? 'md:hidden lg:block' : ''} w-full border-t-2 md:h-[160px]  md:w-0 md:border-r-2 lg:mt-12 `}
+								class={`border-black-200 my-4 h-2 ${index === 1 ? 'md:hidden lg:block' : ''} w-full border-t-2 md:h-[160px]  md:w-0 md:border-r-2 lg:mt-12 `}
 							/>
 						)}
 					</>
@@ -64,26 +74,29 @@ const columns = [
 		</div>
 	</div>
 </section>
+<script>
+	const columns = document.querySelectorAll('.column-highlight')
+	columns.forEach((column) => {
+		if (column instanceof HTMLElement) {
+			const { index } = column.dataset
+
+			const i = Number(index)
+			column.addEventListener('click', (e) => {
+				const answer = column.querySelector('.column-content')
+				const title = column.querySelector('.title')
+				if (title instanceof HTMLElement) {
+					const heightClass = 'max-h-96'
+					answer.classList.toggle(heightClass)
+					answer.classList.toggle('overflow-auto')
+					column.querySelector('.state-symbol').innerText = answer.classList.contains(heightClass)
+						? '-'
+						: '+'
+				}
+			})
+		}
+	})
+</script>
 <style>
-	@media (min-width: 480px) and (max-width: 1600px) and (max-height: 900px) {
-		.container {
-			max-width: none;
-		}
-
-		.columns-container {
-		}
-
-		.column-highlight {
-			flex-basis: 45%;
-			padding: 16px 12px;
-		}
-
-		.border-black-200 {
-			width: 1px;
-			height: 160px;
-		}
-	}
-
 	@media (min-width: 976px) and (max-width: 1150px) {
 		.container-screen {
 			padding-left: 1.3rem;

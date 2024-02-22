@@ -1,5 +1,5 @@
 ---
-const { mobileBg = null, desktpBg, isBlur = false } = Astro.props
+const { mobileBg = null, desktpBg, isBlur = false, extraClassIm } = Astro.props
 ---
 
 <div class={`h-full`}>
@@ -18,7 +18,7 @@ const { mobileBg = null, desktpBg, isBlur = false } = Astro.props
 			<img
 				{...desktpBg}
 				alt="background"
-				class={`background-img h-full w-full -top-16 relative md:object-cover md:top-auto ${isBlur ? 'blur-sm' : ''}`}
+				class={`background-img h-full w-full -top-16 relative md:object-cover md:top-auto md:object-bottom  ${isBlur ? 'blur-sm' : ''}`}
 				loading="lazy"
 			/>
 		</div>

@@ -292,33 +292,43 @@ class App {
 	}
 
 	_highlightsAnimation() {
-		const tl = gsap.timeline({
-			scrollTrigger: {
-				trigger: '#highlights',
-				start: 'top top',
-				end: 'center top',
-				pin: true
-			}
-		})
-
-		tl.to('.highlight-title', {
-			scale: 1,
-			y: 0,
-			opacity: 1,
-			skewX: '0deg',
-			skewY: '0deg'
-		})
-
-		tl.to(
-			'.column-highlight',
+		const mm = gsap.matchMedia()
+		mm.add(
 			{
-				ease: 'power3.out',
-				stagger: 0.1,
-				opacity: 1,
-				y: 0,
-				duration: 0.5
+				isMobile: '(max-width: 480px)',
+				isNotMobile: '(min-width: 481px)',
+				reduceMotion: '(prefers-reduce-motion: no-preference)'
 			},
-			0
+			(context) => {
+				const tl = gsap.timeline({
+					scrollTrigger: {
+						trigger: '#highlights',
+						start: 'top top',
+						end: 'center top',
+						pin: !context.conditions.isMobile
+					}
+				})
+
+				tl.to('.highlight-title', {
+					scale: 1,
+					y: 0,
+					opacity: 1,
+					skewX: '0deg',
+					skewY: '0deg'
+				})
+
+				tl.to(
+					'.column-highlight',
+					{
+						ease: 'power3.out',
+						stagger: 0.1,
+						opacity: 1,
+						y: 0,
+						duration: 0.5
+					},
+					0
+				)
+			}
 		)
 	}
 
@@ -383,10 +393,14 @@ class App {
 			},
 			onStart: () => {
 				incrementCounter('0-kpi-stat', 100, 150, 5000)
-				incrementCounter('1-kpi-stat', 5999900, 6000000, 200000000)
+				incrementCounterBySeparate(6000000, 'kpi-stat-number')
 				incrementCounter('2-kpi-stat', 0, 20, 1500)
 			},
 			onComplete: () => {
+				const parent = document.getElementById('1-kpi-stat')
+				const childs = [...document.querySelectorAll('.kpi-stat-number')].map((el) => el.innerText)
+
+				parent.innerHTML = 600000
 				setInterval(() => {
 					incrementCounterInInterval('1-kpi-stat', 10)
 				}, 2000)
@@ -423,10 +437,13 @@ class App {
 				scrub: false
 			},
 			onStart: () => {
-				incrementCounter('0-kpi-stat2', 5999700, 6000000, 30000000)
-				incrementCounter('1-kpi-stat2', 65000, 66000, 4000)
+				incrementCounterBySeparate(6000000, 'kpi-stat2-number')
+				incrementCounter('1-kpi-stat2', 65500, 66000, 4000)
 			},
 			onComplete: () => {
+				const parent = document.getElementById('0-kpi-stat2')
+
+				parent.innerHTML = 600000
 				setInterval(() => {
 					incrementCounterInInterval('0-kpi-stat2', 10)
 				}, 2000)
@@ -453,7 +470,7 @@ class App {
 		})
 		tl.to('.ourvision-line', {
 			ease: 'power3.out',
-			stagger: 0.25,
+			stagger: 0.15,
 			opacity: 1,
 			y: 0,
 			duration: 0.8

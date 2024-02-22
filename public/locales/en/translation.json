@@ -91,10 +91,20 @@
                     "mobile": "Our flagship product. A great combination of length and weight.",
                     "description": "Compatible with: Large sprayers.\nSupports selective application systems across the entire working width."
                 },
-                "item4": {
+                 "item4": {
+                    "model": "BK 44m",
+                    "technical": "Total wing weight 360 kg | 793 lbs.",
+                    "compatible":"Compatible with: Large sprayers.",
+                    "mobile": "Our flagship product. A great combination of length and weight.",
+                    "description": "Compatible with: Large sprayers.\nSupports selective application systems across the entire working width."
+                },
+                "item5": {
                     "model": "BK 48m",
-                    "description": "Coming Soon"
-            },
+                    "technical": "Total wing weight 510 kg | 1124 lbs.",
+                    "compatible":"Compatible with: Large sprayers.",
+                    "mobile": "Our flagship product. A great combination of length and weight.",
+                    "description": "Compatible with: Large sprayers.\nSupports selective application systems across the entire working width."
+                },
             "downloadBtn": "Download Brochure"
         }
         },
