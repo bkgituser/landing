@@ -93,8 +93,18 @@
     "description": "Compatível com: Pulverizadores grandes.\nSuporta sistemas de aplicação seletiva em toda a largura de trabalho."
     },
     "item4": {
-    "model": "BK 48m",
-    "description": "Em Breve"
+        "model": "BK 44m",
+        "technical": "Peso total da asa 360 kg | 793 lbs.",
+        "compatible": "Compatível com: Pulverizadores grandes.",
+        "mobile": "Nosso produto principal. Uma ótima combinação de comprimento e peso.",
+        "description": "Compatível com: Pulverizadores grandes.\nSuporta sistemas de aplicação seletiva em toda a largura de trabalho."
+    },
+    "item5": {
+        "model": "BK 48m",
+        "technical": "Peso total da asa 510 kg | 1124 lbs.",
+        "compatible": "Compatível com: Pulverizadores grandes.",
+        "mobile": "Nosso produto principal. Uma ótima combinação de comprimento e peso.",
+        "description": "Compatível com: Pulverizadores grandes.\nSuporta sistemas de aplicação seletiva em toda a largura de trabalho."
     },
     "downloadBtn": "Baixar Folheto"
     }

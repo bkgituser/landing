@@ -93,8 +93,18 @@
     "description": "Compatible con: Pulverizadores grandes.\nAdmite sistemas de aplicación selectiva en toda la anchura de trabajo."
     },
     "item4": {
-    "model": "BK 48m",
-    "description": "Próximamente"
+        "model": "BK 44m",
+        "technical": "Peso total del ala 360 kg | 793 lbs.",
+        "compatible": "Compatible con: Pulverizadores grandes.",
+        "mobile": "Nuestro producto estrella. Una gran combinación de longitud y peso.",
+        "description": "Compatible con: Pulverizadores grandes.\nCompatible con sistemas de aplicación selectiva en toda la anchura de trabajo."
+    },
+    "item5": {
+        "model": "BK 48m",
+        "technical": "Peso total del ala 510 kg | 1124 lbs.",
+        "compatible": "Compatible con: Pulverizadores grandes.",
+        "mobile": "Nuestro producto estrella. Una gran combinación de longitud y peso.",
+        "description": "Compatible con: Pulverizadores grandes.\nCompatible con sistemas de aplicación selectiva en toda la anchura de trabajo."
     },
     "downloadBtn": "Descargar Folleto"
     }
