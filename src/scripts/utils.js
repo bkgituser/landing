@@ -12,7 +12,7 @@ function incrementCounterBySeparate(targetNumber, targetClass) {
 		const target = targetNumbers[index]
 		// increment from 0 to target
 		//if it's 0 makes the round
-		incrementCounterInCircles(element, number, target, randomIntFromInterval(400, 1500))
+		incrementCounterInCircles(element, number, target, randomIntFromInterval(1300, 2500))
 	})
 }
 

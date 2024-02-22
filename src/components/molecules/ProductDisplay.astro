@@ -68,25 +68,20 @@ const mobileBg = await getImage({ src: CloudsImg, format: 'png' })
 		}
 	}
 
-	/* RESPONSIVE FOR MOBILE */
-	@media (max-width: 500px) and (max-height: 820px) {
+	@media (max-width: 480px) and (min-height: 700px) {
 		.container-screen {
-			height: 40%;
+			margin-bottom: 6rem;
 		}
 	}
 
-	@media (max-width: 500px) and (max-height: 760px) {
+	@media (max-width: 480px) and (min-height: 750px) {
 		.container-screen {
-			height: 45%;
+			margin-bottom: 5rem;
+		}
+		button {
+			margin-top: 2.3rem;
 		}
 	}
-
-	@media (max-width: 500px) and (max-height: 675px) {
-		.container-screen {
-			height: 55%;
-		}
-	}
-	*/
 
 	/* RESPONSIVE FOR MIDS */
 	@media (min-width: 976px) and (max-width: 1440px) {
