@@ -35,7 +35,7 @@ import VideoBackground from '../../../components/template/VideoBackground.astro'
 						</h3>
 
 						<p
-							class="ourvision-line text-left text-[32px] text-white drop-shadow-lg md:hidden md:text-justify md:drop-shadow-none xl:leading-[3rem]"
+							class="ourvision-line main-text text-left text-[32px] text-white drop-shadow-lg md:hidden md:text-justify md:drop-shadow-none xl:leading-[3rem]"
 						>
 							{t('landing.ourVision.description')}
 						</p>
@@ -106,6 +106,13 @@ import VideoBackground from '../../../components/template/VideoBackground.astro'
 			max-width: none;
 			padding-left: 6rem;
 			padding-right: 6rem;
+		}
+	}
+
+	/* LANDSCAPE */
+	@media (max-height: 480px) {
+		.main-text {
+			font-size: 24px;
 		}
 	}
 </style>

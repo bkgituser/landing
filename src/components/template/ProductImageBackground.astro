@@ -10,7 +10,7 @@ const { mobileBg = null, desktpBg, isBlur = false, extraClassIm } = Astro.props
 					<img
 						{...mobileBg}
 						alt="background"
-						class={`m-0 w-full object-contain md:hidden ${isBlur ? 'blur-sm' : ''}`}
+						class={`mobile-img m-0 w-full object-contain md:hidden ${isBlur ? 'blur-sm' : ''}`}
 						loading="lazy"
 					/>
 				)
@@ -73,6 +73,19 @@ const { mobileBg = null, desktpBg, isBlur = false, extraClassIm } = Astro.props
 			position: relative;
 		}
 		.mask::after {
+			bottom: 0rem;
+		}
+	}
+
+	/* LANDSCAPE */
+	@media (max-height: 480px) {
+		.mobile-img {
+			display: none;
+			visibility: hidden;
+		}
+
+		.mask::after {
+			height: 10%;
 			bottom: 0rem;
 		}
 	}

@@ -75,10 +75,10 @@ const id = 'lineup-slider'
 		colorInactive="rgba(0,0,0,0.2)"
 	>
 		<div
-			class="relative left-1/2 z-20 mx-auto w-full -translate-x-1/2 gap-3 pt-16"
+			class="title-lineup relative left-1/2 z-20 mx-auto w-full -translate-x-1/2 gap-3 pt-16"
 			slot="prev-slider-timer"
 		>
-			<h2 class="title-lineup mb-4 text-center text-xl md:text-2xl">
+			<h2 class="mb-4 text-center text-xl md:text-2xl">
 				<Trans i18nKey="landing.productsLineup.title">
 					<strong>BK BOOMS</strong> - PRODUCTS LINEUP
 				</Trans>
@@ -208,6 +208,13 @@ const id = 'lineup-slider'
 
 		.item-index-active {
 			font-weight: bold;
+		}
+	}
+
+	/* LANDSCAPE */
+	@media (max-height: 480px) {
+		.title-lineup {
+			padding-top: 1rem !important;
 		}
 	}
 

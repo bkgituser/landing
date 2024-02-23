@@ -248,4 +248,47 @@ const idBenefits = 'benefits-slider'
 			font-size: 1.875rem;
 		}
 	}
+
+	/* LANDSCAPE */
+	@media (max-height: 480px) {
+		.container-screen {
+			max-width: none;
+			padding: 1rem;
+		}
+		.item-benefit-index {
+			height: 70px;
+			width: 90px;
+			line-height: 0.6rem !important;
+		}
+
+		/* BENEFIT ITEM STYLE */
+		.item-benefit-index:before {
+			clip-path: polygon(
+				0 0,
+				100% 0,
+				100% 100%,
+				15px 100%,
+				0 calc(100% - 15px),
+				0 0,
+				1px 1px,
+				1px calc(100% - 15px - 0.41px),
+				calc(15px + 0.41px) calc(100% - 1px),
+				calc(100% - 1px) calc(100% - 1px),
+				calc(100% - 1px) 1px,
+				1px 1px
+			);
+		}
+
+		.item-benefit-index:after {
+			--mask: linear-gradient(45deg, #0000 11.28px, #000 0);
+			-webkit-mask: var(--mask);
+			mask: var(--mask);
+			mask: var(--mask);
+			transition: all ease-in 300ms;
+		}
+
+		.item-benefit-index > p {
+			line-height: 0.7rem !important;
+		}
+	}
 </style>
