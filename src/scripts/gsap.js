@@ -8,6 +8,7 @@ import {
 class App {
 	constructor() {
 		this.ourVisionLines = [...document.querySelectorAll('.ourvision-line')]
+
 		this._initialize()
 		this._render()
 	}
