@@ -8,7 +8,7 @@ import {
 class App {
 	constructor() {
 		this.ourVisionLines = [...document.querySelectorAll('.ourvision-line')]
-
+		this.body = document.querySelector('body')
 		this._initialize()
 		this._render()
 	}
@@ -21,7 +21,6 @@ class App {
 		this._headerAnimation()
 		this._smartUseAnimation()
 		this._benefitsSkew()
-		this._benefitsSkewParallax()
 		this._highlightsAnimation()
 		this._productsLineup()
 		this._repairabilityAnimation()
@@ -104,16 +103,45 @@ class App {
 				duration: 0.25
 			})
 			.progress(1)
-
+		let firstProgress = null
+		let lastProgress = null
+		let valueBetween = null
 		ScrollTrigger.create({
 			trigger: '#smart-use',
 			start: 'top-=400px top',
 			end: 'max',
 			delay: 1,
 			onUpdate: (self) => {
-				// if mobile overlay is not visible
+				// work around to delay effect when scrolling top
+				// on mobile devices
+				if (self.direction === -1) {
+					if (firstProgress === null) {
+						firstProgress = self.progress
+					} else {
+						lastProgress = self.progress
+					}
+				}
+
+				if (firstProgress !== null && lastProgress !== null) {
+					valueBetween = lastProgress - firstProgress
+					console.log('Value between first and last progress:', self)
+
+					// Reset first and last progress when needed
+					if (self.direction === 1) {
+						valueBetween = null
+						firstProgress = null
+						lastProgress = null
+					}
+				}
+
+				const delayEffect = valueBetween < -0.02
+
 				if (!document?.querySelector('#floating-menu.visible')) {
-					self.direction === -1 ? showAnim.play() : showAnim.reverse()
+					if (self.scroller.innerWidth < 480 || self.scroller.innerHeight < 480) {
+						self.direction === -1 && delayEffect ? showAnim.play() : showAnim.reverse()
+					} else {
+						self.direction === -1 ? showAnim.play() : showAnim.reverse()
+					}
 				}
 			}
 		})
@@ -138,8 +166,8 @@ class App {
 				})
 
 				tl.to('header img', {
-					width: !context.conditions.isMobile ? '114px' : '96px',
-					height: !context.conditions.isMobile ? '85px' : '64px',
+					width: !context.conditions.isMobile ? '114px' : '107px',
+					height: !context.conditions.isMobile ? '85px' : '80px',
 					duration: 1,
 					ease: 'expo.in'
 				})
@@ -265,31 +293,6 @@ class App {
 			},
 			0.5
 		)
-	}
-
-	_benefitsSkewParallax() {
-		// const tl = gsap.timeline({
-		// 	scrollTrigger: {
-		// 		trigger: '#benefits',
-		// 		start: 'bottom bottom',
-		// 		end: 'bottom bottom',
-		// 		scrub: true,
-		// 		markers: {
-		// 			fontSize: '3rem'
-		// 		}
-		// 	},
-		// 	yPercent: -100
-		// })
-		// tl.to('.benefits-description', {
-		// 	ease: 'power4.out'
-		// }).to(
-		// 	'.index-container',
-		// 	{
-		// 		ease: 'none',
-		// 		yPercent: -60
-		// 	},
-		// 	0.5
-		// )
 	}
 
 	_highlightsAnimation() {

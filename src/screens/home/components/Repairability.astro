@@ -7,7 +7,9 @@ import { t } from 'i18next'
 		<div
 			class="md:container-screen flex h-auto flex-col-reverse items-start justify-between gap-16 pb-14 pt-10 md:pb-28 md:pt-32 lg:h-full lg:flex-row lg:flex-wrap lg:gap-0 xl:pt-48"
 		>
-			<div class="container-screen md:px-auto mb-24 px-10 md:px-0 lg:mb-0 lg:w-2/5 xl:w-1/2">
+			<div
+				class="container-screen md:px-auto mb-24 px-10 md:px-0 lg:mb-0 lg:flex lg:w-2/5 lg:flex-col lg:items-start lg:justify-start xl:w-1/2 xl:justify-between"
+			>
 				<div class="hidden lg:block">
 					<h3 class="repairability-title text-2xl font-semibold text-black opacity-0 md:text-4xl">
 						{t('landing.repairability.title')}
@@ -20,24 +22,24 @@ import { t } from 'i18next'
 						{t('landing.repairability.description')}
 					</p>
 				</div>
-				<div class="repairability-arrow hidden h-40 items-center opacity-0 lg:flex">
+				<div class="repairability-arrow hidden h-[18vh] items-center opacity-0 lg:flex">
 					<img src="/assets/icons/arrow.svg" alt="arrow" loading="lazy" />
 				</div>
-				<div class="flex-start flex flex-col gap-4 sm:px-10 lg:flex-row lg:flex-wrap lg:px-0">
+				<div class="flex flex-col items-center justify-center gap-4 sm:px-10 md:flex-row lg:px-0">
 					<button
-						class="w-full bg-black px-4 py-4 text-[10.38px] font-semibold text-white md:w-[165px] lg:px-0"
+						class="laptop:w-[165px] w-full max-w-[265px] bg-black px-4 py-4 text-[10.38px] font-semibold text-white lg:max-w-none lg:px-0"
 					>
 						{t('landing.repairability.downloadButton1')}
 					</button>
 					<button
-						class="w-full bg-black px-4 py-4 text-[10.38px] font-semibold text-white md:w-[165px] lg:px-0"
+						class="laptop:w-[165px] w-full max-w-[265px] bg-black px-4 py-4 text-[10.38px] font-semibold text-white lg:max-w-none lg:px-0"
 					>
 						{t('landing.repairability.downloadButton2')}
 					</button>
 				</div>
 			</div>
 			<div
-				class="container-screen lg:max-w-unset h-auto w-full lg:h-full lg:w-3/5 lg:px-0 xl:w-1/2"
+				class="container-screen lg:max-w-unset h-auto w-full pt-8 md:pt-0 lg:h-full lg:w-3/5 lg:px-0 xl:flex xl:w-1/2 xl:flex-col xl:justify-between"
 			>
 				<div class="px-10 lg:hidden">
 					<h3 class="repairability-title text-2xl font-semibold text-black opacity-0 md:text-4xl">
@@ -47,21 +49,21 @@ import { t } from 'i18next'
 				<div class="repairability-arrow flex h-16 items-center px-12 opacity-0 lg:hidden">
 					<img src="/assets/icons/arrow.svg" alt="arrow" loading="lazy" />
 				</div>
-				<div class="content mx-auto mb-3 block w-full bg-[#EEEEEE] p-2">
+				<div class="content mx-auto mb-3 block w-full">
 					<video
 						autoplay={true}
 						loop
 						playsinline
-						class="object-contain xl:min-h-[423px] xl:object-fill"
+						class="object-contain xl:min-h-[423px] xl:object-contain"
 						muted={true}
 						preload="metadata"
 					>
 						<source src="/assets/videos/repairability_summary.mp4" type="video/mp4" />
 					</video>
 				</div>
-				<div class="my-8 flex items-center justify-center px-5">
+				<div class="my-8 flex items-center justify-center px-5 lg:my-0 lg:justify-start">
 					<button
-						class="play-hidden-video flex h-[42px] w-[164px] items-center gap-4 border-[1px] border-black px-2 py-2 text-black md:h-auto md:w-auto md:basis-auto"
+						class="play-hidden-video flex h-[56px] w-[261px] items-center justify-center gap-4 border-[1px] border-black px-2 py-2 text-black md:h-auto md:w-auto md:basis-auto"
 					>
 						<img
 							src="/assets/icons/play-black.svg"
@@ -69,13 +71,10 @@ import { t } from 'i18next'
 							class="h-4 w-4 md:h-auto md:w-auto"
 							loading="lazy"
 						/>
-						<p class="mt-1 text-base font-semibold md:text-xl">
-							{t('landing.ourVision.button')}
+						<p class="mt-1 text-[10.38px] text-base font-semibold">
+							{t('landing.repairability.longVersionButton')}
 						</p>
 					</button>
-					<p class="mt-2 basis-1/2 text-center text-base text-[#A0A0A0]">
-						{t('landing.repairability.longVersionButton')}
-					</p>
 				</div>
 			</div>
 		</div>
@@ -110,15 +109,11 @@ import { t } from 'i18next'
 			window.screen.orientation.lock('portrait')
 		} else {
 			if (document.exitFullscreen) {
-				document.exitFullscreen().then(() => {
-					window.scrollTo(0, currentScroll)
-					currentScroll = undefined
-				})
+				document.exitFullscreen()
 			} else if (document.webkitExitFullscreen) {
 				document.webkitExitFullscreen()
 			}
 
-			console.log('exits fullscreen')
 			fullVideo.pause()
 
 			videoWrapper.classList.add('hidden')
@@ -166,6 +161,13 @@ import { t } from 'i18next'
 			max-width: none;
 			padding-left: 6rem;
 			padding-right: 6rem;
+		}
+	}
+
+	@media (min-width: 1440px) and (max-height: 700px) {
+		.xl\:pt-48 {
+			padding-top: 6rem;
+			padding-bottom: 6rem;
 		}
 	}
 </style>
