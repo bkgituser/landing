@@ -36,7 +36,6 @@ function incrementCounterInCircles(counterElement, current, target, duration, le
 	if (current === 0 && counterElement) {
 		current++
 		counterElement.innerText = current.toString() + letter
-		console.log({ counterElement, current, target })
 		setTimeout(
 			() => incrementCounterInCircles(counterElement, current, target, duration, letter),
 			stepTime
@@ -86,7 +85,7 @@ export function setSizeOfBinds() {
 
 		const heightBind2Mobile = feature2.y - sizeBind2.y + 20
 		bind2.style.height = `${heightBind2Mobile}px`
-		bind2.style.width = `6px`
+		bind2.style.width = `32px`
 	} else if (isSmall) {
 		const heightBind1Small = sizeBind1.y - feature1.y - feature1.height - 32
 		bind1.style.height = `${heightBind1Small}px`
