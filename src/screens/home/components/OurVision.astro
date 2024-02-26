@@ -61,9 +61,9 @@ import VideoBackground from '../../../components/template/VideoBackground.astro'
 								/>
 								<p class="text-base font-semibold md:text-xl">{t('landing.ourVision.button')}</p>
 							</button>
-							<p class="mt-2 w-[177px] text-center text-base text-[#A0A0A0] md:hidden">
+							<!-- <p class="mt-2 w-[177px] text-center text-base text-[#A0A0A0] md:hidden">
 								Rotate your phone
-							</p>
+							</p> -->
 						</div>
 					</div>
 				</div>
@@ -106,7 +106,7 @@ import VideoBackground from '../../../components/template/VideoBackground.astro'
 
 		if (isFullscreen) {
 			video.play()
-			// window.screen.orientation.lock('portrait')
+			window.screen.orientation.lock('portrait')
 		} else {
 			if (document.exitFullscreen) {
 				document.exitFullscreen()

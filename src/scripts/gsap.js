@@ -7,10 +7,6 @@ class App {
 		this._initialize()
 		this._render()
 
-		window.addEventListener('orientationchange', () => {
-			window.location.reload()
-		})
-
 		ScrollTrigger.normalizeScroll(true)
 	}
 
