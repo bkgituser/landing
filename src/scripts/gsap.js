@@ -7,10 +7,11 @@ class App {
 		this._initialize()
 		this._render()
 
-		window.removeEventListener('orientationchange', async () => {
-			scrollTriggers = ScrollTrigger.getAll()
-			scrollTriggers.refresh()
+		window.addEventListener('orientationchange', () => {
+			window.location.reload()
 		})
+
+		ScrollTrigger.normalizeScroll(true)
 	}
 
 	_initialize() {
@@ -80,22 +81,9 @@ class App {
 			lerp: 0.1,
 			duration: 1.2,
 			easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
-			// direction: 'vertical', // vertical, horizontal
-			// gestureDirection: 'vertical', // vertical, horizontal, both
-			// smooth: true,
-			// mouseMultiplier: 1,
-			// smoothTouch: false,
-			// touchMultiplier: 2,
-			// infinite: false,
 		})
 
 		this.lenis.on('scroll', ScrollTrigger.update)
-
-		gsap.ticker.add((time) => {
-			this.lenis.raf(time * 1000)
-		})
-
-		gsap.ticker.lagSmoothing(0)
 	}
 
 	_headerAnimation() {
@@ -508,6 +496,7 @@ class App {
 
 	_render(time) {
 		this.lenis.raf(time)
+		ScrollTrigger.update()
 		requestAnimationFrame(this._render.bind(this))
 	}
 }
