@@ -1,9 +1,4 @@
-import {
-	incrementCounter,
-	incrementCounterInInterval,
-	setSizeOfBinds,
-	incrementCounterBySeparate
-} from './utils'
+import { incrementCounter, setSizeOfBinds, incrementCounterInInterval } from './utils'
 
 class App {
 	constructor() {
@@ -396,15 +391,12 @@ class App {
 				scrub: false
 			},
 			onStart: () => {
-				incrementCounter('0-kpi-stat', 100, 150, 5000)
-				incrementCounterBySeparate(6000000, 'kpi-stat-number')
-				incrementCounter('2-kpi-stat', 0, 20, 1500)
+				const kpis = document.querySelectorAll('.kpi-stat1')
+				kpis.forEach((element) => {
+					incrementCounter(element)
+				})
 			},
 			onComplete: () => {
-				const parent = document.getElementById('1-kpi-stat')
-				const childs = [...document.querySelectorAll('.kpi-stat-number')].map((el) => el.innerText)
-
-				parent.innerHTML = 600000
 				setInterval(() => {
 					incrementCounterInInterval('1-kpi-stat', 10)
 				}, 2000)
@@ -441,13 +433,13 @@ class App {
 				scrub: false
 			},
 			onStart: () => {
-				incrementCounterBySeparate(6000000, 'kpi-stat2-number')
-				incrementCounter('1-kpi-stat2', 65500, 66000, 4000)
+				const kpis = document.querySelectorAll('.kpi-stat2')
+
+				kpis.forEach((element) => {
+					incrementCounter(element)
+				})
 			},
 			onComplete: () => {
-				const parent = document.getElementById('0-kpi-stat2')
-
-				parent.innerHTML = 600000
 				setInterval(() => {
 					incrementCounterInInterval('0-kpi-stat2', 10)
 				}, 2000)

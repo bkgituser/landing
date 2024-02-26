@@ -3,15 +3,18 @@ import { t } from 'i18next'
 
 const statsData = [
 	{
+		placeholder: 0,
 		kpiValue: '100',
 		kpiLabel: ['landing.stats.item1']
 	},
 	{
-		kpiValue: [0, 0, 0, 0, 0, 0],
+		placeholder: 0,
+		kpiValue: '600000',
 		kpiLabel: ['landing.stats.item2']
 	},
 	{
-		kpiValue: '0',
+		placeholder: 0,
+		kpiValue: '150',
 		kpiLabel: ['landing.stats.item31', 'landing.stats.item32']
 	}
 ]
@@ -25,28 +28,13 @@ const statsData = [
 		>
 			{
 				statsData.map((stat, index) => {
-					if (Array.isArray(stat.kpiValue)) {
-						return (
-							<div class="table-cell-stat1 align-top  text-white md:p-4">
-								<span class="flex items-center justify-center gap-2 text-center text-5xl font-bold">
-									<p>+</p>{' '}
-									<div class="flex items-center" id={`${index}-kpi-stat`}>
-										{stat.kpiValue.map((numb) => (
-											<p class="kpi-stat-number">{numb}</p>
-										))}
-									</div>
-								</span>
-								{stat.kpiLabel.map((p) => (
-									<p class="text-center text-2xl">{t(p)}</p>
-								))}
-							</div>
-						)
-					}
-
 					return (
 						<div class="table-cell-stat1 align-top  text-white md:p-4">
 							<span class="flex items-center justify-center gap-2 text-center text-5xl font-bold">
-								<p>+</p> <p id={`${index}-kpi-stat`}>{stat.kpiValue}</p>
+								<p>+</p>{' '}
+								<p id={`${index}-kpi-stat`} class="kpi-stat1" data-kpi={stat.kpiValue}>
+									{stat.placeholder}
+								</p>
 							</span>
 							{stat.kpiLabel.map((p) => (
 								<p class="text-center text-2xl">{t(p)}</p>
