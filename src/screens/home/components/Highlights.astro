@@ -71,30 +71,39 @@ const columns = [
 					</>
 				))
 			}
+			<div class="spacer h-[30vh] w-full"></div>
 		</div>
 	</div>
 </section>
 <script>
 	const columns = document.querySelectorAll('.column-highlight')
-	columns.forEach((column) => {
+	let current = null
+	columns.forEach((column, index) => {
 		if (column instanceof HTMLElement) {
-			const { index } = column.dataset
-
-			const i = Number(index)
 			column.addEventListener('click', (e) => {
-				const answer = column.querySelector('.column-content')
-				const title = column.querySelector('.title')
-				if (title instanceof HTMLElement) {
-					const heightClass = 'max-h-96'
-					answer.classList.toggle(heightClass)
-					answer.classList.toggle('overflow-auto')
-					column.querySelector('.state-symbol').innerText = answer.classList.contains(heightClass)
-						? '-'
-						: '+'
+				// we close the one open
+				console.log({ current, index })
+				if (current !== null && current !== index) {
+					const currentOpen = columns[current]
+					toggleElement(currentOpen)
 				}
+
+				current = current === index ? null : index
+				console.log('current: ', current)
+				toggleElement(column)
 			})
 		}
 	})
+
+	function toggleElement(element) {
+		const heightClass = 'max-h-96'
+		const content = element.querySelector('.column-content')
+		content.classList.toggle(heightClass)
+		content.classList.toggle('overflow-auto')
+		element.querySelector('.state-symbol').innerText = element.classList.contains(heightClass)
+			? '-'
+			: '+'
+	}
 </script>
 <style>
 	@media (min-width: 976px) and (max-width: 1150px) {
