@@ -6,12 +6,11 @@ import { getImage } from 'astro:assets'
 import ProductImageBackground from '@components/template/ProductImageBackground.astro'
 const { modelTitle, description, technical, image, mobile, compatible } = Astro.props
 const optimizedBackground = await getImage({ src: image, format: 'png' })
-const mobileBg = await getImage({ src: CloudsImg, format: 'png' })
 ---
 
 <div class="absolute z-10 h-screen w-full">
 	<div class="relative h-full bg-black">
-		<ProductImageBackground mobileBg={mobileBg} desktpBg={optimizedBackground}>
+		<ProductImageBackground desktpBg={image}>
 			<div class="z-70 relative flex h-full w-full items-end justify-start text-black">
 				<div class="relative flex h-full w-full items-end justify-center">
 					<div
