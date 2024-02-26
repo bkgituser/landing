@@ -497,4 +497,8 @@ class App {
 	}
 }
 
-new App()
+let a = new App()
+
+window.addEventListener('orientationchange', () => {
+	document.location.reload()
+})
