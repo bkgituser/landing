@@ -82,14 +82,12 @@ const columns = [
 		if (column instanceof HTMLElement) {
 			column.addEventListener('click', (e) => {
 				// we close the one open
-				console.log({ current, index })
 				if (current !== null && current !== index) {
 					const currentOpen = columns[current]
 					toggleElement(currentOpen)
 				}
 
 				current = current === index ? null : index
-				console.log('current: ', current)
 				toggleElement(column)
 			})
 		}
