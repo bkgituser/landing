@@ -80,7 +80,6 @@ import VideoBackground from '../../../components/template/VideoBackground.astro'
 	playButton.addEventListener('click', function () {
 		if (video instanceof HTMLVideoElement) {
 			mask.classList.add('hidden')
-			console.log('entra aqui')
 			poster.classList.add('hidden')
 			video.play()
 			toggleControls()

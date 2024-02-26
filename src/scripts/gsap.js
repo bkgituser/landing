@@ -28,6 +28,7 @@ class App {
 		this._accesories()
 		this._stats2Animation()
 		this._ourVisionAnimation()
+		this._aboutUs()
 	}
 
 	_setInitialState() {
@@ -124,7 +125,6 @@ class App {
 
 				if (firstProgress !== null && lastProgress !== null) {
 					valueBetween = lastProgress - firstProgress
-					console.log('Value between first and last progress:', self)
 
 					// Reset first and last progress when needed
 					if (self.direction === 1) {
@@ -309,7 +309,7 @@ class App {
 						trigger: '#highlights',
 						start: 'top top',
 						end: 'center top',
-						pin: !context.conditions.isMobile
+						pin: true
 					}
 				})
 
@@ -478,6 +478,17 @@ class App {
 			opacity: 1,
 			y: 0,
 			duration: 0.8
+		})
+	}
+
+	_aboutUs() {
+		const tl = gsap.timeline({
+			scrollTrigger: {
+				trigger: '#about-us-pie',
+				start: 'top top',
+				end: 'center top',
+				pin: true
+			}
 		})
 	}
 

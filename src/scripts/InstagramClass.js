@@ -27,6 +27,7 @@ export default class InstagramSlider {
 		this.touchStartTime = Date.now()
 		this.touchTimeout = null
 		this.timer = null
+		this.isTouchDevice = isTouchDevice()
 		this.init()
 	}
 
@@ -72,9 +73,6 @@ export default class InstagramSlider {
 		if (this.config.autoplay) {
 			this.isPlaying = true
 			this.config.triggerOnAutoPlayToggle && this.config.triggerOnAutoPlayToggle(this.isPlaying)
-			if (this.id === 'accesories-slider-nav-next') {
-				console.log('start autoplay; ', this.activeIndex)
-			}
 			this.timer = new Timer(() => {
 				this.next()
 				this.startAutoplay()
@@ -107,15 +105,19 @@ export default class InstagramSlider {
 	}
 
 	navigatePrevious() {
-		this.timer.cancel()
-		this.previous()
-		this.startAutoplay()
+		if (!this.isTouchDevice) {
+			this.timer.cancel()
+			this.previous()
+			this.startAutoplay()
+		}
 	}
 
 	navigateNext() {
-		this.timer.cancel()
-		this.next()
-		this.startAutoplay()
+		if (!this.isTouchDevice) {
+			this.timer.cancel()
+			this.next()
+			this.startAutoplay()
+		}
 	}
 
 	fadeOutItem(index) {
@@ -178,7 +180,6 @@ export default class InstagramSlider {
 		if (touchDuration < 300) {
 			this.timer.cancel()
 			const touchLeftSide = this.container.scrollWidth / 2 > e.changedTouches?.[0]?.clientX
-
 			if (touchLeftSide) {
 				this.previous()
 			} else {
@@ -227,4 +228,8 @@ export var Timer = function (callback, delay) {
 	}
 
 	this.resume()
+}
+
+function isTouchDevice() {
+	return 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0
 }
