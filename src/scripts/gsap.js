@@ -1,9 +1,4 @@
-import {
-	incrementCounter,
-	incrementCounterInInterval,
-	setSizeOfBinds,
-	incrementCounterBySeparate
-} from './utils'
+import { incrementCounter, setSizeOfBinds, incrementCounterInInterval } from './utils'
 
 class App {
 	constructor() {
@@ -11,6 +6,12 @@ class App {
 		this.body = document.querySelector('body')
 		this._initialize()
 		this._render()
+
+		window.addEventListener('orientationchange', () => {
+			window.location.reload()
+		})
+
+		ScrollTrigger.normalizeScroll(true)
 	}
 
 	_initialize() {
@@ -28,6 +29,7 @@ class App {
 		this._accesories()
 		this._stats2Animation()
 		this._ourVisionAnimation()
+		this._aboutUs()
 	}
 
 	_setInitialState() {
@@ -76,8 +78,12 @@ class App {
 
 	_createLenis() {
 		this.lenis = new Lenis({
-			lerp: 0.1
+			lerp: 0.1,
+			duration: 1.2,
+			easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
 		})
+
+		this.lenis.on('scroll', ScrollTrigger.update)
 	}
 
 	_headerAnimation() {
@@ -124,7 +130,6 @@ class App {
 
 				if (firstProgress !== null && lastProgress !== null) {
 					valueBetween = lastProgress - firstProgress
-					console.log('Value between first and last progress:', self)
 
 					// Reset first and last progress when needed
 					if (self.direction === 1) {
@@ -309,7 +314,7 @@ class App {
 						trigger: '#highlights',
 						start: 'top top',
 						end: 'center top',
-						pin: !context.conditions.isMobile
+						pin: true
 					}
 				})
 
@@ -396,15 +401,12 @@ class App {
 				scrub: false
 			},
 			onStart: () => {
-				incrementCounter('0-kpi-stat', 100, 150, 5000)
-				incrementCounterBySeparate(6000000, 'kpi-stat-number')
-				incrementCounter('2-kpi-stat', 0, 20, 1500)
+				const kpis = document.querySelectorAll('.kpi-stat1')
+				kpis.forEach((element) => {
+					incrementCounter(element)
+				})
 			},
 			onComplete: () => {
-				const parent = document.getElementById('1-kpi-stat')
-				const childs = [...document.querySelectorAll('.kpi-stat-number')].map((el) => el.innerText)
-
-				parent.innerHTML = 600000
 				setInterval(() => {
 					incrementCounterInInterval('1-kpi-stat', 10)
 				}, 2000)
@@ -441,13 +443,13 @@ class App {
 				scrub: false
 			},
 			onStart: () => {
-				incrementCounterBySeparate(6000000, 'kpi-stat2-number')
-				incrementCounter('1-kpi-stat2', 65500, 66000, 4000)
+				const kpis = document.querySelectorAll('.kpi-stat2')
+
+				kpis.forEach((element) => {
+					incrementCounter(element)
+				})
 			},
 			onComplete: () => {
-				const parent = document.getElementById('0-kpi-stat2')
-
-				parent.innerHTML = 600000
 				setInterval(() => {
 					incrementCounterInInterval('0-kpi-stat2', 10)
 				}, 2000)
@@ -481,8 +483,20 @@ class App {
 		})
 	}
 
+	_aboutUs() {
+		const tl = gsap.timeline({
+			scrollTrigger: {
+				trigger: '#about-us-pie',
+				start: 'top top',
+				end: 'center top',
+				pin: true
+			}
+		})
+	}
+
 	_render(time) {
 		this.lenis.raf(time)
+		ScrollTrigger.update()
 		requestAnimationFrame(this._render.bind(this))
 	}
 }

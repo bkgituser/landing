@@ -1,58 +1,20 @@
-function incrementCounter(selector, current, target, duration, letter = '') {
-	let counter = document.getElementById(selector)
-	incrementNumber(counter, current, target, duration, (letter = ''))
-}
+function incrementCounter(counter) {
+	const speed = 200
 
-function incrementCounterBySeparate(targetNumber, targetClass) {
-	const numberElements = [...document.querySelectorAll(`.${targetClass}`)]
-	const targetNumbers = targetNumber.toString().split('').map(Number)
+	const animate = () => {
+		const value = +counter.getAttribute('data-kpi')
+		const data = +counter.innerText
 
-	numberElements.forEach((element, index) => {
-		const number = Number(element.innerText)
-		const target = targetNumbers[index]
-		// increment from 0 to target
-		//if it's 0 makes the round
-		incrementCounterInCircles(element, number, target, randomIntFromInterval(1300, 2500))
-	})
-}
-
-function randomIntFromInterval(min, max) {
-	// min and max included
-	return Math.floor(Math.random() * (max - min + 1) + min)
-}
-
-function incrementNumber(counterElement, current, target, duration, letter) {
-	let stepTime = Math.abs(Math.floor(duration / (target === 0 ? 9 : target)))
-
-	if (current < target && counterElement) {
-		current++
-		counterElement.innerText = current.toString() + letter
-		setTimeout(() => incrementNumber(counterElement, current, target, duration, letter), stepTime)
+		const time = value / speed
+		if (data < value) {
+			counter.innerText = Math.ceil(data + time)
+			setTimeout(animate, 1)
+		} else {
+			counter.innerText = value
+		}
 	}
-}
 
-function incrementCounterInCircles(counterElement, current, target, duration, letter = '') {
-	let stepTime = Math.abs(Math.floor(duration / (target === 0 ? 9 : target)))
-	if (current === 0 && counterElement) {
-		current++
-		counterElement.innerText = current.toString() + letter
-		setTimeout(
-			() => incrementCounterInCircles(counterElement, current, target, duration, letter),
-			stepTime
-		)
-	} else if (current === 9 && counterElement) {
-		current = 0
-		counterElement.innerText = current.toString() + letter
-	} else if (current === target) {
-		counterElement.innerText = current.toString() + letter
-	} else if (current !== target && counterElement) {
-		current++
-		counterElement.innerText = current.toString() + letter
-		setTimeout(
-			() => incrementCounterInCircles(counterElement, current, target, duration, letter),
-			stepTime
-		)
-	}
+	animate()
 }
 
 function incrementCounterInInterval(selector, increment) {
@@ -64,7 +26,7 @@ function incrementCounterInInterval(selector, increment) {
 	}
 }
 
-export function setSizeOfBinds() {
+function setSizeOfBinds() {
 	let isMobile = window.innerWidth <= 480
 	let isMedium = window.innerWidth >= 768
 	let isLandscape = window.innerHeight <= 480
@@ -109,4 +71,4 @@ export function setSizeOfBinds() {
 	}
 }
 
-export { incrementCounter, incrementCounterInInterval, incrementCounterBySeparate }
+export { incrementCounterInInterval, incrementCounter, setSizeOfBinds }

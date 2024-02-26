@@ -27,12 +27,12 @@ import { t } from 'i18next'
 				</div>
 				<div class="flex flex-col items-center justify-center gap-4 sm:px-10 md:flex-row lg:px-0">
 					<button
-						class="laptop:w-[165px] w-full max-w-[265px] bg-black px-4 py-4 text-[10.38px] font-semibold text-white lg:max-w-none lg:px-0"
+						class="w-full max-w-[265px] bg-black px-4 py-4 text-[10.38px] font-semibold text-white lg:max-w-none lg:px-0 laptop:w-[165px]"
 					>
 						{t('landing.repairability.downloadButton1')}
 					</button>
 					<button
-						class="laptop:w-[165px] w-full max-w-[265px] bg-black px-4 py-4 text-[10.38px] font-semibold text-white lg:max-w-none lg:px-0"
+						class="w-full max-w-[265px] bg-black px-4 py-4 text-[10.38px] font-semibold text-white lg:max-w-none lg:px-0 laptop:w-[165px]"
 					>
 						{t('landing.repairability.downloadButton2')}
 					</button>
@@ -106,7 +106,7 @@ import { t } from 'i18next'
 
 		if (isFullscreen) {
 			fullVideo.play()
-			window.screen.orientation.lock('portrait')
+			// window.screen.orientation.lock('portrait')
 		} else {
 			if (document.exitFullscreen) {
 				document.exitFullscreen()

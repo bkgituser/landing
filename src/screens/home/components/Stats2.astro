@@ -9,12 +9,13 @@ const optimizedBackground = await getImage({ src: bgStats2, format: 'webp' })
 
 const statsData = [
 	{
-		kpiValue: [0, 0, 0, 0, 0, 0],
+		kpiValue: '600000',
 		kpiLabel: ['landing.stats2.item1']
 	},
 	{
-		kpiValue: '66.000 Kg',
-		kpiLabel: ['landing.stats2.item2']
+		kpiValue: '66000',
+		kpiLabel: ['landing.stats2.item2'],
+		letter: 'Kg.'
 	}
 ]
 ---
@@ -28,28 +29,16 @@ const statsData = [
 			>
 				{
 					statsData.map((stat, index) => {
-						if (Array.isArray(stat.kpiValue)) {
-							return (
-								<div class="table-cell-stat1 relative  z-10 align-top text-white md:p-4">
-									<span class="flex items-center justify-center gap-2 text-center text-5xl font-bold">
-										<p>+</p>{' '}
-										<div class="flex items-center" id={`${index}-kpi-stat2`}>
-											{stat.kpiValue.map((numb) => {
-												return <div class="kpi-stat2-number">{numb}</div>
-											})}
-										</div>
-									</span>
-									{stat.kpiLabel.map((p) => (
-										<p class="text-center text-2xl">{t(p)}</p>
-									))}
-								</div>
-							)
-						}
-
 						return (
 							<div class="table-cell-stat1 relative  z-10 align-top text-white md:p-4">
-								<span class="flex items-center justify-center gap-2 text-center text-5xl font-bold text-[#CCEB52]">
-									<p>+</p> <p id={`${index}-kpi-stat2`}>{stat.kpiValue}</p>
+								<span
+									class={`flex items-center justify-center gap-2 text-center text-5xl font-bold ${index ? 'text-[#CCEB52]' : 'tetx-white'}`}
+								>
+									<p>+</p>{' '}
+									<p id={`${index}-kpi-stat2`} class="kpi-stat2" data-kpi={stat.kpiValue}>
+										0
+									</p>
+									{stat?.letter && <p>{stat.letter}</p>}
 								</span>
 								{stat.kpiLabel.map((p) => (
 									<p class="text-center text-2xl">{t(p)}</p>
