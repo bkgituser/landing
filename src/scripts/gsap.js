@@ -17,6 +17,7 @@ class App {
 		this._logoAnimation()
 		this._scrollHeaderAnimation()
 		this._headerAnimation()
+		this._bgSmartUse()
 		this._smartUseAnimation()
 		this._benefitsSkew()
 		this._highlightsAnimation()
@@ -176,6 +177,25 @@ class App {
 			height: !this._isMobile() ? '85px' : '80px',
 			duration: 1,
 			ease: 'expo.in'
+		})
+	}
+
+	_bgSmartUse() {
+		let tl = gsap.timeline({
+			scrollTrigger: {
+				trigger: '#smart-use',
+				scrub: true,
+				pin: false
+			}
+		})
+		tl.from('#smart-use-bg', {
+			transformOrigin: '50% 50%',
+			yPercent: -50,
+			ease: 'none'
+		}).to('#smart-use-bg', {
+			transformOrigin: '50% 50%',
+			yPercent: 0,
+			ease: 'none'
 		})
 	}
 
