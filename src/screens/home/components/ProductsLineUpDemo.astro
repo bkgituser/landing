@@ -6,16 +6,18 @@ import ProductDisplay from 'src/components/molecules/ProductDisplay.astro'
 import BgImg1 from 'src/img/lineup1.png'
 import BgImgMobile1 from 'src/img/lineup1-mobile.webp'
 import BgImg2 from 'src/img/lineup2.png'
+import BgImgMobile2 from 'src/img/lineup2-mobile.webp'
 import BgImg3 from 'src/img/lineup3.png'
+import BgImgMobile3 from 'src/img/lineup3-mobile.webp'
 import BgImg4 from 'src/img/lineup4.png'
+import BgImgMobile4 from 'src/img/lineup4-mobile.webp'
 import BgImg5 from 'src/img/lineup5.png'
-import CloudBg from 'src/img/clouds.png'
+import BgImgMobile5 from 'src/img/lineup5-mobile.webp'
 import { Trans } from 'astro-i18next/components'
 import { t } from 'i18next'
 import CustomSlider from '@components/organisms/slider/CustomSlider.astro'
 import SliderElements from '@components/organisms/slider/SliderElements.astro'
 import IndexElements from '@components/organisms/slider/IndexElements.astro'
-import ProductImageBackground from '@components/template/ProductImageBackground.astro'
 
 // const BgOptimized1 = await getImage({ src: BgImg1, format: 'png', width: '1440', height: '900' })
 // const BgMobileOptimized1 = await getImage({ src: BgImgMobile1, format: 'webp' })
@@ -36,8 +38,8 @@ const productsData = [
 		compatible: 'landing.productsLineup.products.item2.compatible',
 		mobile: 'landing.productsLineup.products.item2.mobile',
 		description: 'landing.productsLineup.products.item2.description',
-		image: BgImg1,
-		mobileImg: BgImgMobile1
+		image: BgImg2,
+		mobileImg: BgImgMobile2
 	},
 	{
 		modelTitle: 'landing.productsLineup.products.item3.model',
@@ -45,8 +47,8 @@ const productsData = [
 		compatible: 'landing.productsLineup.products.item3.compatible',
 		mobile: 'landing.productsLineup.products.item3.mobile',
 		description: 'landing.productsLineup.products.item3.description',
-		image: BgImg1,
-		mobileImg: BgImgMobile1
+		image: BgImg3,
+		mobileImg: BgImgMobile3
 	},
 	{
 		modelTitle: 'landing.productsLineup.products.item4.model',
@@ -54,14 +56,14 @@ const productsData = [
 		compatible: 'landing.productsLineup.products.item4.compatible',
 		mobile: 'landing.productsLineup.products.item4.mobile',
 		description: 'landing.productsLineup.products.item4.description',
-		image: BgImg1,
-		mobileImg: BgImgMobile1
+		image: BgImg4,
+		mobileImg: BgImgMobile4
 	},
 	{
 		modelTitle: 'landing.productsLineup.products.item5.model',
 		technical: 'landing.productsLineup.products.item5.technical',
-		image: BgImg1,
-		mobileImg: BgImgMobile1
+		image: BgImg5,
+		mobileImg: BgImgMobile5
 	}
 ]
 
@@ -70,6 +72,7 @@ const id = 'lineup-slider'
 ---
 
 <section id="products-line-up" class="relative h-screen">
+	{(<span class="spacer-product absolute top-0 z-50 text-3xl text-red-500" />)}
 	<CustomSlider
 		id={id}
 		lengthElements={productsData.length}
@@ -118,6 +121,13 @@ const id = 'lineup-slider'
 		</SliderElements>
 	</CustomSlider>
 </section>
+<script>
+	window.addEventListener('load', () => {
+		const spacerMsg: HTMLElement = document.querySelector('.spacer-product')
+		console.log('spacerMsg: ', spacerMsg)
+		spacerMsg.innerText = `width: ${window?.innerWidth}, height: ${window?.innerHeight}`
+	})
+</script>
 <style>
 	@media (max-height: 480px) {
 		.overlay-screen {
