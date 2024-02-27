@@ -25,6 +25,7 @@ class App {
 		this._stats1Animation()
 		this._accesories()
 		this._stats2Animation()
+		this._bgOurVision()
 		this._ourVisionAnimation()
 		this._aboutUs()
 	}
@@ -434,6 +435,25 @@ class App {
 		})
 	}
 
+	_bgOurVision() {
+		let tl = gsap.timeline({
+			scrollTrigger: {
+				trigger: '#our-vision',
+				scrub: true,
+				pin: false
+			}
+		})
+		tl.from('#video-poster', {
+			transformOrigin: '50% 50%',
+			yPercent: -50,
+			ease: 'none'
+		}).to('#video-poster', {
+			transformOrigin: '50% 50%',
+			yPercent: 0,
+			ease: 'none'
+		})
+	}
+
 	_ourVisionAnimation() {
 		const tl = gsap.timeline({
 			scrollTrigger: {
@@ -441,7 +461,7 @@ class App {
 				start: 'top top',
 				end: 'center+=10% top',
 				pin: true,
-				scrub: false
+				scrub: true
 			}
 		})
 		tl.to('.ourvision-line', {
