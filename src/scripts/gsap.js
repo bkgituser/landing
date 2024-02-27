@@ -481,7 +481,7 @@ class App {
 				start: 'top top',
 				end: 'center+=10% top',
 				pin: true,
-				scrub: true
+				scrub: false
 			}
 		})
 		tl.to('.ourvision-line', {
