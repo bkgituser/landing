@@ -21,6 +21,7 @@ export default class InstagramSlider {
 		// this.navigatePrev = this.config.navigation &&  this.container.querySelector(`#${containerSelector}-nav-prev`)
 
 		this.items = [...this.elementsContainer.children]
+
 		this.paginationItems = this.indexContainer ? [...this.indexContainer.children] : null
 		this.activeIndex = 0
 		this.isPlaying = false

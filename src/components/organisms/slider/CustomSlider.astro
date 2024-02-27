@@ -26,7 +26,6 @@ const {
 	data-active-index={0}
 	data-navigation={navigation}
 >
-	<slot name="prev-slider-timer" />
 	{
 		indexElements ? (
 			<div class={`absolute top-2 z-30 h-1 w-full sm:hidden ${customSliderContainerClass}`}>
@@ -43,6 +42,7 @@ const {
 		) : null
 	}
 	<div class={` h-full w-full ${classSlideContainer}`}>
+		<slot name="prev-slider-timer" />
 		{
 			navigation && (
 				<div
@@ -102,7 +102,6 @@ const {
 	}
 </custom-slider>
 <script>
-	import SliderComponent from 'src/screens/home/components/SliderComponent.astro'
 	import InstagramSlider from '../../../scripts/InstagramClass'
 
 	class InstagramSliderElement extends HTMLElement {

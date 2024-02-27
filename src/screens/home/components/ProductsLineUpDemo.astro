@@ -3,15 +3,15 @@ import ImageBackground from 'src/components/template/ImageBackground.astro'
 
 import { getImage } from 'astro:assets'
 import ProductDisplay from 'src/components/molecules/ProductDisplay.astro'
-import BgImg1 from 'src/img/lineup1.png'
+import BgImg1 from 'src/img/lineup1.webp'
 import BgImgMobile1 from 'src/img/lineup1-mobile.webp'
-import BgImg2 from 'src/img/lineup2.png'
+import BgImg2 from 'src/img/lineup2.webp'
 import BgImgMobile2 from 'src/img/lineup2-mobile.webp'
-import BgImg3 from 'src/img/lineup3.png'
+import BgImg3 from 'src/img/lineup3.webp'
 import BgImgMobile3 from 'src/img/lineup3-mobile.webp'
-import BgImg4 from 'src/img/lineup4.png'
+import BgImg4 from 'src/img/lineup4.webp'
 import BgImgMobile4 from 'src/img/lineup4-mobile.webp'
-import BgImg5 from 'src/img/lineup5.png'
+import BgImg5 from 'src/img/lineup5.webp'
 import BgImgMobile5 from 'src/img/lineup5-mobile.webp'
 import { Trans } from 'astro-i18next/components'
 import { t } from 'i18next'
@@ -82,15 +82,14 @@ const id = 'lineup-slider'
 		colorInactive="rgba(0,0,0,0.2)"
 	>
 		<div
-			class="title-lineup relative left-1/2 z-20 mx-auto w-full -translate-x-1/2 gap-3 pt-8"
+			class="title-lineup relative left-1/2 z-20 mx-auto w-full -translate-x-1/2 gap-3 pt-20"
 			slot="prev-slider-timer"
 		>
-			<h2 class="mb-4 text-center text-xl md:text-2xl">
+			<h2 class="xs:text-2xl mb-1 text-center text-xl">
 				<Trans i18nKey="landing.productsLineup.title">
 					<strong>BK BOOMS</strong> - PRODUCTS LINEUP
 				</Trans>
 			</h2>
-			<div class="index-container flex items-center justify-center gap-4 text-black"></div>
 		</div>
 		<IndexElements
 			id={id}
@@ -121,6 +120,11 @@ const id = 'lineup-slider'
 	</CustomSlider>
 </section>
 <style>
+	@media (max-height: 740px) {
+		.title-lineup {
+			padding-top: 2.5rem;
+		}
+	}
 	@media (max-height: 480px) {
 		.overlay-screen {
 			overflow: hidden;

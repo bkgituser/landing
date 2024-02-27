@@ -22,6 +22,7 @@
             "feature2Description": "More Efficient to Withstand <0> Concentrated Loads of Ties and Joints"
         },
         "benefits": {
+            "badge": "<0>BENEFITS</0> - BK BOOMS",
             "item1": {
                 "description": "Increased Productivity,\n Fuel Savings",
                 "featureLine": "Increased\n Working\n Width"
@@ -150,7 +151,7 @@
         "feedback": {
             "label": "USER FEEDBACK",
             "item1": {
-                "opinion": "Switching from the 32m Steel boom to the BK40M not only  means 25% more productivity, but it also means saving fuel even thougt it allows me to go much faster, and most importantly... to get home sooner to enjoy my family.",
+                "opinion": "Switching from the 32 meter steel boom to the BK40M not only means 25% more productivity, but it also means saving fuel; it even allows me to go much faster, and most importantly... to get home earlier to enjoy my family.",
                 "user": "Ariel Savorgnano, Córdoba, Argentina, Owner of Two Massey Ferguson Sprayers with BK40M Booms"
             },
             "item2": {
