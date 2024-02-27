@@ -17,9 +17,6 @@ export default class InstagramSlider {
 		)
 		this.indexContainer = this.container.querySelector(`#${containerSelector}-index-container`)
 
-		// this.navigateNext = this.config.navigation && this.container.querySelector(`#${containerSelector}-nav-next`)
-		// this.navigatePrev = this.config.navigation &&  this.container.querySelector(`#${containerSelector}-nav-prev`)
-
 		this.items = [...this.elementsContainer.children]
 
 		this.paginationItems = this.indexContainer ? [...this.indexContainer.children] : null
@@ -53,15 +50,24 @@ export default class InstagramSlider {
 				item.addEventListener('mouseleave', () => this.handlePaginationMouseLeave())
 				item.addEventListener('touchstart', (event) =>
 					this.handlePaginationTouchStart(event, index)
-				)
+				),
+					{
+						passive: true
+					}
 			})
 		}
 	}
 
 	initEvents() {
-		this.container.addEventListener('touchstart', () => this.handleContainerTouchStart())
-		this.container.addEventListener('touchend', (e) => this.handleContainerTouchEnd(e))
-		this.container.addEventListener('touchcancel', () => this.handleContainerTouchCancel())
+		this.container.addEventListener('touchstart', () => this.handleContainerTouchStart(), {
+			passive: true
+		})
+		this.container.addEventListener('touchend', (e) => this.handleContainerTouchEnd(e), {
+			passive: true
+		})
+		this.container.addEventListener('touchcancel', () => this.handleContainerTouchCancel(), {
+			passive: true
+		})
 	}
 
 	fadeInContainer() {
