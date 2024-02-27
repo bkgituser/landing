@@ -4,23 +4,23 @@ import CloudsImg from 'src/img/clouds.png'
 
 import { getImage } from 'astro:assets'
 import ProductImageBackground from '@components/template/ProductImageBackground.astro'
-const { modelTitle, description, technical, image, mobile, compatible } = Astro.props
+const { modelTitle, description, technical, image, mobile, compatible, mobileImg } = Astro.props
 const optimizedBackground = await getImage({ src: image, format: 'png' })
 ---
 
 <div class="absolute z-10 h-screen w-full">
 	<div class="relative h-full bg-black">
-		<ProductImageBackground desktpBg={image}>
+		<ProductImageBackground desktpBg={image} mobileImg={mobileImg}>
 			<div class="z-70 relative flex h-full w-full items-end justify-start text-black">
 				<div class="relative flex h-full w-full items-end justify-center">
 					<div
-						class="container-screen bottom-0 z-40 mb-10 flex h-1/2 w-full select-none flex-col items-start justify-evenly md:mb-4 md:block md:h-auto lg:mb-10 xl:mb-12 xxl:mb-16"
+						class="container-screen bottom-0 z-40 mb-6 flex h-[42%] w-full select-none flex-col items-start justify-evenly md:mb-4 md:block md:h-auto lg:mb-10 xl:mb-12 xxl:mb-16"
 					>
-						<h3 class="pb-2 text-5xl font-bold text-white md:pb-2">
+						<h3 class="pb-0 text-5xl font-bold text-white md:pb-2">
 							{t(modelTitle)}
 						</h3>
 						<p
-							class="mb-2 h-[90px] pt-1 text-[22px] leading-7 text-white md:mb-0 md:h-auto xl:mb-2"
+							class="mb-0 h-[90px] pt-1 text-[22px] leading-7 text-white md:mb-0 md:h-auto xl:mb-2"
 						>
 							<strong class="font-semibold">{t(technical)}</strong>{' '}{
 								compatible && (
@@ -34,7 +34,7 @@ const optimizedBackground = await getImage({ src: image, format: 'png' })
 								)
 							}
 						</p>
-						<div class="mb-2 h-[90px] md:mb-5 md:h-auto">
+						<div class="mb-0 h-[90px] md:mb-5 md:h-auto">
 							{
 								mobile && (
 									<p class="block pt-0 text-[22px] leading-7 text-white md:hidden md:pt-0 md:font-normal">
@@ -83,19 +83,20 @@ const optimizedBackground = await getImage({ src: image, format: 'png' })
 
 	@media (max-width: 480px) and (max-height: 630px) {
 		.container-screen {
-			margin-bottom: 2.5rem;
+			margin-bottom: 1.5rem;
+			height: 50%;
 		}
 	}
 
 	@media (max-width: 480px) and (min-height: 700px) {
 		.container-screen {
-			margin-bottom: 3.5rem;
+			margin-bottom: 1.5rem;
 		}
 	}
 
 	@media (max-width: 480px) and (min-height: 750px) {
 		.container-screen {
-			margin-bottom: 4rem;
+			margin-bottom: 2rem;
 		}
 	}
 

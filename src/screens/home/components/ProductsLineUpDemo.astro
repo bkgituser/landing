@@ -4,6 +4,7 @@ import ImageBackground from 'src/components/template/ImageBackground.astro'
 import { getImage } from 'astro:assets'
 import ProductDisplay from 'src/components/molecules/ProductDisplay.astro'
 import BgImg1 from 'src/img/lineup1.png'
+import BgImgMobile1 from 'src/img/lineup1-mobile.webp'
 import BgImg2 from 'src/img/lineup2.png'
 import BgImg3 from 'src/img/lineup3.png'
 import BgImg4 from 'src/img/lineup4.png'
@@ -16,7 +17,9 @@ import SliderElements from '@components/organisms/slider/SliderElements.astro'
 import IndexElements from '@components/organisms/slider/IndexElements.astro'
 import ProductImageBackground from '@components/template/ProductImageBackground.astro'
 
-const CloudsBlurBg = await getImage({ src: CloudBg, format: 'png' })
+// const BgOptimized1 = await getImage({ src: BgImg1, format: 'png', width: '1440', height: '900' })
+// const BgMobileOptimized1 = await getImage({ src: BgImgMobile1, format: 'webp' })
+
 const productsData = [
 	{
 		modelTitle: 'landing.productsLineup.products.item1.model',
@@ -24,7 +27,8 @@ const productsData = [
 		compatible: 'landing.productsLineup.products.item1.compatible',
 		mobile: 'landing.productsLineup.products.item1.mobile',
 		description: 'landing.productsLineup.products.item1.description',
-		image: BgImg1
+		image: BgImg1,
+		mobileImg: BgImgMobile1
 	},
 	{
 		modelTitle: 'landing.productsLineup.products.item2.model',
@@ -32,7 +36,8 @@ const productsData = [
 		compatible: 'landing.productsLineup.products.item2.compatible',
 		mobile: 'landing.productsLineup.products.item2.mobile',
 		description: 'landing.productsLineup.products.item2.description',
-		image: BgImg2
+		image: BgImg1,
+		mobileImg: BgImgMobile1
 	},
 	{
 		modelTitle: 'landing.productsLineup.products.item3.model',
@@ -40,7 +45,8 @@ const productsData = [
 		compatible: 'landing.productsLineup.products.item3.compatible',
 		mobile: 'landing.productsLineup.products.item3.mobile',
 		description: 'landing.productsLineup.products.item3.description',
-		image: BgImg3
+		image: BgImg1,
+		mobileImg: BgImgMobile1
 	},
 	{
 		modelTitle: 'landing.productsLineup.products.item4.model',
@@ -48,12 +54,14 @@ const productsData = [
 		compatible: 'landing.productsLineup.products.item4.compatible',
 		mobile: 'landing.productsLineup.products.item4.mobile',
 		description: 'landing.productsLineup.products.item4.description',
-		image: BgImg4
+		image: BgImg1,
+		mobileImg: BgImgMobile1
 	},
 	{
 		modelTitle: 'landing.productsLineup.products.item5.model',
 		technical: 'landing.productsLineup.products.item5.technical',
-		image: BgImg5
+		image: BgImg1,
+		mobileImg: BgImgMobile1
 	}
 ]
 
