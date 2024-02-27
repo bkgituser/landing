@@ -33,14 +33,13 @@ const feedbackData = [
 					class={`opinion-container flex flex-wrap items-center xl:h-[700px] ${index % 2 === 0 ? 'flex-row bg-white' : 'flex-row-reverse bg-black'}`}
 				>
 					<div class="container-screen flex h-full flex-col justify-center px-7 pb-20 pt-28 md:py-8  lg:basis-1/2 lg:p-12 xl:px-20 xl:py-0">
-						<div
-							class={`mb-12 text-base md:text-xl ${index % 2 === 0 ? 'text-darkGrey' : 'text-white'}`}
-						>
+						<div class={`mb-12 text-xl ${index % 2 === 0 ? 'text-darkGrey' : 'text-white'}`}>
 							{t('landing.feedback.label')}
 						</div>
 						<div class="relative mb-8 sm:mb-2 xl:mb-10">
+							<span class="quote" />
 							<p
-								class={`laptop:text-3xl text-2xl font-semibold lg:text-4xl ${index % 2 === 0 ? 'text-black' : 'text-white'} quote relative z-10`}
+								class={` relative z-10 text-[36px] font-semibold leading-8 laptop:text-3xl ${index % 2 === 0 ? 'text-black' : 'text-white'} relative z-10`}
 							>
 								{t(item.opinion)}
 							</p>
@@ -81,11 +80,11 @@ const feedbackData = [
 	.quote:before {
 		content: '\201C';
 		color: #7b7b7b;
-		font-size: 96px;
+		font-size: 160px;
 		position: absolute;
 		opacity: 0.4;
-		left: -20px;
-		top: 22px;
+		left: -15px;
+		top: -80px;
 		z-index: 1;
 	}
 
@@ -93,10 +92,12 @@ const feedbackData = [
 		.quote:before {
 			content: '\201C';
 			color: #7b7b7b;
-			font-size: 96px;
+			font-size: 160px;
 			position: absolute;
-			left: -10px;
-			top: 24px;
+			opacity: 0.4;
+			left: -20px;
+			top: -80px;
+			z-index: 1;
 		}
 	}
 </style>

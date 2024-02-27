@@ -5,10 +5,10 @@ import { t } from 'i18next'
 <>
 	<section class="min-h-screen bg-white" id="repairability">
 		<div
-			class="md:container-screen flex h-auto flex-col-reverse items-start justify-between gap-16 pb-14 pt-10 md:pb-28 md:pt-32 lg:h-full lg:flex-row lg:flex-wrap lg:gap-0 xl:pt-48"
+			class="md:container-screen flex h-auto flex-col-reverse items-start justify-between gap-16 pb-2 pt-16 md:pb-20 md:pt-32 lg:h-full lg:flex-row lg:flex-wrap lg:gap-0 xl:pt-48"
 		>
 			<div
-				class="container-screen md:px-auto mb-24 px-10 md:px-0 lg:mb-0 lg:flex lg:w-2/5 lg:flex-col lg:items-start lg:justify-start xl:w-1/2 xl:justify-between"
+				class="container-screen md:px-auto mb-8 px-10 md:px-0 lg:mb-0 lg:flex lg:w-2/5 lg:flex-col lg:items-start lg:justify-start xl:w-1/2 xl:justify-between"
 			>
 				<div class="hidden lg:block">
 					<h3 class="repairability-title text-2xl font-semibold text-black opacity-0 md:text-4xl">
@@ -27,12 +27,12 @@ import { t } from 'i18next'
 				</div>
 				<div class="flex flex-col items-center justify-center gap-4 sm:px-10 md:flex-row lg:px-0">
 					<button
-						class="w-full max-w-[265px] bg-black px-4 py-4 text-[10.38px] font-semibold text-white lg:max-w-none lg:px-0 laptop:w-[165px]"
+						class="w-full max-w-[265px] bg-black px-4 py-4 text-[14px] font-semibold text-white md:text-[10.38px] lg:max-w-none lg:px-0 laptop:w-[165px]"
 					>
 						{t('landing.repairability.downloadButton1')}
 					</button>
 					<button
-						class="w-full max-w-[265px] bg-black px-4 py-4 text-[10.38px] font-semibold text-white lg:max-w-none lg:px-0 laptop:w-[165px]"
+						class="w-full max-w-[265px] bg-black px-4 py-4 text-[14px] font-semibold text-white md:text-[10.38px] lg:max-w-none lg:px-0 laptop:w-[165px]"
 					>
 						{t('landing.repairability.downloadButton2')}
 					</button>
@@ -49,12 +49,13 @@ import { t } from 'i18next'
 				<div class="repairability-arrow flex h-16 items-center px-12 opacity-0 lg:hidden">
 					<img src="/assets/icons/arrow.svg" alt="arrow" loading="lazy" />
 				</div>
+
 				<div class="content mx-auto mb-3 block w-full">
 					<video
 						autoplay={true}
 						loop
 						playsinline
-						class="object-contain xl:min-h-[423px] xl:object-contain"
+						class="full-width-video object-contain xl:min-h-[423px] xl:object-contain"
 						muted={true}
 						preload="metadata"
 					>
@@ -135,6 +136,12 @@ import { t } from 'i18next'
 	})
 </script>
 <style>
+	.full-width-video {
+		width: calc(100% + 2.5rem);
+		max-width: none;
+		position: relative;
+		left: -1.25rem;
+	}
 	@media (max-height: 480px) {
 		.container-screen {
 			margin-top: 3.5rem;

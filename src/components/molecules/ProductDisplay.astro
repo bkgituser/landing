@@ -14,29 +14,43 @@ const optimizedBackground = await getImage({ src: image, format: 'png' })
 			<div class="z-70 relative flex h-full w-full items-end justify-start text-black">
 				<div class="relative flex h-full w-full items-end justify-center">
 					<div
-						class="container-screen bottom-0 z-40 mb-10 flex h-auto w-full select-none flex-col items-start justify-end md:mb-4 md:block lg:mb-10 xl:mb-12 xxl:mb-16"
+						class="container-screen bottom-0 z-40 mb-10 flex h-1/2 w-full select-none flex-col items-start justify-evenly md:mb-4 md:block md:h-auto lg:mb-10 xl:mb-12 xxl:mb-16"
 					>
-						<!-- <span class="mb-2 block w-6 border-2 border-white"></span> -->
 						<h3 class="pb-2 text-5xl font-bold text-white md:pb-2">
 							{t(modelTitle)}
 						</h3>
-						<p class="mb-2 pt-1 text-[22px] font-semibold leading-7 text-white md:mb-0 xl:mb-2">
-							{t(technical)}{' '}<span class="md:hidden">{t(compatible)}</span>
+						<p
+							class="mb-2 h-[90px] pt-1 text-[22px] leading-7 text-white md:mb-0 md:h-auto xl:mb-2"
+						>
+							<strong class="font-semibold">{t(technical)}</strong>{' '}{
+								compatible && (
+									<span class="md:hidden">
+										{t(compatible)
+											.split('\n')
+											.map((txt, index) => {
+												return index === 1 ? <strong class="font-semibold">{txt}</strong> : txt
+											})}
+									</span>
+								)
+							}
 						</p>
-						<div class="mb-2 md:mb-5">
-							<p
-								class="block pt-0 text-[22px] font-semibold leading-7 text-white md:hidden md:pt-0 md:font-normal"
-							>
-								{t(mobile)}
-							</p>
+						<div class="mb-2 h-[90px] md:mb-5 md:h-auto">
 							{
-								t(description)
-									.split('\n')
-									.map((line) => (
-										<p class="hidden pt-0 text-[22px] font-semibold leading-7 text-white md:block md:pt-0 md:font-normal">
-											{line}
-										</p>
-									))
+								mobile && (
+									<p class="block pt-0 text-[22px] leading-7 text-white md:hidden md:pt-0 md:font-normal">
+										{t(mobile)}
+									</p>
+								)
+							}
+							{
+								description &&
+									t(description)
+										.split('\n')
+										.map((line) => (
+											<p class="hidden pt-0 text-[22px] font-semibold leading-7 text-white md:block md:pt-0 md:font-normal">
+												{line}
+											</p>
+										))
 							}
 						</div>
 						<button
@@ -67,18 +81,21 @@ const optimizedBackground = await getImage({ src: image, format: 'png' })
 		}
 	}
 
+	@media (max-width: 480px) and (max-height: 630px) {
+		.container-screen {
+			margin-bottom: 2.5rem;
+		}
+	}
+
 	@media (max-width: 480px) and (min-height: 700px) {
 		.container-screen {
-			margin-bottom: 6rem;
+			margin-bottom: 3.5rem;
 		}
 	}
 
 	@media (max-width: 480px) and (min-height: 750px) {
 		.container-screen {
-			margin-bottom: 5rem;
-		}
-		button {
-			margin-top: 2.3rem;
+			margin-bottom: 4rem;
 		}
 	}
 
@@ -86,6 +103,12 @@ const optimizedBackground = await getImage({ src: image, format: 'png' })
 	@media (min-width: 976px) and (max-width: 1440px) {
 		.container-screen {
 			padding-bottom: 0;
+		}
+	}
+
+	@media (min-width: 1440px) and (max-height: 650px) {
+		.container-screen {
+			margin-bottom: 1rem;
 		}
 	}
 

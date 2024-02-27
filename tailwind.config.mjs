@@ -7,6 +7,7 @@ export default {
 			md: '768px',
 			lg: '976px',
 			laptop: '1024px',
+			laptopX: '1260px',
 			xl: '1440px',
 			xxl: '1700px'
 		},
@@ -17,6 +18,9 @@ export default {
 			fontSize: {
 				mid: '1.75rem',
 				plusMid: '2.375rem'
+			},
+			fontWeight: {
+				semibold: '500'
 			},
 			colors: {
 				grey: '#7B7B7B',

@@ -20,7 +20,7 @@ const statsData = [
 ]
 ---
 
-<section class="h-[80vh] bg-black lg:h-[520px]" id="stats">
+<section class="h-screen bg-black lg:h-[520px]" id="stats">
 	<div class="container-screen flex h-full flex-col items-start justify-center gap-16 md:gap-16">
 		<span class="mb-2 block w-10 border-2 border-white"></span>
 		<div
@@ -37,7 +37,7 @@ const statsData = [
 								</p>
 							</span>
 							{stat.kpiLabel.map((p) => (
-								<p class="text-center text-2xl">{t(p)}</p>
+								<p class="text-center text-2xl leading-6">{t(p)}</p>
 							))}
 						</div>
 					)
