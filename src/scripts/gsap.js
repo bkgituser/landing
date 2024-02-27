@@ -4,10 +4,11 @@ class App {
 	constructor() {
 		this.ourVisionLines = [...document.querySelectorAll('.ourvision-line')]
 		this.body = document.querySelector('body')
+		this.windowWidth = window.innerWidth
+		this.windowHeight = window.innerHeight
+		this.isMobil
 		this._initialize()
 		this._render()
-
-		ScrollTrigger.normalizeScroll(true)
 	}
 
 	_initialize() {
@@ -26,6 +27,17 @@ class App {
 		this._stats2Animation()
 		this._ourVisionAnimation()
 		this._aboutUs()
+	}
+
+	_updateWindowsSize() {
+		window.addEventListener('resize', () => {
+			this.windowWidth = window.innerWidth
+			this.windowHeight = window.innerHeight
+		})
+	}
+
+	_isMobile() {
+		return this.windowWidth < 480 || window.innerHeight < 480
 	}
 
 	_setInitialState() {
@@ -149,122 +161,94 @@ class App {
 	}
 
 	_logoAnimation() {
-		const mm = gsap.matchMedia()
-		mm.add(
-			{
-				isMobile: '(max-width: 480px)',
-				isNotMobile: '(min-width: 481px)',
-				reduceMotion: '(prefers-reduce-motion: no-preference)'
-			},
-			(context) => {
-				const tl = gsap.timeline({
-					scrollTrigger: {
-						trigger: '#hero',
-						start: 'top top',
-						end: '200px top',
-						scrub: true
-					}
-				})
-
-				tl.to('header img', {
-					width: !context.conditions.isMobile ? '114px' : '107px',
-					height: !context.conditions.isMobile ? '85px' : '80px',
-					duration: 1,
-					ease: 'expo.in'
-				})
+		const tl = gsap.timeline({
+			scrollTrigger: {
+				trigger: '#hero',
+				start: 'top top',
+				end: '200px top',
+				scrub: true
 			}
-		)
+		})
+
+		tl.to('header img', {
+			width: !this._isMobile() ? '114px' : '107px',
+			height: !this._isMobile() ? '85px' : '80px',
+			duration: 1,
+			ease: 'expo.in'
+		})
 	}
 
 	_smartUseAnimation() {
-		const mm = gsap.matchMedia()
-		mm.add(
-			{
-				isMobile: '(max-width: 480px)',
-				isNotMObile: '(min-width: 481px)',
-				reduceMotion: '(prefers-reduce-motion: no-preference)'
+		const tl = gsap.timeline({
+			scrollTrigger: {
+				trigger: '#smart-use',
+				start: 'top top',
+				end: 'bottom top',
+				pin: true,
+				scrub: false
 			},
-			(context) => {
-				const tl = gsap.timeline({
-					scrollTrigger: {
-						trigger: '#smart-use',
-						start: 'top top',
-						end: 'bottom top',
-						pin: true,
-						scrub: false
-					},
-					onStart: () => {
-						setSizeOfBinds()
-					}
-				})
-
-				tl.to('.smart-title-box', {
-					scale: 1,
-					y: 0,
-					opacity: 1,
-					skewX: '0deg',
-					skewY: '0deg'
-				})
-					.to(
-						'.feature-smart-1',
-						{
-							autoAlpha: 1
-						},
-						1
-					)
-					.to(
-						'.feature-smart-2',
-						{
-							autoAlpha: 1
-						},
-						1
-					)
-					.to(
-						'.zoom1',
-						{
-							autoAlpha: 1
-						},
-						1.5
-					)
-					.to(
-						'.zoom2',
-						{
-							autoAlpha: 1
-						},
-						1.5
-					)
-					.to(
-						'.bind-zoom1',
-						{
-							scaleX: 1,
-							transformOrigin: 'right bottom',
-							duration: 0.7,
-							ease: 'expoScale(0.5,7,none)'
-						},
-						0.5
-					)
-					.to(
-						'.bind-zoom1',
-						{ scaleY: 1, duration: 0.7, delay: 1, ease: 'expoScale(0.5,7,none)' },
-						0.8
-					)
-					.to(
-						'.bind-zoom2',
-						{
-							scaleX: 1,
-							transformOrigin: 'top left',
-							duration: 0.7,
-							ease: 'expoScale(0.5,7,none)'
-						},
-						0.5
-					)
-					.to(
-						'.bind-zoom2',
-						{ scaleY: 1, duration: 0.7, delay: 1, ease: 'expoScale(0.5,7,none)' },
-						0.8
-					)
+			onStart: () => {
+				setSizeOfBinds()
 			}
-		)
+		})
+
+		tl.to('.smart-title-box', {
+			scale: 1,
+			y: 0,
+			opacity: 1,
+			skewX: '0deg',
+			skewY: '0deg'
+		})
+			.to(
+				'.feature-smart-1',
+				{
+					autoAlpha: 1
+				},
+				1
+			)
+			.to(
+				'.feature-smart-2',
+				{
+					autoAlpha: 1
+				},
+				1
+			)
+			.to(
+				'.zoom1',
+				{
+					autoAlpha: 1
+				},
+				1.5
+			)
+			.to(
+				'.zoom2',
+				{
+					autoAlpha: 1
+				},
+				1.5
+			)
+			.to(
+				'.bind-zoom1',
+				{
+					scaleX: 1,
+					transformOrigin: 'right bottom',
+					duration: 0.7,
+					ease: 'expoScale(0.5,7,none)'
+				},
+				0.5
+			)
+			.to('.bind-zoom1', { scaleY: 1, duration: 0.7, delay: 1, ease: 'expoScale(0.5,7,none)' }, 0.8)
+			.to(
+				'.bind-zoom2',
+				{
+					scaleX: 1,
+					transformOrigin: 'top left',
+					duration: 0.7,
+					ease: 'expoScale(0.5,7,none)'
+				},
+				0.5
+			)
+			.to('.bind-zoom2', { scaleY: 1, duration: 0.7, delay: 1, ease: 'expoScale(0.5,7,none)' }, 0.8)
 	}
 
 	_benefitsSkew() {
@@ -297,43 +281,33 @@ class App {
 	}
 
 	_highlightsAnimation() {
-		const mm = gsap.matchMedia()
-		mm.add(
-			{
-				isMobile: '(max-width: 480px)',
-				isNotMobile: '(min-width: 481px)',
-				reduceMotion: '(prefers-reduce-motion: no-preference)'
-			},
-			(context) => {
-				const tl = gsap.timeline({
-					scrollTrigger: {
-						trigger: '#highlights',
-						start: 'top top',
-						end: 'center top',
-						pin: true
-					}
-				})
-
-				tl.to('.highlight-title', {
-					scale: 1,
-					y: 0,
-					opacity: 1,
-					skewX: '0deg',
-					skewY: '0deg'
-				})
-
-				tl.to(
-					'.column-highlight',
-					{
-						ease: 'power3.out',
-						stagger: 0.1,
-						opacity: 1,
-						y: 0,
-						duration: 0.5
-					},
-					0
-				)
+		const tl = gsap.timeline({
+			scrollTrigger: {
+				trigger: '#highlights',
+				start: 'top top',
+				end: 'center top',
+				pin: true
 			}
+		})
+
+		tl.to('.highlight-title', {
+			scale: 1,
+			y: 0,
+			opacity: 1,
+			skewX: '0deg',
+			skewY: '0deg'
+		})
+
+		tl.to(
+			'.column-highlight',
+			{
+				ease: 'power3.out',
+				stagger: 0.1,
+				opacity: 1,
+				y: 0,
+				duration: 0.5
+			},
+			0
 		)
 	}
 
