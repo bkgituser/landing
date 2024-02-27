@@ -72,7 +72,6 @@ const id = 'lineup-slider'
 ---
 
 <section id="products-line-up" class="relative h-screen">
-	{(<span class="spacer-product absolute top-0 z-50 text-3xl text-red-500" />)}
 	<CustomSlider
 		id={id}
 		lengthElements={productsData.length}
@@ -121,13 +120,6 @@ const id = 'lineup-slider'
 		</SliderElements>
 	</CustomSlider>
 </section>
-<script>
-	window.addEventListener('load', () => {
-		const spacerMsg: HTMLElement = document.querySelector('.spacer-product')
-		console.log('spacerMsg: ', spacerMsg)
-		spacerMsg.innerText = `width: ${window?.innerWidth}, height: ${window?.innerHeight}`
-	})
-</script>
 <style>
 	@media (max-height: 480px) {
 		.overlay-screen {

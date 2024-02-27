@@ -1,11 +1,7 @@
 ---
 import { t } from 'i18next'
-import CloudsImg from 'src/img/clouds.png'
-
-import { getImage } from 'astro:assets'
 import ProductImageBackground from '@components/template/ProductImageBackground.astro'
 const { modelTitle, description, technical, image, mobile, compatible, mobileImg } = Astro.props
-const optimizedBackground = await getImage({ src: image, format: 'png' })
 ---
 
 <div class="absolute z-10 h-screen w-full">
@@ -14,7 +10,7 @@ const optimizedBackground = await getImage({ src: image, format: 'png' })
 			<div class="z-70 relative flex h-full w-full items-end justify-start text-black">
 				<div class="relative flex h-full w-full items-end justify-center">
 					<div
-						class="container-screen bottom-0 z-40 mb-6 flex h-[50%] w-full select-none flex-col items-start justify-evenly border-2 border-red-500 md:mb-4 md:block md:h-auto lg:mb-10 xl:mb-12 xxl:mb-16"
+						class="container-screen bottom-0 z-40 mb-6 flex w-full select-none flex-col items-start justify-evenly md:mb-4 md:block md:h-auto lg:mb-10 xl:mb-12 xxl:mb-16"
 					>
 						<h3 class="pb-0 text-5xl font-bold text-white md:pb-2">
 							{t(modelTitle)}
@@ -81,20 +77,23 @@ const optimizedBackground = await getImage({ src: image, format: 'png' })
 		}
 	}
 
-	@media (max-width: 480px) and (max-height: 630px) {
+	@media (max-width: 480px) and (max-height: 660px) {
+		.container-screen {
+			margin-bottom: 1.7rem;
+			height: 60%;
+
+			justify-content: space-between;
+		}
+	}
+
+	@media (max-width: 480px) and (max-height: 700px) {
 		.container-screen {
 			margin-bottom: 1.5rem;
-			height: 50%;
+			height: 55%;
 		}
 	}
 
 	@media (max-width: 480px) and (min-height: 700px) {
-		.container-screen {
-			margin-bottom: 1.5rem;
-		}
-	}
-
-	@media (max-width: 480px) and (min-height: 750px) {
 		.container-screen {
 			margin-bottom: 2rem;
 			height: 40%;
