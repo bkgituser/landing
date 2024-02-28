@@ -4,8 +4,8 @@ import { Image } from 'astro:assets'
 ---
 
 <div class="loader-content fixed z-[999] h-screen w-full overflow-hidden bg-black">
-	<Image
-		src={Logo}
+	<img
+		src={Logo.src}
 		width={200}
 		height={150}
 		alt="Logo BK"
@@ -16,8 +16,6 @@ import { Image } from 'astro:assets'
 	</div>
 </div>
 <style>
-	/* HTML: <div class="loader"></div> */
-	/* HTML: <div class="loader"></div> */
 	.loader {
 		width: 50px;
 		padding: 8px;
