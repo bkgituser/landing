@@ -98,14 +98,14 @@ const { modelTitle, description, technical, image, mobile, compatible, mobileImg
 			height: 45%;
 		}
 	}
-	@media (min-width: 420px) {
+	@media (min-width: 420px) and (max-width: 560px) {
 		.container-screen {
 			margin-bottom: 2.4rem;
 			height: 40%;
 		}
 	}
 
-	@media (max-width: 420px) and (min-height: 740px) {
+	@media (max-width: 420px) and (max-width: 560px) and (min-height: 740px) {
 		.container-screen {
 			margin-bottom: 2.4rem;
 			height: 45%;
@@ -122,6 +122,30 @@ const { modelTitle, description, technical, image, mobile, compatible, mobileImg
 	@media (min-width: 1440px) and (max-height: 650px) {
 		.container-screen {
 			margin-bottom: 1rem;
+		}
+	}
+
+	@media (min-width: 1024px) and (max-height: 650px) {
+		.container-screen {
+			height: 35%;
+		}
+	}
+
+	@media (min-width: 1024px) and (min-height: 650px) {
+		.container-screen {
+			height: 40%;
+		}
+	}
+
+	@media (min-width: 1440px) and (min-height: 650px) {
+		.container-screen {
+			height: 34%;
+		}
+	}
+
+	@media (min-width: 1770px) and (min-height: 650px) {
+		.container-screen {
+			height: 30%;
 		}
 	}
 
