@@ -108,13 +108,14 @@ import { t } from 'i18next'
 
 		if (isFullscreen) {
 			fullVideo.play()
+			document.addEventListener('touchmove', (e) => e.preventDefault, { passive: false })
 		} else {
 			if (document.exitFullscreen) {
 				document.exitFullscreen()
 			} else if (document.webkitExitFullscreen) {
 				document.webkitExitFullscreen()
 			}
-
+			document.removeEventListener('touchmove', (e) => e.preventDefault)
 			fullVideo.pause()
 
 			videoWrapper.classList.add('hidden')
