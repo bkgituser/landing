@@ -308,7 +308,7 @@ class App {
 			scrollTrigger: {
 				trigger: '#highlights',
 				start: 'top top',
-				end: 'center top',
+				end: 'top+=30% top',
 				pin: true
 			}
 		})

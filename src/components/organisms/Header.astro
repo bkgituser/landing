@@ -34,12 +34,11 @@ const links = [
 
 <header class="fixed inset-0 z-50 h-[60px]">
 	<div class="header-wrapper container-screen flex items-baseline justify-between overflow-visible">
-		<Image
-			src={Logo}
+		<img
+			src={Logo.src}
 			width={200}
 			height={150}
 			alt="Logo BK"
-			format="png"
 			class="md:mr-full relative top-0 h-[80px] w-[107px] md:h-auto md:w-auto"
 		/>
 		<Nav links={links} />
@@ -147,11 +146,12 @@ const links = [
 	}
 </style>
 <script>
+	let clicks = 0
 	const btn = document.getElementById('menu-btn')
 	const nav = document.getElementById('floating-menu')
 	const links = document.querySelectorAll('.landing-link-mobile')
-
 	function toggleMenu() {
+		clicks += 1
 		btn.classList.toggle('open')
 		nav.classList.toggle('opacity-0')
 		nav.classList.toggle('opacity-80')

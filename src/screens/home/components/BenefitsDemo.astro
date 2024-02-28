@@ -39,7 +39,7 @@ const idBenefits = 'benefits-slider'
 <section id="benefits" class="relative h-screen">
 	<VideoBackground video="/assets/videos/video-benefits.mp4" autoplay={true}>
 		<div
-			class="absolute h-full w-full bg-[linear-gradient(180deg,_rgba(0,_0,_0,_0.00)_0%,_rgba(0,_0,_0,_0.40)_100%)] lg:bottom-0 lg:h-1/2"
+			class="absolute z-10 h-full w-full bg-[linear-gradient(180deg,_rgba(0,_0,_0,_0.00)_0%,_rgba(0,_0,_0,_0.40)_100%)] lg:bottom-0 lg:h-1/2"
 		>
 		</div>
 		<div class="container-screen flex h-full flex-col items-center justify-end">
@@ -50,7 +50,7 @@ const idBenefits = 'benefits-slider'
 			>
 				<SliderElements
 					id={idBenefits}
-					customClass="h-[70%] md:h-[55%] xl:h-[40%] justify-between"
+					customClass="h-[70%] md:h-[55%] xl:h-[40%] justify-between z-20"
 					isBackground={false}
 				>
 					{
@@ -58,15 +58,15 @@ const idBenefits = 'benefits-slider'
 							return (
 								<div class="benefits-description item absolute w-full select-none pt-20 md:bottom-0 md:top-6 md:pb-0 md:pt-0 lg:top-auto">
 									<div class="">
-										<div class="title-lineup">
-											<h2 class="mb-1 text-left text-2xl text-white">
+										<div class="title-lineup lg:mb-12">
+											<h2 class="mb-3 text-left text-2xl text-white">
 												<Trans i18nKey="landing.benefits.badge">
 													<strong>BENEFITS</strong> - BK BOOMS
 												</Trans>
 											</h2>
 										</div>
 										<span class="mb-2 block h-1 w-10 bg-white drop-shadow-lg sm:drop-shadow-none" />
-										<p class="item-data text-left text-plusMid font-bold leading-10 text-white drop-shadow-lg sm:drop-shadow-none md:text-3xl lg:leading-10 xl:w-4/5 xl:text-plusMid">
+										<p class="item-data text-left text-[2rem] font-bold leading-10 text-white drop-shadow-lg sm:drop-shadow-none md:text-3xl lg:leading-10 xl:w-4/5 xl:text-plusMid">
 											{t(item.data)}
 										</p>
 									</div>
@@ -77,7 +77,7 @@ const idBenefits = 'benefits-slider'
 				>
 				<IndexElements
 					id={idBenefits}
-					customClass="h-[25%] md:h-[35%] lg:h-[25%] md:justify-between mb-8 xs:mb-12 md:mb-4"
+					customClass="h-[25%] md:h-[35%] lg:h-[25%] md:justify-between mb-8 xs:mb-12 md:mb-4 z-20"
 				>
 					{
 						data.map((item) => {
@@ -86,9 +86,9 @@ const idBenefits = 'benefits-slider'
 							return (
 								<div class="index-container absolute w-full basis-[100%] md:static md:w-auto md:basis-1/3 lg:basis-auto ">
 									<div class="flex w-full items-center justify-center  md:w-auto">
-										<div class="item-benefit-index laptopX:h-[100px] laptopX:w-[170px] relative z-20 flex h-[159px] w-[249px] cursor-pointer select-none flex-col items-center justify-center text-white transition-all duration-300 ease-in md:h-[85px] md:w-[140px] xl:h-[120px] xl:w-[189px] xl:px-0">
+										<div class="item-benefit-index relative z-20 flex h-[calc(100vh_*_0.20)] w-[64%] cursor-pointer select-none flex-col items-center justify-center text-white transition-all duration-300 ease-in md:h-[85px] md:w-[140px] laptopX:h-[100px] laptopX:w-[170px] xl:h-[120px] xl:w-[189px] xl:px-0">
 											<p
-												class={`lg:max-auto z-40 my-0 text-left text-2xl md:max-w-[135px]  md:text-base md:leading-[0.85rem] xl:text-xl xl:leading-[1.1rem]`}
+												class={`lg:max-auto z-40 my-0 text-left text-2xl leading-6 md:max-w-[135px]  md:text-base md:leading-[0.85rem] xl:text-xl xl:leading-[1.1rem]`}
 											>
 												{lines.map((description) => {
 													return (

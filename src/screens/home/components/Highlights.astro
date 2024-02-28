@@ -22,8 +22,8 @@ const columns = [
 ]
 ---
 
-<section class="min-h-screen bg-white" id="highlights">
-	<div class="container-screen pb-16 pt-16 lg:pt-20 laptop:pt-24 xl:pb-28">
+<section class="bg-white" id="highlights">
+	<div class="container-screen pb-16 pt-8 md:pt-16 laptop:pt-24">
 		<div class="md:block">
 			<h3
 				class="highlight-title mx-auto bg-black px-5 py-5 text-center text-2xl font-semibold text-white opacity-0 sm:inline-block md:px-5 md:text-mid xl:px-7"
@@ -40,11 +40,11 @@ const columns = [
 			{
 				columns.map((col, index) => (
 					<>
-						<div class="column-highlight relative opacity-0 md:mb-12  md:flex-shrink-0 md:basis-[42%] lg:max-w-[204px] xl:max-w-[245px] xxl:xl:max-w-[275px]">
+						<div class="column-highlight relative max-h-96 overflow-hidden opacity-0 transition-all duration-300 md:mb-12  md:flex-shrink-0 md:basis-[42%] lg:max-w-[204px] xl:max-w-[245px] xxl:xl:max-w-[275px]">
 							<div class="title flex items-center justify-between">
 								<>
 									<div class="mb-4 text-2xl font-bold">{t(col.label)}</div>
-									<span class="state-symbol text-xl font-semibold text-black md:hidden">+</span>
+									<span class="state-symbol text-2xl font-semibold text-black md:hidden">+</span>
 								</>
 							</div>
 							<div
@@ -52,7 +52,7 @@ const columns = [
 								class="column-content max-h-0 overflow-hidden duration-300 ease-in-out md:max-h-none "
 							>
 								<p
-									class={`text-justify text-xl text-black md:text-left ${index !== columns.length - 1 ? '' : ''} `}
+									class={`text-left text-xl text-black ${index !== columns.length - 1 ? '' : ''} `}
 								>
 									{t(col.content)}
 								</p>
@@ -65,16 +65,21 @@ const columns = [
 									</button>
 								) : null}
 							</div>
+							{index !== columns.length - 1 && (
+								<div
+									class={`border-black-200 my-4 h-2 w-full border-t-2 md:hidden  md:h-[160px] md:w-0 md:border-r-2 lg:mt-12 `}
+								/>
+							)}
 						</div>
 						{index !== columns.length - 1 && (
 							<div
-								class={`border-black-200 my-4 h-2 ${index === 1 ? 'md:hidden lg:block' : ''} w-full border-t-2 md:h-[160px]  md:w-0 md:border-r-2 lg:mt-12 `}
+								class={`border-black-200 my-4 hidden h-2 ${index === 1 ? 'md:hidden lg:block' : ''} w-full border-t-2 md:block md:h-[160px]  md:w-0 md:border-r-2 lg:mt-12 `}
 							/>
 						)}
 					</>
 				))
 			}
-			<div class="spacer h-[34vh] w-full"></div>
+			<div class="spacer h-[34vh] w-full md:hidden"></div>
 		</div>
 	</div>
 </section>
@@ -86,7 +91,13 @@ const columns = [
 		if (column instanceof HTMLElement) {
 			column.addEventListener('click', (e) => {
 				// we close the one open
-				if (current !== null && current !== index) {
+				if (index === 3) {
+					;[...columns].map((col, i) => {
+						if (i < 3) {
+							hideElement(col)
+						}
+					})
+				} else if (current !== null && current !== index) {
 					const currentOpen = columns[current]
 					toggleElement(currentOpen)
 				}
@@ -97,12 +108,17 @@ const columns = [
 		}
 	})
 
+	function hideElement(element) {
+		element.classList.toggle('max-h-96')
+		element.classList.toggle('max-h-0')
+	}
+
 	function toggleElement(element) {
 		const heightClass = 'max-h-96'
 		const content = element.querySelector('.column-content')
 		content.classList.toggle(heightClass)
 		content.classList.toggle('overflow-auto')
-		element.querySelector('.state-symbol').innerText = element.classList.contains(heightClass)
+		element.querySelector('.state-symbol').innerText = content.classList.contains(heightClass)
 			? '-'
 			: '+'
 	}

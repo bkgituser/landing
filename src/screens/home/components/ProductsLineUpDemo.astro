@@ -4,15 +4,15 @@ import ImageBackground from 'src/components/template/ImageBackground.astro'
 import { getImage } from 'astro:assets'
 import ProductDisplay from 'src/components/molecules/ProductDisplay.astro'
 import BgImg1 from 'src/img/lineup1.webp'
-import BgImgMobile1 from 'src/img/lineup1-mobile.webp'
+import BgImgMobile1 from 'src/img/lineup1-mobile.png'
 import BgImg2 from 'src/img/lineup2.webp'
-import BgImgMobile2 from 'src/img/lineup2-mobile.webp'
+import BgImgMobile2 from 'src/img/lineup2-mobile.png'
 import BgImg3 from 'src/img/lineup3.webp'
-import BgImgMobile3 from 'src/img/lineup3-mobile.webp'
+import BgImgMobile3 from 'src/img/lineup3-mobile.png'
 import BgImg4 from 'src/img/lineup4.webp'
-import BgImgMobile4 from 'src/img/lineup4-mobile.webp'
+import BgImgMobile4 from 'src/img/lineup4-mobile.png'
 import BgImg5 from 'src/img/lineup5.webp'
-import BgImgMobile5 from 'src/img/lineup5-mobile.webp'
+import BgImgMobile5 from 'src/img/lineup5-mobile.png'
 import { Trans } from 'astro-i18next/components'
 import { t } from 'i18next'
 import CustomSlider from '@components/organisms/slider/CustomSlider.astro'
@@ -85,15 +85,15 @@ const id = 'lineup-slider'
 			class="title-lineup relative left-1/2 z-20 mx-auto w-full -translate-x-1/2 gap-3 pt-20"
 			slot="prev-slider-timer"
 		>
-			<h2 class="xs:text-2xl mb-1 text-center text-xl">
+			<h2 class="mb-1 text-center text-xl xs:text-2xl">
 				<Trans i18nKey="landing.productsLineup.title">
-					<strong>BK BOOMS</strong> - PRODUCTS LINEUP
+					<strong>PRODUCTS LINEUP</strong> - BK BOOMS
 				</Trans>
 			</h2>
 		</div>
 		<IndexElements
 			id={id}
-			customClass="h-[55px] px-4 justify-between sm:justify-center z-40 gap-4 md:px-8"
+			customClass="h-[55px] px-4 justify-between sm:justify-center z-40 gap-2 md:px-8"
 		>
 			{
 				models.map((model, index) => {
@@ -103,7 +103,7 @@ const id = 'lineup-slider'
 						>
 							<p class="item-data font-mid relative">{model}</p>
 							{index !== models.length - 1 && (
-								<span class="spacer absolute -right-2 top-1/2 h-4 w-[1px] -translate-y-1/2 bg-black" />
+								<span class="spacer absolute -right-1 top-1/2 h-4 w-[1px] -translate-y-1/2 bg-black" />
 							)}
 						</div>
 					)
@@ -148,7 +148,7 @@ const id = 'lineup-slider'
 		content: '';
 		position: absolute;
 		inset: 0;
-		background: #fff;
+		background: rgba(0, 0, 0, 0.5);
 		overflow: hidden;
 		clip-path: polygon(
 			0 0,
@@ -187,7 +187,7 @@ const id = 'lineup-slider'
 			content: '';
 			position: absolute;
 			inset: 0;
-			background: #fff;
+			background: rgba(0, 0, 0, 0.5);
 			overflow: hidden;
 			clip-path: polygon(
 				0 0,
