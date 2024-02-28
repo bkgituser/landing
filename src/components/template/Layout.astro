@@ -64,7 +64,24 @@ import '../../index.css'
 		<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
 		></script>
 		<script src="../../scripts/gsap.js"></script>
+		<script>
+			document.addEventListener('fullscreenchange', function () {
+				// Check if video is in full-screen mode
+				if (document.fullscreenElement) {
+					// Lock scrolling
+					document.addEventListener('touchmove', preventDefault, { passive: false })
+				} else {
+					// Unlock scrolling
+					document.removeEventListener('touchmove', preventDefault, { passive: true })
+				}
+			})
+		</script>
 		<style is:global>
+			body {
+				margin: 0;
+				padding: 0;
+				overflow: hidden; /* Initially hide overflow */
+			}
 			@media (min-width: 976px) {
 				::-webkit-scrollbar {
 					width: auto;
