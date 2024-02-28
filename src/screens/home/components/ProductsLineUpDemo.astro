@@ -14,13 +14,9 @@ import BgImgMobile4 from 'src/img/lineup4-mobile.png'
 import BgImg5 from 'src/img/lineup5.webp'
 import BgImgMobile5 from 'src/img/lineup5-mobile.png'
 import { Trans } from 'astro-i18next/components'
-import { t } from 'i18next'
 import CustomSlider from '@components/organisms/slider/CustomSlider.astro'
 import SliderElements from '@components/organisms/slider/SliderElements.astro'
 import IndexElements from '@components/organisms/slider/IndexElements.astro'
-
-// const BgOptimized1 = await getImage({ src: BgImg1, format: 'png', width: '1440', height: '900' })
-// const BgMobileOptimized1 = await getImage({ src: BgImgMobile1, format: 'webp' })
 
 const productsData = [
 	{
@@ -30,7 +26,8 @@ const productsData = [
 		mobile: 'landing.productsLineup.products.item1.mobile',
 		description: 'landing.productsLineup.products.item1.description',
 		image: BgImg1,
-		mobileImg: BgImgMobile1
+		mobileImg: BgImgMobile1,
+		smallBg: '/assets/imgs/lineup1-sm.webp'
 	},
 	{
 		modelTitle: 'landing.productsLineup.products.item2.model',
@@ -39,7 +36,8 @@ const productsData = [
 		mobile: 'landing.productsLineup.products.item2.mobile',
 		description: 'landing.productsLineup.products.item2.description',
 		image: BgImg2,
-		mobileImg: BgImgMobile2
+		mobileImg: BgImgMobile2,
+		smallBg: '/assets/imgs/lineup2-sm.webp'
 	},
 	{
 		modelTitle: 'landing.productsLineup.products.item3.model',
@@ -48,7 +46,8 @@ const productsData = [
 		mobile: 'landing.productsLineup.products.item3.mobile',
 		description: 'landing.productsLineup.products.item3.description',
 		image: BgImg3,
-		mobileImg: BgImgMobile3
+		mobileImg: BgImgMobile3,
+		smallBg: '/assets/imgs/lineup3-sm.webp'
 	},
 	{
 		modelTitle: 'landing.productsLineup.products.item4.model',
@@ -57,13 +56,15 @@ const productsData = [
 		mobile: 'landing.productsLineup.products.item4.mobile',
 		description: 'landing.productsLineup.products.item4.description',
 		image: BgImg4,
-		mobileImg: BgImgMobile4
+		mobileImg: BgImgMobile4,
+		smallBg: '/assets/imgs/lineup4-sm.webp'
 	},
 	{
 		modelTitle: 'landing.productsLineup.products.item5.model',
 		technical: 'landing.productsLineup.products.item5.technical',
 		image: BgImg5,
-		mobileImg: BgImgMobile5
+		mobileImg: BgImgMobile5,
+		smallBg: '/assets/imgs/lineup5-sm.webp'
 	}
 ]
 
@@ -72,6 +73,7 @@ const id = 'lineup-slider'
 ---
 
 <section id="products-line-up" class="relative h-screen">
+	<div class="lineup-sizes font-2xl absolute z-50 h-32 w-32 text-red-500">HOLA</div>
 	<CustomSlider
 		id={id}
 		lengthElements={productsData.length}
@@ -119,6 +121,13 @@ const id = 'lineup-slider'
 		</SliderElements>
 	</CustomSlider>
 </section>
+<script>
+	const elementT: HTMLElement = document.querySelector('.lineup-sizes')
+
+	window.addEventListener('load', () => {
+		elementT.innerText = `width: ${window.innerWidth}, height: ${window.innerHeight}`
+	})
+</script>
 <style>
 	@media (max-height: 740px) {
 		.title-lineup {

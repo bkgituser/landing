@@ -1,12 +1,13 @@
 ---
 import { t } from 'i18next'
 import ProductImageBackground from '@components/template/ProductImageBackground.astro'
-const { modelTitle, description, technical, image, mobile, compatible, mobileImg } = Astro.props
+const { modelTitle, description, technical, image, mobile, compatible, mobileImg, smallBg } =
+	Astro.props
 ---
 
 <div class="absolute z-10 h-screen w-full">
 	<div class="relative h-full bg-black">
-		<ProductImageBackground desktpBg={image} mobileImg={mobileImg}>
+		<ProductImageBackground desktpBg={image} mobileImg={mobileImg} smallBg={smallBg}>
 			<div class="z-70 relative flex h-full w-full items-end justify-start text-black">
 				<div class="relative flex h-full w-full items-end justify-center">
 					<div

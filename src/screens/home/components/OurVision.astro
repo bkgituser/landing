@@ -105,7 +105,6 @@ import VideoBackground from '../../../components/template/VideoBackground.astro'
 		isFullscreen = !isFullscreen
 
 		if (isFullscreen) {
-			document.addEventListener('touchmove', (e) => e.preventDefault, { passive: false })
 			video.play()
 		} else {
 			if (document.exitFullscreen) {
@@ -113,7 +112,7 @@ import VideoBackground from '../../../components/template/VideoBackground.astro'
 			} else if (document.webkitExitFullscreen) {
 				document.webkitExitFullscreen()
 			}
-			document.removeEventListener('touchmove', (e) => e.preventDefault)
+
 			video.pause()
 		}
 	}

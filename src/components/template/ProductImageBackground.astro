@@ -1,12 +1,18 @@
 ---
-const { desktpBg, mobileImg } = Astro.props
-console.log(desktpBg, mobileImg)
+const { desktpBg, mobileImg, smallBg } = Astro.props
 ---
 
 <div class={`h-full`}>
 	<div class={`absolute h-full w-full`}>
 		<div class="h-full w-full overflow-hidden">
-			<div class="mask background-img relative z-20 h-full w-full overflow-hidden">
+			<div$
+				style={{
+					backgroundImage: `url(${smallBg})`,
+					backgroundRepeat: 'no-repeat',
+					backgroundSize: 'cover'
+				}}
+				class="mask blurred-img relative z-20 h-full w-full overflow-hidden"
+			>
 				<picture>
 					<source srcset={desktpBg.src} media="(min-width:768px)" />
 					<source srcset={mobileImg.src} media="(max-width:768px)" />
@@ -19,7 +25,7 @@ console.log(desktpBg, mobileImg)
 						loading="lazy"
 					/>
 				</picture>
-			</div>
+			</div$>
 		</div>
 	</div>
 
