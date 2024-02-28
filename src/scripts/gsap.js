@@ -6,9 +6,9 @@ class App {
 		this.body = document.querySelector('body')
 		this.windowWidth = window.innerWidth
 		this.windowHeight = window.innerHeight
-		this.isMobil
 		this._initialize()
 		this._render()
+		ScrollTrigger.normalizeScroll()
 	}
 
 	_initialize() {
@@ -33,6 +33,7 @@ class App {
 
 	_updateWindowsSize() {
 		window.addEventListener('resize', () => {
+			ScrollTrigger.refresh()
 			this.windowWidth = window.innerWidth
 			this.windowHeight = window.innerHeight
 		})
@@ -188,6 +189,7 @@ class App {
 				pin: false
 			}
 		})
+
 		tl.from('#smart-use-bg', {
 			transformOrigin: '50% 50%',
 			yPercent: -50,
@@ -345,12 +347,14 @@ class App {
 
 	_repairabilityAnimation() {
 		const tl = gsap.timeline({
+			id: 'repairability-tl',
 			scrollTrigger: {
 				trigger: '#repairability',
 				start: 'top top',
-				end: 'top+=300 top',
+				end: 'top+=200 top',
 				pin: true,
-				scrub: false
+				scrub: false,
+				id: 'repairability-anim'
 			}
 		})
 		tl.to('.repairability-title', {
@@ -387,7 +391,7 @@ class App {
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: '#stats',
-				start: 'top-=80% top',
+				start: `top-=${this._isMobile() ? '0%' : '40%'} top`,
 				end: 'top top',
 				scrub: false
 			},
@@ -424,12 +428,10 @@ class App {
 	}
 
 	_stats2Animation() {
-		// table-cell-stat1
-
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: '#stats2',
-				start: 'top-=80% top',
+				start: `top-=${this._isMobile() ? '0%' : '40%'} top`,
 				end: 'top top',
 				scrub: false
 			},
@@ -511,4 +513,4 @@ class App {
 	}
 }
 
-let a = new App()
+new App()

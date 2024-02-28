@@ -57,8 +57,11 @@ const columns = [
 									{t(col.content)}
 								</p>
 								{col?.button ? (
-									<button class="mt-10 rounded-lg bg-black px-6 py-4 font-bold text-white md:mt-20">
-										<a href="#repairability">{t(col.button)}</a>
+									<button
+										id="learn-more-repairability"
+										class="mt-10 rounded-lg bg-black px-6 py-4 font-bold text-white md:mt-20"
+									>
+										<a href="#repairability-top">{t(col.button)}</a>
 									</button>
 								) : null}
 							</div>
@@ -78,6 +81,7 @@ const columns = [
 <script>
 	const columns = document.querySelectorAll('.column-highlight')
 	let current = null
+
 	columns.forEach((column, index) => {
 		if (column instanceof HTMLElement) {
 			column.addEventListener('click', (e) => {
