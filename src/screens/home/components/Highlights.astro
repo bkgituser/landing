@@ -90,19 +90,15 @@ const columns = [
 	columns.forEach((column, index) => {
 		if (column instanceof HTMLElement) {
 			column.addEventListener('click', (e) => {
-				// we close the one open
-				if (index === 3) {
+				//we hide all
+				if (index !== null) {
 					;[...columns].map((col, i) => {
-						if (i < 3) {
+						if (i !== index) {
 							hideElement(col)
 						}
 					})
-				} else if (current !== null && current !== index) {
-					const currentOpen = columns[current]
-					toggleElement(currentOpen)
 				}
 
-				current = current === index ? null : index
 				toggleElement(column)
 			})
 		}
