@@ -19,9 +19,10 @@ import { Image } from 'astro:assets'
 			<div class="lg:basis-1/2">
 				<div class="img-container">
 					<Image
-						widths={[240, 540, 720, AwardsImg.width]}
+						widths={[480, 600, 720, AwardsImg.width]}
 						sizes={`(max-width: 360px) 335px, (max-width: 720px) 400px, (max-width: 1440px)${AwardsImg.width}px`}
 						src={AwardsImg}
+						format="png"
 						alt="awards logos"
 						class="object-fill"
 					/>

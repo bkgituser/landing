@@ -4,17 +4,17 @@ import { t } from 'i18next'
 const statsData = [
 	{
 		placeholder: 0,
-		kpiValue: '100',
+		kpiValue: 100,
 		kpiLabel: ['landing.stats.item1']
 	},
 	{
 		placeholder: 0,
-		kpiValue: '600000',
+		kpiValue: 6000000,
 		kpiLabel: ['landing.stats.item2']
 	},
 	{
 		placeholder: 0,
-		kpiValue: '150',
+		kpiValue: 150,
 		kpiLabel: ['landing.stats.item31', 'landing.stats.item32']
 	}
 ]
@@ -33,7 +33,7 @@ const statsData = [
 							<span class="mb-1 flex items-center justify-center gap-2 text-center text-5xl font-bold">
 								<p>+</p>{' '}
 								<p id={`${index}-kpi-stat`} class="kpi-stat1" data-kpi={stat.kpiValue}>
-									{stat.placeholder}
+									{stat.kpiValue}
 								</p>
 							</span>
 							{stat.kpiLabel.map((p) => (

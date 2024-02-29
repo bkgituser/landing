@@ -1,4 +1,9 @@
-import { incrementCounter, setSizeOfBinds, incrementCounterInInterval } from './utils'
+import {
+	incrementCounter,
+	setSizeOfBinds,
+	incrementCounterInInterval,
+	numberWithCommas
+} from './utils'
 
 class App {
 	constructor() {
@@ -71,7 +76,7 @@ class App {
 			autoAlpha: 0
 		})
 
-		gsap.set('.column-highlight, .table-cell-stat1, .table-cell-stat2', {
+		gsap.set('.column-highlight', {
 			opacity: 0,
 			y: -32
 		})
@@ -386,33 +391,34 @@ class App {
 	}
 
 	_stats1Animation() {
-		// table-cell-stat1
+		const items = document.querySelectorAll('.kpi-stat1')
 
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: '#stats',
-				start: `top-=${this._isMobile() ? '0%' : '40%'} top`,
+				start: `top-=${this._isMobile() ? '20%' : '50%'} top`,
 				end: 'top top',
 				scrub: false
-			},
-			onStart: () => {
-				const kpis = document.querySelectorAll('.kpi-stat1')
-				kpis.forEach((element) => {
-					incrementCounter(element)
-				})
+			}
+		})
+
+		tl.from(items, {
+			textContent: 0,
+			duration: 4,
+			ease: 'power1.in',
+			y: 0,
+			snap: { textContent: 1 },
+			stagger: {
+				each: 0.4,
+				onUpdate: function () {
+					this.targets()[0].innerHTML = numberWithCommas(Math.ceil(this.targets()[0].textContent))
+				}
 			},
 			onComplete: () => {
 				setInterval(() => {
 					incrementCounterInInterval('1-kpi-stat', 10)
-				}, 2000)
+				}, 2500)
 			}
-		})
-		tl.to('.table-cell-stat1', {
-			ease: 'power3.out',
-			stagger: 0.1,
-			opacity: 1,
-			y: 0,
-			duration: 0.5
 		})
 	}
 
@@ -428,32 +434,34 @@ class App {
 	}
 
 	_stats2Animation() {
+		const items = document.querySelectorAll('.kpi-stat2')
+
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: '#stats2',
-				start: `top-=${this._isMobile() ? '0%' : '40%'} top`,
+				start: `top-=${this._isMobile() ? '20%' : '50%'} top`,
 				end: 'top top',
 				scrub: false
-			},
-			onStart: () => {
-				const kpis = document.querySelectorAll('.kpi-stat2')
+			}
+		})
 
-				kpis.forEach((element) => {
-					incrementCounter(element)
-				})
+		tl.from(items, {
+			textContent: 0,
+			duration: 4,
+			ease: 'power1.in',
+			y: 0,
+			snap: { textContent: 1 },
+			stagger: {
+				each: 0.4,
+				onUpdate: function () {
+					this.targets()[0].innerHTML = numberWithCommas(Math.ceil(this.targets()[0].textContent))
+				}
 			},
 			onComplete: () => {
 				setInterval(() => {
 					incrementCounterInInterval('0-kpi-stat2', 10)
-				}, 2000)
+				}, 2500)
 			}
-		})
-		tl.to('.table-cell-stat2', {
-			ease: 'power3.out',
-			stagger: 0.1,
-			opacity: 1,
-			y: 0,
-			duration: 0.5
 		})
 	}
 

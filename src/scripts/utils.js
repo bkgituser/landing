@@ -17,12 +17,18 @@ function incrementCounter(counter) {
 	animate()
 }
 
+function numberWithCommas(x) {
+	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+}
+
 function incrementCounterInInterval(selector, increment) {
 	let counter = document.getElementById(selector)
 	let current
 	if (counter) {
-		current = Number(counter.innerText) + increment + Math.floor(Math.random() * 9)
-		counter.innerText = current.toString()
+		current =
+			Number(counter.innerText.replace(/,/g, '')) + increment + Math.floor(Math.random() * 9)
+		console.log('incrementCounterInInterval: ', current, Math.ceil(current))
+		counter.innerText = numberWithCommas(Math.ceil(current))
 	}
 }
 
@@ -71,4 +77,4 @@ function setSizeOfBinds() {
 	}
 }
 
-export { incrementCounterInInterval, incrementCounter, setSizeOfBinds }
+export { incrementCounterInInterval, incrementCounter, setSizeOfBinds, numberWithCommas }
