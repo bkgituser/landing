@@ -10,8 +10,11 @@ const { modelTitle, description, technical, image, mobile, compatible, mobileImg
 		<ProductImageBackground desktpBg={image} mobileImg={mobileImg} smallBg={smallBg}>
 			<div class="z-70 relative flex h-full w-full items-end justify-start text-black">
 				<div class="relative flex h-full w-full items-end justify-center">
+					<div class="height-msg absolute left-0 top-1/3 z-50 h-32 w-32 text-sm text-green-700">
+						HOLA
+					</div>
 					<div
-						class="container-screen bottom-0 z-40 mb-6 flex w-full select-none flex-col items-start justify-between md:mb-4 md:block md:h-auto lg:mb-10 xl:mb-12 xxl:mb-16"
+						class="container-screen thisOne bottom-0 z-40 mb-6 flex w-full select-none flex-col items-start justify-between md:mb-4 md:block md:h-auto lg:mb-10 xl:mb-12 xxl:mb-16"
 					>
 						<h3 class="pb-0 text-5xl font-bold text-white md:pb-2">
 							{t(modelTitle)}
@@ -61,6 +64,14 @@ const { modelTitle, description, technical, image, mobile, compatible, mobileImg
 		</ProductImageBackground>
 	</div>
 </div>
+<script>
+	const msg = document.querySelector('.thisOne')
+	const screen: HTMLElement = document.querySelector('.height-msg')
+	window.addEventListener('load', () => {
+		console.log({ msg: screen.style })
+		screen.innerText = `${JSON.stringify(msg?.getBoundingClientRect())}`
+	})
+</script>
 <style>
 	@media (max-height: 480px) {
 		h3 {
@@ -87,7 +98,7 @@ const { modelTitle, description, technical, image, mobile, compatible, mobileImg
 	@media (max-width: 420px) and (max-height: 660px) {
 		.container-screen {
 			margin-bottom: 2.5rem;
-			height: 52%;
+			height: 48%;
 
 			justify-content: space-between;
 		}
