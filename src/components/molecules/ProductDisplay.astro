@@ -10,7 +10,9 @@ const { modelTitle, description, technical, image, mobile, compatible, mobileImg
 		<ProductImageBackground desktpBg={image} mobileImg={mobileImg} smallBg={smallBg}>
 			<div class="z-70 relative flex h-full w-full items-end justify-start text-black">
 				<div class="relative flex h-full w-full items-end justify-center">
-					<div class="height-msg absolute left-0 top-1/3 z-50 h-32 w-32 text-sm text-green-700">
+					<div
+						class="height-msg w-54 absolute left-0 top-1/3 z-50 h-32 overflow-hidden text-sm text-green-700"
+					>
 						HOLA
 					</div>
 					<div
@@ -69,7 +71,8 @@ const { modelTitle, description, technical, image, mobile, compatible, mobileImg
 	const screen: HTMLElement = document.querySelector('.height-msg')
 	window.addEventListener('load', () => {
 		console.log({ msg: screen.style })
-		screen.innerText = `${JSON.stringify(msg?.getBoundingClientRect())}`
+		const { width, height } = msg?.getBoundingClientRect()
+		screen.innerText = `${JSON.stringify({ width, height })}`
 	})
 </script>
 <style>
