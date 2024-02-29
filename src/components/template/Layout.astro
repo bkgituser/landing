@@ -65,31 +65,33 @@ import '../../index.css'
 		></script>
 		<script src="../../scripts/gsap.js"></script>
 		<script>
-			const video = document.getElementById('video')
+			window.addEventListener('load', () => {
+				const video = document.getElementById('video')
 
-			video.addEventListener('webkitfullscreenchange', handleFullScreenChange)
-			video.addEventListener('mozfullscreenchange', handleFullScreenChange)
-			video.addEventListener('fullscreenchange', handleFullScreenChange)
+				video.addEventListener('webkitfullscreenchange', handleFullScreenChange)
+				video.addEventListener('mozfullscreenchange', handleFullScreenChange)
+				video.addEventListener('fullscreenchange', handleFullScreenChange)
 
-			function handleFullScreenChange() {
-				if (
-					document.fullscreenElement ||
-					document.webkitFullscreenElement ||
-					document.mozFullScreenElement
-				) {
-					// Lock scrolling
-					document.addEventListener('touchmove', preventDefault, { passive: false })
-					document.body.style.overflow = 'hidden'
-				} else {
-					// Unlock scrolling
-					document.removeEventListener('touchmove', preventDefault)
-					document.body.style.overflow = 'auto'
+				function handleFullScreenChange() {
+					if (
+						document.fullscreenElement ||
+						document.webkitFullscreenElement ||
+						document.mozFullScreenElement
+					) {
+						// Lock scrolling
+						document.addEventListener('touchmove', preventDefault, { passive: false })
+						document.body.style.overflow = 'hidden'
+					} else {
+						// Unlock scrolling
+						document.removeEventListener('touchmove', preventDefault)
+						document.body.style.overflow = 'auto'
+					}
 				}
-			}
 
-			function preventDefault(e) {
-				e.preventDefault()
-			}
+				function preventDefault(e) {
+					e.preventDefault()
+				}
+			})
 		</script>
 		<style is:global>
 			body {
