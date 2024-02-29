@@ -64,7 +64,88 @@ import '../../index.css'
 		<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
 		></script>
 		<script src="../../scripts/gsap.js"></script>
+		<script>
+			window.addEventListener('load', () => {
+				const video = document?.getElementById('video')
+
+				video?.addEventListener('webkitfullscreenchange', handleFullScreenChange)
+				video?.addEventListener('mozfullscreenchange', handleFullScreenChange)
+				video?.addEventListener('fullscreenchange', handleFullScreenChange)
+
+				function handleFullScreenChange() {
+					if (
+						document.fullscreenElement ||
+						document.webkitFullscreenElement ||
+						document.mozFullScreenElement
+					) {
+						// Lock scrolling
+						document.addEventListener('touchmove', preventDefault, { passive: false })
+						document.body.style.overflow = 'hidden'
+					} else {
+						// Unlock scrolling
+						document.removeEventListener('touchmove', preventDefault)
+						document.body.style.overflow = 'auto'
+					}
+				}
+
+				function preventDefault(e) {
+					e.preventDefault()
+				}
+			})
+		</script>
 		<style is:global>
+			body {
+				margin: 0;
+				padding: 0;
+			}
+
+			.blurred-img {
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-position: right;
+				filter: blur(10px);
+				transition: filter 250ms ease-in-out;
+			}
+
+			.blurred-img::before {
+				content: '';
+				position: absolute;
+				inset: 0;
+				opacity: 0;
+				animation: pulse 2.5s infinite;
+				background-color: #4e423e;
+			}
+
+			@keyframes pulse {
+				0% {
+					opacity: 0;
+				}
+				50% {
+					opacity: 0.3;
+				}
+				100% {
+					opacity: 0;
+				}
+			}
+
+			.blurred-img.loaded::before {
+				animation: none;
+				content: none;
+			}
+
+			.blurred-img.loaded {
+				filter: none;
+			}
+
+			.blurred-img img {
+				opacity: 0;
+				transition: opacity 250ms ease-in-out;
+			}
+
+			.blurred-img.loaded img {
+				opacity: 1;
+			}
+
 			@media (min-width: 976px) {
 				::-webkit-scrollbar {
 					width: auto;
