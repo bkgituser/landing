@@ -73,7 +73,6 @@ const id = 'lineup-slider'
 ---
 
 <section id="products-line-up" class="relative h-screen">
-	<div class="lineup-sizes font-2xl absolute z-50 h-32 w-32 text-red-500">HOLA</div>
 	<CustomSlider
 		id={id}
 		lengthElements={productsData.length}
@@ -121,13 +120,7 @@ const id = 'lineup-slider'
 		</SliderElements>
 	</CustomSlider>
 </section>
-<script>
-	const elementT: HTMLElement = document.querySelector('.lineup-sizes')
-
-	window.addEventListener('load', () => {
-		elementT.innerText = `width: ${window.innerWidth}, height: ${window.innerHeight}`
-	})
-</script>
+<script></script>
 <style>
 	@media (max-height: 740px) {
 		.title-lineup {

@@ -7,7 +7,7 @@ const { featureTitle, description, asterix, image, badge, direction = 'right' } 
 const optimizedBackground = await getImage({ src: image, format: 'webp' })
 ---
 
-<div class="absolute z-10 h-screen w-full">
+<div class="absolute z-10 h-full w-full">
 	<div class="h-full">
 		<ImageBackground desktpBg={optimizedBackground} extraClassImg="object-cover lg:object-cover ">
 			<div
