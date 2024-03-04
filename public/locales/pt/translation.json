@@ -15,15 +15,15 @@
     "title2": "Barris de Pulverização Leves"
     },
     "smartUse": {
-    "badge": "O conceito",
+    "badge": "O CONCEITO",
     "title": "Uso Inteligente <0>de Materiais</0>",
     "feature1": "Tubos de Fibra de Carbono",
-    "feature1Description": "Alcance Grande Largura de Trabalho com Baixo Peso",
+    "feature1Description": "Permitem Grande Largura <0>de Trabalho Com Baixo Peso",
     "feature2": "Nós Metálicos",
-    "feature2Description": "Mais Eficientes para Resistir a <0>Cargas Concentradas de Amarras e Juntas"
+    "feature2Description": "Mais Eficiente para Suportar <0>Cargas Concentradas de Ligação e Articulações"
     },
     "benefits": {
-        "badge": "<0>BENEFITS</0> - BK BOOMS",
+        "badge": "<0>BENEFICIOS</0> da barra",
     "item1": {
     "description": "Aumento da Produtividade,\n Economia de Combustível",
     "featureLine": "Aumento\n da\n Largura\n de\n Trabalho"
@@ -50,7 +50,7 @@
     }
     },
     "highlights": {
-    "title": "Destaques do Barril BK",
+    "title": "Cambiar a Destaques do Barra BK",
     "item1": {
     "label": "Estabilidade",
     "content": "Distribuição eficaz do peso, centralizando a massa perto da máquina. Isso melhora a dinâmica e estabilidade do barril em terrenos irregulares, permitindo operação mais rápida."
@@ -70,38 +70,34 @@
     }
     },
     "productsLineup": {
-    "title": "<0>LINHA DE PRODUTOS</0> - BARRIS BK",
+    "title": "<0>LINHA DE PRODUTOS</0> - BARRAS BK",
     "products": {
     "item1": {
-    "model": "BK 32m",
+    "model": "BK 32M",
     "technical": "Peso total das asas 334 kg | 736 lbs.",
     "compatible":"Compatível com: Máquinas de 210 cm de largura",
-    "mobile": "Melhore a produtividade e o desempenho da máquina.",
-    "description": "Compatível com: Máquinas de 210 cm de largura. \nSuporta sistemas de aplicação seletiva em toda a largura de trabalho."
+    "description": "Suporta sistemas de aplicação seletiva em toda a largura de trabalho."
     },
     "item2": {
-    "model": "BK 36m",
+    "model": "BK 36M",
     "technical": "Peso total das asas 343 kg | 756 lbs.",
     "compatible":"Compatível com: Máquinas de 260 cm de largura",
-    "mobile": "A melhor combinação de leveza e comprimento. Ideal para sistemas de pulverização em pontos completos.",
-    "description": "Compatível com: Máquinas de 260 cm de largura. \nSuporta sistemas de aplicação seletiva em toda a largura de trabalho."
+    "description": "Suporta sistemas de aplicação seletiva em toda a largura de trabalho."
     },
     "item3": {
-    "model": "BK 40m",
-    "technical": "Peso total das asas 360 kg | 793 lbs.",
+    "model": "BK 40M",
+    "technical": "Peso total das asas 388 kg | 1976 lbs.",
     "compatible":"Compatível com: Pulverizadores grandes.",
-    "mobile": "Nosso produto principal. Uma ótima combinação de comprimento e peso.",
-    "description": "Compatível com: Pulverizadores grandes.\nSuporta sistemas de aplicação seletiva em toda a largura de trabalho."
+    "description": "Suporta sistemas de aplicação seletiva em toda a largura de trabalho."
     },
     "item4": {
-        "model": "BK 44m",
-        "technical": "Peso total da asa 360 kg | 793 lbs.",
+        "model": "BK 44M",
+        "technical": "Peso total da asa 498 kg | 1098 lbs.",
         "compatible": "Compatível com: Pulverizadores grandes.",
-        "mobile": "Nosso produto principal. Uma ótima combinação de comprimento e peso.",
-        "description": "Compatível com: Pulverizadores grandes.\nSuporta sistemas de aplicação seletiva em toda a largura de trabalho."
+        "description": "Suporta sistemas de aplicação seletiva em toda a largura de trabalho."
     },
     "item5": {
-        "model": "BK 48m",
+        "model": "BK 48M",
         "technical": "Pronto."
     },
     "downloadBtn": "Baixar Folheto"
@@ -115,10 +111,9 @@
             "longVersionButton": "Correr Versão longa"
         },
         "stats": {
-            "item1": "Barris em Funcionamento",
+            "item1": "Barras em Funcionamento",
             "item2": "Hectares Trabalhados",
-            "item31": "Ponto Inteligente", 
-            "item32": "Pulverização Equipada"
+            "item3": "Ponto Inteligente. Pulverização Equipada"
         },
         "accesories": {
             "slide1": {
@@ -147,20 +142,20 @@
         "stats2": {
             "item1": "Hectares Trabalhados",
             "item2": "Total de CO₂e Economizado", 
-            "bottomLine": "*BK Boom 40m vs Barril de Aço 32m"
+            "bottomLine": "*BK Boom 40m vs Barra de Aço 32m"
         },
             "feedback": {
                 "label": "OPINIÃO DOS USUÁRIOS",
                 "item1": {
-                    "opinion": "Trocar do barril de aço de 32m para o BK40M não apenas significa 25% mais produtividade, mas também significa economia de combustível, mesmo permitindo que eu vá muito mais rápido, e, o mais importante... chegar em casa mais cedo para aproveitar minha família.",
-                    "user": "Ariel Savorgnano, Córdoba, Argentina, Proprietário de Dois Pulverizadores Massey Ferguson com Barris BK40M"
+                    "opinion": "Trocar do barra de aço de 32m para o BK40M não apenas significa 25% mais produtividade, mas também significa economia de combustível, mesmo permitindo que eu vá muito mais rápido, e, o mais importante... chegar em casa mais cedo para aproveitar minha família.",
+                    "user": "Ariel Savorgnano, Córdoba, Argentina, Proprietário de Dois Pulverizadores Massey Ferguson com Barras BK40M"
                 },
                 "item2": {
-                    "opinion": "O barril BK36m, com sua rigidez e baixo peso, nos permitiu instalar o sistema Weed-IT Quadro em toda a largura de trabalho. Sua estabilidade excepcional garante desempenho ótimo e contribui para a durabilidade do pulverizador.",
+                    "opinion": "O barra BK36m, com sua rigidez e baixo peso, nos permitiu instalar o sistema Weed-IT Quadro em toda a largura de trabalho. Sua estabilidade excepcional garante desempenho ótimo e contribui para a durabilidade do pulverizador.",
                     "user": "Martin Magno, Agrogenerales S.A., Necochea, Argentina, Caiman SP com BK36M Weed-IT Quadro Completo."
                 },
                 "item3": {
-                    "opinion": "No Brasil, usamos produtos muito corrosivos, e ficamos particularmente surpresos com a resistência demonstrada pelo barril (mesmo após dois anos de uso), assim como seu baixo peso e estabilidade.",
+                    "opinion": "No Brasil, usamos produtos muito corrosivos, e ficamos particularmente surpresos com a resistência demonstrada pelo barra (mesmo após dois anos de uso), assim como seu baixo peso e estabilidade.",
                     "user": "Fazenda Boa Speranza, Sorriso, Brasil."
                 }
             },

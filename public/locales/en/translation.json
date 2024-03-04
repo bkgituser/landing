@@ -17,7 +17,7 @@
             "badge": "The concept",
             "title": "Smart Use <0> of Materials",
             "feature1": "Carbon fiber Tubes",
-            "feature1Description": "50% lighter than Aluminium. Achieve Large Working Width with Low Weight",
+            "feature1Description": "50% lighter than Aluminium. Achieve <0>Large Working Width with Low Weight",
             "feature2": "Metal Nodes",
             "feature2Description": "More Efficient to Withstand <0> Concentrated Loads of Ties and Joints"
         },
@@ -36,7 +36,7 @@
                 "featureLine": "Resistant to \n Corrosion and \nFatigue"
             },
             "item4": {
-                "description": "More Uniform Appication",
+                "description": "More Uniform Application",
                 "featureLine": "Greater \nStability"
             },
             "item5": {
@@ -72,36 +72,35 @@
             "title": "<0>PRODUCTS LINEUP</0> - BK BOOMS",
             "products": {
                 "item1": {
-                    "model": "BK 32m",
+                    "model": "BK 32M",
                     "technical": "Total wing weight 334 kg | 736 lbs.",
-                    "compatible":"Compatible with: \nMachines from 210 cm gauge",
-                    "mobile": "Ideal for replacing 21 to 28 m steel booms. Improve productivity and better machine performance.",
-                    "description": "Compatible with: Machines from 210 cm gauge. Ideal for replacing 21 to 28 m steel booms, \n supports selective application systems across the entire working width."
+                    "compatible":"Compatible with: \nMachines from 210 cm gauge.",
+                    "description": "Ideal for replacing 21 to 28 m steel booms, supports selective application systems across the entire working width."
                 },
                 "item2": {
-                    "model": "BK 36m",
+                    "model": "BK 36M",
                     "technical": "Total wing weight 343 kg | 756 lbs.",
                     "compatible":"Compatible with: \nMachines from 260 cm gauge",
-                    "mobile": "The best combination of lightness and length. Ideal for full spot spraying systems.",
-                    "description": "Compatible with: Machines from 260 cm gauge. \nSupports selective application systems across the entire working width."
+                    "description": "Supports selective application systems across the entire working width."
                 },
                 "item3": {
-                    "model": "BK 40m",
+                    "model": "BK 40M",
                     "technical": "Total wing weight 360 kg | 793 lbs.",
                     "compatible":"Compatible with: \nLarge sprayers.",
-                    "mobile": "Our flagship product. A great combination of length and weight.",
-                    "description": "Compatible with: Large sprayers.\nSupports selective application systems across the entire working width."
+                    "description": "Supports selective application systems across the entire working width."
                 },
                  "item4": {
-                    "model": "BK 44m",
-                    "technical": "Total wing weight 360 kg | 793 lbs.",
+                    "model": "BK 44M",
+                    "technical": "Total wing weight 488 kg | 1076 lbs.",
                     "compatible":"Compatible with: \nLarge sprayers.",
-                    "mobile": "Supports selective application systems across the entire working width.",
-                    "description": "Compatible with: Large sprayers.\nSupports selective application systems across the entire working width."
+                    "description": "Supports selective application systems across the entire working width."
                 },
                 "item5": {
-                    "model": "BK 48m",
-                    "technical": "Coming soon."
+                    "model": "BK 48M",
+                    "technical": "Total wing weight 498 kg | 1098 lbs.",
+                    "compatible":"Compatible with: \nLarge sprayers.",
+                    "description": "Supports selective application systems across the entire working width."
+
                 },
             "downloadBtn": "Download Brochure"
         }
@@ -116,8 +115,7 @@
         "stats": {
             "item1": "Booms Working",
             "item2": "Hectares Worked",
-            "item31": "Smart Spot", 
-            "item32":"Spraying Equipped"
+            "item3": "Smart Spot.\nSpraying Equipped"
         },
         "accesories":{
             "slide1": {
@@ -166,7 +164,7 @@
         "ourVision": {
             "badge": "About Us",
             "title": "Our Vision",
-            "description": "We seek to revolutionize the agricultural machinery\n industry by incorporating advanced composite \nmaterials that provide a leap in EFFICIENCY.",
+            "description": "We seek to revolutionize the agricultural machinery industry by incorporating advanced composite \nmaterials that provide a leap in EFFICIENCY.",
             "button": "Play Video"
         },
         "aboutUsPie":{

@@ -17,7 +17,7 @@ const { modelTitle, description, technical, image, mobile, compatible, mobileImg
 							{t(modelTitle)}
 						</h3>
 						<p
-							class="mb-0 h-[90px] pt-1 text-[22px] leading-6 text-white md:mb-0 md:h-auto xl:mb-2"
+							class="xl:mb mb-0 h-[90px] text-[20px] leading-5 text-white md:mb-0 md:h-auto md:leading-7 lg:text-2xl"
 						>
 							<strong class="font-semibold">{t(technical)}</strong>{' '}{
 								compatible && (
@@ -31,20 +31,16 @@ const { modelTitle, description, technical, image, mobile, compatible, mobileImg
 								)
 							}
 						</p>
+						<p class="hidden text-white md:mb-0 md:block md:h-auto lg:text-2xl">
+							{compatible && t(compatible)}
+						</p>
 						<div class="mb-0 h-[90px] md:mb-5 md:h-auto">
-							{
-								mobile && (
-									<p class="block pt-0 text-[22px] leading-6 text-white md:hidden md:pt-0 md:font-normal">
-										{t(mobile)}
-									</p>
-								)
-							}
 							{
 								description &&
 									t(description)
 										.split('\n')
 										.map((line) => (
-											<p class="hidden pt-0 text-[22px] font-semibold leading-7 text-white md:block md:pt-0 md:font-normal">
+											<p class="pt-0 text-[20px] leading-5 text-white md:block md:pt-0 md:font-normal md:leading-7 lg:text-2xl">
 												{line}
 											</p>
 										))

@@ -15,22 +15,22 @@
     "title2": "Barras de Pulverización Livianas"
     },
     "smartUse": {
-    "badge": "El concepto",
+    "badge": "CONCEPTO",
     "title": "Uso Inteligente <0>de Materiales</0>",
     "feature1": "Tubos de Fibra de Carbono",
-    "feature1Description": "Logra un Ancho de Trabajo Amplio con Bajo Peso",
+    "feature1Description": "Permiten Lograr Gran Ancho <0>de Labor con Bajo Peso.",
     "feature2": "Nodos de Metal",
-    "feature2Description": "Más Eficiente para Resistir <0>Cargas Concentradas de Amarres y Juntas</0>"
+    "feature2Description": "Más Eficientes Para Soportar las <0>Cargas Concentradas de los Vínculos y Articulaciones"
     },
     "benefits": {
-        "badge": "<0>BENEFITS</0> - BK BOOMS",
+        "badge": "<0>BENEFICIOS</0> - Barra BK",
     "item1": {
     "description": "Productividad Incrementada,\n Ahorro de Combustible",
-    "featureLine": "Ancho de Trabajo\n Incrementado"
+    "featureLine": "Aumento del \nancho de trabajo"
     },
     "item2": {
     "description": "Reducir Compactación del Suelo,\nMayor Velocidad de Trabajo",
-    "featureLine": "Reducir \nPeso"
+    "featureLine": "Bajo \nPeso"
     },
     "item3": {
     "description": "Durabilidad Incrementada",
@@ -46,7 +46,7 @@
     },
     "item6": {
     "description": "La estabilidad y durabilidad de nuestra barra la hacen ideal para \nSistemas de Pulverización Inteligente en toda la anchura de trabajo.",
-    "featureLine": "Sistemas de \nPulverización Inteligente \nSpot"
+    "featureLine": "Ideal para \nsistemas de \naplicación selectiva."
     }
     },
     "highlights": {
@@ -73,36 +73,34 @@
     "title": "<0>LÍNEA DE PRODUCTOS</0> - BARRAS BK",
     "products": {
     "item1": {
-    "model": "BK 32m",
+    "model": "BK 32M",
     "technical": "Peso total del ala 334 kg | 736 lbs.",
     "compatible":"Compatible con: Máquinas de 210 cm de calibre",
-    "mobile": "Mejora la productividad y el rendimiento de la máquina.",
-    "description": "Compatible con: Máquinas de 210 cm de calibre. \nAdmite sistemas de aplicación selectiva en toda la anchura de trabajo."
+    "description": "Admite sistemas de aplicación selectiva en toda la anchura de trabajo."
     },
     "item2": {
-    "model": "BK 36m",
+    "model": "BK 36M",
     "technical": "Peso total del ala 343 kg | 756 lbs.",
     "compatible":"Compatible con: Máquinas de 260 cm de calibre",
-    "mobile": "La mejor combinación de ligereza y longitud. Ideal para sistemas de pulverización de puntos completos.",
-    "description": "Compatible con: Máquinas de 260 cm de calibre. \nAdmite sistemas de aplicación selectiva en toda la anchura de trabajo."
+    "description": "Admite sistemas de aplicación selectiva en toda la anchura de trabajo."
     },
     "item3": {
-    "model": "BK 40m",
+    "model": "BK 40M",
     "technical": "Peso total del ala 360 kg | 793 lbs.",
     "compatible":"Compatible con: Pulverizadores grandes.",
-    "mobile": "Nuestro producto estrella. Una gran combinación de longitud y peso.",
-    "description": "Compatible con: Pulverizadores grandes.\nAdmite sistemas de aplicación selectiva en toda la anchura de trabajo."
+    "description": "Admite sistemas de aplicación selectiva en toda la anchura de trabajo."
     },
     "item4": {
-        "model": "BK 44m",
-        "technical": "Peso total del ala 360 kg | 793 lbs.",
+        "model": "BK 44M",
+        "technical": "Peso total del ala 488 kg | 1976 lbs.",
         "compatible": "Compatible con: Pulverizadores grandes.",
-        "mobile": "Nuestro producto estrella. Una gran combinación de longitud y peso.",
-        "description": "Compatible con: Pulverizadores grandes.\nCompatible con sistemas de aplicación selectiva en toda la anchura de trabajo."
+        "description": "Admite sistemas de aplicación selectiva en toda la anchura de trabajo."
     },
     "item5": {
-        "model": "BK 48m",
-        "technical": "Pronto."
+        "model": "BK 48M",
+        "technical": "Peso total del ala 498 kg | 1098 lbs.",
+        "compatible":"Compatible con: \nPulverizadores grandes.",
+        "description": "Admite sistemas de aplicación selectiva en toda la anchura de trabajo."
     },
     "downloadBtn": "Descargar Folleto"
     }
@@ -115,22 +113,21 @@
         "longVersionButton": "Ver Versión Larga"
         },
         "stats": {
-        "item1": "Barra de Pulverización en Funcionamiento",
+        "item1": "Barras en funcionamiento",
         "item2": "Hectáreas Trabajadas",
-        "item31": "Punto Inteligente",
-        "item32":"Equipado con Pulverización"
+        "item3": "Punto Inteligente. \nEquipados con sistemas de\n pulverización selectiva"
         },
         "accesories":{
         "slide1": {
         "badge": "ACCESORIOS",
-        "featureTitle": "Pulverización de Punto Inteligente",
-        "description": "La estabilidad y resistencia de nuestra barra la hacen adecuada para el uso de Sistemas de Pulverización de Punto Inteligente en toda la anchura de trabajo, manteniendo una buena estabilidad y asegurando una aplicación óptima.",
+        "featureTitle": "Sistemas de pulverización Selectiva",
+        "description": "La estabilidad y resistencia de nuestra barra la hacen adecuada para el uso de Sistemas de pulverización Selectiva en toda la anchura de trabajo, manteniendo una buena estabilidad y asegurando una aplicación óptima.",
         "asterix": "*BK40m Full WeedSeeker 2"
         },
         "slide2": {
         "badge": "ACCESORIOS",
         "featureTitle": "Diseño y \nCalidad",
-        "description": "La estabilidad y resistencia de nuestra barra la hacen adecuada para el uso de Sistemas de Pulverización de Punto Inteligente en toda la anchura de trabajo, manteniendo una buena estabilidad y asegurando una aplicación óptima."
+        "description": "La estabilidad y resistencia de nuestra barra la hacen adecuada para el uso de Sistemas de pulverización Selectiva en toda la anchura de trabajo, manteniendo una buena estabilidad y asegurando una aplicación óptima."
         },
         "slide3": {
         "badge": "COMBINACIÓN PERFECTA",
@@ -167,7 +164,7 @@
         "ourVision": {
         "badge": "Sobre Nosotros",
         "title": "Nuestra Visión",
-        "description": "Buscamos revolucionar la industria de maquinaria agrícola\n incorporando materiales compuestos avanzados que proporcionen un salto en la EFICIENCIA.",
+        "description": "Buscamos revolucionar la industria de maquinaria agrícola incorporando materiales compuestos avanzados que proporcionen un salto en la EFICIENCIA.",
         "button": "Ver Video"
         },
         "aboutUsPie":{

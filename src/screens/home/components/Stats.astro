@@ -4,18 +4,18 @@ import { t } from 'i18next'
 const statsData = [
 	{
 		placeholder: 0,
-		kpiValue: 100,
-		kpiLabel: ['landing.stats.item1']
+		kpiValue: 150,
+		kpiLabel: 'landing.stats.item1'
 	},
 	{
 		placeholder: 0,
 		kpiValue: 6000000,
-		kpiLabel: ['landing.stats.item2']
+		kpiLabel: 'landing.stats.item2'
 	},
 	{
 		placeholder: 0,
-		kpiValue: 150,
-		kpiLabel: ['landing.stats.item31', 'landing.stats.item32']
+		kpiValue: 20,
+		kpiLabel: 'landing.stats.item3'
 	}
 ]
 ---
@@ -36,9 +36,15 @@ const statsData = [
 									{stat.kpiValue}
 								</p>
 							</span>
-							{stat.kpiLabel.map((p) => (
-								<p class=" text-center text-2xl leading-6">{t(p)}</p>
-							))}
+							<p class=" text-center text-2xl leading-6">
+								{t(stat.kpiLabel)
+									.split('\n')
+									.map((p) => (
+										<>
+											{p} <br />
+										</>
+									))}
+							</p>
 						</div>
 					)
 				})

@@ -1,17 +1,14 @@
 ---
-import ImageBackground from 'src/components/template/ImageBackground.astro'
-
-import { getImage } from 'astro:assets'
 import ProductDisplay from 'src/components/molecules/ProductDisplay.astro'
-import BgImg1 from 'src/img/lineup1.webp'
+import BgImg1 from 'src/img/lineup1.jpg'
 import BgImgMobile1 from 'src/img/lineup1-mobile.png'
-import BgImg2 from 'src/img/lineup2.webp'
+import BgImg2 from 'src/img/lineup2.jpg'
 import BgImgMobile2 from 'src/img/lineup2-mobile.png'
-import BgImg3 from 'src/img/lineup3.webp'
+import BgImg3 from 'src/img/lineup3.jpg'
 import BgImgMobile3 from 'src/img/lineup3-mobile.png'
-import BgImg4 from 'src/img/lineup4.webp'
+import BgImg4 from 'src/img/lineup4.jpg'
 import BgImgMobile4 from 'src/img/lineup4-mobile.png'
-import BgImg5 from 'src/img/lineup5.webp'
+import BgImg5 from 'src/img/lineup5.jpg'
 import BgImgMobile5 from 'src/img/lineup5-mobile.png'
 import { Trans } from 'astro-i18next/components'
 import CustomSlider from '@components/organisms/slider/CustomSlider.astro'
@@ -23,7 +20,6 @@ const productsData = [
 		modelTitle: 'landing.productsLineup.products.item1.model',
 		technical: 'landing.productsLineup.products.item1.technical',
 		compatible: 'landing.productsLineup.products.item1.compatible',
-		mobile: 'landing.productsLineup.products.item1.mobile',
 		description: 'landing.productsLineup.products.item1.description',
 		image: BgImg1,
 		mobileImg: BgImgMobile1,
@@ -33,7 +29,6 @@ const productsData = [
 		modelTitle: 'landing.productsLineup.products.item2.model',
 		technical: 'landing.productsLineup.products.item2.technical',
 		compatible: 'landing.productsLineup.products.item2.compatible',
-		mobile: 'landing.productsLineup.products.item2.mobile',
 		description: 'landing.productsLineup.products.item2.description',
 		image: BgImg2,
 		mobileImg: BgImgMobile2,
@@ -43,7 +38,6 @@ const productsData = [
 		modelTitle: 'landing.productsLineup.products.item3.model',
 		technical: 'landing.productsLineup.products.item3.technical',
 		compatible: 'landing.productsLineup.products.item3.compatible',
-		mobile: 'landing.productsLineup.products.item3.mobile',
 		description: 'landing.productsLineup.products.item3.description',
 		image: BgImg3,
 		mobileImg: BgImgMobile3,
@@ -53,7 +47,6 @@ const productsData = [
 		modelTitle: 'landing.productsLineup.products.item4.model',
 		technical: 'landing.productsLineup.products.item4.technical',
 		compatible: 'landing.productsLineup.products.item4.compatible',
-		mobile: 'landing.productsLineup.products.item4.mobile',
 		description: 'landing.productsLineup.products.item4.description',
 		image: BgImg4,
 		mobileImg: BgImgMobile4,
@@ -62,6 +55,8 @@ const productsData = [
 	{
 		modelTitle: 'landing.productsLineup.products.item5.model',
 		technical: 'landing.productsLineup.products.item5.technical',
+		compatible: 'landing.productsLineup.products.item5.compatible',
+		description: 'landing.productsLineup.products.item5.description',
 		image: BgImg5,
 		mobileImg: BgImgMobile5,
 		smallBg: '/assets/imgs/lineup5-sm.webp'
