@@ -20,7 +20,7 @@
     "feature1": "Tubos de Fibra de Carbono",
     "feature1Description": "Permiten Lograr Gran Ancho <0>de Labor con Bajo Peso.",
     "feature2": "Nodos de Metal",
-    "feature2Description": "Más Eficientes Para Soportar las <0>Cargas Concentradas de los Vínculos y Articulaciones"
+    "feature2Description": "Más Eficientes Para Soportar las Cargas <0>Concentradas de los Vínculos y Articulaciones"
     },
     "benefits": {
         "badge": "<0>BENEFICIOS</0> - Barra BK",
@@ -93,14 +93,14 @@
     "item4": {
         "model": "BK 44M",
         "technical": "Peso total del ala 488 kg | 1976 lbs.",
-        "compatible": "Compatible con: Pulverizadores grandes.",
-        "description": "Admite sistemas de aplicación selectiva en toda la anchura de trabajo."
+        "compatible": "Para pulverizadoras tope de gama y uso en grandes lotes. Compatible con \nlas mismas adaptaciones que la barra de 48M.",
+        "description": "Admite sistemas de aplicación selectiva."
     },
     "item5": {
         "model": "BK 48M",
         "technical": "Peso total del ala 498 kg | 1098 lbs.",
-        "compatible":"Compatible con: \nPulverizadores grandes.",
-        "description": "Admite sistemas de aplicación selectiva en toda la anchura de trabajo."
+        "compatible":"Para uso en grandes extensiones. Compatible con \nlas mismas adaptaciones que la barra de 44M.",
+        "description": "Admite sistemas de aplicación."
     },
     "downloadBtn": "Descargar Folleto"
     }
@@ -175,6 +175,8 @@
         "footer": {
         "lineTop": "Para obtener más información, haga clic en el enlace a continuación.",
         "moreInfoButton": "MÁS INFORMACIÓN",
+        "technicalSupport": "SOPORTE TÉCNICO",
+        "contactNumber": "Número de Contacto",
         "aboutIinfo": "BK Comp es una empresa que desarrolla y fabrica productos compuestos avanzados para el agroindustria, combinando diseño y Know How en diferentes tecnologías con el objetivo de aumentar la eficiencia y productividad del sector.",
         "sales": "VENTAS",
         "followUs": "Síguenos"

@@ -99,11 +99,13 @@ import VideoBackground from '../../../components/template/VideoBackground.astro'
 		}
 	}
 
-	let isFullscreen = document.fullscreenElement || document?.webkitFullscreenElement
+	let isFullscreen =
+		(document.fullscreenElement && document.fullscreenElement !== null) ||
+		(document.webkitFullscreenElement && document.webkitFullscreenElement !== null) ||
+		(document.mozFullScreenElement && document.mozFullScreenElement !== null) ||
+		(document.msFullscreenElement && document.msFullscreenElement !== null)
 
 	video.onfullscreenchange = function (e) {
-		isFullscreen = !isFullscreen
-
 		if (isFullscreen) {
 			video.play()
 		} else {
@@ -111,17 +113,31 @@ import VideoBackground from '../../../components/template/VideoBackground.astro'
 				document.exitFullscreen()
 			} else if (document.webkitExitFullscreen) {
 				document.webkitExitFullscreen()
+			} else if (document.mozCancelFullScreen) {
+				document.mozCancelFullScreen()
+			} else if (document.msExitFullscreen) {
+				document.msExitFullscreen()
 			}
-
 			video.pause()
 		}
 	}
 
 	playButton.addEventListener('click', () => {
-		if (video.requestFullscreen) {
-			video.requestFullscreen()
-		} else if (video?.webkitRequestFullscreen) {
-			video?.webkitRequestFullscreen()
+		if (video.requestFullScreen) {
+			// W3C API
+			video.requestFullScreen()
+		} else if (video.mozRequestFullScreen) {
+			// Mozilla current API
+			video.mozRequestFullScreen()
+		} else if (video.webkitRequestFullScreen) {
+			// Webkit current API
+			video.webkitRequestFullScreen()
+		} else if (video.webkitEnterFullScreen) {
+			// This is the IOS Mobile edge case
+			video.webkitEnterFullScreen()
+		} else if (video.webkitEnterFullScreen) {
+			// Toggle fullscreen in Safari for iPad
+			video.webkitEnterFullScreen()
 		}
 	})
 </script>

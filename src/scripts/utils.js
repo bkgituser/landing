@@ -25,9 +25,10 @@ function incrementCounterInInterval(selector, increment) {
 	let counter = document.getElementById(selector)
 	let current
 	if (counter) {
-		current =
-			Number(counter.innerText.replace(/,/g, '')) + increment + Math.floor(Math.random() * 9)
 
+		current =
+		parseFloat(counter.innerText.replace(/\./g, '')) + increment + Math.floor(Math.random() * 9)
+		
 		counter.innerText = numberWithCommas(Math.ceil(current))
 	}
 }

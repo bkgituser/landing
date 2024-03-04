@@ -17,7 +17,7 @@ const { modelTitle, description, technical, image, mobile, compatible, mobileImg
 							{t(modelTitle)}
 						</h3>
 						<p
-							class="xl:mb mb-0 h-[90px] text-[20px] leading-5 text-white md:mb-0 md:h-auto md:leading-7 lg:text-2xl"
+							class="xl:mb mb-0 h-[120px] text-[20px] leading-5 text-white md:mb-0 md:h-auto md:leading-7 lg:text-2xl"
 						>
 							<strong class="font-semibold">{t(technical)}</strong>{' '}{
 								compatible && (
@@ -34,7 +34,7 @@ const { modelTitle, description, technical, image, mobile, compatible, mobileImg
 						<p class="hidden text-white md:mb-0 md:block md:h-auto lg:text-2xl">
 							{compatible && t(compatible)}
 						</p>
-						<div class="mb-0 h-[90px] md:mb-5 md:h-auto">
+						<div class="mb-0 h-[100px] md:mb-5 md:h-auto">
 							{
 								description &&
 									t(description)
@@ -77,13 +77,13 @@ const { modelTitle, description, technical, image, mobile, compatible, mobileImg
 	@media (max-width: 420px) and (max-height: 700px) {
 		.container-screen {
 			margin-bottom: 2.5rem;
-			height: 50%;
+			height: 45%;
 		}
 	}
 	@media (max-width: 420px) and (max-height: 660px) {
 		.container-screen {
 			margin-bottom: 2.5rem;
-			height: 46%;
+			height: 45%;
 
 			justify-content: space-between;
 		}
@@ -92,7 +92,7 @@ const { modelTitle, description, technical, image, mobile, compatible, mobileImg
 	@media (max-width: 420px) and (min-height: 700px) {
 		.container-screen {
 			margin-bottom: 2.4rem;
-			height: 45%;
+			height: 42%;
 		}
 	}
 	@media (min-width: 420px) and (max-width: 560px) {
@@ -105,7 +105,7 @@ const { modelTitle, description, technical, image, mobile, compatible, mobileImg
 	@media (max-width: 420px) and (max-width: 560px) and (min-height: 740px) {
 		.container-screen {
 			margin-bottom: 2.4rem;
-			height: 45%;
+			height: 40%;
 		}
 	}
 

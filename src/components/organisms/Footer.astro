@@ -9,9 +9,14 @@ import { t } from 'i18next'
 				{t('landing.footer.lineTop')}
 			</h6>
 			<div class="flex justify-center pb-12 pt-6 md:pb-14 md:pt-8">
-				<button class="rounded-xl bg-white px-8 py-2 text-sm font-bold text-black">
+				<a
+					target="_blank"
+					href="https://linktr.ee/bk.comp"
+					rel="noopener noreferrer"
+					class="rounded-xl bg-white px-8 py-2 text-sm font-bold text-black"
+				>
 					{t('landing.footer.moreInfoButton')}
-				</button>
+				</a>
 			</div>
 		</div>
 		<div class="info px-5 md:px-16 lg:px-0">
@@ -24,7 +29,7 @@ import { t } from 'i18next'
 				<span class="mb-2 block w-10 border-[0.5px] border-greyOpaque"></span>
 				<h6 class="text-lg text-greyOpaque lg:text-2xl">{t('landing.footer.sales')}</h6>
 				<div class="country py-2">
-					<p class="pb-1 pt-2 text-lg text-white md:pt-4 lg:text-2xl">
+					<p class="pb-1 pt-2 text-lg text-white md:pb-3 md:pt-4 lg:text-2xl">
 						<strong> ARGENTINA / EUROPE </strong>
 					</p>
 					<a href="mailto:sales@bk-comp.com" target="_blank" rel="noopener noreferrer">
@@ -32,7 +37,7 @@ import { t } from 'i18next'
 					</a>
 				</div>
 				<div class="country py-2">
-					<p class="pb-1 pt-2 text-lg text-white md:pt-4 lg:text-2xl">
+					<p class="pb-1 pt-2 text-lg text-white md:pb-3 md:pt-4 lg:text-2xl">
 						<strong> BRAZIL</strong>
 					</p>
 					<a href="mailto:michael.s@bk-comp.com" target="_blank" rel="noopener noreferrer">
@@ -40,7 +45,7 @@ import { t } from 'i18next'
 					</a>
 				</div>
 				<div class="country py-2">
-					<p class="pb-1 pt-2 text-lg text-white md:pt-4 lg:text-2xl">
+					<p class="pb-1 pt-2 text-lg text-white md:pb-3 md:pt-4 lg:text-2xl">
 						<strong> AUSTRALIA</strong>
 					</p>
 					<a
@@ -55,19 +60,38 @@ import { t } from 'i18next'
 			<div
 				class="info-col mt-8 flex h-full flex-col items-baseline justify-between md:mt-0 lg:basis-1/2"
 			>
-				<div class="company mb-12 md:mb-24">
+				<div class="mb-8">
 					<span class="mb-2 block w-10 border-[0.5px] border-greyOpaque"></span>
-					<h6 class="mb-4 text-lg text-greyOpaque lg:text-2xl">BK COMP</h6>
-					<div class="py-4">
+					<h6 class="mb-2 text-lg text-greyOpaque lg:text-2xl">BK COMP</h6>
+				</div>
+				<div class="mb-8">
+					<p class="text-sm text-grey">
+						Parque industrial y Logístico Panamericana KM29 Unidad E, APQ El Talar de Pacheco,
+						Buenos Aires AR. <br /> www.bk-comp.com
+					</p>
+				</div>
+				<div class="company mb-8">
+					<span class="mb-2 block w-10 border-[0.5px] border-greyOpaque"></span>
+					<h6 class="text-sm font-semibold text-greyOpaque">
+						{t('landing.footer.technicalSupport')}
+					</h6>
+					<div class="py-0">
 						<p class="text-sm text-grey">
-							Parque industrial y Logístico Panamericana KM29 Unidad E, APQ El Talar de Pacheco
-							Buenos Aires AR, 9 de Julio 350 lote 18.(+54) 11 4064 1911
+							{t('landing.footer.contactNumber')}: <a
+								target="_blank"
+								rel="noreferrer"
+								href="https://api.whatsapp.com/send?phone=91140641911">(+54) 11 4064 1911</a
+							>
+							<br />
+							<a href="mailto:info@bk.comp.com" target="_blank" rel="noopener noreferrer">
+								info@bk.comp.com
+							</a>
 						</p>
 					</div>
 				</div>
 				<div class="media mt-auto">
-					<h6 class="mb-4 text-lg text-lightGrey md:text-xl">{t('landing.footer.followUs')}</h6>
-					<span class="mb-10 block w-16 border-[0.5px] border-grey"></span>
+					<h6 class="mb-1 text-lg text-lightGrey md:text-xl">{t('landing.footer.followUs')}</h6>
+					<span class="mb-2 block w-16 border-[0.5px] border-grey"></span>
 					<div class="icons flex gap-12">
 						<a href="https://www.linkedin.com/company/bk-comp/" target="_blank" rel="noreferrer">
 							<img src="/assets/icons/linkedin.svg" alt="linkedin icon" loading="lazy" />

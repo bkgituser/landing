@@ -20,7 +20,7 @@
     "feature1": "Tubos de Fibra de Carbono",
     "feature1Description": "Permitem Grande Largura <0>de Trabalho Com Baixo Peso",
     "feature2": "Nós Metálicos",
-    "feature2Description": "Mais Eficiente para Suportar <0>Cargas Concentradas de Ligação e Articulações"
+    "feature2Description": "Mais Eficiente para Suportar Cargas <0>Concentradas de Ligação e Articulações"
     },
     "benefits": {
         "badge": "<0>BENEFICIOS</0> da barra",
@@ -92,13 +92,16 @@
     },
     "item4": {
         "model": "BK 44M",
-        "technical": "Peso total da asa 498 kg | 1098 lbs.",
-        "compatible": "Compatível com: Pulverizadores grandes.",
+        "technical": "Peso total da asa 488 kg | 1076 lbs.",
+        "compatible": "Para pulverizadores topo de linha e uso em grandes campos. Compatível com \nas mesmas adaptações que a barra 48M.",
         "description": "Suporta sistemas de aplicação seletiva em toda a largura de trabalho."
     },
     "item5": {
         "model": "BK 48M",
-        "technical": "Pronto."
+        "technical": "Peso total da asa 498 kg | 1098 lbs.",
+        "compatible": "Para uso em extensões grandes. Compatível com \nas mesmas adaptações da barra 44M.",
+        "description": "Suporta sistemas de aplicação seletiva em toda a largura de trabalho."
+
     },
     "downloadBtn": "Baixar Folheto"
     }
@@ -173,6 +176,8 @@
             "footer": {
                 "lineTop": "Para mais informações, clique no link abaixo.",
                 "moreInfoButton": "MAIS INFORMAÇÕES",
+                "technicalSupport": "SOPORTE TÉCNICO",
+                "contactNumber": "Número de Contato",
                 "aboutIinfo": "A BK Comp é uma empresa que desenvolve e fabrica produtos compósitos avançados para o agronegócio, combinando design e Know How em diferentes tecnologias com o objetivo de aumentar a eficiência e produtividade do setor.",
                 "sales": "VENDAS",
                 "followUs": "Siga-nos"

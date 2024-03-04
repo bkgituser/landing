@@ -17,7 +17,7 @@
             "badge": "The concept",
             "title": "Smart Use <0> of Materials",
             "feature1": "Carbon fiber Tubes",
-            "feature1Description": "50% lighter than Aluminium. Achieve <0>Large Working Width with Low Weight",
+            "feature1Description": "Achieve <0>Large Working Width with Low Weight",
             "feature2": "Metal Nodes",
             "feature2Description": "More Efficient to Withstand <0> Concentrated Loads of Ties and Joints"
         },
@@ -92,14 +92,14 @@
                  "item4": {
                     "model": "BK 44M",
                     "technical": "Total wing weight 488 kg | 1076 lbs.",
-                    "compatible":"Compatible with: \nLarge sprayers.",
-                    "description": "Supports selective application systems across the entire working width."
+                    "compatible":"For top of the range sprayers and use in large fields. Compatible with \nthe same adaptations as the 48M boom.",
+                    "description": "Supports selective application systems."
                 },
                 "item5": {
                     "model": "BK 48M",
                     "technical": "Total wing weight 498 kg | 1098 lbs.",
-                    "compatible":"Compatible with: \nLarge sprayers.",
-                    "description": "Supports selective application systems across the entire working width."
+                    "compatible":"For use in large extensions. Compatible with \nthe same adaptations as the 44M Boom.",
+                    "description": "Supports selective application systems."
 
                 },
             "downloadBtn": "Download Brochure"
@@ -176,6 +176,8 @@
             "lineTop": "For more information, click on the link below.",
             "moreInfoButton": "MORE INFO",
             "aboutIinfo": "BK Comp is a company that develops and manufactures advanced composite products for the agribusiness, combining design and Know How in different technologies aiming to increase the efficiency and productivity of the sector.",
+            "technicalSupport": "TECHNICAL SUPPORT",
+            "contactNumber": "Contact Number",
             "sales": "SALES",
             "followUs": "Follow us"
         }
