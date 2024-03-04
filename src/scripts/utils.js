@@ -18,7 +18,7 @@ function incrementCounter(counter) {
 }
 
 function numberWithCommas(x) {
-	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
 }
 
 function incrementCounterInInterval(selector, increment) {
@@ -27,7 +27,7 @@ function incrementCounterInInterval(selector, increment) {
 	if (counter) {
 		current =
 			Number(counter.innerText.replace(/,/g, '')) + increment + Math.floor(Math.random() * 9)
-		console.log('incrementCounterInInterval: ', current, Math.ceil(current))
+
 		counter.innerText = numberWithCommas(Math.ceil(current))
 	}
 }
