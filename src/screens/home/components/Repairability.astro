@@ -116,13 +116,13 @@ const videoFullSrc = i18Next.language ? fullVideoSrc[i18Next.language] : fullVid
 	const videoWrapper = document.querySelector('.video-wrapper')
 	const fullVideo = document.getElementById('repairability-full') as HTMLVideoElement
 
-	let currentScroll
-
-	let isFullscreen = document.fullscreenElement || document.webkitFullscreenElement
+	let isFullscreen =
+		(document.fullscreenElement && document.fullscreenElement !== null) ||
+		(document.webkitFullscreenElement && document.webkitFullscreenElement !== null) ||
+		(document.mozFullScreenElement && document.mozFullScreenElement !== null) ||
+		(document.msFullscreenElement && document.msFullscreenElement !== null)
 
 	fullVideo.onfullscreenchange = function (e) {
-		isFullscreen = !isFullscreen
-
 		if (isFullscreen) {
 			fullVideo.play()
 		} else {
@@ -130,25 +130,34 @@ const videoFullSrc = i18Next.language ? fullVideoSrc[i18Next.language] : fullVid
 				document.exitFullscreen()
 			} else if (document.webkitExitFullscreen) {
 				document.webkitExitFullscreen()
+			} else if (document.mozCancelFullScreen) {
+				document.mozCancelFullScreen()
+			} else if (document.msExitFullscreen) {
+				document.msExitFullscreen()
 			}
-
 			fullVideo.pause()
-
 			videoWrapper.classList.add('hidden')
 		}
 	}
 
 	playButton.addEventListener('click', () => {
-		// Store the current scroll position
-		if (!currentScroll) {
-			currentScroll = window.scrollY
-		}
-
 		videoWrapper.classList.remove('hidden')
-		if (fullVideo.requestFullscreen) {
-			fullVideo.requestFullscreen()
-		} else if (fullVideo?.webkitRequestFullscreen) {
-			fullVideo?.webkitRequestFullscreen()
+
+		if (fullVideo.requestFullScreen) {
+			// W3C API
+			fullVideo.requestFullScreen()
+		} else if (fullVideo.mozRequestFullScreen) {
+			// Mozilla current API
+			fullVideo.mozRequestFullScreen()
+		} else if (fullVideo.webkitRequestFullScreen) {
+			// Webkit current API
+			fullVideo.webkitRequestFullScreen()
+		} else if (fullVideo.webkitEnterFullScreen) {
+			// This is the IOS Mobile edge case
+			fullVideo.webkitEnterFullScreen()
+		} else if (fullVideo.webkitEnterFullScreen) {
+			// Toggle fullscreen in Safari for iPad
+			fullVideo.webkitEnterFullScreen()
 		}
 	})
 </script>
