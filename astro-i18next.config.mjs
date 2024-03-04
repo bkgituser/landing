@@ -3,6 +3,6 @@ export default {
 	defaultLocale: 'en',
 	locales: ['en', 'pt', 'es'],
 	i18nextServer: {
-		debug: true
+		debug: false
 	}
 }
