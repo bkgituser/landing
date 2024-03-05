@@ -17,6 +17,9 @@ const fullVideoSrc = {
 
 const videoSummarySrc = i18Next.language ? summarySrc[i18Next.language] : summarySrc.en
 const videoFullSrc = i18Next.language ? fullVideoSrc[i18Next.language] : fullVideoSrc.en
+
+const setupDocSrc = '/assets/docs/Setup_ml.pdf'
+const manualDocSrc = '/assets/docs/Repairability_ml.pdf'
 ---
 
 <>
@@ -44,16 +47,30 @@ const videoFullSrc = i18Next.language ? fullVideoSrc[i18Next.language] : fullVid
 					<img src="/assets/icons/arrow.svg" alt="arrow" loading="lazy" />
 				</div>
 				<div class="flex flex-col items-center justify-center gap-4 sm:px-10 md:flex-row lg:px-0">
-					<button
-						class="w-full max-w-[265px] bg-black px-4 py-4 text-[14px] font-semibold text-white md:text-[10.38px] lg:max-w-none lg:px-0 laptop:w-[165px]"
+					<a
+						download="proposed_file_name"
+						target="_blank"
+						rel="noopener noreferrer"
+						href={setupDocSrc}
 					>
-						{t('landing.repairability.downloadButton1')}
-					</button>
-					<button
-						class="w-full max-w-[265px] bg-black px-4 py-4 text-[14px] font-semibold text-white md:text-[10.38px] lg:max-w-none lg:px-0 laptop:w-[165px]"
+						<button
+							class="w-full max-w-[265px] bg-black px-4 py-4 text-[14px] font-semibold text-white md:text-[10.38px] lg:max-w-none lg:px-0 laptop:w-[165px]"
+						>
+							{t('landing.repairability.downloadButton1')}
+						</button>
+					</a>
+					<a
+						download="proposed_file_name"
+						target="_blank"
+						rel="noopener noreferrer"
+						href={manualDocSrc}
 					>
-						{t('landing.repairability.downloadButton2')}
-					</button>
+						<button
+							class="w-full max-w-[265px] bg-black px-4 py-4 text-[14px] font-semibold text-white md:text-[10.38px] lg:max-w-none lg:px-0 laptop:w-[165px]"
+						>
+							{t('landing.repairability.downloadButton2')}
+						</button>
+					</a>
 				</div>
 			</div>
 			<div

@@ -57,12 +57,14 @@ const columns = [
 									{t(col.content)}
 								</p>
 								{col?.button ? (
-									<button
-										id="learn-more-repairability"
-										class="mt-10 rounded-lg bg-black px-6 py-4 font-bold text-white md:mt-16"
-									>
-										<a href="#repairability-top">{t(col.button)}</a>
-									</button>
+									<a href="#repairability-top">
+										<button
+											id="learn-more-repairability"
+											class="mt-10 rounded-lg bg-black px-6 py-4 font-bold text-white md:mt-16"
+										>
+											{t(col.button)}
+										</button>
+									</a>
 								) : null}
 							</div>
 							{index !== columns.length - 1 && (

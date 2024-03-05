@@ -1,8 +1,17 @@
 ---
-import { t } from 'i18next'
+import i18Next, { t } from 'i18next'
 import ProductImageBackground from '@components/template/ProductImageBackground.astro'
 const { modelTitle, description, technical, image, mobile, compatible, mobileImg, smallBg } =
 	Astro.props
+
+const brochureSrcLang = {
+	es: '/assets/docs/Brochure_es.pdf',
+	pt: '/assets/docs/Brochure_en.pdf',
+	en: '/assets/docs/Brochure_en.pdf',
+	default: '/assets/docs/Brochure_en.pdf'
+}
+
+const brochureSrc = i18Next.language ? brochureSrcLang[i18Next.language] : brochureSrcLang.en
 ---
 
 <div class="absolute z-10 h-screen w-full">
@@ -46,11 +55,18 @@ const { modelTitle, description, technical, image, mobile, compatible, mobileImg
 										))
 							}
 						</div>
-						<button
-							class="mx-auto block h-[42px] w-[171px] bg-white text-[10.3px] font-semibold leading-[29.3px] text-black sm:mt-8 md:mb-0 md:mt-0 md:inline-block md:h-[42px] md:w-[165px] md:bg-black md:text-white xxl:mt-2"
+						<a
+							download="proposed_file_name"
+							target="_blank"
+							rel="noopener noreferrer"
+							href={brochureSrc}
 						>
-							{t('landing.productsLineup.products.downloadBtn')}
-						</button>
+							<button
+								class="mx-auto block h-[42px] w-[171px] bg-white text-[10.3px] font-semibold leading-[29.3px] text-black sm:mt-8 md:mb-0 md:mt-0 md:inline-block md:h-[42px] md:w-[165px] md:bg-black md:text-white xxl:mt-2"
+							>
+								{t('landing.productsLineup.products.downloadBtn')}
+							</button>
+						</a>
 					</div>
 				</div>
 			</div>
