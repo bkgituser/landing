@@ -32,7 +32,6 @@ class App {
 		this._accesories()
 		this._stats2Animation()
 		this._bgOurVision()
-		this._ourVisionAnimation()
 		this._aboutUs()
 	}
 
@@ -81,10 +80,10 @@ class App {
 			y: -32
 		})
 
-		gsap.set('.ourvision-line', {
-			opacity: 0,
-			y: 32
-		})
+		// gsap.set('.ourvision-line', {
+		// 	opacity: 0,
+		// 	y: 32
+		// })
 
 		gsap.set('.repairability-arrow', {
 			opacity: 0,
@@ -484,24 +483,24 @@ class App {
 		})
 	}
 
-	_ourVisionAnimation() {
-		const tl = gsap.timeline({
-			scrollTrigger: {
-				trigger: '#our-vision',
-				start: 'top top',
-				end: 'center+=10% top',
-				pin: true,
-				scrub: false
-			}
-		})
-		tl.to('.ourvision-line', {
-			ease: 'power3.out',
-			stagger: 0.15,
-			opacity: 1,
-			y: 0,
-			duration: 0.8
-		})
-	}
+	// _ourVisionAnimation() {
+	// 	const tl = gsap.timeline({
+	// 		scrollTrigger: {
+	// 			trigger: '#our-vision',
+	// 			start: 'top top',
+	// 			end: 'center+=10% top',
+	// 			pin: true,
+	// 			scrub: false
+	// 		}
+	// 	})
+	// 	tl.to('.ourvision-line', {
+	// 		ease: 'power3.out',
+	// 		stagger: 0.15,
+	// 		opacity: 1,
+	// 		y: 0,
+	// 		duration: 0.8
+	// 	})
+	// }
 
 	_aboutUs() {
 		const tl = gsap.timeline({
