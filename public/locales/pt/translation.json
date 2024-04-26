@@ -93,13 +93,13 @@
 					"model": "BK 44M",
 					"technical": "Peso total da asa 488 kg | 1076 lbs.",
 					"compatible": "Para pulverizadores topo de linha e uso em grandes campos. Compatível com \nas mesmas adaptações que a barra 48M.",
-					"description": "Suporta sistemas de aplicação seletiva em toda a largura de trabalho."
+					"description": "Suporta sistemas de aplicação seletiva."
 				},
 				"item5": {
 					"model": "BK 48M",
 					"technical": "Peso total da asa 498 kg | 1098 lbs.",
 					"compatible": "Para uso em extensões grandes. Compatível com \nas mesmas adaptações da barra 44M.",
-					"description": "Suporta sistemas de aplicação seletiva em toda a largura de trabalho."
+					"description": "Suporta sistemas de aplicação seletiva."
 				},
 				"downloadBtn": "Baixar Folheto"
 			}
