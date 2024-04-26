@@ -135,16 +135,19 @@ const manualDocSrc = '/assets/docs/Repairability_ml.pdf'
 	const videoWrapper = document.querySelector('.video-wrapper')
 	const fullVideo = document.getElementById('repairability-full') as HTMLVideoElement
 
-	let isFullscreen =
-		(document.fullscreenElement && document.fullscreenElement !== null) ||
-		(document.webkitFullscreenElement && document.webkitFullscreenElement !== null) ||
-		(document.mozFullScreenElement && document.mozFullScreenElement !== null) ||
-		(document.msFullscreenElement && document.msFullscreenElement !== null)
+	// Function to check fullscreen state
+	function isFullScreen() {
+		return !!(
+			document.fullscreenElement ||
+			document.webkitFullscreenElement ||
+			document.mozFullScreenElement ||
+			document.msFullscreenElement
+		)
+	}
 
-	fullVideo.onfullscreenchange = function (e) {
-		if (isFullscreen) {
-			fullVideo.play()
-		} else {
+	// Function to toggle fullscreen
+	function toggleFullScreen() {
+		if (isFullScreen()) {
 			if (document.exitFullscreen) {
 				document.exitFullscreen()
 			} else if (document.webkitExitFullscreen) {
@@ -154,31 +157,45 @@ const manualDocSrc = '/assets/docs/Repairability_ml.pdf'
 			} else if (document.msExitFullscreen) {
 				document.msExitFullscreen()
 			}
-			fullVideo.pause()
-			videoWrapper.classList.add('hidden')
+		} else {
+			if (fullVideo.requestFullscreen) {
+				fullVideo.requestFullscreen()
+			} else if (fullVideo.mozRequestFullScreen) {
+				fullVideo.mozRequestFullScreen()
+			} else if (fullVideo.webkitRequestFullscreen) {
+				fullVideo.webkitRequestFullscreen()
+			} else if (fullVideo.webkitEnterFullscreen) {
+				fullVideo.webkitEnterFullscreen()
+			}
 		}
 	}
 
-	playButton.addEventListener('click', () => {
-		videoWrapper.classList.remove('hidden')
-
-		if (fullVideo.requestFullScreen) {
-			// W3C API
-			fullVideo.requestFullScreen()
-		} else if (fullVideo.mozRequestFullScreen) {
-			// Mozilla current API
-			fullVideo.mozRequestFullScreen()
-		} else if (fullVideo.webkitRequestFullScreen) {
-			// Webkit current API
-			fullVideo.webkitRequestFullScreen()
-		} else if (fullVideo.webkitEnterFullScreen) {
-			// This is the IOS Mobile edge case
-			fullVideo.webkitEnterFullScreen()
-		} else if (fullVideo.webkitEnterFullScreen) {
-			// Toggle fullscreen in Safari for iPad
-			fullVideo.webkitEnterFullScreen()
+	// Event listener for fullscreen change
+	document.addEventListener('fullscreenchange', () => {
+		if (!isFullScreen()) {
+			fullVideo.pause()
+			videoWrapper.classList.add('hidden')
+		} else {
+			if (fullVideo.paused) {
+				fullVideo.play()
+			}
 		}
 	})
+
+	// Event listener for play button
+	playButton.addEventListener('click', () => {
+		videoWrapper.classList.remove('hidden')
+		toggleFullScreen()
+	})
+
+	// Remove event listeners when they are no longer needed
+	function cleanup() {
+		playButton.removeEventListener('click', toggleFullScreen)
+		document.removeEventListener('fullscreenchange', cleanup)
+	}
+
+	// Add cleanup listener
+	document.addEventListener('fullscreenchange', cleanup)
 </script>
 <style>
 	.full-width-video {

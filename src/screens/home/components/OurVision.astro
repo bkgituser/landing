@@ -99,45 +99,37 @@ import VideoBackground from '../../../components/template/VideoBackground.astro'
 		}
 	}
 
-	let isFullscreen =
-		(document.fullscreenElement && document.fullscreenElement !== null) ||
-		(document.webkitFullscreenElement && document.webkitFullscreenElement !== null) ||
-		(document.mozFullScreenElement && document.mozFullScreenElement !== null) ||
-		(document.msFullscreenElement && document.msFullscreenElement !== null)
-
-	video.onfullscreenchange = function (e) {
-		if (isFullscreen) {
-			video.play()
-		} else {
-			if (document.exitFullscreen) {
-				document.exitFullscreen()
-			} else if (document.webkitExitFullscreen) {
-				document.webkitExitFullscreen()
-			} else if (document.mozCancelFullScreen) {
-				document.mozCancelFullScreen()
-			} else if (document.msExitFullscreen) {
-				document.msExitFullscreen()
-			}
-			video.pause()
-		}
+	function isFullscreen() {
+		return !!(
+			document.fullscreenElement ||
+			document.webkitFullscreenElement ||
+			document.mozFullScreenElement ||
+			document.msFullscreenElement
+		)
 	}
 
+	document.addEventListener('webkitfullscreenchange', () => {
+		if (!isFullscreen()) {
+			video.pause()
+		}
+	})
+
 	playButton.addEventListener('click', () => {
-		if (video.requestFullScreen) {
+		if (video.requestFullscreen) {
 			// W3C API
-			video.requestFullScreen()
+			video.requestFullscreen()
 		} else if (video.mozRequestFullScreen) {
 			// Mozilla current API
 			video.mozRequestFullScreen()
-		} else if (video.webkitRequestFullScreen) {
+		} else if (video.webkitRequestFullscreen) {
 			// Webkit current API
-			video.webkitRequestFullScreen()
-		} else if (video.webkitEnterFullScreen) {
+			video.webkitRequestFullscreen()
+		} else if (video.webkitEnterFullscreen) {
 			// This is the IOS Mobile edge case
-			video.webkitEnterFullScreen()
-		} else if (video.webkitEnterFullScreen) {
+			video.webkitEnterFullscreen()
+		} else if (video.webkitEnterFullscreen) {
 			// Toggle fullscreen in Safari for iPad
-			video.webkitEnterFullScreen()
+			video.webkitEnterFullscreen()
 		}
 	})
 </script>
