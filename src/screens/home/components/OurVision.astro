@@ -2,19 +2,23 @@
 import { Trans } from 'astro-i18next/components'
 import { t } from 'i18next'
 import Placeholder from '../../../img/placeholder-ourvision.png'
-import VideoBackground from '../../../components/template/VideoBackground.astro'
+import ImageBackground from '@components/template/ImageBackground.astro'
 ---
 
 <section id="our-vision">
 	<div class="relative min-h-screen overflow-hidden">
-		<VideoBackground
-			video="/assets/videos/our-vision.mp4"
-			autoplay={false}
-			placeholder={Placeholder}
-			muted={false}
-			id="our-vision-video"
-			preload="none"
-		>
+		<ImageBackground desktpBg={Placeholder}>
+			<div class="video-wrapper-vision z-full fixed bottom-0 left-0 right-0 top-0 hidden">
+				<button class="absolute right-5 top-5 text-3xl text-white drop-shadow-lg"> X </button>
+				<video
+					id="our-vision-full"
+					class="fixed bottom-0 left-0 right-0 top-0"
+					muted={true}
+					preload="none"
+				>
+					<source src="/assets/videos/our-vision.mp4" type="video/mp4" />
+				</video>
+			</div>
 			<div
 				class="videoMask absolute inset-0 h-full w-full bg-[linear-gradient(180deg,_rgba(0,_0,_0,_0.00)_0%,_rgba(0,_0,_0,_0.40)_100%)]"
 			>
@@ -68,38 +72,77 @@ import VideoBackground from '../../../components/template/VideoBackground.astro'
 					</div>
 				</div>
 			</div>
-		</VideoBackground>
+		</ImageBackground>
 	</div>
 </section>
 <script>
+	// const playButton = document.querySelector('.playButton')
+	// const mask = document.querySelector('.videoMask')
+	// const video = document.getElementById('our-vision-video') as HTMLVideoElement
+	// const poster = document.getElementById('video-poster')
+
+	// playButton.addEventListener('click', function () {
+	// 	if (video instanceof HTMLVideoElement) {
+	// 		mask.classList.add('hidden')
+	// 		poster.classList.add('hidden')
+	// 		video.play()
+	// 		toggleControls()
+	// 	}
+	// })
+
+	// video.addEventListener('pause', function () {
+	// 	mask.classList.remove('hidden')
+	// 	toggleControls()
+	// })
+
+	// function toggleControls() {
+	// 	if (video.hasAttribute('controls')) {
+	// 		video.removeAttribute('controls')
+	// 	} else {
+	// 		video.setAttribute('controls', 'controls')
+	// 	}
+	// }
+
+	// function isFullscreen() {
+	// 	return !!(
+	// 		document.fullscreenElement ||
+	// 		document.webkitFullscreenElement ||
+	// 		document.mozFullScreenElement ||
+	// 		document.msFullscreenElement
+	// 	)
+	// }
+
+	// document.addEventListener('webkitfullscreenchange', () => {
+	// 	if (!isFullscreen()) {
+	// 		video.pause()
+	// 	}
+	// })
+
+	// playButton.addEventListener('click', () => {
+	// 	if (video.requestFullscreen) {
+	// 		// W3C API
+	// 		video.requestFullscreen()
+	// 	} else if (video.mozRequestFullScreen) {
+	// 		// Mozilla current API
+	// 		video.mozRequestFullScreen()
+	// 	} else if (video.webkitRequestFullscreen) {
+	// 		// Webkit current API
+	// 		video.webkitRequestFullscreen()
+	// 	} else if (video.webkitEnterFullscreen) {
+	// 		// This is the IOS Mobile edge case
+	// 		video.webkitEnterFullscreen()
+	// 	} else if (video.webkitEnterFullscreen) {
+	// 		// Toggle fullscreen in Safari for iPad
+	// 		video.webkitEnterFullscreen()
+	// 	}
+	// })
+
 	const playButton = document.querySelector('.playButton')
-	const mask = document.querySelector('.videoMask')
-	const video = document.getElementById('our-vision-video') as HTMLVideoElement
-	const poster = document.getElementById('video-poster')
+	const videoWrapper = document.querySelector('.video-wrapper-vision')
+	const fullVideo = document.getElementById('our-vision-full') as HTMLVideoElement
 
-	playButton.addEventListener('click', function () {
-		if (video instanceof HTMLVideoElement) {
-			mask.classList.add('hidden')
-			poster.classList.add('hidden')
-			video.play()
-			toggleControls()
-		}
-	})
-
-	video.addEventListener('pause', function () {
-		mask.classList.remove('hidden')
-		toggleControls()
-	})
-
-	function toggleControls() {
-		if (video.hasAttribute('controls')) {
-			video.removeAttribute('controls')
-		} else {
-			video.setAttribute('controls', 'controls')
-		}
-	}
-
-	function isFullscreen() {
+	// Function to check fullscreen state
+	function isFullScreen() {
 		return !!(
 			document.fullscreenElement ||
 			document.webkitFullscreenElement ||
@@ -108,30 +151,58 @@ import VideoBackground from '../../../components/template/VideoBackground.astro'
 		)
 	}
 
-	document.addEventListener('webkitfullscreenchange', () => {
-		if (!isFullscreen()) {
-			video.pause()
+	// Function to toggle fullscreen
+	function toggleFullScreen() {
+		if (isFullScreen()) {
+			if (document.exitFullscreen) {
+				document.exitFullscreen()
+			} else if (document.webkitExitFullscreen) {
+				document.webkitExitFullscreen()
+			} else if (document.mozCancelFullScreen) {
+				document.mozCancelFullScreen()
+			} else if (document.msExitFullscreen) {
+				document.msExitFullscreen()
+			}
+		} else {
+			if (fullVideo.requestFullscreen) {
+				fullVideo.requestFullscreen()
+			} else if (fullVideo.mozRequestFullScreen) {
+				fullVideo.mozRequestFullScreen()
+			} else if (fullVideo.webkitRequestFullscreen) {
+				fullVideo.webkitRequestFullscreen()
+			} else if (fullVideo.webkitEnterFullscreen) {
+				fullVideo.webkitEnterFullscreen()
+			}
+		}
+	}
+
+	// Event listener for fullscreen change
+	document.addEventListener('fullscreenchange', () => {
+		if (!isFullScreen()) {
+			fullVideo.pause()
+			videoWrapper.classList.add('hidden')
+		} else {
+			if (fullVideo.paused) {
+				fullVideo.play()
+			}
 		}
 	})
 
+	// Event listener for play button
 	playButton.addEventListener('click', () => {
-		if (video.requestFullscreen) {
-			// W3C API
-			video.requestFullscreen()
-		} else if (video.mozRequestFullScreen) {
-			// Mozilla current API
-			video.mozRequestFullScreen()
-		} else if (video.webkitRequestFullscreen) {
-			// Webkit current API
-			video.webkitRequestFullscreen()
-		} else if (video.webkitEnterFullscreen) {
-			// This is the IOS Mobile edge case
-			video.webkitEnterFullscreen()
-		} else if (video.webkitEnterFullscreen) {
-			// Toggle fullscreen in Safari for iPad
-			video.webkitEnterFullscreen()
-		}
+		console.log('entra al')
+		videoWrapper.classList.remove('hidden')
+		toggleFullScreen()
 	})
+
+	// Remove event listeners when they are no longer needed
+	function cleanup() {
+		playButton.removeEventListener('click', toggleFullScreen)
+		document.removeEventListener('fullscreenchange', cleanup)
+	}
+
+	// Add cleanup listener
+	document.addEventListener('fullscreenchange', cleanup)
 </script>
 <style>
 	@media (min-width: 480px) and (max-width: 1600px) and (max-height: 900px) {
