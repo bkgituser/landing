@@ -5,71 +5,75 @@ import Placeholder from '../../../img/placeholder-ourvision.png'
 import ImageBackground from '@components/template/ImageBackground.astro'
 ---
 
-<section id="our-vision">
-	<div class="relative min-h-screen overflow-hidden">
-		<ImageBackground desktpBg={Placeholder}>
-			<div
-				class="videoMask absolute inset-0 h-full w-full bg-[linear-gradient(180deg,_rgba(0,_0,_0,_0.00)_0%,_rgba(0,_0,_0,_0.40)_100%)]"
-			>
-				<div class="container-screen z-10 mx-auto flex h-full flex-col items-start justify-center">
-					<div class="content relative z-10 xl:w-3/4">
-						<p
-							class="ourvision-line py-4 text-2xl font-semibold text-white drop-shadow-lg md:drop-shadow-none"
-						>
-							{t('landing.ourVision.badge')}
-						</p>
-						<span
-							class="ourvision-line block w-8 border-2 border-white drop-shadow-lg md:w-10 md:drop-shadow-none"
-						></span>
-						<h3
-							class="ourvision-line pb-1 pt-5 text-plusMid font-semibold text-white drop-shadow-lg md:text-plusMid md:drop-shadow-none"
-						>
-							{t('landing.ourVision.title')}
-						</h3>
-
-						<p
-							class="ourvision-line main-text text-left text-[32px] leading-9 text-white drop-shadow-lg md:hidden md:text-justify md:drop-shadow-none xl:leading-[3rem]"
-						>
-							{t('landing.ourVision.description')}
-						</p>
-						{
-							t('landing.ourVision.description')
-								.split('\n')
-								.map((line) => (
-									<p class="ourvision-line hidden text-left  text-4xl text-white drop-shadow-lg md:block md:text-justify md:drop-shadow-none xl:leading-[3rem]">
-										{line}
-									</p>
-								))
-						}
-
-						<div class="mt-10 md:mt-12">
-							<button
-								class="ourvision-line playButton flex items-center gap-4 bg-black px-8 py-2 text-white md:px-12 md:py-4"
+<>
+	<section id="our-vision">
+		<div class="relative min-h-screen overflow-hidden">
+			<ImageBackground desktpBg={Placeholder}>
+				<div
+					class="videoMask absolute inset-0 h-full w-full bg-[linear-gradient(180deg,_rgba(0,_0,_0,_0.00)_0%,_rgba(0,_0,_0,_0.40)_100%)]"
+				>
+					<div
+						class="container-screen z-10 mx-auto flex h-full flex-col items-start justify-center"
+					>
+						<div class="content relative z-10 xl:w-3/4">
+							<p
+								class="ourvision-line py-4 text-2xl font-semibold text-white drop-shadow-lg md:drop-shadow-none"
 							>
-								<img
-									src="/assets/icons/play.svg"
-									alt="play"
-									class="h-4 w-4 md:h-auto md:w-auto"
-									loading="lazy"
-								/>
-								<p class="text-base font-semibold md:text-xl">{t('landing.ourVision.button')}</p>
-							</button>
-							<p class="mt-2 w-[177px] text-center text-base text-[#A0A0A0] md:hidden">
-								Rotate your phone 2
+								{t('landing.ourVision.badge')}
 							</p>
+							<span
+								class="ourvision-line block w-8 border-2 border-white drop-shadow-lg md:w-10 md:drop-shadow-none"
+							></span>
+							<h3
+								class="ourvision-line pb-1 pt-5 text-plusMid font-semibold text-white drop-shadow-lg md:text-plusMid md:drop-shadow-none"
+							>
+								{t('landing.ourVision.title')}
+							</h3>
+
+							<p
+								class="ourvision-line main-text text-left text-[32px] leading-9 text-white drop-shadow-lg md:hidden md:text-justify md:drop-shadow-none xl:leading-[3rem]"
+							>
+								{t('landing.ourVision.description')}
+							</p>
+							{
+								t('landing.ourVision.description')
+									.split('\n')
+									.map((line) => (
+										<p class="ourvision-line hidden text-left  text-4xl text-white drop-shadow-lg md:block md:text-justify md:drop-shadow-none xl:leading-[3rem]">
+											{line}
+										</p>
+									))
+							}
+
+							<div class="mt-10 md:mt-12">
+								<button
+									class="ourvision-line playButton flex items-center gap-4 bg-black px-8 py-2 text-white md:px-12 md:py-4"
+								>
+									<img
+										src="/assets/icons/play.svg"
+										alt="play"
+										class="h-4 w-4 md:h-auto md:w-auto"
+										loading="lazy"
+									/>
+									<p class="text-base font-semibold md:text-xl">{t('landing.ourVision.button')}</p>
+								</button>
+								<p class="mt-2 w-[177px] text-center text-base text-[#A0A0A0] md:hidden">
+									Rotate your phone 3
+								</p>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="video-wrapper-vision z-full fixed bottom-0 left-0 right-0 top-0 hidden">
-				<button class="absolute right-5 top-5 text-3xl text-white drop-shadow-lg"> X </button>
-				<video id="our-vision-full" class="video-js" muted={false} preload="none">
-					<source src="/assets/videos/our-vision.mp4" type="video/mp4" />
-				</video>
-			</div>
-		</ImageBackground>
+			</ImageBackground>
+		</div>
+	</section>
+	<div class="video-wrapper-vision z-full fixed bottom-0 left-0 right-0 top-0 hidden">
+		<button class="absolute right-5 top-5 text-3xl text-white drop-shadow-lg"> X </button>
+		<video id="our-vision-full" class="video-js" muted={false} preload="none">
+			<source src="/assets/videos/our-vision.mp4" type="video/mp4" />
+		</video>
 	</div>
-</section>
+</>
 <script>
 	import videojs from 'video.js'
 	const playButton = document.querySelector('.playButton')
@@ -80,12 +84,9 @@ import ImageBackground from '@components/template/ImageBackground.astro'
 
 	function pauseOnExitFullscreen() {
 		if (this?.isFullscreen()) {
-			console.log('pause on exit full screen 1')
 			videoWrapper.classList.add('hidden')
 			this?.exitFullscreen()
 			this?.pause()
-		} else {
-			console.log('pause on exit full screen 2')
 		}
 	}
 
@@ -98,7 +99,7 @@ import ImageBackground from '@components/template/ImageBackground.astro'
 	playHiddenVideo.addEventListener('show-modal-our-vision', () => {
 		const ourVisionVideo = videojs('our-vision-full', {
 			preferFullWindow: true,
-			muted: true,
+			muted: false,
 			preload: 'none',
 			playsinline: true,
 			controls: true,
@@ -117,7 +118,6 @@ import ImageBackground from '@components/template/ImageBackground.astro'
 		// WHEN user clicks exit fullscreen on controls
 		ourVisionVideo.on('fullscreenchange', function () {
 			if (!ourVisionVideo.isFullscreen()) {
-				console.log('1')
 				videoWrapper.classList.add('hidden')
 				ourVisionVideo?.exitFullscreen()
 				ourVisionVideo?.pause()

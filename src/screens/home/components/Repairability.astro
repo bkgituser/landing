@@ -136,12 +136,9 @@ const manualDocSrc = '/assets/docs/Repairability_ml.pdf'
 
 	function pauseOnExitFullscreen() {
 		if (this?.isFullscreen()) {
-			console.log('pause on exit full screen 1')
 			videoWrapper.classList.add('hidden')
 			this?.exitFullscreen()
 			this?.pause()
-		} else {
-			console.log('pause on exit full screen 2')
 		}
 	}
 
@@ -173,7 +170,6 @@ const manualDocSrc = '/assets/docs/Repairability_ml.pdf'
 		// WHEN user clicks exit fullscreen on controls
 		repairabilityVideo.on('fullscreenchange', function () {
 			if (!repairabilityVideo.isFullscreen()) {
-				console.log('1')
 				videoWrapper.classList.add('hidden')
 				repairabilityVideo?.exitFullscreen()
 				repairabilityVideo?.pause()
