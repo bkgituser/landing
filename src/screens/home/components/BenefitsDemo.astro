@@ -37,7 +37,7 @@ const idBenefits = 'benefits-slider'
 ---
 
 <section id="benefits" class="relative h-screen">
-	<VideoBackground video="/assets/videos/video-benefits.mp4" autoplay={true}>
+	<VideoBackground id="benefits-video" video="/assets/videos/video-benefits.mp4" autoplay={true}>
 		<div
 			class="absolute z-10 h-full w-full bg-[linear-gradient(180deg,_rgba(0,_0,_0,_0.00)_0%,_rgba(0,_0,_0,_0.40)_100%)] lg:bottom-0 lg:h-1/2"
 		>
@@ -109,6 +109,18 @@ const idBenefits = 'benefits-slider'
 		</div>
 	</VideoBackground>
 </section>
+<script>
+	import videojs from 'video.js'
+
+	const benefitsVideo = videojs('benefits-video', {
+		preferFullWindow: true,
+		muted: true,
+		preload: 'none',
+		playsinline: true,
+		controls: false,
+		fluid: true
+	})
+</script>
 <style>
 	/* HORIZONTAL */
 	@media (max-height: 480px) {

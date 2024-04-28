@@ -101,7 +101,8 @@ const manualDocSrc = '/assets/docs/Repairability_ml.pdf'
 				</div>
 				<div class="mb-8 flex items-center justify-center px-5 lg:my-0 lg:justify-start">
 					<button
-						class="play-hidden-video flex h-[56px] w-[261px] items-center justify-center gap-4 border-[1px] border-black px-2 py-2 text-black md:h-auto md:w-auto md:basis-auto"
+						id="play-hidden-video-repairability"
+						class="flex h-[56px] w-[261px] items-center justify-center gap-4 border-[1px] border-black px-2 py-2 text-black md:h-auto md:w-auto md:basis-auto"
 					>
 						<img
 							src="/assets/icons/play-black.svg"
@@ -120,84 +121,80 @@ const manualDocSrc = '/assets/docs/Repairability_ml.pdf'
 	<!-- HIDDEN VIDEO -->
 	<div class="video-wrapper z-full fixed bottom-0 left-0 right-0 top-0 hidden">
 		<button class="absolute right-5 top-5 text-3xl text-white drop-shadow-lg"> X </button>
-		<video
-			id="repairability-full"
-			class="fixed bottom-0 left-0 right-0 top-0"
-			muted={true}
-			preload="none"
-		>
+		<video id="repairability-full" class="video-js" muted={true} preload="none">
 			<source src={videoFullSrc} type="video/mp4" />
 		</video>
 	</div>
 </>
 <script>
-	const playButton = document.querySelector('.play-hidden-video')
+	import videojs from 'video.js'
+
+	const playButton = document.getElementById('play-hidden-video-repairability')
 	const videoWrapper = document.querySelector('.video-wrapper')
-	const fullVideo = document.getElementById('repairability-full') as HTMLVideoElement
 
-	// Function to check fullscreen state
-	function isFullScreen() {
-		return !!(
-			document.fullscreenElement ||
-			document.webkitFullscreenElement ||
-			document.mozFullScreenElement ||
-			document.msFullscreenElement
-		)
-	}
+	const playHiddenVideo = new EventTarget()
 
-	// Function to toggle fullscreen
-	function toggleFullScreen() {
-		if (isFullScreen()) {
-			if (document.exitFullscreen) {
-				document.exitFullscreen()
-			} else if (document.webkitExitFullscreen) {
-				document.webkitExitFullscreen()
-			} else if (document.mozCancelFullScreen) {
-				document.mozCancelFullScreen()
-			} else if (document.msExitFullscreen) {
-				document.msExitFullscreen()
-			}
-		} else {
-			if (fullVideo.requestFullscreen) {
-				fullVideo.requestFullscreen()
-			} else if (fullVideo.mozRequestFullScreen) {
-				fullVideo.mozRequestFullScreen()
-			} else if (fullVideo.webkitRequestFullscreen) {
-				fullVideo.webkitRequestFullscreen()
-			} else if (fullVideo.webkitEnterFullscreen) {
-				fullVideo.webkitEnterFullscreen()
-			}
-		}
-	}
-
-	// Event listener for fullscreen change
-	document.addEventListener('fullscreenchange', () => {
-		if (!isFullScreen()) {
-			fullVideo.pause()
+	function pauseOnExitFullscreen() {
+		if (this?.isFullscreen()) {
+			console.log('pause on exit full screen 1')
 			videoWrapper.classList.add('hidden')
+			this?.exitFullscreen()
+			this?.pause()
 		} else {
-			if (fullVideo.paused) {
-				fullVideo.play()
-			}
+			console.log('pause on exit full screen 2')
 		}
-	})
+	}
 
 	// Event listener for play button
-	playButton.addEventListener('click', () => {
+	playButton.addEventListener('click', function () {
 		videoWrapper.classList.remove('hidden')
-		toggleFullScreen()
+		playHiddenVideo.dispatchEvent(new CustomEvent('show-modal'))
 	})
 
-	// Remove event listeners when they are no longer needed
-	function cleanup() {
-		playButton.removeEventListener('click', toggleFullScreen)
-		document.removeEventListener('fullscreenchange', cleanup)
-	}
+	playHiddenVideo.addEventListener('show-modal', () => {
+		const repairabilityVideo = videojs('repairability-full', {
+			preferFullWindow: true,
+			muted: true,
+			preload: 'none',
+			playsinline: true,
+			controls: true,
+			fluid: true,
+			userActions: {
+				click: pauseOnExitFullscreen,
+				doubleClick: pauseOnExitFullscreen,
+				tap: pauseOnExitFullscreen
+			}
+		})
 
-	// Add cleanup listener
-	document.addEventListener('fullscreenchange', cleanup)
+		repairabilityVideo.requestFullscreen()
+
+		repairabilityVideo.play()
+
+		// WHEN user clicks exit fullscreen on controls
+		repairabilityVideo.on('fullscreenchange', function () {
+			if (!repairabilityVideo.isFullscreen()) {
+				console.log('1')
+				videoWrapper.classList.add('hidden')
+				repairabilityVideo?.exitFullscreen()
+				repairabilityVideo?.pause()
+			}
+		})
+
+		repairabilityVideo.on('touchstart', function (e) {
+			if (e.target.nodeName === 'VIDEO') {
+				if (repairabilityVideo.paused()) {
+					this.play()
+				} else {
+					this.pause()
+				}
+			}
+		})
+	})
 </script>
 <style>
+	.vjs-tech {
+		object-fit: contain !important;
+	}
 	.full-width-video {
 		width: calc(100% + 2.5rem);
 		max-width: none;

@@ -70,3 +70,24 @@ const id = 'landing-slide'
 		</style>
 	</section>
 </>
+<script>
+	import videojs from 'video.js'
+
+	const landingVideo = videojs('landing-video', {
+		preferFullWindow: true,
+		muted: true,
+		preload: 'none',
+		playsinline: true,
+		controls: false,
+		fluid: true,
+		fill: true,
+		responsive: false,
+		aspectRatio: '1:1'
+	})
+
+	const loader = document.querySelector('.loader-content')
+
+	landingVideo.on('ready', function () {
+		loader.classList.add('hidden')
+	})
+</script>

@@ -10,12 +10,7 @@ import ImageBackground from '@components/template/ImageBackground.astro'
 		<ImageBackground desktpBg={Placeholder}>
 			<div class="video-wrapper-vision z-full fixed bottom-0 left-0 right-0 top-0 hidden">
 				<button class="absolute right-5 top-5 text-3xl text-white drop-shadow-lg"> X </button>
-				<video
-					id="our-vision-full"
-					class="fixed bottom-0 left-0 right-0 top-0"
-					muted={true}
-					preload="none"
-				>
+				<video id="our-vision-full" class="video-js" muted={true} preload="none">
 					<source src="/assets/videos/our-vision.mp4" type="video/mp4" />
 				</video>
 			</div>
@@ -76,133 +71,69 @@ import ImageBackground from '@components/template/ImageBackground.astro'
 	</div>
 </section>
 <script>
-	// const playButton = document.querySelector('.playButton')
-	// const mask = document.querySelector('.videoMask')
-	// const video = document.getElementById('our-vision-video') as HTMLVideoElement
-	// const poster = document.getElementById('video-poster')
-
-	// playButton.addEventListener('click', function () {
-	// 	if (video instanceof HTMLVideoElement) {
-	// 		mask.classList.add('hidden')
-	// 		poster.classList.add('hidden')
-	// 		video.play()
-	// 		toggleControls()
-	// 	}
-	// })
-
-	// video.addEventListener('pause', function () {
-	// 	mask.classList.remove('hidden')
-	// 	toggleControls()
-	// })
-
-	// function toggleControls() {
-	// 	if (video.hasAttribute('controls')) {
-	// 		video.removeAttribute('controls')
-	// 	} else {
-	// 		video.setAttribute('controls', 'controls')
-	// 	}
-	// }
-
-	// function isFullscreen() {
-	// 	return !!(
-	// 		document.fullscreenElement ||
-	// 		document.webkitFullscreenElement ||
-	// 		document.mozFullScreenElement ||
-	// 		document.msFullscreenElement
-	// 	)
-	// }
-
-	// document.addEventListener('webkitfullscreenchange', () => {
-	// 	if (!isFullscreen()) {
-	// 		video.pause()
-	// 	}
-	// })
-
-	// playButton.addEventListener('click', () => {
-	// 	if (video.requestFullscreen) {
-	// 		// W3C API
-	// 		video.requestFullscreen()
-	// 	} else if (video.mozRequestFullScreen) {
-	// 		// Mozilla current API
-	// 		video.mozRequestFullScreen()
-	// 	} else if (video.webkitRequestFullscreen) {
-	// 		// Webkit current API
-	// 		video.webkitRequestFullscreen()
-	// 	} else if (video.webkitEnterFullscreen) {
-	// 		// This is the IOS Mobile edge case
-	// 		video.webkitEnterFullscreen()
-	// 	} else if (video.webkitEnterFullscreen) {
-	// 		// Toggle fullscreen in Safari for iPad
-	// 		video.webkitEnterFullscreen()
-	// 	}
-	// })
-
+	import videojs from 'video.js'
 	const playButton = document.querySelector('.playButton')
 	const videoWrapper = document.querySelector('.video-wrapper-vision')
 	const fullVideo = document.getElementById('our-vision-full') as HTMLVideoElement
 
-	// Function to check fullscreen state
-	function isFullScreen() {
-		return !!(
-			document.fullscreenElement ||
-			document.webkitFullscreenElement ||
-			document.mozFullScreenElement ||
-			document.msFullscreenElement
-		)
-	}
+	const playHiddenVideo = new EventTarget()
 
-	// Function to toggle fullscreen
-	function toggleFullScreen() {
-		if (isFullScreen()) {
-			if (document.exitFullscreen) {
-				document.exitFullscreen()
-			} else if (document.webkitExitFullscreen) {
-				document.webkitExitFullscreen()
-			} else if (document.mozCancelFullScreen) {
-				document.mozCancelFullScreen()
-			} else if (document.msExitFullscreen) {
-				document.msExitFullscreen()
-			}
-		} else {
-			if (fullVideo.requestFullscreen) {
-				fullVideo.requestFullscreen()
-			} else if (fullVideo.mozRequestFullScreen) {
-				fullVideo.mozRequestFullScreen()
-			} else if (fullVideo.webkitRequestFullscreen) {
-				fullVideo.webkitRequestFullscreen()
-			} else if (fullVideo.webkitEnterFullscreen) {
-				fullVideo.webkitEnterFullscreen()
-			}
-		}
-	}
-
-	// Event listener for fullscreen change
-	document.addEventListener('fullscreenchange', () => {
-		if (!isFullScreen()) {
-			fullVideo.pause()
+	function pauseOnExitFullscreen() {
+		if (this?.isFullscreen()) {
+			console.log('pause on exit full screen 1')
 			videoWrapper.classList.add('hidden')
+			this?.exitFullscreen()
+			this?.pause()
 		} else {
-			if (fullVideo.paused) {
-				fullVideo.play()
-			}
+			console.log('pause on exit full screen 2')
 		}
-	})
+	}
 
 	// Event listener for play button
-	playButton.addEventListener('click', () => {
-		console.log('entra al')
+	playButton.addEventListener('click', function () {
 		videoWrapper.classList.remove('hidden')
-		toggleFullScreen()
+		playHiddenVideo.dispatchEvent(new CustomEvent('show-modal-our-vision'))
 	})
 
-	// Remove event listeners when they are no longer needed
-	function cleanup() {
-		playButton.removeEventListener('click', toggleFullScreen)
-		document.removeEventListener('fullscreenchange', cleanup)
-	}
+	playHiddenVideo.addEventListener('show-modal-our-vision', () => {
+		const ourVisionVideo = videojs('our-vision-full', {
+			preferFullWindow: true,
+			muted: true,
+			preload: 'none',
+			playsinline: true,
+			controls: true,
+			fluid: true,
+			userActions: {
+				click: pauseOnExitFullscreen,
+				doubleClick: pauseOnExitFullscreen,
+				tap: pauseOnExitFullscreen
+			}
+		})
 
-	// Add cleanup listener
-	document.addEventListener('fullscreenchange', cleanup)
+		ourVisionVideo.requestFullscreen()
+
+		ourVisionVideo.play()
+
+		// WHEN user clicks exit fullscreen on controls
+		ourVisionVideo.on('fullscreenchange', function () {
+			if (!ourVisionVideo.isFullscreen()) {
+				console.log('1')
+				videoWrapper.classList.add('hidden')
+				ourVisionVideo?.exitFullscreen()
+				ourVisionVideo?.pause()
+			}
+		})
+
+		ourVisionVideo.on('touchstart', function (e) {
+			if (e.target.nodeName === 'VIDEO') {
+				if (ourVisionVideo.paused()) {
+					this.play()
+				} else {
+					this.pause()
+				}
+			}
+		})
+	})
 </script>
 <style>
 	@media (min-width: 480px) and (max-width: 1600px) and (max-height: 900px) {

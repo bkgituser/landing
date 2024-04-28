@@ -11,29 +11,23 @@ const {
 ---
 
 <div class="relative h-svh min-h-screen">
-	<video
-		id={id}
-		autoplay={autoplay}
-		loop
-		playsinline
-		class="absolute h-full w-full object-cover"
-		muted={muted}
-		preload={preload}
-	>
-		<source src={video} type="video/mp4" />
-	</video>
-	{
-		placeholder && (
-			<Image
-				src={placeholder}
-				alt="Video Poster"
-				class="absolute h-full w-full object-cover"
-				loading="lazy"
-				decoding="async"
-				id="video-poster"
-			/>
-		)
-	}
+	<div class="absolute h-full w-full overflow-hidden">
+		<video id={id} autoplay={autoplay} loop playsinline class="video-js" preload={preload}>
+			<source src={video} type="video/mp4" />
+		</video>
+		<!-- {
+			placeholder && (
+				<Image
+					src={placeholder}
+					alt="Video Poster"
+					class="absolute h-full w-full object-cover"
+					loading="lazy"
+					decoding="async"
+					id="video-poster"
+				/>
+			)
+		} -->
+	</div>
 	<slot />
 </div>
 <style>

@@ -40,6 +40,7 @@ import '../../index.css'
 			// register Swiper custom elements
 			register()
 		</script>
+		<link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
 	</head>
 
 	<body class="font-neoSans">
@@ -94,6 +95,13 @@ import '../../index.css'
 			})
 		</script>
 		<style is:global>
+			.video-js {
+				height: 100% !important;
+			}
+			.vjs-tech {
+				object-fit: cover;
+			}
+
 			body {
 				margin: 0;
 				padding: 0;
