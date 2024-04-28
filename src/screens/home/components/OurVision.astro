@@ -8,12 +8,6 @@ import ImageBackground from '@components/template/ImageBackground.astro'
 <section id="our-vision">
 	<div class="relative min-h-screen overflow-hidden">
 		<ImageBackground desktpBg={Placeholder}>
-			<div class="video-wrapper-vision z-full fixed bottom-0 left-0 right-0 top-0 hidden">
-				<button class="absolute right-5 top-5 text-3xl text-white drop-shadow-lg"> X </button>
-				<video id="our-vision-full" class="video-js" muted={true} preload="none">
-					<source src="/assets/videos/our-vision.mp4" type="video/mp4" />
-				</video>
-			</div>
 			<div
 				class="videoMask absolute inset-0 h-full w-full bg-[linear-gradient(180deg,_rgba(0,_0,_0,_0.00)_0%,_rgba(0,_0,_0,_0.40)_100%)]"
 			>
@@ -66,6 +60,12 @@ import ImageBackground from '@components/template/ImageBackground.astro'
 						</div>
 					</div>
 				</div>
+			</div>
+			<div class="video-wrapper-vision z-full fixed bottom-0 left-0 right-0 top-0 hidden">
+				<button class="absolute right-5 top-5 text-3xl text-white drop-shadow-lg"> X </button>
+				<video id="our-vision-full" class="video-js" muted={false} preload="none">
+					<source src="/assets/videos/our-vision.mp4" type="video/mp4" />
+				</video>
 			</div>
 		</ImageBackground>
 	</div>
