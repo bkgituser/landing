@@ -49,12 +49,12 @@ import '../../index.css'
 		<slot />
 		<Footer />
 		<script>
-			const video = document.querySelector('#landing-video')
-			const loader = document.querySelector('.loader-content')
+			// const video = document.querySelector('#landing-video')
+			// const loader = document.querySelector('.loader-content')
 
-			video.onloadeddata = function () {
-				loader.classList.add('hidden')
-			}
+			// video.onloadeddata = function () {
+			// 	loader.classList.add('hidden')
+			// }
 		</script>
 
 		<script is:inline src="https://unpkg.com/@studio-freight/lenis@1.0.32/dist/lenis.min.js"
@@ -66,33 +66,33 @@ import '../../index.css'
 		></script>
 		<script src="../../scripts/gsap.js"></script>
 		<script>
-			window.addEventListener('load', () => {
-				const video = document?.getElementById('video')
+			// window.addEventListener('load', () => {
+			// 	const video = document?.getElementById('video')
 
-				video?.addEventListener('webkitfullscreenchange', handleFullScreenChange)
-				video?.addEventListener('mozfullscreenchange', handleFullScreenChange)
-				video?.addEventListener('fullscreenchange', handleFullScreenChange)
+			// 	video?.addEventListener('webkitfullscreenchange', handleFullScreenChange)
+			// 	video?.addEventListener('mozfullscreenchange', handleFullScreenChange)
+			// 	video?.addEventListener('fullscreenchange', handleFullScreenChange)
 
-				function handleFullScreenChange() {
-					if (
-						document.fullscreenElement ||
-						document.webkitFullscreenElement ||
-						document.mozFullScreenElement
-					) {
-						// Lock scrolling
-						document.addEventListener('touchmove', preventDefault, { passive: false })
-						document.body.style.overflow = 'hidden'
-					} else {
-						// Unlock scrolling
-						document.removeEventListener('touchmove', preventDefault)
-						document.body.style.overflow = 'auto'
-					}
-				}
+			// 	function handleFullScreenChange() {
+			// 		if (
+			// 			document.fullscreenElement ||
+			// 			document.webkitFullscreenElement ||
+			// 			document.mozFullScreenElement
+			// 		) {
+			// 			// Lock scrolling
+			// 			document.addEventListener('touchmove', preventDefault, { passive: false })
+			// 			document.body.style.overflow = 'hidden'
+			// 		} else {
+			// 			// Unlock scrolling
+			// 			document.removeEventListener('touchmove', preventDefault)
+			// 			document.body.style.overflow = 'auto'
+			// 		}
+			// 	}
 
-				function preventDefault(e) {
-					e.preventDefault()
-				}
-			})
+			// 	function preventDefault(e) {
+			// 		e.preventDefault()
+			// 	}
+			// })
 		</script>
 		<style is:global>
 			.video-js {
