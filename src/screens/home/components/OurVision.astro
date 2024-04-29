@@ -58,7 +58,7 @@ import ImageBackground from '@components/template/ImageBackground.astro'
 									<p class="text-base font-semibold md:text-xl">{t('landing.ourVision.button')}</p>
 								</button>
 								<p class="mt-2 w-[177px] text-center text-base text-[#A0A0A0] md:hidden">
-									Rotate your phone 5
+									Rotate your phone 6
 								</p>
 							</div>
 						</div>
@@ -85,7 +85,6 @@ import ImageBackground from '@components/template/ImageBackground.astro'
 
 	function pauseOnExitFullscreen() {
 		if (this?.isFullscreen()) {
-			videoWrapper.classList.add('hidden')
 			this?.exitFullscreen()
 			this?.pause()
 		}
@@ -118,7 +117,6 @@ import ImageBackground from '@components/template/ImageBackground.astro'
 		// WHEN user clicks exit fullscreen on controls
 		ourVisionVideo.on('fullscreenchange', function () {
 			if (!ourVisionVideo.isFullscreen()) {
-				videoWrapper.classList.add('hidden')
 				ourVisionVideo?.exitFullscreen()
 				ourVisionVideo?.pause()
 			}
