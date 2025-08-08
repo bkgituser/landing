@@ -19,33 +19,33 @@
 			"feature1": "Tubos de Fibra de Carbono",
 			"feature1Description": "Permitem Grande Largura <0>de Trabalho Com Baixo Peso",
 			"feature2": "Nós Metálicos",
-			"feature2Description": "Mais Eficiente para Suportar Cargas <0>Concentradas de Ligação e Articulações"
+			"feature2Description": "Mais Eficiente para Suportar Cargas <0>Concentradas em Juntas e Dobradiças"
 		},
 		"benefits": {
 			"badge": "<0>BENEFICIOS</0> da barra",
 			"item1": {
-				"description": "Aumento da Produtividade,\n Economia de Combustível",
-				"featureLine": "Aumento\n da Largura\n de Trabalho"
-			},
-			"item2": {
-				"description": "Redução da Compactação do Solo,\nMaior Velocidade de Trabalho",
-				"featureLine": "Redução \ndo\nPeso"
-			},
-			"item3": {
-				"description": "Aumento da durabilidade",
-				"featureLine": "Resistente à \n Corrosão e \nFadiga"
-			},
-			"item4": {
 				"description": "Aplicação Mais Uniforme",
 				"featureLine": "Maior \nEstabilidade"
 			},
-			"item5": {
-				"description": "Kits de reparo fáceis de usar. Nenhuma experiência anterior necessária. \nMenos tempo de inatividade da máquina. Custos de manutenção reduzidos.",
-				"featureLine": "Fácil de Reparar"
+			"item2": {
+				"description": "Redução da Compactação do Solo,\nMaior Velocidade de Trabalho",
+				"featureLine": "Peso \nReduzido"
 			},
-			"item6": {
+			"item3": {
 				"description": "A estabilidade e durabilidade de nosso barril o tornam ideal para \nSistemas de Pulverização Inteligente em toda a largura de trabalho.",
 				"featureLine": "Sistemas Ideais \nde Pulverização \nInteligente"
+			},
+			"item4": {
+				"description": "Aumento da Produtividade,\n Economia de Combustível",
+				"featureLine": "Aumento\n da Largura\n de Trabalho"
+			},
+			"item5": {
+				"description": "Aumento da durabilidade",
+				"featureLine": "Resistente à \n Corrosão e \nFadiga"
+			},
+			"item6": {
+				"description": "Kits de reparo fáceis de usar. Nenhuma experiência anterior necessária. \nMenos tempo de inatividade da máquina. Custos de manutenção reduzidos.",
+				"featureLine": "Fácil de Reparar"
 			}
 		},
 		"highlights": {

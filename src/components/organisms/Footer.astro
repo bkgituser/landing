@@ -1,5 +1,6 @@
 ---
 import { t } from 'i18next'
+import Logo from '../../img/logo-bk.png'
 ---
 
 <footer id="footer" class="min-h-[50vh] bg-black text-lightGrey">
@@ -30,7 +31,7 @@ import { t } from 'i18next'
 				<h6 class="text-lg text-greyOpaque lg:text-2xl">{t('landing.footer.sales')}</h6>
 				<div class="country py-2">
 					<p class="pb-1 pt-2 text-lg text-white md:pb-3 md:pt-4 lg:text-2xl">
-						<strong> ARGENTINA / EUROPE </strong>
+						<strong> ARGENTINA / USA / EUROPE </strong>
 					</p>
 					<a href="mailto:sales@bk-comp.com" target="_blank" rel="noopener noreferrer">
 						<p class="text-sm text-gray-300">sales@bk-comp.com</p>
@@ -110,8 +111,14 @@ import { t } from 'i18next'
 			class="flex w-full items-center justify-between px-8 py-10 md:justify-start md:py-20 lg:px-0"
 		>
 			<p class="text-sm text-grey md:w-1/2">© 2024 BK-Comp. All Rights Reserved.</p>
-			<a href="#hero">
+			<!-- <a href="#hero">
 				<img src="/assets/icons/arrow-up.svg" alt="linkedin icon" loading="lazy" />
+			</a> -->
+			<a href="#hero" class="flex items-center gap-4">
+				<img src={Logo.src} width={100} height={50} alt="Logo BK" class="mb-4" /><span class="mb-1"
+					>|</span
+				>
+				<p class="text-sm text-white">Leap in <strong>EFFICIENCY</strong></p>
 			</a>
 		</div>
 	</div>

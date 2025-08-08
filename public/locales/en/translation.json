@@ -1,185 +1,184 @@
 {
-    "landing": {
-        "nav": {
-            "home":"HOME",
-            "aboutUs":"ABOUT US",
-            "benefits":"BENEFITS",
-            "products":"PRODUCTS",
-            "accesories":"ACCESORIES",
-            "contact":"CONTACT"
-        },
-        "carousel": {
-            "title1": "<0>Smart Use </0>of <1>Advance Composites</1>",
-            "title11": "to <0>Boost Efficiency</0> in <1>Agriculture</1>",
-            "title2": "Lightweight Sprayer Booms"
-        },
-        "smartUse": {
-            "badge": "The concept",
-            "title": "Smart Use <0> of Materials",
-            "feature1": "Carbon fiber Tubes",
-            "feature1Description": "Achieve Large Working Width<0> with Low Weight",
-            "feature2": "Metal Nodes",
-            "feature2Description": "More Efficient to Withstand <0> Concentrated Loads of Ties and Joints"
-        },
-        "benefits": {
-            "badge": "<0>BENEFITS</0> - BK BOOMS",
-            "item1": {
-                "description": "Increased Productivity,\n Fuel Savings",
-                "featureLine": "Increased\n Working\n Width"
-            },
-            "item2": {
-                "description": "Reduce Soil Compaction,\nHigher Working Speed",
-                "featureLine": "Reduce \nWeight"
-            },
-            "item3": {
-                "description": "Increased durability",
-                "featureLine": "Resistant to \n Corrosion and \nFatigue"
-            },
-            "item4": {
-                "description": "More Uniform Application",
-                "featureLine": "Greater \nStability"
-            },
-            "item5": {
-                "description": "Easy-to-use repairs kits. No previous experience required. \nLess machine downtime. Reduced maintenance costs.",
-                "featureLine": "Easy to Repair"
-            },
-            "item6": {
-                "description": "The stability and durability of our boom make it ideal for \nSmart Spot Spraying Systems across the entire working width.",
-                "featureLine": "Ideal Smart \nSpot Spraying \nSystems"
-            }
-        },
-        "highlights": {
-            "title": "BK’s Boom Highlights",
-            "item1": {
-                "label": "Stability",
-                "content": "Effective weight distribution, centralizing mass near the machine. This improves the boom's dynamics and stability on uneven terrain, allowing faster operation."
-            },
-            "item2": {
-                "label": "Repairability",
-                "content": "The repair kit allows for fast and straightforward application in the field, eliminating the need for special tools or prior experience.",
-                "button": "Learn More"
-            },
-            "item3": {
-                "label": "Quality",
-                "content": "Automated manufacturing processes enable enhanced repeatability and superior material properties."
-            },
-            "item4": {
-                "label": "Modularity",
-                "content": "Allows the quick and easy integration of technology and accessories. This modular design is achieved through the combination of carbon fiber with other metals and materials, achieving a simple, lightweight, and efficient design."
-            }
-        },
-        "productsLineup": {
-            "title": "<0>PRODUCTS LINEUP</0> - BK BOOMS",
-            "products": {
-                "item1": {
-                    "model": "BK 32M",
-                    "technical": "Total wing weight 334 kg | 736 lbs.",
-                    "compatible":"Compatible with: \nMachines from 210 cm gauge.",
-                    "description": "Ideal for replacing 21 to 28 m steel booms, supports selective application systems across the entire working width."
-                },
-                "item2": {
-                    "model": "BK 36M",
-                    "technical": "Total wing weight 343 kg | 756 lbs.",
-                    "compatible":"Compatible with: \nMachines from 260 cm gauge",
-                    "description": "Supports selective application systems across the entire working width."
-                },
-                "item3": {
-                    "model": "BK 40M",
-                    "technical": "Total wing weight 360 kg | 793 lbs.",
-                    "compatible":"Compatible with: \nLarge sprayers.",
-                    "description": "Supports selective application systems across the entire working width."
-                },
-                 "item4": {
-                    "model": "BK 44M",
-                    "technical": "Total wing weight 488 kg | 1076 lbs.",
-                    "compatible":"For top of the range sprayers and use in large fields. Compatible with \nthe same adaptations as the 48M boom.",
-                    "description": "Supports selective application systems."
-                },
-                "item5": {
-                    "model": "BK 48M",
-                    "technical": "Total wing weight 498 kg | 1098 lbs.",
-                    "compatible":"For use in large extensions. Compatible with \nthe same adaptations as the 44M Boom.",
-                    "description": "Supports selective application systems."
-
-                },
-            "downloadBtn": "Download Brochure"
-        }
-        },
-        "repairability": {
-            "title": "Repairability",
-            "description": "The repair kit allows for fast and straightforward application in the field, eliminating the need for special tools or prior experience.",
-            "downloadButton1": "Download Set Up Manual",
-            "downloadButton2": "Download Repair Instructions",
-            "longVersionButton": "Play Full Version"
-        },
-        "stats": {
-            "item1": "Booms Working",
-            "item2": "Hectares Worked",
-            "item3": "Smart Spot.\nSpraying Equipped"
-        },
-        "accesories":{
-            "slide1": {
-                "badge": "ACCESORIES",
-                "featureTitle": "Smart Spot \nSpraying",
-                "description": "The stability and resistance of our boom makes it suitable for the use of Smart Spot Spraying Systems across the entire working width, maintaining good stability and ensuring optimum application.",
-                "asterix": "*BK40m Full WeedSeeker 2"
-            },
-            "slide2": {
-                "badge": "ACCESORIES",
-                "featureTitle": "Design & \nQuality",
-                "description": "The stability and resistance of our boom makes it suitable for the use of Smart Spot Spraying Systems across the entire working width, maintaining good stability and ensuring optimum application."
-            },
-            "slide3": {
-                "badge": "PERFECT MATCH",
-                "featureTitle": "Smart Spot \nSpraying",
-                "description": "Our mounting brackets combine design and engineering with the best materials to achieve a lightweight and durable product, enabling precise spraying and maximizing performance. This results in cost savings, increased  productivity, and reduced environmental impact.",
-                "asterix": "*BK36m Full Weed-IT Quadro"
-            },
-            "slide4": {
-                "badge": "ACCESORIES",
-                "featureTitle": "Lightweight & \nStrong",
-                "description": "Supports for Weed-IT Quadro."
-            }
-        },
-        "stats2": {
-            "item1": "Hectares Worked",
-            "item2": "Total CO₂e Saved", 
-            "bottomLine": "*BK Boom 40m vs Steel Boom 32m"
-        },
-        "feedback": {
-            "label": "USER FEEDBACK",
-            "item1": {
-                "opinion": "Switching from the 32 meter steel boom to the BK40M not only means 25% more productivity, but it also means saving fuel; it even allows me to go much faster, and most importantly... to get home earlier to enjoy my family.",
-                "user": "Ariel Savorgnano, Córdoba, Argentina, Owner of Two Massey Ferguson Sprayers with BK40M Booms"
-            },
-            "item2": {
-                "opinion": "The BK36M boom, with its rigidity and low weight, allowed us to install the Weed-IT Quadro system across the entire working width. Its exceptional stability ensures optimum performance and contributes to the durability of the sprayer.",
-                "user": "Martin Magno, Agrogenerales S.A., Necochea, Argentina, Caiman SP with BK36M Full Weed-IT Quadro."
-            },
-            "item3": {
-                "opinion": "In Brazil we use very corrosive products, and we are particularly surprised by the resistance shown by the boom (even after two years of usage), as well as its low weight and stability.",
-                "user": "Fazenda Boa Speranza, Sorriso, Brasil."
-            }
-        },
-        "ourVision": {
-            "badge": "About Us",
-            "title": "Our Vision",
-            "description": "We seek to revolutionize the agricultural machinery industry by incorporating advanced composite \nmaterials that provide a leap in EFFICIENCY.",
-            "button": "Play Video"
-        },
-        "aboutUsPie":{
-            "intro": "WHO WE ARE",
-            "title": "World-class, experienced, multi-award winning team with a global mindset.",
-            "subtitle": "Agricultural machinery designers and engineers experts in composite materials."
-        },
-        "footer": {
-            "lineTop": "For more information, click on the link below.",
-            "moreInfoButton": "MORE INFO",
-            "aboutIinfo": "BK Comp is a company that develops and manufactures advanced composite products for the agribusiness, combining design and Know How in different technologies aiming to increase the efficiency and productivity of the sector.",
-            "technicalSupport": "TECHNICAL SUPPORT",
-            "contactNumber": "Contact Number",
-            "sales": "SALES",
-            "followUs": "Follow us"
-        }
-    }
+	"landing": {
+		"nav": {
+			"home": "HOME",
+			"aboutUs": "ABOUT US",
+			"benefits": "BENEFITS",
+			"products": "PRODUCTS",
+			"accesories": "ACCESORIES",
+			"contact": "CONTACT"
+		},
+		"carousel": {
+			"title1": "<0>Smart Use </0>of <1>Advance Composites</1>",
+			"title11": "to <0>Boost Efficiency</0> in <1>Agriculture</1>",
+			"title2": "Lightweight Sprayer Booms"
+		},
+		"smartUse": {
+			"badge": "The concept",
+			"title": "Smart Use <0> of Materials",
+			"feature1": "Carbon fiber Tubes",
+			"feature1Description": "Achieve Large Working Width<0> with Low Weight",
+			"feature2": "Metal Nodes",
+			"feature2Description": "More Efficient for <0> Concentrated Loads on Joints and Hinges"
+		},
+		"benefits": {
+			"badge": "<0>BENEFITS</0> - BK BOOMS",
+			"item1": {
+				"description": "More Uniform Application",
+				"featureLine": "Greater \nStability"
+			},
+			"item2": {
+				"description": "Reduce Soil Compaction,\nHigher Working Speed",
+				"featureLine": "Reduced \nWeight"
+			},
+			"item3": {
+				"description": "The stability and durability of our boom make it ideal for \nSmart Spot Spraying Systems across the entire working width.",
+				"featureLine": "Ideal Smart \nSpot Spraying \nSystems"
+			},
+			"item4": {
+				"description": "Increased Productivity,\n Fuel Savings",
+				"featureLine": "Increased\n Working\n Width"
+			},
+			"item5": {
+				"description": "Increased durability",
+				"featureLine": "Resistant to \n Corrosion and \nFatigue"
+			},
+			"item6": {
+				"description": "Easy-to-use repairs kits. No previous experience required. \nLess machine downtime. Reduced maintenance costs.",
+				"featureLine": "Easy to Repair"
+			}
+		},
+		"highlights": {
+			"title": "BK’s Boom Highlights",
+			"item1": {
+				"label": "Stability",
+				"content": "Effective weight distribution, centralizing mass near the machine. This improves the boom's dynamics and stability on uneven terrain, allowing faster operation."
+			},
+			"item2": {
+				"label": "Repairability",
+				"content": "The repair kit allows for fast and straightforward application in the field, eliminating the need for special tools or prior experience.",
+				"button": "Learn More"
+			},
+			"item3": {
+				"label": "Quality",
+				"content": "Automated manufacturing processes enable enhanced repeatability and superior material properties."
+			},
+			"item4": {
+				"label": "Modularity",
+				"content": "Allows the quick and easy integration of technology and accessories. This modular design is achieved through the combination of carbon fiber with other metals and materials, achieving a simple, lightweight, and efficient design."
+			}
+		},
+		"productsLineup": {
+			"title": "<0>PRODUCTS LINEUP</0> - BK BOOMS",
+			"products": {
+				"item1": {
+					"model": "BK 32M",
+					"technical": "Total wing weight 334 kg | 736 lbs.",
+					"compatible": "Compatible with: \nMachines from 210 cm gauge.",
+					"description": "Ideal for replacing 21 to 28 m steel booms, supports selective application systems across the entire working width."
+				},
+				"item2": {
+					"model": "BK 36M",
+					"technical": "Total wing weight 343 kg | 756 lbs.",
+					"compatible": "Compatible with: \nMachines from 260 cm gauge",
+					"description": "Supports selective application systems across the entire working width."
+				},
+				"item3": {
+					"model": "BK 40M",
+					"technical": "Total wing weight 360 kg | 793 lbs.",
+					"compatible": "Compatible with: \nLarge sprayers.",
+					"description": "Supports selective application systems across the entire working width."
+				},
+				"item4": {
+					"model": "BK 44M",
+					"technical": "Total wing weight 488 kg | 1076 lbs.",
+					"compatible": "For top of the range sprayers and use in large fields. Compatible with \nthe same adaptations as the 48M boom.",
+					"description": "Supports selective application systems."
+				},
+				"item5": {
+					"model": "BK 48M",
+					"technical": "Total wing weight 498 kg | 1098 lbs.",
+					"compatible": "For use in large extensions. Compatible with \nthe same adaptations as the 44M Boom.",
+					"description": "Supports selective application systems."
+				},
+				"downloadBtn": "Download Brochure"
+			}
+		},
+		"repairability": {
+			"title": "Repairability",
+			"description": "The repair kit allows for fast and straightforward application in the field, eliminating the need for special tools or prior experience.",
+			"downloadButton1": "Download Set Up Manual",
+			"downloadButton2": "Download Repair Instructions",
+			"longVersionButton": "Play Full Version"
+		},
+		"stats": {
+			"item1": "Booms Working",
+			"item2": "Hectares Worked",
+			"item3": "Smart Spot.\nSpraying Equipped"
+		},
+		"accesories": {
+			"slide1": {
+				"badge": "ACCESORIES",
+				"featureTitle": "Smart Spot \nSpraying",
+				"description": "The stability and resistance of our boom makes it suitable for the use of Smart Spot Spraying Systems across the entire working width, maintaining good stability and ensuring optimum application.",
+				"asterix": "*BK40m Full WeedSeeker 2"
+			},
+			"slide2": {
+				"badge": "ACCESORIES",
+				"featureTitle": "Design & \nQuality",
+				"description": "The stability and resistance of our boom makes it suitable for the use of Smart Spot Spraying Systems across the entire working width, maintaining good stability and ensuring optimum application."
+			},
+			"slide3": {
+				"badge": "PERFECT MATCH",
+				"featureTitle": "Smart Spot \nSpraying",
+				"description": "Our mounting brackets combine design and engineering with the best materials to achieve a lightweight and durable product, enabling precise spraying and maximizing performance. This results in cost savings, increased  productivity, and reduced environmental impact.",
+				"asterix": "*BK36m Full Weed-IT Quadro"
+			},
+			"slide4": {
+				"badge": "ACCESORIES",
+				"featureTitle": "Lightweight & \nStrong",
+				"description": "Supports for Weed-IT Quadro."
+			}
+		},
+		"stats2": {
+			"item1": "Hectares Worked",
+			"item2": "Total CO₂e Saved",
+			"bottomLine": "*BK Boom 40m vs Steel Boom 32m"
+		},
+		"feedback": {
+			"label": "USER FEEDBACK",
+			"item1": {
+				"opinion": "Switching from the 32 meter steel boom to the BK40M not only means 25% more productivity, but it also means saving fuel; it even allows me to go much faster, and most importantly... to get home earlier to enjoy my family.",
+				"user": "Ariel Savorgnano, Córdoba, Argentina, Owner of Two Massey Ferguson Sprayers with BK40M Booms"
+			},
+			"item2": {
+				"opinion": "The BK36M boom, with its rigidity and low weight, allowed us to install the Weed-IT Quadro system across the entire working width. Its exceptional stability ensures optimum performance and contributes to the durability of the sprayer.",
+				"user": "Martin Magno, Agrogenerales S.A., Necochea, Argentina, Caiman SP with BK36M Full Weed-IT Quadro."
+			},
+			"item3": {
+				"opinion": "In Brazil we use very corrosive products, and we are particularly surprised by the resistance shown by the boom (even after two years of usage), as well as its low weight and stability.",
+				"user": "Fazenda Boa Speranza, Sorriso, Brasil."
+			}
+		},
+		"ourVision": {
+			"badge": "About Us",
+			"title": "Our Vision",
+			"description": "We seek to revolutionize the agricultural machinery industry by incorporating advanced composite \nmaterials that provide a leap in EFFICIENCY.",
+			"button": "Play Video"
+		},
+		"aboutUsPie": {
+			"intro": "WHO WE ARE",
+			"title": "World-class, experienced, multi-award winning team with a global mindset.",
+			"subtitle": "Agricultural machinery designers and engineers experts in composite materials."
+		},
+		"footer": {
+			"lineTop": "For more information, click on the link below.",
+			"moreInfoButton": "MORE INFO",
+			"aboutIinfo": "BK Comp is a company that develops and manufactures advanced composite products for the agribusiness, combining design and Know How in different technologies aiming to increase the efficiency and productivity of the sector.",
+			"technicalSupport": "TECHNICAL SUPPORT",
+			"contactNumber": "Contact Number",
+			"sales": "SALES",
+			"followUs": "Follow us"
+		}
+	}
 }

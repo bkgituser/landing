@@ -82,7 +82,9 @@ import ImageBackground from '@components/template/ImageBackground.astro'
 
 	function pauseOnExitFullscreen() {
 		if (this?.isFullscreen()) {
+			console.log('entra al EXIT FULLSCREEN')
 			this?.exitFullscreen()
+			this.style.display = 'none'
 			this?.pause()
 		}
 	}
@@ -114,7 +116,8 @@ import ImageBackground from '@components/template/ImageBackground.astro'
 		// WHEN user clicks exit fullscreen on controls
 		ourVisionVideo.on('fullscreenchange', function () {
 			if (!ourVisionVideo.isFullscreen()) {
-				ourVisionVideo?.exitFullscreen()
+				ourVisionVideo.addClass('hidden')
+				videoWrapper.classList.add('hidden')
 				ourVisionVideo?.pause()
 			}
 		})
